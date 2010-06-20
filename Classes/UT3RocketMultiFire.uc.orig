@@ -1,0 +1,26 @@
+//=============================================================================
+// UT3RocketMultiFire.uc
+// Hmm, not threee way... Yet...
+// 2008, GreatEmerald
+//=============================================================================
+
+class UT3RocketMultiFire extends RocketMultiFire;
+
+simulated function ServerPlayLoading()
+{
+    UT3RocketLauncher(Weapon).PlayOwnedSound(Sound'UT3Weapons2.RocketLauncher.RocketLauncherLoad1', SLOT_None,,,,,false);
+}
+
+defaultproperties
+{
+    AmmoClass=class'UT3RocketAmmo'
+    ProjectileClass=class'UT3RocketProj'
+
+    FireSound=Sound'UT3Weapons2.RocketLauncher.RocketLauncherFire'
+    TransientSoundVolume=0.4
+
+
+    FireRate=1.05
+    bFireOnRelease=true
+    MaxHoldTime=2.6 // FireRate*2 + 0.5
+}

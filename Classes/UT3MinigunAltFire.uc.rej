@@ -1,0 +1,37 @@
+***************
+*** 311,317 ****
+  defaultproperties
+  {
+       BarrelRotationsPerSec=0.975000
+-      RoundsPerRotation=4
+       WindingSound=Sound'UT3Weapons2.Stinger.StingerRapid'
+       WindUpTime=0.270000
+       FiringForce="minifireb"
+--- 311,317 ----
+  defaultproperties
+  {
+       BarrelRotationsPerSec=0.975000
++      RoundsPerRotation=3
+       WindingSound=Sound'UT3Weapons2.Stinger.StingerRapid'
+       WindUpTime=0.270000
+       FiringForce="minifireb"
+***************
+*** 319,325 ****
+       ProjSpawnOffset=(X=25.000000,Y=5.000000,Z=-6.000000)
+       bPawnRapidFireAnim=True
+       PreFireTime=0.270000
+-      FireLoopAnimRate=9.000000
+       FireSound=Sound'UT3Weapons2.Stinger.StingerAltStop'
+       AmmoClass=Class'UT3Style.UT3MinigunAmmo'
+       AmmoPerFire=2
+--- 319,328 ----
+       ProjSpawnOffset=(X=25.000000,Y=5.000000,Z=-6.000000)
+       bPawnRapidFireAnim=True
+       PreFireTime=0.270000
++      FireAnim="WeaponFire-Secondary"
++      FireLoopAnim="WeaponFire-Secondary"
++      FireEndAnim="WeaponFireEnd"
++      FireLoopAnimRate=1.800000
+       FireSound=Sound'UT3Weapons2.Stinger.StingerAltStop'
+       AmmoClass=Class'UT3Style.UT3MinigunAmmo'
+       AmmoPerFire=2

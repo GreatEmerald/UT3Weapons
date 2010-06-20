@@ -1,0 +1,16 @@
+***************
+*** 23,28 ****
+  
+  defaultproperties
+  {
+       FireSound=Sound'UT3Weapons2.Redeemer.RedeemerFire'
+       ProjectileClass=Class'UT3Style.UT3RedeemerProjectile'
+  }
+--- 23,29 ----
+  
+  defaultproperties
+  {
++      FireAnim="WeaponFire"
+       FireSound=Sound'UT3Weapons2.Redeemer.RedeemerFire'
+       ProjectileClass=Class'UT3Style.UT3RedeemerProjectile'
+  }

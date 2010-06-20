@@ -1,0 +1,158 @@
+//==============================================================================
+// UT3Enforcer.uc
+// Death warrant - enforced.
+// 2008, GreatEmerald
+//==============================================================================
+
+class UT3Enforcer extends AssaultRifle;
+
+simulated event RenderOverlays( Canvas Canvas )
+{
+    local int RealHand;
+
+    if (Instigator == None)
+        return;
+
+    if ( Instigator.Controller != None )
+        Hand = Instigator.Controller.Handedness;
+
+    if ((Hand < -1.0) || (Hand > 1.0))
+        return;
+
+    RealHand = Hand;
+    if ( bDualMode && (Hand == 0) )
+    {
+        Instigator.Controller.Handedness = -1;
+        Hand = -1;
+    }
+    Super(Weapon).RenderOverlays(Canvas);
+
+    if ( bDualMode )
+        RenderDualOverlay(Canvas);
+    if ( Instigator.Controller != None )
+        Instigator.Controller.Handedness = RealHand;
+}
+
+simulated function RenderDualOverlay(Canvas Canvas)
+{
+    local vector NewScale3D;
+    local rotator WeaponRotation;
+
+    Hand *= -1;
+    newScale3D = Default.DrawScale3D;
+    newScale3D.Y *= Hand;
+    SetDrawScale3D(newScale3D);
+    PlayerViewPivot.Roll = Default.PlayerViewPivot.Roll * Hand;
+    PlayerViewPivot.Yaw = Default.PlayerViewPivot.Yaw * Hand;
+    RenderedHand = Hand;
+
+    if ( class'PlayerController'.Default.bSmallWeapons )
+        PlayerViewOffset = SmallViewOffset;
+    else
+        PlayerViewOffset = Default.PlayerViewOffset;
+
+    PlayerViewOffset.Y *= Hand;
+
+    SetLocation( Instigator.Location + Instigator.CalcDrawOffset(self) );
+    WeaponRotation = Instigator.GetViewRotation();
+
+    if ( bDualMode != bWasDualMode )
+    {
+        bWasDualMode = true;
+        DualPickupTime = Level.Timeseconds;
+    }
+    if ( DualPickupTime > Level.TimeSeconds - 0.5 )
+        WeaponRotation.Pitch = WeaponRotation.Pitch - 16384 - 32768 * (DualPickupTime - Level.TimeSeconds);
+
+    SetRotation( WeaponRotation );
+
+    bDrawingFirstPerson = true;
+    Canvas.DrawActor(self, false, false, DisplayFOV);
+    bDrawingFirstPerson = false;
+    Hand *= -1;
+}
+
+simulated function DetachFromPawn(Pawn P)
+{
+    bFireLeft = false;
+    Super(Weapon).DetachFromPawn(P);
+    if ( OffhandActor != None )
+    {
+        OffhandActor.Destroy();
+        OffhandActor = None;
+    }
+}
+
+simulated function float ChargeBar()
+{
+return 0;
+}
+
+function bool HandlePickupQuery( pickup Item )
+{
+    if ( class == Item.InventoryType )
+    {
+        if ( bDualMode )
+            return super(Weapon).HandlePickupQuery(Item);
+        bDualMode = true;
+        if ( Instigator.Weapon == self )
+        {
+            PlayOwnedSound(SelectSound, SLOT_Interact,,,,, false);
+            AttachToPawn(Instigator);
+        }
+        if (Level.GRI.WeaponBerserk > 1.0)
+            CheckSuperBerserk();
+        else
+            FireMode[0].FireRate = FireMode[0].Default.FireRate *  0.55;
+
+        FireMode[0].Spread = FireMode[0].Default.Spread * 1.5;
+        if (xPawn(Instigator) != None && xPawn(Instigator).bBerserk)
+            StartBerserk();
+
+        return false;
+    }
+
+        if ( item.inventorytype == AmmoClass[0] )
+    {
+        if ( (AmmoCharge[1] >= MaxAmmo(1)) && (AmmoCharge[0] >= MaxAmmo(0)) )
+            return true;
+        item.AnnouncePickup(Pawn(Owner));
+        AddAmmo(16, 0);
+        AddAmmo(Ammo(item).AmmoAmount, 1);
+        item.SetRespawn();
+        return true;
+    }
+
+     if ( Inventory == None )
+        return false;
+
+    return Inventory.HandlePickupQuery(Item);
+}
+
+simulated function NewDrawWeaponInfo(Canvas Canvas, float YPos)
+{
+}
+
+
+defaultproperties
+{
+    Description="For decades, the Enforcer pistol was the combat sidearm of choice. Veteran soldiers appreciated the lightweight handgun's power, accuracy, and balance. In recent years, the ever-burning desire for greater firepower led to general issue of the AR770 assault rifle. Military procurement officers were drawn to the AR770's higher cyclic rate and underslung M355 grenade launcher, but seasoned combatants missed the dependability of the Enforcer. Axon Research listened to the soldiers, and their new Enforcer MP ('Machine Pistol') model provides the best of both worlds. Side-fed magazines provide greater capacity, while balancing the shooter's aim when wielding two pistols. With a deadly accurate semi-automatic mode, and a selectable burst fire mode, the Enforcer is back, and the modern battlefield will never be the same."
+    ItemName="UT3 Enforcer"
+
+    bShowChargingBar=false
+    FireModeClass(0)=UT3EnforcerFire
+    FireModeClass(1)=UT3EnforcerAltFire
+    PickupClass=class'UT3EnforcerPickup'
+    SelectSound=Sound'UT3Weapons.Enforcer.EnforcerTakeOut'
+
+    CustomCrosshairTextureName="UT3HUD.Crosshairs.UT3CrosshairEnforcer"
+	CustomCrosshairColor=(R=255,G=255,B=255,A=255)
+	CustomCrosshairScale=1.2
+	HudColor=(R=255,G=255,B=255,A=255)
+
+	IconMaterial=Material'UT3HUD.Icons.UT3IconsScaled'
+    IconCoords=(X1=299,Y1=171,X2=355,Y2=199)
+
+    //Priority=2.000000
+   //AIRating=0.400000
+}

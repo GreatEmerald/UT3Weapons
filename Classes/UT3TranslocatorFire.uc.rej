@@ -1,0 +1,14 @@
+***************
+*** 61,65 ****
+       RecallFailedSound=Sound'WeaponSounds.BaseGunTech.BSeekLost1'
+       TransFireSound=ProceduralSound'UT3Style.Translocator.TranslocatorFire'
+       RecallFireSound=SoundGroup'UT3Style.Translocator.TranslocatorRecall'
+       ProjectileClass=Class'UT3Style.UT3TranslocatorDiskRed'
+  }
+--- 61,66 ----
+       RecallFailedSound=Sound'WeaponSounds.BaseGunTech.BSeekLost1'
+       TransFireSound=ProceduralSound'UT3Style.Translocator.TranslocatorFire'
+       RecallFireSound=SoundGroup'UT3Style.Translocator.TranslocatorRecall'
++      FireAnim="WeaponFire"
+       ProjectileClass=Class'UT3Style.UT3TranslocatorDiskRed'
+  }

@@ -1,0 +1,21 @@
+//==============================================================================
+// UT3EnforcerFire.uc
+// Bam.
+// 2008, GreatEmerald
+//==============================================================================
+
+class UT3EnforcerFire extends AssaultFire;
+
+defaultproperties
+{
+    AmmoClass=class'UT3EnforcerAmmo'
+    DamageMin=20
+    DamageMax=20
+    //bPawnRapidFireAnim=false
+    FireSound=Sound'UT3Weapons.Enforcer.EnforcerPrimary2'
+    Spread=0.030
+    FireRate=0.36
+    Momentum=1000.0
+    DamageType=class'DamTypeUT3Enforcer'
+}
+

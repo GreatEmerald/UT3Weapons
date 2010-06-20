@@ -1,0 +1,30 @@
+//==============================================================================
+// UT3ImpactHammerFire.uc
+// Eee eMmm Pee!
+// 2008, GreatEmerald
+//==============================================================================
+
+class UT3ImpactHammerAltFire extends ShieldAltFire;
+
+var Sound WindingSound;
+
+function Timer() //GE: Adding WindingSound support.
+{
+    local float WindingDuration;
+
+    if (HoldTime > 0.0)
+    {
+        WindingDuration = GetSoundDuration(WindingSound);
+        
+        if (HoldTime < WindingDuration*Level.TimeDilation)
+        {
+            PlayOwnedSound(WindingSound, SLOT_Interact, ChargingSoundVolume);
+        }
+        SetTimer(0, false);
+    }
+}
+
+defaultproperties
+{
+    WindingSound=Sound'UT3Weapons2.ImpactHammer.ImpactHammerStartup'
+}

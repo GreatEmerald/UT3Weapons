@@ -1,0 +1,17 @@
+***************
+*** 17,22 ****
+       SelfDamageScale=0.000000
+       MinSelfDamage=0.000000
+       ChargingSound=Sound'UT3Weapons2.ImpactHammer.ImpactHammerLoop'
+       FireSound=Sound'UT3Weapons.ImpactHammer.ImpactHammerEMP'
+       FireRate=1.100000
+  }
+--- 17,24 ----
+       SelfDamageScale=0.000000
+       MinSelfDamage=0.000000
+       ChargingSound=Sound'UT3Weapons2.ImpactHammer.ImpactHammerLoop'
++      PreFireAnim="WeaponCharge"
++      FireAnim="WeaponFire"
+       FireSound=Sound'UT3Weapons.ImpactHammer.ImpactHammerEMP'
+       FireRate=1.100000
+  }

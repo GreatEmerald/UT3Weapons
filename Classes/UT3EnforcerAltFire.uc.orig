@@ -1,0 +1,50 @@
+//==============================================================================
+// UT3EnforcerFire.uc
+// Three round burst - how?
+// 2008, 2009, GreatEmerald
+//==============================================================================
+
+class UT3EnforcerAltFire extends UT3EnforcerFire; //hack
+
+/*var int RemainingShots;
+
+
+
+event ModeDoFire()
+{
+    log("UT3Style: going to state Instant Fire Mode.");
+    GoToState('InstantFireMode');
+    ModeDoFire();
+}
+
+state InstantFireMode
+{
+    function ModeDoFire()
+    {
+       RemainingShots = 3;
+       log("UT3Style: AltFiring!");
+       SetTimer(0.2888, False);
+    }
+
+    function OneShot()
+    {
+       Super(WeaponFire).ModeDoFire();
+       RemainingShots--;
+       log("UT3Style: Remaining Shots: "@ RemainingShots);
+       if (RemainingShots > 0)
+           SetTimer(0.2888, False);
+    }
+
+    function Timer()
+	{
+		log("UT3Style: Timer has expired!");
+        OneShot();
+	}
+Begin:
+log("UT3Style: Going to AltFire.");
+}    */
+
+
+defaultproperties
+{
+}

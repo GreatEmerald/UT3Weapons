@@ -1,0 +1,52 @@
+***************
+*** 131,139 ****
+  defaultproperties
+  {
+       FireModeClass(0)=Class'UT3Style.UT3SniperFire'
+       SelectSound=Sound'UT3Weapons2.Sniper.SniperTakeOut'
+       AIRating=0.700000
+       CurrentRating=0.700000
+       Description="The venerable Axon Research long-range target interdiction rifle is the weapon of choice for the discerning sniper. Acquisition of a target at distance requires a steady hand, but the rewards merit the effort: the high-caliber round is lethal at any range. With a precise headshot, the target will be neutralized by the super-sonic bullet long before they hear the report. As they say in the N.E.G. Marines: 'any shot you hear is nothing to be worried about.'"
+       Priority=20
+       HudColor=(B=64,G=0,R=255)
+--- 131,146 ----
+  defaultproperties
+  {
+       FireModeClass(0)=Class'UT3Style.UT3SniperFire'
++      IdleAnim="WeaponIdle"
++      RestAnim="WeaponIdle"
++      AimAnim="WeaponIdle"
++      RunAnim="WeaponIdle"
++      SelectAnim="WeaponEquip"
++      PutDownAnim="WeaponPutDown"
+       SelectSound=Sound'UT3Weapons2.Sniper.SniperTakeOut'
+       AIRating=0.700000
+       CurrentRating=0.700000
++      OldPlayerViewPivot=(Yaw=49152)
+       Description="The venerable Axon Research long-range target interdiction rifle is the weapon of choice for the discerning sniper. Acquisition of a target at distance requires a steady hand, but the rewards merit the effort: the high-caliber round is lethal at any range. With a precise headshot, the target will be neutralized by the super-sonic bullet long before they hear the report. As they say in the N.E.G. Marines: 'any shot you hear is nothing to be worried about.'"
+       Priority=20
+       HudColor=(B=64,G=0,R=255)
+***************
+*** 141,149 ****
+       CustomCrossHairColor=(B=64,G=0,R=255)
+       CustomCrossHairTextureName="UT3HUD.Crosshairs.UT3CrosshairSniperRifle"
+       PickupClass=Class'UT3Style.UT3SniperRiflePickup'
+       AttachmentClass=Class'UT3Style.UT3SniperAttachment'
+       IconMaterial=TexScaler'UT3HUD.Icons.UT3IconsScaled'
+       IconCoords=(X1=362,Y1=260,X2=445,Y2=286)
+       ItemName="UT3 Sniper Rifle"
+       TransientSoundVolume=0.730000
+  }
+--- 148,159 ----
+       CustomCrossHairColor=(B=64,G=0,R=255)
+       CustomCrossHairTextureName="UT3HUD.Crosshairs.UT3CrosshairSniperRifle"
+       PickupClass=Class'UT3Style.UT3SniperRiflePickup'
++      PlayerViewPivot=(Yaw=0)
+       AttachmentClass=Class'UT3Style.UT3SniperAttachment'
+       IconMaterial=TexScaler'UT3HUD.Icons.UT3IconsScaled'
+       IconCoords=(X1=362,Y1=260,X2=445,Y2=286)
+       ItemName="UT3 Sniper Rifle"
++      Mesh=None
++      DrawScale=2.000000
+       TransientSoundVolume=0.730000
+  }

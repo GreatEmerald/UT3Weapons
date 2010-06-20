@@ -1,0 +1,17 @@
+//==============================================================================
+// UT3BioFire.uc
+// To explode or not to explode?
+// 2008, GreatEmerald
+//==============================================================================
+
+class UT3BioFire extends BioFire;
+
+defaultproperties
+{
+    AmmoClass=class'UT3BioAmmo'
+
+    ProjectileClass=class'UT3BioGlob'
+    FireRate=0.35
+
+    FireSound=Sound'UT3Weapons2.BioRifle.BioRifleFire'
+}

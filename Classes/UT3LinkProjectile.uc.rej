@@ -1,0 +1,14 @@
+***************
+*** 25,29 ****
+       MaxSpeed=5000.000000
+       Damage=26.000000
+       MyDamageType=Class'UT3Style.DamTypeUT3LinkProj'
+       TransientSoundVolume=0.500000
+  }
+--- 25,30 ----
+       MaxSpeed=5000.000000
+       Damage=26.000000
+       MyDamageType=Class'UT3Style.DamTypeUT3LinkProj'
++      DrawScale=0.400000
+       TransientSoundVolume=0.500000
+  }

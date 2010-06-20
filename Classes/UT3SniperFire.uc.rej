@@ -1,0 +1,30 @@
+***************
+*** 1,18 ****
+  //=============================================================================
+- // UT3SniperFire.uc
+- // Head Shot.
+- // 2008, GreatEmerald
+  //=============================================================================
+- 
+- class UT3SniperFire extends ClassicSniperFire;
+  
+  defaultproperties
+  {
+-      DamageTypeHeadShot=Class'UT3Style.DamTypeUT3HeadShot'
+-      DamageType=Class'UT3Style.DamTypeUT3Sniper'
+-      DamageMin=70
+-      DamageMax=70
+-      FireSound=Sound'UT3Weapons2.Sniper.SniperShot'
+-      AmmoClass=Class'UT3Style.UT3SniperAmmo'
+-      aimerror=600.000000
+  }
+--- 1,9 ----
+  //=============================================================================
++ // UT3SniperFire.
+  //=============================================================================
++ class UT3SniperFire extends SniperFire;
+  
+  defaultproperties
+  {
++      FireAnim="WeaponFire"
+  }

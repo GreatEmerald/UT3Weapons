@@ -1,0 +1,43 @@
+***************
+*** 10,16 ****
+  {
+       FireModeClass(0)=Class'UT3Style.UT3FlakFire'
+       FireModeClass(1)=Class'UT3Style.UT3FlakAltFire'
+       SelectSound=Sound'UT3Weapons.FlakCannon.FlakCannonTakeOut'
+       Description="Trident Defensive Technologies continues to tweak and refine the flak cannon with their newly released Mk4 "
+       Priority=52
+       HudColor=(B=128,G=255)
+--- 10,23 ----
+  {
+       FireModeClass(0)=Class'UT3Style.UT3FlakFire'
+       FireModeClass(1)=Class'UT3Style.UT3FlakAltFire'
++      IdleAnim="WeaponIdle"
++      RestAnim="WeaponIdle"
++      AimAnim="WeaponIdle"
++      RunAnim="WeaponIdle"
++      SelectAnim="WeaponEquip"
++      PutDownAnim="WeaponPutDown"
+       SelectSound=Sound'UT3Weapons.FlakCannon.FlakCannonTakeOut'
++      OldPlayerViewOffset=(Y=7.000000)
+       Description="Trident Defensive Technologies continues to tweak and refine the flak cannon with their newly released Mk4 "
+       Priority=52
+       HudColor=(B=128,G=255)
+***************
+*** 19,25 ****
+       CustomCrossHairScale=1.500000
+       CustomCrossHairTextureName="UT3HUD.Crosshairs.UT3CrosshairFlakCannon"
+       PickupClass=Class'UT3Style.UT3FlakCannonPickup'
+       IconMaterial=TexScaler'UT3HUD.Icons.UT3IconsScaled'
+       IconCoords=(X1=65,Y1=214,X2=131,Y2=240)
+       ItemName="UT3 Flak Cannon"
+  }
+--- 26,34 ----
+       CustomCrossHairScale=1.500000
+       CustomCrossHairTextureName="UT3HUD.Crosshairs.UT3CrosshairFlakCannon"
+       PickupClass=Class'UT3Style.UT3FlakCannonPickup'
++      PlayerViewPivot=(Yaw=0)
+       IconMaterial=TexScaler'UT3HUD.Icons.UT3IconsScaled'
+       IconCoords=(X1=65,Y1=214,X2=131,Y2=240)
+       ItemName="UT3 Flak Cannon"
++      Mesh=None
+  }

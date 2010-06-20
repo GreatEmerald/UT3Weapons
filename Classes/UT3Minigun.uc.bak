@@ -1,0 +1,51 @@
+//==============================================================================
+// UT3Minigun.uc
+// Blue streak.
+// 2008, GreatEmerald
+//==============================================================================
+
+class UT3Minigun Extends Minigun;
+
+simulated function bool StartFire(int mode)
+{
+    local bool bStart;
+
+	if ( !UT3MinigunFire(FireMode[0]).IsIdle() || !UT3MinigunAltFire(FireMode[1]).IsIdle() )
+		return false;
+
+    bStart = Super.StartFire(mode);
+    if (bStart)
+        FireMode[mode].StartFiring();
+
+    return bStart;
+}
+
+function bool BotFire(bool bFinished, optional name FiringMode)
+{
+    return true;
+}
+
+function byte BestMode()
+{
+    if ( FRand() < 0.5 )
+        return 0;
+    return 1;
+}
+
+
+
+defaultproperties
+{
+    ItemName="UT3 Stinger Minigun"
+    Description="Replacing the Minigun in this year's Tournament, the 'Stinger' is actually a Liandri mining tool converted into military service.|The Stinger fires shards of unprocessed Tarydium crystal at an alarming rate, raking opponents with a storm of deadly needles. The alternate fire shoots larger hunks of crystal that can knock back an opponent, sometimes even pinning them to walls."
+
+    FireModeClass(0)=UT3MinigunFire
+    FireModeClass(1)=UT3MinigunAltFire
+    PickupClass=class'UT3MinigunPickup'
+    SelectSound=Sound'UT3Weapons2.Stinger.StingerTakeOut'
+
+    CustomCrosshairTextureName="UT3HUD.Crosshairs.UT3CrosshairStinger"
+	CustomCrosshairColor=(R=255,G=255,B=255,A=255)
+	CustomCrosshairScale=1.0
+}
+

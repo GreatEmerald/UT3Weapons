@@ -1,0 +1,52 @@
+/******************************************************************************
+UT3Translocator
+
+Creation date: 2008-07-08 12:25
+Latest change: $Id$
+Copyright (c) 2008, Wormbo
+******************************************************************************/
+
+class UT3Translocator extends TransLauncher;
+
+
+//=============================================================================
+// Imports
+//=============================================================================
+
+#exec obj load file=UT3Translocator.uax package=UT3Style.Translocator
+
+
+function ReduceAmmo()
+{
+	Super.ReduceAmmo();
+	// reset ammo regeneration progress
+    AmmoChargeF = RepAmmo;
+}
+
+
+//=============================================================================
+// Default values
+//=============================================================================
+
+defaultproperties
+{
+	ItemName    = "UT3 Translocator"
+	Description = "The Translocator was originally designed by Liandri R&D for rapid rescue of epensive mining equipment during tunnel collapses and related emergencies. The technology also saved couintless lives, but not without a cost: rapid deresolution and reconstitution led to synaptic disruptions, and the debilitating symptoms like Teleportation Related Dementia (TReDs).||Today, after years of lucrative military development contracts, portable teleportation technology has been declared 'sufficiently safe' for regular use by frontline infantry."
+	
+	FireModeClass[0] = class'UT3TranslocatorFire'
+	FireModeClass[1] = class'UT3TranslocatorActivate'
+	
+	SelectSound = Sound'TranslocatorRaise'
+	TransientSoundVolume = 0.7
+	TransientSoundRadius = 1000.0
+	
+	// higher capacity and recharge rate
+	AmmoChargeF    = 7.0
+    RepAmmo        = 7
+    AmmoChargeMax  = 7.0
+    AmmoChargeRate = 0.8
+	
+	CustomCrosshairTextureName="UT3HUD.Crosshairs.UT3CrosshairDefault"
+	CustomCrosshairColor=(R=255,G=255,B=255,A=255)
+	CustomCrosshairScale=1.0
+}

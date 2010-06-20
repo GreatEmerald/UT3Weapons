@@ -1,0 +1,12 @@
+***************
+*** 14,17 ****
+       MyDamageType=Class'UT3Style.UT3DamTypeBioGlob'
+       ImpactSound=Sound'UT3Weapons2.BioRifle.BioRifleStick'
+       LifeSpan=12.000000
+  }
+--- 14,18 ----
+       MyDamageType=Class'UT3Style.UT3DamTypeBioGlob'
+       ImpactSound=Sound'UT3Weapons2.BioRifle.BioRifleStick'
+       LifeSpan=12.000000
++      Skins(0)=None
+  }

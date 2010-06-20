@@ -1,0 +1,20 @@
+***************
+*** 17,22 ****
+       BeamSounds(1)=Sound'UT3Style.LinkGun.LinkGunAltFireImpactLoop'
+       BeamSounds(2)=Sound'UT3Style.LinkGun.LinkGunAltFireImpactFleshLoop'
+       BeamSounds(3)=Sound'UT3Style.LinkGun.LinkGunAltFireImpactFleshLoop'
+       FireRate=0.100000
+       AmmoClass=Class'UT3Style.UT3LinkAmmo'
+  }
+--- 41,51 ----
+       BeamSounds(1)=Sound'UT3Style.LinkGun.LinkGunAltFireImpactLoop'
+       BeamSounds(2)=Sound'UT3Style.LinkGun.LinkGunAltFireImpactFleshLoop'
+       BeamSounds(3)=Sound'UT3Style.LinkGun.LinkGunAltFireImpactFleshLoop'
++      PreFireAnim="WeaponAltFireStart"
++      FireAnim=
++      FireLoopAnim="WeaponAltFire"
++      FireEndAnim="WeaponAltFireEnd"
++      FireLoopAnimRate=0.500000
+       FireRate=0.100000
+       AmmoClass=Class'UT3Style.UT3LinkAmmo'
+  }

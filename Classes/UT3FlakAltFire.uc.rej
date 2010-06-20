@@ -1,0 +1,16 @@
+***************
+*** 8,13 ****
+  
+  defaultproperties
+  {
+       FireSound=Sound'UT3Weapons.FlakCannon.FlakCannonAltFire3'
+       FireRate=1.000000
+       AmmoClass=Class'UT3Style.UT3FlakAmmo'
+--- 8,14 ----
+  
+  defaultproperties
+  {
++      FireAnim="WeaponFire"
+       FireSound=Sound'UT3Weapons.FlakCannon.FlakCannonAltFire3'
+       FireRate=1.000000
+       AmmoClass=Class'UT3Style.UT3FlakAmmo'

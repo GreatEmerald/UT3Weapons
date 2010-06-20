@@ -1,0 +1,41 @@
+***************
+*** 36,50 ****
+       AmmoChargeRate=0.800000
+       FireModeClass(0)=Class'UT3Style.UT3TranslocatorFire'
+       FireModeClass(1)=Class'UT3Style.UT3TranslocatorActivate'
+       SelectSound=Sound'UT3Style.Translocator.TranslocatorRaise'
+       Description="The Translocator was originally designed by Liandri R&D for rapid rescue of expensive mining equipment during tunnel collapses and related emergencies. The technology also saved couintless lives, but not without a cost: rapid deresolution and reconstitution led to synaptic disruptions, and the debilitating symptoms like Teleportation Related Dementia (TReDs).||Today, after years of lucrative military development contracts, portable teleportation technology has been declared 'sufficiently safe' for regular use by frontline infantry."
+       HudColor=(B=128,G=255,R=255)
+       CustomCrossHairColor=(B=128,G=255,R=255)
+       CustomCrossHairScale=1.200000
+       CustomCrossHairTextureName="UT3HUD.Crosshairs.UT3CrosshairDefault"
+       IconMaterial=TexScaler'UT3HUD.Icons.UT3IconsScaled'
+       IconCoords=(X1=300,Y1=230,X2=361,Y2=256)
+       ItemName="UT3 Translocator"
+       TransientSoundVolume=0.700000
+       TransientSoundRadius=1000.000000
+  }
+--- 36,58 ----
+       AmmoChargeRate=0.800000
+       FireModeClass(0)=Class'UT3Style.UT3TranslocatorFire'
+       FireModeClass(1)=Class'UT3Style.UT3TranslocatorActivate'
++      IdleAnim="WeaponIdle"
++      RestAnim="WeaponIdle"
++      AimAnim="WeaponIdle"
++      RunAnim="WeaponIdle"
++      SelectAnim="WeaponEquip"
+       SelectSound=Sound'UT3Style.Translocator.TranslocatorRaise'
+       Description="The Translocator was originally designed by Liandri R&D for rapid rescue of expensive mining equipment during tunnel collapses and related emergencies. The technology also saved couintless lives, but not without a cost: rapid deresolution and reconstitution led to synaptic disruptions, and the debilitating symptoms like Teleportation Related Dementia (TReDs).||Today, after years of lucrative military development contracts, portable teleportation technology has been declared 'sufficiently safe' for regular use by frontline infantry."
++      Priority=0
+       HudColor=(B=128,G=255,R=255)
++      CustomCrosshair=19
+       CustomCrossHairColor=(B=128,G=255,R=255)
+       CustomCrossHairScale=1.200000
+       CustomCrossHairTextureName="UT3HUD.Crosshairs.UT3CrosshairDefault"
+       IconMaterial=TexScaler'UT3HUD.Icons.UT3IconsScaled'
+       IconCoords=(X1=300,Y1=230,X2=361,Y2=256)
+       ItemName="UT3 Translocator"
++      Mesh=None
+       TransientSoundVolume=0.700000
+       TransientSoundRadius=1000.000000
+  }

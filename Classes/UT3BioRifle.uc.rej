@@ -1,0 +1,57 @@
+***************
+*** 6,15 ****
+  
+  class UT3BioRifle extends BioRifle;
+  
+  defaultproperties
+  {
+       FireModeClass(0)=Class'UT3Style.UT3BioFire'
+       FireModeClass(1)=Class'UT3Style.UT3BioChargedFire'
+       SelectSound=Sound'UT3Weapons2.BioRifle.BioRifleTakeOut'
+       Description="The GES BioRifle processes Tarydium from its stable crystalline form into a reactive mutagenic sludge. It can rapidly disperse these toxins for wide-area coverage, or fire a virulent payload of variable, but usually lethal, capacity. In layman's terms, this means the BioRifle can pepper an area with small globs of biosludge, or launch one noxious glob at the target. The BioRifle's ability to carpet an area with a toxic minefield makes it a notoriously effective defensive weapon."
+       Priority=25
+--- 6,34 ----
+  
+  class UT3BioRifle extends BioRifle;
+  
++ simulated function AnimEnd(int Channel)
++ {
++     local name anim;
++     local float frame, rate;
++     GetAnimParams(0, anim, frame, rate);
++ 
++     if (anim == 'AltFire')
++         LoopAnim('WeaponAltIdle', 1.0, 1.0);
++     else
++         Super.AnimEnd(Channel);
++ }
++ 
+  defaultproperties
+  {
+       FireModeClass(0)=Class'UT3Style.UT3BioFire'
+       FireModeClass(1)=Class'UT3Style.UT3BioChargedFire'
++      IdleAnim="WeaponIdle"
++      RestAnim="WeaponIdle"
++      AimAnim="WeaponIdle"
++      RunAnim="WeaponIdle"
++      SelectAnim="WeaponEquip"
++      PutDownAnim="WeaponPutDown"
++      SelectAnimRate=1.000000
+       SelectSound=Sound'UT3Weapons2.BioRifle.BioRifleTakeOut'
+       Description="The GES BioRifle processes Tarydium from its stable crystalline form into a reactive mutagenic sludge. It can rapidly disperse these toxins for wide-area coverage, or fire a virulent payload of variable, but usually lethal, capacity. In layman's terms, this means the BioRifle can pepper an area with small globs of biosludge, or launch one noxious glob at the target. The BioRifle's ability to carpet an area with a toxic minefield makes it a notoriously effective defensive weapon."
+       Priority=25
+***************
+*** 22,26 ****
+       IconMaterial=TexScaler'UT3HUD.Icons.UT3IconsScaled'
+       IconCoords=(X1=300,Y1=200,X2=363,Y2=229)
+       ItemName="UT3 Bio Rifle"
+       TransientSoundVolume=0.920000
+  }
+--- 41,47 ----
+       IconMaterial=TexScaler'UT3HUD.Icons.UT3IconsScaled'
+       IconCoords=(X1=300,Y1=200,X2=363,Y2=229)
+       ItemName="UT3 Bio Rifle"
++      Mesh=None
++      UV2Mode=UVM_LightMap
+       TransientSoundVolume=0.920000
+  }

@@ -1,0 +1,27 @@
+//==============================================================================
+// UT3LinkGunAltFire.uc
+// Hmm, how does this work?
+// 2008, GreatEmerald
+//==============================================================================
+
+class UT3LinkGunAltFire extends LinkFire;
+
+defaultproperties
+{
+    AmmoClass=class'UT3LinkAmmo'
+    Damage=11
+    MakeLinkSound=Sound'BaseLinkGunAltFireStart'
+    FireRate=0.1
+
+    BeamSounds(0)=Sound'LinkGunAltFireLoop'
+    BeamSounds(1)=Sound'LinkGunAltFireImpactLoop'
+    BeamSounds(2)=Sound'LinkGunAltFireImpactFleshLoop'
+    BeamSounds(3)=Sound'LinkGunAltFireImpactFleshLoop'
+
+    bInitAimError=false
+    MomentumTransfer=10000.000000 //GE: Originally 50000
+    DamageType=class'DamTypeUT3LinkBeam'
+
+
+    // TODO: Make it really sound when it hits different materials
+}
