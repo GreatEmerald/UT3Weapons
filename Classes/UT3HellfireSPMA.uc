@@ -551,34 +551,24 @@ function DriverLeft()
 
 defaultproperties
 {
-	VehiclePositionString="in a Hellfire SPMA"
-	VehicleNameString = "UT3 Hellfire SPMA"
-	
-	DeployIconCoords = (X1=2,Y1=371,X2=124,Y2=115)
-	
-	DriverWeapons(0) = (WeaponClass=class'UT3HellfireSPMASideGun',WeaponBone=SideGunAttach);
-	DriverWeapons(1) = (WeaponClass=class'UT3HellfireSPMACannon',WeaponBone=CannonAttach);
-	PassengerWeapons = ()
-	FireImpulse      = (X=0) // sidegun shouldn't recoil and main cannon is fired when deployed
-	bAllowViewChange = false // who would want to use it 1st-person anyway
-	
-	GroundSpeed = 650.0
-	
-	bStasis = False // would interfer with aiming when deployed
-	
-	bNetNotify      = True
-	DeployState     = DS_Undeployed
-	LastDeployState = DS_Undeployed
-	
-	MaxDeploySpeed = 100.0
-	DeployTime     = 2.1
-	UndeployTime   = 2.0
-	DeploySound    = Sound'SPMADeploy'
-	UndeploySound  = Sound'SPMADeploy'
-	
-	SoundVolume    = 255
-	SoundRadius    = 300
-	IdleSound      = Sound'SPMAEngineIdle'
-	StartUpSound   = Sound'SPMAEngineStart'
-	ShutDownSound  = Sound'SPMAEngineStop'
+     MaxDeploySpeed=100.000000
+     DeployTime=2.100000
+     UndeployTime=2.000000
+     DeploySound=ProceduralSound'UT3Style.SPMA.SPMADeploy'
+     UndeploySound=ProceduralSound'UT3Style.SPMA.SPMADeploy'
+     DeployIconCoords=(X1=2,Y1=371,X2=124,Y2=115)
+     DriverWeapons(0)=(WeaponClass=Class'UT3Style.UT3HellfireSPMASideGun',WeaponBone="SideGunAttach")
+     DriverWeapons(1)=(WeaponClass=Class'UT3Style.UT3HellfireSPMACannon',WeaponBone="CannonAttach")
+     IdleSound=Sound'UT3Style.SPMA.SPMAEngineIdle'
+     StartUpSound=ProceduralSound'UT3Style.SPMA.SPMAEngineStart'
+     ShutDownSound=ProceduralSound'UT3Style.SPMA.SPMAEngineStop'
+     FireImpulse=(X=0.000000)
+     bAllowViewChange=False
+     VehiclePositionString="in a Hellfire SPMA"
+     VehicleNameString="UT3 Hellfire SPMA"
+     GroundSpeed=650.000000
+     bStasis=False
+     SoundVolume=255
+     SoundRadius=300.000000
+     bNetNotify=True
 }

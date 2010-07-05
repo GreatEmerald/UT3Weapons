@@ -106,16 +106,13 @@ state InstantFireMode
 
 defaultproperties
 {
-	bInstantFire = True
-	DamageMin    = 35
-	DamageMax    = 35
-	Spread(0)    = 0
-	Momentum     = 60000.0
-	DamageType   = class'DamTypeTurretBeam'
-	FireInterval = 0.3
-
-	FireSoundClass = Sound'UT3Weapons.ShockRifle.ShockRiflePrimary'
-
-	BeamEffectClass(0) = class'ONSTurretBeamEffect'
-	BeamEffectClass(1) = class'ONSTurretBeamEffectBlue'
+     BeamEffectClass(0)=Class'Onslaught.ONSTurretBeamEffect'
+     BeamEffectClass(1)=Class'Onslaught.ONSTurretBeamEffectBlue'
+     bInstantFire=True
+     FireInterval=0.300000
+     FireSoundClass=Sound'UT3Weapons.ShockRifle.ShockRiflePrimary'
+     DamageType=Class'Onslaught.DamTypeTurretBeam'
+     DamageMin=35
+     DamageMax=35
+     Momentum=60000.000000
 }

@@ -79,9 +79,9 @@ state ProjectileFireMode
 
 defaultproperties
 {
-	ProjectileClass     = Class'UT3LeviathanRocket'
-	FireSoundClass      = Sound'UT3Weapons2.RocketLauncher.RocketLauncherFire'
-	RocketBurstSize     = 4
-	RocketBurstInterval = 0.15
-	FireInterval        = 2.0
+     RocketBurstSize=4
+     RocketBurstInterval=0.150000
+     FireInterval=2.000000
+     FireSoundClass=Sound'UT3Weapons2.RocketLauncher.RocketLauncherFire'
+     ProjectileClass=Class'UT3Style.UT3LeviathanRocket'
 }

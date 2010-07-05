@@ -138,16 +138,14 @@ Respawn:
 
 defaultproperties
 {
-	bNetNotify = True
-	CollisionRadius = 40.0
-	CollisionHeight = 44.0
-	
-	TransientSoundVolume = 1.0
-	TransientSoundRadius = 1000.0
-	SoundVolume = 200
-	SoundRadius = 500.0
-	
-	bWasHidden = True
-	RespawnEffectTime = 0.0
-	DrawType = DT_StaticMesh
+     bWasHidden=True
+     RespawnEffectTime=0.000000
+     DrawType=DT_StaticMesh
+     SoundVolume=200
+     SoundRadius=500.000000
+     TransientSoundVolume=1.000000
+     TransientSoundRadius=1000.000000
+     CollisionRadius=40.000000
+     CollisionHeight=44.000000
+     bNetNotify=True
 }

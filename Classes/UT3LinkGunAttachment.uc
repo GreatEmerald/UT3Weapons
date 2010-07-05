@@ -15,8 +15,8 @@ class UT3LinkGunAttachment extends LinkAttachment;
 
 defaultproperties
 {
-    Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_LinkGun_3P'
-    RelativeRotation=(Yaw=16384)
-    DrawScale=0.8
-    RelativeLocation=(X=5,Y=-2,Z=2)
+     Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_LinkGun_3P'
+     RelativeLocation=(X=5.000000,Y=-2.000000,Z=2.000000)
+     RelativeRotation=(Yaw=16384)
+     DrawScale=0.800000
 }

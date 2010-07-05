@@ -8,10 +8,11 @@ class UT3SniperAmmoPickup extends ClassicSniperAmmoPickup;
 
 defaultproperties
 {
-    InventoryType=class'UT3SniperAmmo'
-
-    PickupMessage="Sniper Shells"
-    PickupSound=Sound'UT3PickupSounds.SniperAmmoPickup'
-    TransientSoundVolume=1.0
+     InventoryType=Class'UT3Style.UT3SniperAmmo'
+     PickupMessage="Sniper Shells"
+     PickupSound=Sound'UT3PickupSounds.Generic.SniperAmmoPickup'
+     StaticMesh=StaticMesh'UT3Pickups-SM.Ammo.SniperRifleAmmo'
+     DrawScale=1.500000
+     PrePivot=(Z=11.000000)
+     TransientSoundVolume=1.000000
 }
-

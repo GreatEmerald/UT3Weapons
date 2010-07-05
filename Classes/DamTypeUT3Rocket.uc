@@ -8,8 +8,8 @@ class DamTypeUT3Rocket extends DamTypeRocket;
 
 defaultproperties
 {
-    WeaponClass=class'UT3RocketLauncher'
-    KDamageImpulse=1000
-    VehicleMomentumScaling=4.0
-    VehicleDamageScaling=0.800000
+     WeaponClass=Class'UT3Style.UT3RocketLauncher'
+     KDamageImpulse=1000.000000
+     VehicleDamageScaling=0.800000
+     VehicleMomentumScaling=4.000000
 }

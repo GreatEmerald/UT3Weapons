@@ -15,7 +15,7 @@ class UT3LeviathanTurretShock extends UT3LeviathanTurret;
 
 defaultproperties
 {
-	GunClass=class'UT3LeviathanTurretWeaponShock'
-	VehiclePositionString="in a Leviathan shock turret"
-	VehicleNameString="Leviathan Shock Turret"
+     GunClass=Class'UT3Style.UT3LeviathanTurretWeaponShock'
+     VehiclePositionString="in a Leviathan shock turret"
+     VehicleNameString="Leviathan Shock Turret"
 }

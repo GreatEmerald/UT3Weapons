@@ -107,11 +107,11 @@ function Timer()
 
 defaultproperties
 {
-	NumWarningSounds = 4
-	WarningInterval = 0.75
-	LifeSpan = 30.0
-	SoundVolume = 255
-	SoundRadius = 1000.0
-	TransientSoundVolume = 1.0
-	TransientSoundRadius = 1000.0
+     NumWarningSounds=4
+     WarningInterval=0.750000
+     LifeSpan=30.000000
+     SoundVolume=255
+     SoundRadius=1000.000000
+     TransientSoundVolume=1.000000
+     TransientSoundRadius=1000.000000
 }

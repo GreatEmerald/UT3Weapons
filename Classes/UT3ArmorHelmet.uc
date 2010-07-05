@@ -42,8 +42,7 @@ function int ArmorAbsorbDamage(int Damage, class<DamageType> DamageType, vector 
 
 defaultproperties
 {
-	//PickupClass = class'UT3ArmorHelmetPickup'
-	Charge=20
-	ArmorAbsorption=50
-	AbsorptionPriority=20
+     ArmorAbsorption=50
+     AbsorptionPriority=20
+     Charge=20
 }

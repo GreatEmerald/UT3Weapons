@@ -288,21 +288,14 @@ function DoFireEffect()
     }
 }
 
-
 defaultproperties
 {
-    AmmoClass=class'UT3RocketAmmo'
-    ProjectileClass=class'UT3RocketProj'
-
-    FireSound=Sound'UT3Weapons2.RocketLauncher.RocketLauncherFire'
-    TransientSoundVolume=0.4
-    FireAnimRate=0.7
-
-    FireRate=0.95
-    TweenTime=0.0
-    bFireOnRelease=true
-    MaxHoldTime=2.9//2.6 // FireRate*2 + 0.9
-    
+     GrenadeFireSound=Sound'UT3Weapons2.RocketLauncher.RocketLauncherGrenadeFire'
+     MaxHoldTime=2.900000
+     TransientSoundVolume=0.400000
      FireAnim=
-     GrenadeFireSound=sound'UT3Weapons2.RocketLauncher.RocketLauncherGrenadeFire'
+     FireAnimRate=0.700000
+     FireSound=Sound'UT3Weapons2.RocketLauncher.RocketLauncherFire'
+     AmmoClass=Class'UT3Style.UT3RocketAmmo'
+     ProjectileClass=Class'UT3Style.UT3RocketProj'
 }

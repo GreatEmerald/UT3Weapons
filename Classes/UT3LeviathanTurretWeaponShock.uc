@@ -22,7 +22,7 @@ class UT3LeviathanTurretWeaponShock extends UT3LeviathanTurretWeapon;
 
 defaultproperties
 {
-	ProjectileClass = class'UT3LeviathanShockBall'
-	FireSoundClass  = Sound'UT3Weapons.ShockRifle.ShockRifleAlt'
-	FireInterval    = 0.5
+     FireInterval=0.500000
+     FireSoundClass=Sound'UT3Weapons.ShockRifle.ShockRifleAlt'
+     ProjectileClass=Class'UT3Style.UT3LeviathanShockBall'
 }

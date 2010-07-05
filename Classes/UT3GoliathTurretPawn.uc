@@ -5,7 +5,7 @@
 //-----------------------------------------------------------
 class UT3GoliathTurretPawn extends ONSTankSecondaryTurretPawn;
 
-DefaultProperties
+defaultproperties
 {
-  GunClass=class'UT3GoliathTurret'
+     GunClass=Class'UT3Style.UT3GoliathTurret'
 }

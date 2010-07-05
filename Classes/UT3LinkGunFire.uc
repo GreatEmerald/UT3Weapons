@@ -59,11 +59,11 @@ function DrawMuzzleFlash(Canvas Canvas)
 
 defaultproperties
 {
-  LinkProj=class'UT3LinkProjectile'
-  AmmoClass=class'UT3LinkAmmo'
-  FireSound=Sound'UT3Style.LinkGunFire'
-  LinkedFireSound=Sound'UT3Style.LinkGunFire'
-  FireRate=0.16
-  AmmoPerFire=1
-  FireAnim="WeaponFire"
+     LinkProj=Class'UT3Style.UT3LinkProjectile'
+     LinkedFireSound=Sound'UT3Style.LinkGun.LinkGunFire'
+     FireAnim="WeaponFire"
+     FireSound=Sound'UT3Style.LinkGun.LinkGunFire'
+     FireRate=0.160000
+     AmmoClass=Class'UT3Style.UT3LinkAmmo'
+     AmmoPerFire=1
 }

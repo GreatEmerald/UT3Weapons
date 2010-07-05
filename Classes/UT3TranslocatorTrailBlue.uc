@@ -15,9 +15,9 @@ class UT3TranslocatorTrailBlue extends TransTrailBlue;
 
 defaultproperties
 {
-	mLifeRange(0)=0.2
-	mLifeRange(1)=0.2
-	mSizeRange(0)=60.0
-	mSizeRange(1)=60.0
-	mGrowthRate=-100.0
+     mLifeRange(0)=0.200000
+     mLifeRange(1)=0.200000
+     mSizeRange(0)=60.000000
+     mSizeRange(1)=60.000000
+     mGrowthRate=-100.000000
 }

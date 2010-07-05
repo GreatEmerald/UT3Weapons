@@ -168,26 +168,22 @@ function DrawMuzzleFlash(Canvas Canvas)
 
 defaultproperties
 {
-    ChargingSound=Sound'UT3Weapons2.ImpactHammer.ImpactHammerLoop'
-    FireSound=Sound'UT3Weapons2.ImpactHammer.ImpactHammerAltFireCue'
-    WindingSound=Sound'UT3Weapons2.ImpactHammer.ImpactHammerStartup'
-    MinDamage=0.0
-    MaxDamage=150.0
-    ShieldRange=220.0
-    FullyChargedTime=2.5
-    DamageType=class'DamTypeImpactEMP'
-    MinSelfDamage=0
-    SelfDamageScale=0
-    SelfForceScale=0.0
-    MinForce=130000.0
-    MaxForce=200000.0
-    //ChargingSoundVolume=500
-    FireRate=1.1
-    FlashEmitterClass=class'UT3ImpactEffectAlt'
-    
-     PreFireAnim="WeaponCharge"
-     PreFireAnimRate=0.7333
-     FireAnim="WeaponFire"
-     FireAnimRate=0.7333
      TipBone="tip"
+     WindingSound=Sound'UT3Weapons2.ImpactHammer.ImpactHammerStartup'
+     DamageType=Class'UT3Style.DamTypeImpactEMP'
+     ShieldRange=220.000000
+     MinForce=130000.000000
+     MaxForce=200000.000000
+     MinDamage=0.000000
+     SelfForceScale=0.000000
+     SelfDamageScale=0.000000
+     MinSelfDamage=0.000000
+     ChargingSound=Sound'UT3Weapons2.ImpactHammer.ImpactHammerLoop'
+     PreFireAnim="WeaponCharge"
+     FireAnim="WeaponFire"
+     PreFireAnimRate=0.733300
+     FireAnimRate=0.733300
+     FireSound=SoundGroup'UT3Weapons2.ImpactHammer.ImpactHammerAltFireCue'
+     FireRate=1.100000
+     FlashEmitterClass=Class'UT3Style.UT3ImpactEffectAlt'
 }

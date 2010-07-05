@@ -112,27 +112,24 @@ simulated function DrawHUD(Canvas Canvas) //GE: Lock-on sound
 
 defaultproperties
 {
-	  VehicleNameString = "UT3 Cicada"
-
-      GroundSpeed=2000
-      CollisionHeight=70.000000
-      DriverWeapons(0)=(WeaponClass=class'UT3CicadaMissileLauncher',WeaponBone=RightRLAttach);
-      DriverWeapons(1)=(WeaponClass=class'UT3CicadaMissileLauncher',WeaponBone=LeftRLAttach);
-      TargetLockSound=sound'UT3Vehicles.Cicada.Cicada_TargetLock01'
-      IdleSound=Sound'UT3Vehicles.Cicada.Cicada_EngineLoop02'
-      StartUpSound=Sound'UT3Vehicles.Cicada.Cicada_Start01'
-      ShutDownSound=Sound'UT3Vehicles.Cicada.Cicada_Stop01'//8/10
-      ExplosionSounds(0)=Sound'UT3Vehicles.Cicada.Cicada_Explode02'
-      ExplosionSounds(1)=Sound'UT3Vehicles.Cicada.Cicada_Explode02'
-      ExplosionSounds(2)=Sound'UT3Vehicles.Cicada.Cicada_Explode02'
-      ExplosionSounds(3)=Sound'UT3Vehicles.Cicada.Cicada_Explode02'
-      ExplosionSounds(4)=Sound'UT3Vehicles.Cicada.Cicada_Explode02'
-      ImpactDamageSounds(0)=Sound'UT3Vehicles.Cicada.Cicada_Collide'
-      ImpactDamageSounds(1)=Sound'UT3Vehicles.Cicada.Cicada_Collide'
-      ImpactDamageSounds(2)=Sound'UT3Vehicles.Cicada.Cicada_Collide'
-      ImpactDamageSounds(3)=Sound'UT3Vehicles.Cicada.Cicada_Collide'
-      ImpactDamageSounds(4)=Sound'UT3Vehicles.Cicada.Cicada_Collide'
-      ImpactDamageSounds(5)=Sound'UT3Vehicles.Cicada.Cicada_Collide'
-      ImpactDamageSounds(6)=Sound'UT3Vehicles.Cicada.Cicada_Collide'
-      PassengerWeapons(0)=(WeaponPawnClass=Class'UT3CicadaTurretPawn',WeaponBone="GatlingGunAttach")
+     TargetLockSound=Sound'UT3Vehicles.Cicada.Cicada_TargetLock01'
+     DriverWeapons(0)=(WeaponClass=Class'UT3Style.UT3CicadaMissileLauncher')
+     DriverWeapons(1)=(WeaponClass=Class'UT3Style.UT3CicadaMissileLauncher')
+     PassengerWeapons(0)=(WeaponPawnClass=Class'UT3Style.UT3CicadaTurretPawn')
+     IdleSound=Sound'UT3Vehicles.Cicada.Cicada_EngineLoop02'
+     StartUpSound=Sound'UT3Vehicles.Cicada.Cicada_Start01'
+     ShutDownSound=Sound'UT3Vehicles.Cicada.Cicada_Stop01'
+     ExplosionSounds(0)=Sound'UT3Vehicles.Cicada.Cicada_Explode02'
+     ExplosionSounds(1)=Sound'UT3Vehicles.Cicada.Cicada_Explode02'
+     ExplosionSounds(2)=Sound'UT3Vehicles.Cicada.Cicada_Explode02'
+     ExplosionSounds(3)=Sound'UT3Vehicles.Cicada.Cicada_Explode02'
+     ExplosionSounds(4)=Sound'UT3Vehicles.Cicada.Cicada_Explode02'
+     ImpactDamageSounds(0)=SoundGroup'UT3Vehicles.Cicada.Cicada_Collide'
+     ImpactDamageSounds(1)=SoundGroup'UT3Vehicles.Cicada.Cicada_Collide'
+     ImpactDamageSounds(2)=SoundGroup'UT3Vehicles.Cicada.Cicada_Collide'
+     ImpactDamageSounds(3)=SoundGroup'UT3Vehicles.Cicada.Cicada_Collide'
+     ImpactDamageSounds(4)=SoundGroup'UT3Vehicles.Cicada.Cicada_Collide'
+     ImpactDamageSounds(5)=SoundGroup'UT3Vehicles.Cicada.Cicada_Collide'
+     ImpactDamageSounds(6)=SoundGroup'UT3Vehicles.Cicada.Cicada_Collide'
+     VehicleNameString="UT3 Cicada"
 }

@@ -353,52 +353,35 @@ state WindDown
     }
 } */
 
-
-
-
-
 defaultproperties
 {
-    BarrelRotationsPerSec=2.2
-
-    AmmoClass=class'UT3MinigunAmmo'
-    DamageMin=14
-    DamageMax=14
-    Spread=0.0675
-
-    FireSound=Sound'UT3Weapons2.Stinger.StingerPrimaryAmb'
-    WindingSound=Sound'UT3Weapons2.Stinger.StingerRapid' //HACK!
-    FireOnceSound=Sound'UT3Weapons2.Stinger.StingerShot'
-    PostFireSound=Sound'UT3Weapons2.Stinger.StingerRapidStop'
-    MinigunSoundVolume=220
-
-    Momentum=+0.0
-    RoundsPerRotation=5
-    AmmoPerFire=1
-    DamageType=class'UT3DamTypeMinigun'
-    bPawnRapidFireAnim=true
-    SpreadStyle=SS_Random
-
+     BarrelRotationsPerSec=2.200000
+     RoundsPerRotation=5
+     WindingSound=Sound'UT3Weapons2.Stinger.StingerRapid'
+     PostFireSound=Sound'UT3Weapons2.Stinger.StingerRapidStop'
+     FireOnceSound=SoundGroup'UT3Weapons2.Stinger.StingerShot'
+     MinigunSoundVolume=220
+     WindUpTime=0.950000
+     FiringForce="minifireb"
+     WindingForce="miniempty"
+     BeamEffectClass=Class'UT3Style.UT3EnforcerEffect'
+     DamageType=Class'UT3Style.UT3DamTypeMinigun'
+     DamageMin=14
+     DamageMax=14
+     Momentum=0.000000
+     bPawnRapidFireAnim=True
      PreFireAnim="WeaponRampUp"
      FireAnim=
      FireLoopAnim="WeaponFire"
      FireEndAnim="WeaponRampDown"
      FireLoopAnimRate=1.200000
+     FireSound=Sound'UT3Weapons2.Stinger.StingerPrimaryAmb'
      FireForce="minifireb"
-    WindUpTime=0.95
-    //PreFireTime=1.3
-    TweenTime=0.1
-    
-    
-
-    FlashEmitterClass=class'XEffects.MinigunMuzFlash1st'
-    //SmokeEmitterClass=class'xEffects.MinigunMuzzleSmoke'
-    FiringForce="minifireb"  // jdf
-    WindingForce="miniempty"  // jdf
-
-    BotRefireRate=0.99
-    AimError=900
-    
-    BeamEffectClass=Class'UT3EnforcerEffect'
-
+     AmmoClass=Class'UT3Style.UT3MinigunAmmo'
+     AmmoPerFire=1
+     BotRefireRate=0.990000
+     FlashEmitterClass=Class'XEffects.MinigunMuzFlash1st'
+     aimerror=900.000000
+     Spread=0.067500
+     SpreadStyle=SS_Random
 }

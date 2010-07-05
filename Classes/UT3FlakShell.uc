@@ -52,9 +52,8 @@ simulated function Explode(vector HitLocation, vector HitNormal)
 
 defaultproperties
 {
-    Damage=100.000000
-    MyDamageType=class'DamTypeUT3FlakShell'
-    ExplosionSound=sound'UT3Weapons2.FlakCannon.FlakCannon_FireAltImpactExplodeCue'
-    AmbientSound=sound'UT3Weapons2.FlakCannon.FlakCannon_FireAltInAir'
+     ExplosionSound=SoundGroup'UT3Weapons2.FlakCannon.FlakCannon_FireAltImpactExplodeCue'
+     Damage=100.000000
+     MyDamageType=Class'UT3Style.DamTypeUT3FlakShell'
+     AmbientSound=Sound'UT3Weapons2.FlakCannon.FlakCannon_FireAltInAir'
 }
-

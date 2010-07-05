@@ -5,9 +5,9 @@
 //-----------------------------------------------------------
 class UT3GoliathProjectile extends ONSRocketProjectile;
 
-DefaultProperties
+defaultproperties
 {
-   Damage=360.000000
-   DamageRadius=630.000000
-   MomentumTransfer=150000.000000
+     Damage=360.000000
+     DamageRadius=630.000000
+     MomentumTransfer=150000.000000
 }

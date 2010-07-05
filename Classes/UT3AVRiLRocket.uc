@@ -32,7 +32,7 @@ simulated function Destroyed()
 
 defaultproperties
 {
-    MomentumTransfer=150000.000000
-    MyDamageType=class'DamTypeUT3AVRiLRocket'
-    ExplosionSound=Sound'UT3Weapons2.AVRIL.AVRILExplosion'
+     ExplosionSound=Sound'UT3Weapons2.AVRiL.AVRILExplosion'
+     MomentumTransfer=150000.000000
+     MyDamageType=Class'UT3Style.DamTypeUT3AVRiLRocket'
 }

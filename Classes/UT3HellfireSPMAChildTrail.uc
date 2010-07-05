@@ -14,12 +14,11 @@ class UT3HellfireSPMAChildTrail extends FlakTrail;
 //=============================================================================
 
 defaultproperties
-{ 
-	mLifeRange(0) =  0.5
-	mLifeRange(1) =  0.5
-	mSizeRange(0) = 11.0
-	mSizeRange(1) = 11.0
-	
-	mColorRange(0) = (G=20,B=10)
-	mColorRange(1) = (G=20,B=10)
+{
+     mLifeRange(0)=0.500000
+     mLifeRange(1)=0.500000
+     mSizeRange(0)=11.000000
+     mSizeRange(1)=11.000000
+     mColorRange(0)=(B=10,G=20)
+     mColorRange(1)=(B=10,G=20)
 }

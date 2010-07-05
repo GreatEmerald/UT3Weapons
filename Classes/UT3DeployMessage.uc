@@ -27,12 +27,11 @@ static function string GetString(optional int Switch, optional PlayerReplication
 
 defaultproperties
 {
-	DeployMessages[0] = "Cannot deploy while moving."
-	DeployMessages[1] = "Cannot deploy while wheels are unstable."
-	DeployMessages[2] = "Press [FIRE] to deploy camera."
-
-	bIsUnique = False
-	bIsPartiallyUnique = True
-	DrawColor = (R=255,G=255,B=128,A=255)
-	StackMode = SM_Down
+     DeployMessages(0)="Cannot deploy while moving."
+     DeployMessages(1)="Cannot deploy while wheels are unstable."
+     DeployMessages(2)="Press [FIRE] to deploy camera."
+     bIsUnique=False
+     bIsPartiallyUnique=True
+     DrawColor=(B=128,G=255,R=255)
+     StackMode=SM_Down
 }

@@ -18,13 +18,10 @@ function projectile SpawnProjectile(Vector Start, Rotator Dir)
 
 defaultproperties
 {
-    AmmoClass=class'UT3ShockAmmo'
-    ProjectileClass=class'UT3ShockBall'
-
-    FireSound=Sound'UT3Weapons2.ShockRifle.ShockRifleAltFireCue'
-    TransientSoundVolume=0.8
-    FireRate=0.60
+     TransientSoundVolume=0.800000
      FireAnim="WeaponAltFire"
-     FireAnimRate=1.0
+     FireAnimRate=1.000000
+     FireSound=Sound'UT3Weapons2.ShockRifle.ShockRifleAltFireCue'
+     AmmoClass=Class'UT3Style.UT3ShockAmmo'
+     ProjectileClass=Class'UT3Style.UT3ShockBall'
 }
-

@@ -239,9 +239,6 @@ simulated function Tick(float dt)//GE: No children allowed in this!
     }
 }
 
-
-
-
 defaultproperties
 {
      mWaveFrequency=0.000000

@@ -15,8 +15,8 @@ class UT3ArmorVest extends UT3Armor;
 
 defaultproperties
 {
-	PickupClass = class'UT3ArmorVestPickup'
-	Charge=50
-	ArmorAbsorption=75
-	AbsorptionPriority=50
+     ArmorAbsorption=75
+     AbsorptionPriority=50
+     PickupClass=Class'UT3Style.UT3ArmorVestPickup'
+     Charge=50
 }

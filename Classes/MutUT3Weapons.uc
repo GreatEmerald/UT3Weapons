@@ -146,7 +146,7 @@ function class<Pickup> GetReplacementPickup(class<Pickup> Original)
 
 defaultproperties
 {
-	FriendlyName = "UT3 Weapons"
-	Description  = "Modifies UT2004 weapons so they work similarly to their UT3 counterparts."
-	GroupName    = "Arena"
+     GroupName="Arena"
+     FriendlyName="UT3 Weapons"
+     Description="Modifies UT2004 weapons so they work similarly to their UT3 counterparts."
 }

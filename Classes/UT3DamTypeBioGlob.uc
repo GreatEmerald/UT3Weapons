@@ -9,16 +9,12 @@ class UT3DamTypeBioGlob extends WeaponDamageType
 
 defaultproperties
 {
-    DeathString="%o was corroded by %k's Bio Rifle."
-    MaleSuicide="%o was slimed by his own goop."
-    FemaleSuicide="%o was slimed by her own goop."
-
-    WeaponClass=class'UT3BioRifle'
-
-    bKUseTearOffMomentum=false
-    bDetonatesGoop=true
-    bDelayedDamage=true
-
-    DeathOverlayMaterial=Material'XGameShaders.PlayerShaders.LinkHit'
-    VehicleDamageScaling=0.760000
+     WeaponClass=Class'UT3Style.UT3BioRifle'
+     DeathString="%o was corroded by %k's Bio Rifle."
+     FemaleSuicide="%o was slimed by her own goop."
+     MaleSuicide="%o was slimed by his own goop."
+     bDetonatesGoop=True
+     bDelayedDamage=True
+     DeathOverlayMaterial=Shader'XGameShaders.PlayerShaders.LinkHit'
+     VehicleDamageScaling=0.760000
 }

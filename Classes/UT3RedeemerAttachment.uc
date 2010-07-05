@@ -64,13 +64,12 @@ function PutDown()
 
 defaultproperties
 {
-     Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_Redeemer_3P_Mid'
-     RelativeLocation=(X=20,Y=-35,Z=-5)
-     RelativeRotation=(Yaw=21000)
-     DrawScale=0.9
      SelectAnim="WeaponEquip"
-     SelectAnimRate=1.0
      PutDownAnim="WeaponPutDown"
-     PutDownAnimRate=1.0
-
+     SelectAnimRate=1.000000
+     PutDownAnimRate=1.000000
+     Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_Redeemer_3P_Mid'
+     RelativeLocation=(X=20.000000,Y=-35.000000,Z=-5.000000)
+     RelativeRotation=(Yaw=21000)
+     DrawScale=0.900000
 }

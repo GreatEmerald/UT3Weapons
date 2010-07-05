@@ -86,9 +86,9 @@ simulated function Tick(float DeltaTime)
 
 defaultproperties
 {
-	FriendlyName = "UT3 Vehicles"
-	Description  = "Replaces UT2004 vehicles with versions similar to their UT3 Axon counterparts."
-	GroupName    = "VehicleArena"
-    RemoteRole=ROLE_SimulatedProxy //GE: Needed for Interactions.
-    bAlwaysRelevant=true           //GE: Needed for Interactions.
+     GroupName="VehicleArena"
+     FriendlyName="UT3 Vehicles"
+     Description="Replaces UT2004 vehicles with versions similar to their UT3 Axon counterparts."
+     bAlwaysRelevant=True
+     RemoteRole=ROLE_SimulatedProxy
 }

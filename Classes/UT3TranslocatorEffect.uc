@@ -73,14 +73,12 @@ simulated function PostNetBeginPlay()
 
 defaultproperties
 {
-	bReplicateInstigator = true
-	RemoteRole           = ROLE_SimulatedProxy
-	bNetTemporary        = true
-	bNoDelete            = false
-	AutoDestroy          = true
-	
-	TransientSoundVolume = 1.0
-	TransientSoundRadius = 1000.0
-	
-	FlashScale = 0.7
+     FlashScale=0.700000
+     AutoDestroy=True
+     bNoDelete=False
+     bNetTemporary=True
+     bReplicateInstigator=True
+     RemoteRole=ROLE_SimulatedProxy
+     TransientSoundVolume=1.000000
+     TransientSoundRadius=1000.000000
 }

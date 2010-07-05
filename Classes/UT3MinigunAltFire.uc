@@ -329,47 +329,23 @@ function DoFireEffect()
 
 defaultproperties
 {
+     BarrelRotationsPerSec=0.975000
      RoundsPerRotation=3
-     BarrelRotationsPerSec=0.975
-     FireSound=Sound'UT3Weapons2.Stinger.StingerAltStop'
      WindingSound=Sound'UT3Weapons2.Stinger.StingerRapid'
-     MinigunSoundVolume=0
      FiringForce="minifireb"
      WindingForce="miniempty"
      ProjSpawnOffset=(X=25.000000,Y=5.000000,Z=-6.000000)
      bPawnRapidFireAnim=True
-     AmmoClass=class'UT3MinigunAmmo'
-     AmmoPerFire=2
-     ProjectileClass=class'UT3StingerShard'
-     FlashEmitterClass=class'xEffects.LinkMuzFlashProj1st'
-     //SmokeEmitterClass=Class'XEffects.MinigunMuzzleSmoke'
-     bSplashDamage=false
-     bRecommendSplashDamage=false
-
-     /*FireLoopAnimRate=1.800000
-    WindUpTime=0.27f
-    PreFireTime=0.27f
-    TweenTime=0.1f*/
-    
-    
      PreFireAnim="WeaponRampUp"
      FireAnim=
      FireLoopAnim="WeaponFire-Secondary"
      FireEndAnim="WeaponRampDown"
      FireLoopAnimRate=1.800000
+     FireSound=Sound'UT3Weapons2.Stinger.StingerAltStop'
      FireForce="minifireb"
-    //WindUpTime=0.95
-    //PreFireTime=1.3
-    TweenTime=0.1
-
-    BotRefireRate=0.99
-
-    /*ShakeOffsetMag=(X=1.0,Y=1.0,Z=1.0)
-    ShakeOffsetRate=(X=1000.0,Y=1000.0,Z=1000.0)
-    ShakeOffsetTime=2
-    ShakeRotMag=(X=50.0,Y=50.0,Z=50.0)
-    ShakeRotRate=(X=10000.0,Y=10000.0,Z=10000.0)
-    ShakeRotTime=2 */
-    
-    
+     AmmoClass=Class'UT3Style.UT3MinigunAmmo'
+     AmmoPerFire=2
+     ProjectileClass=Class'UT3Style.UT3StingerShard'
+     BotRefireRate=0.990000
+     FlashEmitterClass=Class'XEffects.LinkMuzFlashProj1st'
 }

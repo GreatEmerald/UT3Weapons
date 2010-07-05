@@ -149,19 +149,19 @@ simulated function ProcessTouch (Actor Other, vector HitLocation) //GE: For refl
 	  }
 }   */
 
-DefaultProperties
+defaultproperties
 {
-  Speed=4000.000000
-  DamageRadius=220.000000
-  MomentumTransfer=40000.000000
-  LifeSpan=1.600000
-  TossZ=3.5
-  ProjectileEffectClass=class'UT3ScorpionBallProjR'
-  ProjectileEffectClass2=class'UT3ScorpionBallProj2R'
-  CollisionHeight=30
-  CollisionRadius=30
-  ForceScale=10.0
-  AmbientSound=Sound'UT3Vehicles.SCORPION.ScorpionBallAmb'
-  ImpactSound=Sound'UT3Weapons2.BioRifle.BioRifleExplode'
-  MyDamageType=class'UT3ScorpionBallDamage'
+     ProjectileEffectClass2=Class'UT3Style.UT3ScorpionBallProj2R'
+     ProjectileEffectClass=Class'UT3Style.UT3ScorpionBallProjR'
+     Speed=4000.000000
+     TossZ=3.500000
+     DamageRadius=220.000000
+     MomentumTransfer=40000.000000
+     MyDamageType=Class'UT3Style.UT3ScorpionBallDamage'
+     ImpactSound=Sound'UT3Weapons2.BioRifle.BioRifleExplode'
+     AmbientSound=Sound'UT3Vehicles.SCORPION.ScorpionBallAmb'
+     LifeSpan=1.600000
+     CollisionRadius=30.000000
+     CollisionHeight=30.000000
+     ForceScale=10.000000
 }

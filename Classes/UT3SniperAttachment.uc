@@ -52,12 +52,11 @@ simulated event ThirdPersonEffects()
 
 defaultproperties
 {
-  
+     mMuzFlash3rdClass=Class'XEffects.AssaultMuzFlash3rd'
+     Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_SniperRifle_3P_Mid'
+     RelativeLocation=(X=0.000000,Y=-2.000000,Z=1.000000)
+     RelativeRotation=(Yaw=16384)
+     DrawScale=0.900000
+     Skins(0)=Texture'UT3WeaponSkins.T_WP_SniperRifle_D'
      HighDetailOverlay=Shader'UT3WeaponSkins.SniperRifle.SniperRifleSkinRed'
-	   Skins(0)=Texture'UT3WeaponSkins.SniperRifle.T_WP_SniperRifle_D' //GE: The skin must not be a combiner or it gets the "ghost" effect
-	   Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_SniperRifle_3P_Mid'
-     RelativeLocation=(X=0,Y=-2,Z=1)
-     RelativeRotation=(Pitch=32768,Yaw=16384)
-     DrawScale=0.9
-     mMuzFlash3rdClass=class'XEffects.AssaultMuzFlash3rd'
 }

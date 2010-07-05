@@ -20,11 +20,11 @@ function ProximityExplosion() //Instant shock combo
     SetTimer(0.1, false);
 }
 
-DefaultProperties
+defaultproperties
 {
-   MaxShieldHealth=1200.000000    //GE: Exact Copy-Paste of the UT3 code
-   MaxDelayTime=2.500000          //Increased
-   ShieldRechargeRate=350.000000  //Decreased
-   CurrentShieldHealth=1200.000000//Maximum Shield health is lower, but current is higher
-   ProjectileClass=class'UT3PaladinProjectile'
+     MaxShieldHealth=1200.000000
+     MaxDelayTime=2.500000
+     ShieldRechargeRate=350.000000
+     CurrentShieldHealth=1200.000000
+     ProjectileClass=Class'UT3Style.UT3PaladinProjectile'
 }

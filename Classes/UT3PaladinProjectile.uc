@@ -6,9 +6,9 @@
 //-----------------------------------------------------------
 class UT3PaladinProjectile extends ONSShockTankProjectile;
 
-DefaultProperties
+defaultproperties
 {
-   Damage=200.000000             //GE: Everything increased!!
-   DamageRadius=450.000000
-   MomentumTransfer=200000.000000
+     Damage=200.000000
+     DamageRadius=450.000000
+     MomentumTransfer=200000.000000
 }

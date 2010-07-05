@@ -72,20 +72,15 @@ function SpawnBeamEffect(Vector Start, Rotator Dir, Vector HitLocation, Vector H
 
 defaultproperties
 {
-    AmmoClass=class'SuperShockAmmo'
-    AmmoPerFire=0
-    DamageType=class'DamTypeUT3Instagib'
-    DamageMin=1000
-    DamageMax=1000
-    Momentum=100000
-    FireSound=Sound'UT3Weapons2.Generic.InstagibRifleFire'
-    FireForce="ShockRifleFire"
-    bReflective=true
-    FireRate=1.1
-    BeamEffectClass=class'SuperShockBeamEffect'
-    bModeExclusive=true
-    AimError=700
-    TransientSoundVolume=0.7
-    
-    FireAnim="WeaponFireInstiGib"
+     BeamEffectClass=Class'XWeapons.SuperShockBeamEffect'
+     DamageType=Class'UT3Style.DamTypeUT3Instagib'
+     DamageMin=1000
+     DamageMax=1000
+     Momentum=100000.000000
+     TransientSoundVolume=0.700000
+     FireAnim="WeaponFireInstiGib"
+     FireSound=Sound'UT3Weapons2.Generic.InstagibRifleFire'
+     FireRate=1.100000
+     AmmoClass=Class'XWeapons.SuperShockAmmo'
+     AmmoPerFire=0
 }

@@ -24,6 +24,6 @@ function StartTimer(float TimeToImpact)
 
 defaultproperties
 {
-	SoundLength = 3.5
-	ShellSound  = Sound'SPMAShellIncoming'
+     SoundLength=3.500000
+     ShellSound=SoundGroup'UT3Style.SPMA.SPMAShellIncoming'
 }

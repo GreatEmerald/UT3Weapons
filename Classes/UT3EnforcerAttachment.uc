@@ -71,7 +71,6 @@ simulated event ThirdPersonEffects()
 defaultproperties
 {
      Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_Enforcers_1P'
-     DrawScale=0.15
-     RelativeRotation=(Pitch=32768)
-     RelativeLocation=(X=55,Y=-23,Z=-30)
+     RelativeLocation=(X=55.000000,Y=-23.000000,Z=-30.000000)
+     DrawScale=0.150000
 }

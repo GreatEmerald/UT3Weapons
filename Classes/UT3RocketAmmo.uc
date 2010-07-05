@@ -8,7 +8,6 @@ class UT3RocketAmmo extends RocketAmmo;
 
 defaultproperties
 {
-    PickupClass=class'UT3RocketAmmoPickup'
-    InitialAmount=9
+     InitialAmount=9
+     PickupClass=Class'UT3Style.UT3RocketAmmoPickup'
 }
-

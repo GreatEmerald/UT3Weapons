@@ -50,13 +50,11 @@ simulated function SpawnEffects(vector HitLocation, vector HitNormal)
 
 defaultproperties
 {
-	Damage       = 220.0
-	DamageRadius = 500.0
-	
-	ImpactSound  = Sound'SPMAShellFragmentExplode'
-	AmbientSound = None
-	TransientSoundRadius = 500.0
-	
-	ExplosionEffectClass    = class'UT3HellfireSPMAAirExplosion'
-	AirExplosionEffectClass = class'UT3HellfireSPMAAirExplosion'
+     ExplosionEffectClass=Class'UT3Style.UT3HellfireSPMAAirExplosion'
+     AirExplosionEffectClass=Class'UT3Style.UT3HellfireSPMAAirExplosion'
+     Damage=220.000000
+     DamageRadius=500.000000
+     ImpactSound=SoundGroup'UT3Style.SPMA.SPMAShellFragmentExplode'
+     AmbientSound=None
+     TransientSoundRadius=500.000000
 }

@@ -13,16 +13,12 @@ function bool MutatorIsAllowed()
 
 defaultproperties
 {
-    AmmoName=SuperShockAmmo
-    AmmoString="xWeapons.SuperShockAmmo"
-    WeaponName=UT3InstagibRifle
-    WeaponString="UT3Style.UT3InstagibRifle"
-    DefaultWeaponName="UT3Style.UT3InstagibRifle"
-    bAllowTranslocator=true
-
-    IconMaterialName="MutatorArt.nosym"
-    ConfigMenuClassName=""
-    GroupName="Arena"
-    FriendlyName="UT3 InstaGib"
-    Description="Instant-kill combat with modified UT3 Shock Rifles."
+     WeaponName="UT3InstagibRifle"
+     AmmoName="SuperShockAmmo"
+     WeaponString="UT3Style.UT3InstagibRifle"
+     AmmoString="xWeapons.SuperShockAmmo"
+     bAllowTranslocator=True
+     DefaultWeaponName="UT3Style.UT3InstagibRifle"
+     FriendlyName="UT3 InstaGib"
+     Description="Instant-kill combat with modified UT3 Shock Rifles."
 }

@@ -8,6 +8,6 @@ class UT3MinigunAmmo extends MinigunAmmo;
 
 defaultproperties
 {
-    PickupClass=class'UT3MinigunAmmoPickup'
-    InitialAmount=100
+     InitialAmount=100
+     PickupClass=Class'UT3Style.UT3MinigunAmmoPickup'
 }

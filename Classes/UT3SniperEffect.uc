@@ -8,6 +8,6 @@ class UT3SniperEffect extends UT3EnforcerEffect;
 
 defaultproperties
 {
-     LifeSpan=1.750000
      mLifeRange(0)=1.750000
+     LifeSpan=1.750000
 }

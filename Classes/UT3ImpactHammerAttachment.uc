@@ -50,10 +50,10 @@ function StopCharging()
 
 defaultproperties
 {
+     FlashEmitter=Class'UT3Style.UT3ImpactEffectB'
+     FlashEmitterAlt=Class'UT3Style.UT3ImpactEffectAltB'
      Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_Impact_3P_Mid'
-     RelativeRotation=(Roll=32768,Yaw=49152)
-     RelativeLocation=(X=0,Y=-2,Z=5)
-     DrawScale=0.8
-     FlashEmitter=class'UT3ImpactEffectB'
-     FlashEmitterAlt=class'UT3ImpactEffectAltB'
+     RelativeLocation=(Y=-2.000000,Z=5.000000)
+     RelativeRotation=(Yaw=49152,Roll=32768)
+     DrawScale=0.800000
 }

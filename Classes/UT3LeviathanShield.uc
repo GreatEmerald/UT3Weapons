@@ -58,5 +58,5 @@ simulated function ActivateShield(byte TeamNum)
 
 defaultproperties
 {
-	DrawScale3D = (X=0.6,Y=0.75,Z=1.0)
+     DrawScale3D=(X=0.600000,Y=0.750000,Z=1.000000)
 }

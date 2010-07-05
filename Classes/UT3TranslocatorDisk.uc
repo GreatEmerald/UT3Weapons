@@ -14,5 +14,5 @@ class UT3TranslocatorDisk extends TransBeacon abstract;
 
 defaultproperties
 {
-	Speed = 1330.0
+     Speed=1330.000000
 }

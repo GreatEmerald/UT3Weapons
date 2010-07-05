@@ -173,23 +173,21 @@ simulated function PostNetBeginPlay()
 
 defaultproperties
 {
-	VehicleNameString = "UT3 Hellbender"
-	VehiclePositionString="in a Hellbender"
-	DriverDamageMult=0.0
-	MomentumMult=1.000000
-	DriverWeapons(0)=(WeaponClass=class'UT3HellbenderSideGun',WeaponBone=Dummy01);
-    PassengerWeapons(0)=(WeaponPawnClass=class'UT3HellbenderRearGunPawn',WeaponBone=Dummy02);
-    PassengerWeapons(1)=(WeaponPawnClass=none,WeaponBone=Dummy02);
-    IdleSound=sound'UT3Vehicles.HELLBENDER.HellbenderAmbient'
-    StartUpSound=sound'UT3Vehicles.HELLBENDER.HellbenderEnter'
-    ShutDownSound=sound'UT3Vehicles.HELLBENDER.HellbenderEmpty'
-    //TransientSoundVolume=1.0
-    SoundVolume=255
-    GroundSpeed=700
-    HornSounds(0)=sound'UT3Vehicles.HELLBENDER.HellbenderHorn'
-    SteerSpeed=220
-    EntryRadius=300.0
-    TPCamWorldOffset=(X=0,Y=0,Z=200)
-    //TPCamDistance=375
-    MaxSteerAngleCurve=(Points=((InVal=0,OutVal=50.0),(InVal=1500.0,OutVal=8.0),(InVal=1000000000.0,OutVal=8.0)))
+     MaxSteerAngleCurve=(Points=((OutVal=50.000000),(InVal=0.000000,OutVal=0.000000)))
+     SteerSpeed=220.000000
+     DriverWeapons(0)=(WeaponClass=Class'UT3Style.UT3HellbenderSideGun',WeaponBone="Dummy01")
+     PassengerWeapons(0)=(WeaponPawnClass=Class'UT3Style.UT3HellbenderRearGunPawn',WeaponBone="Dummy02")
+     PassengerWeapons(1)=(WeaponPawnClass=None)
+     IdleSound=Sound'UT3Vehicles.HELLBENDER.HellbenderAmbient'
+     StartUpSound=Sound'UT3Vehicles.HELLBENDER.HellbenderEnter'
+     ShutDownSound=Sound'UT3Vehicles.HELLBENDER.HellbenderEmpty'
+     EntryRadius=300.000000
+     TPCamWorldOffset=(Z=200.000000)
+     MomentumMult=1.000000
+     DriverDamageMult=0.000000
+     VehiclePositionString="in a Hellbender"
+     VehicleNameString="UT3 Hellbender"
+     HornSounds(0)=Sound'UT3Vehicles.HELLBENDER.HellbenderHorn'
+     GroundSpeed=700.000000
+     SoundVolume=255
 }

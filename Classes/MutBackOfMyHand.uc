@@ -213,13 +213,12 @@ static function FillPlayInfo(PlayInfo PlayInfo)
 
 defaultproperties
 {
-    IconMaterialName="MutatorArt.nosym"
-    FriendlyName="UT3 Like the Back of My Hand"
-    Description="Addds a counter of all the pickups in the map and how many of those you have picked up already, and does an announcement when you manage pick up all of them. This way it emulates UT3 award 'Like the Back of My Hand' and promotes map exploration."
-    bAddToServerPackages=True
-    RemoteRole=ROLE_SimulatedProxy
-    bAlwaysRelevant=true
-    bReinitialise=true
-    GUIDisplayText(0)="Enable reinitialisation"
-    GUIDescText(0)="Uncheck this if you are planning to use this mutator without any weapon/item replacement mutators. When checked, it might report non-existant pickups, when unchecked, it won't report some pickups at all."
+     GUIDisplayText(0)="Enable reinitialisation"
+     GUIDescText(0)="Uncheck this if you are planning to use this mutator without any weapon/item replacement mutators. When checked, it might report non-existant pickups, when unchecked, it won't report some pickups at all."
+     bReinitialise=True
+     bAddToServerPackages=True
+     FriendlyName="UT3 Like the Back of My Hand"
+     Description="Addds a counter of all the pickups in the map and how many of those you have picked up already, and does an announcement when you manage pick up all of them. This way it emulates UT3 award 'Like the Back of My Hand' and promotes map exploration."
+     bAlwaysRelevant=True
+     RemoteRole=ROLE_SimulatedProxy
 }

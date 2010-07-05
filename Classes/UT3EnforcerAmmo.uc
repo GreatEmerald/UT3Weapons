@@ -8,8 +8,7 @@ class UT3EnforcerAmmo extends AssaultAmmo;
 
 defaultproperties
 {
-    PickupClass=class'UT3EnforcerAmmoPickup'
-    MaxAmmo=100
-    InitialAmount=50
+     MaxAmmo=100
+     InitialAmount=50
+     PickupClass=Class'UT3Style.UT3EnforcerAmmoPickup'
 }
-

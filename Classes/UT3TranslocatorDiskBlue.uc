@@ -15,7 +15,7 @@ class UT3TranslocatorDiskBlue extends UT3TranslocatorDisk;
 
 defaultproperties
 {
-	TransTrailClass=class'UT3TranslocatorTrailBlue'
-	TransFlareClass=class'TransFlareBlue'
-	LightHue=160
+     TransTrailClass=Class'UT3Style.UT3TranslocatorTrailBlue'
+     TransFlareClass=Class'XEffects.TransFlareBlue'
+     LightHue=160
 }

@@ -75,31 +75,30 @@ function UpdateTrajectory(bool bVisible, optional vector StartLocation, optional
 
 defaultproperties
 {
-	// the trajectory arc
-	Begin Object Class=BeamEmitter Name=Trajectory
-		MaxParticles              = 1
-		AutomaticInitialSpawning  = False
-		LifetimeRange             = (Min=999999.0,Max=999999.0)
-		StartSizeRange            = (X=(Min=5.0,Max=5.0))
-		HighFrequencyPoints       = 50
-		CoordinateSystem          = PTCS_Absolute
-		DetermineEndPointBy       = PTEP_Offset
-		Texture                   = Texture'EpicParticles.Beams.DanGradient'
-		AlphaTest                 = False // DanGradient has an alpha value of 0 and would otherwise be invisible
-		ColorMultiplierRange      = (X=(Min=0.75,Max=0.75),Z=(Min=0.5,Max=0.5))
-		Opacity                   = 0.75
-	End Object
-	Emitters(0) = Trajectory
-	
-	// invisible particle placed at the trajectory apex to extend the rendering bounding box
-	Begin Object Class=SpriteEmitter Name=BoundingBoxHack
-		MaxParticles              = 1
-		AutomaticInitialSpawning  = False
-		LifetimeRange             = (Min=999999.0,Max=999999.0)
-		StartSizeRange            = (X=(Min=0.0,Max=0.0)) // so it's not actually visible
-		CoordinateSystem          = PTCS_Absolute
-	End Object
-	Emitters(1) = BoundingBoxHack
-	
-	bNoDelete = False
+     Begin Object Class=BeamEmitter Name=Trajectory
+         DetermineEndPointBy=PTEP_Offset
+         HighFrequencyPoints=50
+         AlphaTest=False
+         AutomaticInitialSpawning=False
+         ColorMultiplierRange=(X=(Min=0.750000,Max=0.750000),Z=(Min=0.500000,Max=0.500000))
+         Opacity=0.750000
+         CoordinateSystem=PTCS_Absolute
+         MaxParticles=1
+         StartSizeRange=(X=(Min=5.000000,Max=5.000000))
+         Texture=Texture'EpicParticles.Beams.DanGradient'
+         LifetimeRange=(Min=999999.000000,Max=999999.000000)
+     End Object
+     Emitters(0)=BeamEmitter'UT3Style.UT3HellfireSPMATrajectory.Trajectory'
+
+     Begin Object Class=SpriteEmitter Name=BoundingBoxHack
+         UniformSize=True
+         AutomaticInitialSpawning=False
+         CoordinateSystem=PTCS_Absolute
+         MaxParticles=1
+         StartSizeRange=(X=(Min=0.000000,Max=0.000000))
+         LifetimeRange=(Min=999999.000000,Max=999999.000000)
+     End Object
+     Emitters(1)=SpriteEmitter'UT3Style.UT3HellfireSPMATrajectory.BoundingBoxHack'
+
+     bNoDelete=False
 }

@@ -5,3 +5,7 @@
 //==============================================================================
 
 class UT3InstagibRifleAttachment extends UT3ShockRifleAttachment;
+
+defaultproperties
+{
+}

@@ -138,7 +138,7 @@ function Translocate()
 
 defaultproperties
 {
-	TransEffects[0] = (Overlay=PlayerTransRed,Effect=class'UT3TranslocatorEffectRed')
-	TransEffects[1] = (Overlay=PlayerTrans,Effect=class'UT3TranslocatorEffectBlue')
-	FireAnim="weaponreturn"
+     TransEffects(0)=(Overlay=Shader'XGameShaders.PlayerShaders.PlayerTransRed',Effect=Class'UT3Style.UT3TranslocatorEffectRed')
+     TransEffects(1)=(Overlay=Shader'XGameShaders.PlayerShaders.PlayerTrans',Effect=Class'UT3Style.UT3TranslocatorEffectBlue')
+     FireAnim="weaponreturn"
 }

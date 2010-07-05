@@ -8,13 +8,11 @@ class UT3FlakCannonPickup extends FlakCannonPickup;
 
 defaultproperties
 {
-    InventoryType=class'UT3FlakCannon'
-
-    PickupMessage="Flak Cannon"
-    PickupSound=Sound'UT3PickupSounds.Generic.FlakCannonPickup'
-    TransientSoundVolume=1.0
-    
+     InventoryType=Class'UT3Style.UT3FlakCannon'
+     PickupMessage="Flak Cannon"
+     PickupSound=Sound'UT3PickupSounds.Generic.FlakCannonPickup'
      StaticMesh=StaticMesh'UT3WPStatics.UT3FlakPickup'
-     UV2Mode=UVM_LightMap
      Skins(0)=Shader'UT3WeaponSkins.FlakCannon.FlakCannon_Skin'
+     UV2Mode=UVM_LightMap
+     TransientSoundVolume=1.000000
 }

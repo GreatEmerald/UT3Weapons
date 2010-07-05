@@ -22,7 +22,7 @@ var() float TimeRemaining;
 
 defaultproperties
 {
-	bPredictRespawns = true
-	TimeRemaining = 30.0
-	RespawnTime = 90.0
+     TimeRemaining=30.000000
+     bPredictRespawns=True
+     RespawnTime=90.000000
 }

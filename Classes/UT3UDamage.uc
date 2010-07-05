@@ -63,15 +63,12 @@ function DisableEffect()
 
 defaultproperties
 {
-	// HACK: online UDamage fire sound change
-	bAlwaysRelevant = True
-	bOnlyRelevantToOwner = False
-	bReplicateInstigator = True
-	
-	PickupClass = class'UT3UDamagePickup'
-	
-	UDamageFireSound = Sound'UDamageFire'
-	PowerAmbientSound = Sound'UDamagePowerLoop'
-	WarningSound = Sound'UDamageWarning'
-	EndSound = Sound'UDamageEnd'
+     UDamageFireSound=Sound'UT3Style.Udamage.UDamageFire'
+     PowerAmbientSound=Sound'UT3Style.Udamage.UDamagePowerLoop'
+     WarningSound=Sound'UT3Style.Udamage.UDamageWarning'
+     EndSound=Sound'UT3Style.Udamage.UDamageEnd'
+     PickupClass=Class'UT3Style.UT3UDamagePickup'
+     bOnlyRelevantToOwner=False
+     bAlwaysRelevant=True
+     bReplicateInstigator=True
 }

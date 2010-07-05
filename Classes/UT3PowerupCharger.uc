@@ -40,9 +40,7 @@ function PostBeginPlay()
 
 defaultproperties
 {
-	bStaticLighting    = True
-	bShadowCast        = True
-	bAcceptsProjectors = True
-
-	RemoteRole = ROLE_DumbProxy
+     RemoteRole=ROLE_DumbProxy
+     bShadowCast=True
+     bStaticLighting=True
 }

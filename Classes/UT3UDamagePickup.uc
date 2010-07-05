@@ -26,18 +26,15 @@ class UT3UDamagePickup extends UT3TimedPickup;
 
 defaultproperties
 {
-	InventoryType       = class'UT3UDamage'
-	TimeRemaining       = 30.0
-	RespawnSound        = Sound'UDamageSpawn'
-	SpawnedAmbientSound = Sound'UDamageGroundLoop'
-	PickupSound         = Sound'UDamagePickup'
-	PickupMessage       = "DAMAGE AMP!"
-	
-	PickupForce  = "UDamagePickup"
-	Physics      = PHYS_Rotating
-	RotationRate = (Yaw=24000)
-	
-	DrawScale  = 0.9
-	StaticMesh = StaticMesh'UT3Pickups-SM.Powerups.Udamage'
-	Skins      = (FinalBlend'UT3Pickups.Udamage.UDamageSkin',FinalBlend'PickupSkins.Shaders.FinalHealthGlass')
+     RespawnSound=Sound'UT3Style.Udamage.UDamageSpawn'
+     SpawnedAmbientSound=Sound'UT3Style.Udamage.UDamageGroundLoop'
+     InventoryType=Class'UT3Style.UT3UDamage'
+     PickupMessage="DAMAGE AMP!"
+     PickupSound=Sound'UT3Style.Udamage.UDamagePickup'
+     PickupForce="UDamagePickup"
+     StaticMesh=StaticMesh'UT3Pickups-SM.Powerups.Udamage'
+     Physics=PHYS_Rotating
+     Skins(0)=Shader'UT3Pickups.Udamage.UdamageSkin'
+     Skins(1)=Shader'UT3Pickups.Udamage.UDamageSkin2'
+     RotationRate=(Yaw=24000)
 }

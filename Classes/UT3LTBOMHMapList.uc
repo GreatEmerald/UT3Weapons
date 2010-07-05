@@ -6,7 +6,7 @@
 
 class UT3LTBOMHMapList extends MapList
     config(BackOfMyHand);
-    
+
 defaultproperties
 {
 }

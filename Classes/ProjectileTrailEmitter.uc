@@ -62,6 +62,6 @@ Super.Kill();
 
 defaultproperties
 {
-bNoDelete = False
-bHardAttach = True
+     bNoDelete=False
+     bHardAttach=True
 }

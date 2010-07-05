@@ -8,12 +8,8 @@ class DamTypeUT3ShockBeam extends DamTypeShockBeam;
 
 defaultproperties
 {
-    WeaponClass=class'UT3ShockRifle'
-
-    GibPerterbation=0.75
-
-    KDamageImpulse=1500.000000
-   VehicleDamageScaling=0.700000
-   VehicleMomentumScaling=2.000000
-
+     WeaponClass=Class'UT3Style.UT3ShockRifle'
+     KDamageImpulse=1500.000000
+     VehicleDamageScaling=0.700000
+     VehicleMomentumScaling=2.000000
 }

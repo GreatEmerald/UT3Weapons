@@ -156,17 +156,15 @@ function PlayFiring()
 
 defaultproperties
 {
-    AmmoClass=class'UT3SniperAmmo'
-    DamageType=class'DamTypeUT3Sniper'
-    DamageTypeHeadShot=class'DamTypeUT3HeadShot'
-    DamageMin=70
-    DamageMax=70
-    FireSound=Sound'UT3Weapons2.Sniper.SniperFireCue'
-    aimerror=600.000000
-    FireAnim="WeaponFire"
-    FireAnimRate=1.1
-    FireRate=1.33
-    NumArcs=0
-    HitEmitterClass=class'UT3SniperEffect'
-    FlashEmitterClass=class'XEffects.AssaultMuzFlash1st'
+     HitEmitterClass=Class'UT3Style.UT3SniperEffect'
+     NumArcs=0
+     DamageTypeHeadShot=Class'UT3Style.DamTypeUT3HeadShot'
+     DamageType=Class'UT3Style.DamTypeUT3Sniper'
+     FireAnim="WeaponFire"
+     FireAnimRate=1.100000
+     FireSound=SoundGroup'UT3Weapons2.Sniper.SniperFireCue'
+     FireRate=1.330000
+     AmmoClass=Class'UT3Style.UT3SniperAmmo'
+     FlashEmitterClass=Class'XEffects.AssaultMuzFlash1st'
+     aimerror=600.000000
 }

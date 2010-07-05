@@ -66,15 +66,14 @@ state ProjectileFireMode
 
 defaultproperties
 {
-	FireInterval    = 0.2
-	AltFireInterval = 1.2
-	ProjectileClass=class'UT3RaptorProjRed'
-    TeamProjectileClasses(0)=class'UT3RaptorProjRed'
-    TeamProjectileClasses(1)=class'UT3RaptorProjBlue'
-    RotationsPerSecond=0.11 //GE: Maybe too low?
-    MinAim=0.930
-    AltFireProjectileClass=class'UT3RaptorRocket'
-    HomingSound=Sound'UT3Weapons2.Generic.LockOn'
-    FireSoundClass=sound'UT3Vehicles.RAPTOR.RaptorFire'
-    AltFireSoundClass=sound'UT3Vehicles.RAPTOR.RaptorAltFire'
+     HomingSound=Sound'UT3Weapons2.Generic.LockOn'
+     TeamProjectileClasses(0)=Class'UT3Style.UT3RaptorProjRed'
+     TeamProjectileClasses(1)=Class'UT3Style.UT3RaptorProjBlue'
+     MinAim=0.930000
+     RotationsPerSecond=0.110000
+     AltFireInterval=1.200000
+     FireSoundClass=Sound'UT3Vehicles.RAPTOR.RaptorFire'
+     AltFireSoundClass=Sound'UT3Vehicles.RAPTOR.RaptorAltFire'
+     ProjectileClass=Class'UT3Style.UT3RaptorProjRed'
+     AltFireProjectileClass=Class'UT3Style.UT3RaptorRocket'
 }

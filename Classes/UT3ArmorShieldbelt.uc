@@ -15,8 +15,8 @@ class UT3ArmorShieldbelt extends UT3Armor;
 
 defaultproperties
 {
-	PickupClass = class'UT3ArmorShieldbeltPickup'
-	Charge = 100
-	ArmorAbsorption = 100
-	AbsorptionPriority = 100
+     ArmorAbsorption=100
+     AbsorptionPriority=100
+     PickupClass=Class'UT3Style.UT3ArmorShieldbeltPickup'
+     Charge=100
 }

@@ -8,8 +8,7 @@ class DamTypeUT3LinkProj extends DamTypeLinkPlasma;
 
 defaultproperties
 {
-    WeaponClass=class'UT3LinkGun'
-
-    VehicleDamageScaling=0.600000
-   VehicleMomentumScaling=0.250000
+     WeaponClass=Class'UT3Style.UT3LinkGun'
+     VehicleDamageScaling=0.600000
+     VehicleMomentumScaling=0.250000
 }

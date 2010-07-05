@@ -24,14 +24,13 @@ simulated function UpdatePrecacheMaterials()
 
 defaultproperties
 {
-    InventoryType=class'UT3RocketLauncher'
-
-    PickupMessage="Rocket Launcher"
-    PickupSound=Sound'UT3PickupSounds.Generic.RocketLauncherPickup'
-    TransientSoundVolume=0.6
-    StaticMesh=StaticMesh'UT3WPStatics.UT3RocketLauncherPickup'
-    PrePivot=(Y=18,Z=5)
-    DrawScale=1.5
-    Skins(0)=Shader'UT3WeaponSkins.RocketLauncher.RocketLauncherSkin'
-    StandUp=(X=0.0,Y=0.0,Z=0.25)
+     StandUp=(Z=0.250000)
+     InventoryType=Class'UT3Style.UT3RocketLauncher'
+     PickupMessage="Rocket Launcher"
+     PickupSound=Sound'UT3PickupSounds.Generic.RocketLauncherPickup'
+     StaticMesh=StaticMesh'UT3WPStatics.UT3RocketLauncherPickup'
+     DrawScale=1.500000
+     PrePivot=(Y=18.000000,Z=5.000000)
+     Skins(0)=Shader'UT3WeaponSkins.RocketLauncher.RocketLauncherSkin'
+     TransientSoundVolume=0.600000
 }

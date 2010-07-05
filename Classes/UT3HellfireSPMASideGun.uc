@@ -15,7 +15,7 @@ class UT3HellfireSPMASideGun extends ONSArtillerySideGun;
 
 defaultproperties
 {
-	FireSoundClass    = Sound'HellbenderFire'
-	AltFireSoundClass = Sound'HellbenderAltFire'
-	ProjectileClass   = class'UT3HellfireSPMAShockBall'
+     FireSoundClass=Sound'UT3Vehicles.HELLBENDER.HellbenderFire'
+     AltFireSoundClass=Sound'UT3Vehicles.HELLBENDER.HellbenderAltFire'
+     ProjectileClass=Class'UT3Style.UT3HellfireSPMAShockBall'
 }

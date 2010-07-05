@@ -72,9 +72,9 @@ Simulated Function Timer()
   PlaySound(ReloadSoundClass, SLOT_None, FireSoundVolume/255.0,, FireSoundRadius,, false);
 }
 
-DefaultProperties
+defaultproperties
 {
-  ProjectileClass=class'UT3GoliathProjectile'
-  FireSoundClass=sound'UT3Vehicles.Goliath.GoliathFire'
-  ReloadSoundClass=sound'UT3Vehicles.Goliath.GoliathReload'
+     ReloadSoundClass=Sound'UT3Vehicles.Goliath.GoliathReload'
+     FireSoundClass=Sound'UT3Vehicles.Goliath.GoliathFire'
+     ProjectileClass=Class'UT3Style.UT3GoliathProjectile'
 }

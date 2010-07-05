@@ -24,13 +24,11 @@ simulated function UpdatePrecacheMaterials()
 
 defaultproperties
 {
-    InventoryType=class'UT3Minigun2v'
-
-    PickupMessage="Stinger Minigun"
-    PickupSound=Sound'UT3PickupSounds.FlakShellPickup'
-    StaticMesh=StaticMesh'UT3WPStatics.UT3StingerPickup'
-    PrePivot=(X=-40)
-    DesiredRotation=(Yaw=0)
-    Skins(0)=Shader'UT3WeaponSkins.Stinger.StingerSkin'
-    
+     InventoryType=Class'UT3Style.UT3Minigun2v'
+     PickupMessage="Stinger Minigun"
+     PickupSound=Sound'UT3PickupSounds.Generic.FlakShellPickup'
+     StaticMesh=StaticMesh'UT3WPStatics.UT3StingerPickup'
+     PrePivot=(X=-40.000000)
+     Skins(0)=Shader'UT3WeaponSkins.Stinger.StingerSkin'
+     DesiredRotation=(Yaw=0)
 }

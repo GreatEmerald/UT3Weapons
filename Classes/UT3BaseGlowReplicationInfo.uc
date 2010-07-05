@@ -205,9 +205,9 @@ simulated function Tick(float DeltaTime)
 
 defaultproperties
 {
-	GlowColor = (R=64,G=64,B=64,A=255)
-	GlowChangePerSecond = 500.0
-	HealthBaseSkin  = Texture'2K4Chargers.ChargerTextures.HealthBaseTEX'//'HealthBaseLit'
-	PowerupBaseSkin = Texture'XGameTextures.ShieldChargerTex'//'PowerupBaseLit'
-	WeaponBaseSkin  = Texture'2K4Chargers.ChargerTextures.weaponBaseTEX'//'WeaponBaseLit'
+     GlowColor=(B=64,G=64,R=64,A=255)
+     HealthBaseSkin=Texture'2K4Chargers.ChargerTextures.HealthBaseTEX'
+     PowerupBaseSkin=Texture'XGameTextures.ShieldChargerTex'
+     WeaponBaseSkin=Texture'2K4Chargers.ChargerTextures.weaponBaseTEX'
+     GlowChangePerSecond=500.000000
 }

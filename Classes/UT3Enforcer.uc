@@ -412,50 +412,40 @@ simulated event StopFire(int Mode)
 
 defaultproperties
 {
-    Description="For decades, the Enforcer pistol was the combat sidearm of choice. Veteran soldiers appreciated the lightweight handgun's power, accuracy, and balance. In recent years, the ever-burning desire for greater firepower led to general issue of the AR770 assault rifle. Military procurement officers were drawn to the AR770's higher cyclic rate and underslung M355 grenade launcher, but seasoned combatants missed the dependability of the Enforcer. Axon Research listened to the soldiers, and their new Enforcer MP ('Machine Pistol') model provides the best of both worlds. Side-fed magazines provide greater capacity, while balancing the shooter's aim when wielding two pistols. With a deadly accurate semi-automatic mode, and a selectable burst fire mode, the Enforcer is back, and the modern battlefield will never be the same."
-    ItemName="UT3 Enforcer"
-
-    bShowChargingBar=false
-    FireModeClass(0)=UT3EnforcerFire
-    FireModeClass(1)=UT3EnforcerAltFire
-    PickupClass=class'UT3EnforcerPickup'
-    SelectSound=Sound'UT3Weapons.Enforcer.EnforcerTakeOut'
-
-    CustomCrosshairTextureName="UT3HUD.Crosshairs.UT3CrosshairEnforcer"
-	CustomCrosshairColor=(R=255,G=255,B=255,A=255)
-	CustomCrosshairScale=1.2
-	HudColor=(R=255,G=255,B=255,A=255)
-
-	IconMaterial=Material'UT3HUD.Icons.UT3IconsScaled'
-    IconCoords=(X1=299,Y1=171,X2=355,Y2=199)
-
-    //Priority=2.000000
-   //AIRating=0.400000
-   
+     ReloadAnim="weaponequipempty"
      AkimboTransTAnim="weapontranition_toside"
-     AkimboTransFAnim="weapontranition_fromside"
      AkimboFireAnim="weaponfire_side"
-     AkimboBurstAnim="weaponfireburst_side"
      AkimboPutDownAnim="weaponputdown_side"
      AkimboIdleAnim="weaponidle_side"
      AkimboIdleBAnim="WeaponIdleB_Side"
-     
+     AkimboTransFAnim="weapontranition_fromside"
+     AkimboBurstAnim="weaponfireburst_side"
+     ReloadSound=Sound'UT3Weapons2.Enforcer.EnforcerReload'
+     ReloadAnimRate=1.363600
+     AkimboTime=1.363600
+     AkimboDelay=2.000000
+     FireModeClass(0)=Class'UT3Style.UT3EnforcerFire'
+     FireModeClass(1)=Class'UT3Style.UT3EnforcerAltFire'
      IdleAnim="WeaponIdle"
      RestAnim="WeaponIdleB"
      AimAnim="WeaponIdleB"
      RunAnim="WeaponIdle"
      SelectAnim="WeaponEquip"
      PutDownAnim="WeaponPutDown"
-     ReloadAnim="weaponequipempty"
-     ReloadAnimRate=1.3636
+     SelectSound=Sound'UT3Weapons.Enforcer.EnforcerTakeOut'
+     bShowChargingBar=False
+     Description="For decades, the Enforcer pistol was the combat sidearm of choice. Veteran soldiers appreciated the lightweight handgun's power, accuracy, and balance. In recent years, the ever-burning desire for greater firepower led to general issue of the AR770 assault rifle. Military procurement officers were drawn to the AR770's higher cyclic rate and underslung M355 grenade launcher, but seasoned combatants missed the dependability of the Enforcer. Axon Research listened to the soldiers, and their new Enforcer MP ('Machine Pistol') model provides the best of both worlds. Side-fed magazines provide greater capacity, while balancing the shooter's aim when wielding two pistols. With a deadly accurate semi-automatic mode, and a selectable burst fire mode, the Enforcer is back, and the modern battlefield will never be the same."
+     HudColor=(B=255,G=255)
+     SmallViewOffset=(X=70.000000,Y=0.000000,Z=0.000000)
+     CustomCrossHairScale=1.200000
+     CustomCrossHairTextureName="UT3HUD.Crosshairs.UT3CrosshairEnforcer"
+     PickupClass=Class'UT3Style.UT3EnforcerPickup'
+     PlayerViewPivot=(Pitch=-500,Yaw=1500)
+     AttachmentClass=Class'UT3Style.UT3EnforcerAttachment'
+     IconMaterial=TexScaler'UT3HUD.Icons.UT3IconsScaled'
+     IconCoords=(X1=299,Y1=171,X2=355,Y2=199)
+     ItemName="UT3 Enforcer"
      Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_Enforcers_1P'
      DrawScale=1.000000
-     SmallViewOffset=(X=70,Y=0,Z=0)
-     PlayerViewPivot=(Pitch=-500,Yaw=1500,Roll=0)
-     AttachmentClass=class'UT3EnforcerAttachment'
-     ReloadSound=Sound'UT3Weapons2.Enforcer.EnforcerReload'
-     bAlreadyLoaded=False
-     AkimboDelay=2.0
-     AkimboTime=1.3636
      HighDetailOverlay=None
 }

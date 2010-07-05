@@ -118,18 +118,17 @@ function projectile SpawnProjectile(Vector Start, Rotator Dir)
 
 defaultproperties
 {
-	TransFireSound    = ProceduralSound'TranslocatorFire'
-	RecallFireSound   = SoundGroup'TranslocatorRecall'
-	RecallFailedSound = Sound'BSeekLost1'
-	RecallAnim="WeaponReturn"
-	RecallDownAnim="WeaponReturnDn"
-	RecallRightAnim="WeaponReturnRt"
-	RecallLeftAnim="WeaponReturnLt"
-	
-	ProjectileClass = class'UT3TranslocatorDiskRed'
-	TeamProjectileClasses[0] = class'UT3TranslocatorDiskRed'
-	TeamProjectileClasses[1] = class'UT3TranslocatorDiskBlue'
-	FireAnim="WeaponFire"
-	TweenTime=0.0
-	FireAnimRate=1.0
+     TeamProjectileClasses(0)=Class'UT3Style.UT3TranslocatorDiskRed'
+     TeamProjectileClasses(1)=Class'UT3Style.UT3TranslocatorDiskBlue'
+     RecallFailedSound=Sound'WeaponSounds.BaseGunTech.BSeekLost1'
+     RecallAnim="weaponreturn"
+     RecallDownAnim="weaponreturndn"
+     RecallRightAnim="weaponreturnrt"
+     RecallLeftAnim="weaponreturnlt"
+     TransFireSound=ProceduralSound'UT3Style.Translocator.TranslocatorFire'
+     RecallFireSound=SoundGroup'UT3Style.Translocator.TranslocatorRecall'
+     FireAnim="WeaponFire"
+     FireAnimRate=1.000000
+     TweenTime=0.000000
+     ProjectileClass=Class'UT3Style.UT3TranslocatorDiskRed'
 }

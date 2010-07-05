@@ -111,21 +111,17 @@ simulated function FlashMuzzleFlash()
 
 defaultproperties
 {
-	bInstantFire = True
-	Spread       = 0.0675
-	DamageMin    = 40
-	DamageMax    = 40
-	DamageType   = class'DamTypeONSChainGun'
-	FireInterval = 0.1
-
-	FireSoundClass = Sound'UT3Weapons2.Stinger.StingerPrimaryAmb'
-    bAmbientFireSound=True
-
-	mTracerInterval=0.06
-	mTracerClass=class'XEffects.NewTracer'
-	mTracerPullback=150.0
-	mTracerMinDistance=0.0
-	mTracerSpeed=15000.0
-
-	AIInfo(0)=(bInstantHit=true,AimError=750)
+     mTracerClass=Class'XEffects.NewTracer'
+     mTracerInterval=0.060000
+     mTracerPullback=150.000000
+     mTracerSpeed=15000.000000
+     bInstantFire=True
+     bAmbientFireSound=True
+     Spread=0.067500
+     FireInterval=0.100000
+     FireSoundClass=Sound'UT3Weapons2.Stinger.StingerPrimaryAmb'
+     DamageType=Class'Onslaught.DamTypeONSChainGun'
+     DamageMin=40
+     DamageMax=40
+     AIInfo(0)=(bInstantHit=True,aimerror=750.000000)
 }

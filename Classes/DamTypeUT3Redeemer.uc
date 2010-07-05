@@ -8,10 +8,8 @@ class DamTypeUT3Redeemer extends DamTypeRedeemer;
 
 defaultproperties
 {
-
-    WeaponClass=class'UT3Redeemer'
-    KDeathVel=700
-    KDeathUpKick=700
-
-    VehicleDamageScaling=1.500000
+     WeaponClass=Class'UT3Style.UT3Redeemer'
+     KDeathVel=700.000000
+     KDeathUpKick=700.000000
+     VehicleDamageScaling=1.500000
 }

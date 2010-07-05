@@ -15,6 +15,5 @@ class UT3TranslocatorDiskRed extends UT3TranslocatorDisk;
 
 defaultproperties
 {
-	TransTrailClass=class'UT3TranslocatorTrailRed'
-	TransFlareClass=class'TransFlareRed'
+     TransTrailClass=Class'UT3Style.UT3TranslocatorTrailRed'
 }

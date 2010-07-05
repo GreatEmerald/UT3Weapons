@@ -61,14 +61,12 @@ function Timer()
 
 defaultproperties
 {
-	DrawScale3D = (X=1,Y=1,Z=1)
-	DrawScale   = 1.0
-	StaticMesh  = StaticMesh'SPMAReticle'
-	
-	ReachableInitScale = 1.25
-	ReachableScale     = 1.0
-	UnreachableScale   = 0.8
-	ReachableMesh      = StaticMesh'SPMAReticleLock'
-	UnreachableMesh    = StaticMesh'SPMAReticle'
-	bReticleActivated  = False
+     ReachableInitScale=1.250000
+     ReachableScale=1.000000
+     UnreachableScale=0.800000
+     ReachableMesh=StaticMesh'UT3Style.SPMAReticle.SPMAReticleLock'
+     UnreachableMesh=StaticMesh'UT3Style.SPMAReticle.SPMAReticle'
+     bReticleActivated=False
+     StaticMesh=StaticMesh'UT3Style.SPMAReticle.SPMAReticle'
+     DrawScale3D=(X=1.000000,Y=1.000000,Z=1.000000)
 }

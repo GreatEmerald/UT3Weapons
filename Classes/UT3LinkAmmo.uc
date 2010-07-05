@@ -8,6 +8,6 @@ class UT3LinkAmmo extends LinkAmmo;
 
 defaultproperties
 {
-    PickupClass=class'UT3LinkAmmoPickup'
-    InitialAmount=50
+     InitialAmount=50
+     PickupClass=Class'UT3Style.UT3LinkAmmoPickup'
 }

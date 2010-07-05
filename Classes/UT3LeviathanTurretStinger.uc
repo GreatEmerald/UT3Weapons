@@ -15,7 +15,7 @@ class UT3LeviathanTurretStinger extends UT3LeviathanTurret;
 
 defaultproperties
 {
-	GunClass=class'UT3LeviathanTurretWeaponMinigun'
-	VehiclePositionString="in a Leviathan Stinger turret"
-	VehicleNameString="Leviathan Stinger Turret"
+     GunClass=Class'UT3Style.UT3LeviathanTurretWeaponMinigun'
+     VehiclePositionString="in a Leviathan Stinger turret"
+     VehicleNameString="Leviathan Stinger Turret"
 }

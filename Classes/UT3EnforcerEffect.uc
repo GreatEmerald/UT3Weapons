@@ -65,12 +65,8 @@ simulated function SpawnEffects()
 
 defaultproperties
 {
+     mLifeRange(0)=0.250000
      mSizeRange(0)=3.000000
      mSizeRange(1)=6.000000
-     mLifeRange(0)=0.250000
      LifeSpan=0.250000
-     //UnlockedMuzFlash3Class=class'XEffects.AssaultMuzFlash3rd'
-     //UnlockedMuzFlashClass=class'XEffects.AssaultMuzFlash1st'
-    // WeaponMuzFlashBone='FwdReceiver'
-     //AttachmentMuzFlashBone='FwdReceiver'
 }

@@ -410,17 +410,16 @@ simulated function float ChargeBar()
 
 defaultproperties
 {
-	bForceCenterAim    = True // rotation is initially disabled
-	PitchUpLimit       = 16000
-	WeaponFireOffset   = 0.0
-	RotationsPerSecond = 1.0
-	
-	DistantFireSound  = Sound'DistantBooms.DistantSPMA'
-	ReadyToFireSound  = Sound'WeaponSounds.BaseGunTech.BSeekLost1'
-	FireSoundClass    = Sound'SPMACannonFire'
-	FireInterval      = 3.5
-	AltFireSoundClass = Sound'SPMACannonFire'
-	AltFireInterval   = 1.5
-	ProjectileClass        = class'UT3HellfireSPMAShell'
-	AltFireProjectileClass = class'UT3HellfireSPMACamera'
+     DistantFireSound=Sound'DistantBooms.Generic.DistantSPMA'
+     ReadyToFireSound=Sound'WeaponSounds.BaseGunTech.BSeekLost1'
+     PitchUpLimit=16000
+     WeaponFireOffset=0.000000
+     RotationsPerSecond=1.000000
+     bForceCenterAim=True
+     FireInterval=3.500000
+     AltFireInterval=1.500000
+     FireSoundClass=ProceduralSound'UT3Style.SPMA.SPMACannonFire'
+     AltFireSoundClass=ProceduralSound'UT3Style.SPMA.SPMACannonFire'
+     ProjectileClass=Class'UT3Style.UT3HellfireSPMAShell'
+     AltFireProjectileClass=Class'UT3Style.UT3HellfireSPMACamera'
 }

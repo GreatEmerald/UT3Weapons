@@ -5,10 +5,10 @@
 //-----------------------------------------------------------
 class UT3GoliathTurret extends ONSTankSecondaryTurret;
 
-DefaultProperties
+defaultproperties
 {
-  FireSoundClass=sound'UT3Vehicles.Goliath.GoliathMinigunTurret'
-  Spread=0.03
-  DamageMin=18
-  DamageMax=18
+     Spread=0.030000
+     FireSoundClass=Sound'UT3Vehicles.Goliath.GoliathMinigunTurret'
+     DamageMin=18
+     DamageMax=18
 }

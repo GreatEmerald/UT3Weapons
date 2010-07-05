@@ -84,14 +84,12 @@ event ModeDoFire()
     }
 }
 
-
 defaultproperties
 {
-     FireLoopAnim="weaponfireburst"
+     ReBurstDelay=0.866700
+     AimErrorTime=1.420000
      FireAnim=
-     FireRate=0.12
-     ReBurstDelay=0.8667
-     FireLoopAnimRate=1.3636
-     StartFireTime=0.0
-     AimErrorTime=1.42
+     FireLoopAnim="weaponfireburst"
+     FireLoopAnimRate=1.363600
+     FireRate=0.120000
 }

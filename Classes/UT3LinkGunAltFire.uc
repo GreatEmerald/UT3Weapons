@@ -105,30 +105,24 @@ function DrawMuzzleFlash(Canvas Canvas)
 
 defaultproperties
 {
-    AmmoClass=class'UT3LinkAmmo'
-    Damage=11
-    MakeLinkSound=Sound'BaseLinkGunAltFireStart'
-    PreFireSound=Sound'LinkGunAltFireStart'
-    PostFireSound=Sound'LinkGunAltFireStop'
-    FireRate=0.1
-
-    BeamSounds(0)=Sound'LinkGunAltFireLoop'
-    BeamSounds(1)=Sound'LinkGunAltFireImpactLoop'
-    BeamSounds(2)=Sound'LinkGunAltFireImpactFleshLoop'
-    BeamSounds(3)=Sound'LinkGunAltFireImpactFleshLoop'
-    BeamEffectClass=Class'UT3LinkBeamEffect'
-
-    bInitAimError=false
-    MomentumTransfer=10000.000000 //GE: Originally 50000
-    DamageType=class'DamTypeUT3LinkBeam'
-
-
-    // TODO: Make it really sound when it hits different materials
-    
+     PreFireSound=ProceduralSound'UT3Style.LinkGun.LinkGunAltFireStart'
+     PostFireSound=ProceduralSound'UT3Style.LinkGun.LinkGunAltFireStop'
+     BeamEffectClass=Class'UT3Style.UT3LinkBeamEffect'
+     MakeLinkSound=Sound'UT3Style.LinkGun.BaseLinkGunAltFireStart'
+     DamageType=Class'UT3Style.DamTypeUT3LinkBeam'
+     Damage=11
+     MomentumTransfer=10000.000000
+     bInitAimError=False
+     BeamSounds(0)=Sound'UT3Style.LinkGun.LinkGunAltFireLoop'
+     BeamSounds(1)=Sound'UT3Style.LinkGun.LinkGunAltFireImpactLoop'
+     BeamSounds(2)=Sound'UT3Style.LinkGun.LinkGunAltFireImpactFleshLoop'
+     BeamSounds(3)=Sound'UT3Style.LinkGun.LinkGunAltFireImpactFleshLoop'
+     PreFireTime=0.300000
      PreFireAnim="WeaponAltFireStart"
      FireAnim=
      FireLoopAnim="WeaponAltFire"
      FireEndAnim="WeaponAltFireEnd"
-     PreFireTime=0.3
      FireEndAnimRate=0.500000
+     FireRate=0.100000
+     AmmoClass=Class'UT3Style.UT3LinkAmmo'
 }

@@ -42,13 +42,10 @@ function PlayFiring()
 
 defaultproperties
 {
-    AmmoClass=class'UT3RocketAmmo'
-
-    ProjectileClass=class'UT3RocketProj'
-    FireSound=Sound'UT3Weapons2.RocketLauncher.RocketLauncherFire'
-    TransientSoundVolume=0.4
-
-    FireRate=1.050000
-    FireAnim="WeaponFire"
-    TweenTime=0.0
+     TransientSoundVolume=0.400000
+     FireAnim="WeaponFire"
+     FireSound=Sound'UT3Weapons2.RocketLauncher.RocketLauncherFire'
+     FireRate=1.050000
+     AmmoClass=Class'UT3Style.UT3RocketAmmo'
+     ProjectileClass=Class'UT3Style.UT3RocketProj'
 }

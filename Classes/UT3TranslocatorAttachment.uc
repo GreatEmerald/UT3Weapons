@@ -31,10 +31,10 @@ function InitFor(Inventory I)
 
 defaultproperties
 {
-	   Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_Translocator_3P_Mid'
-     RelativeLocation=(X=0,Y=-2,Z=1)
+     Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_Translocator_3P_Mid'
+     RelativeLocation=(Y=-2.000000,Z=1.000000)
      RelativeRotation=(Pitch=32768,Yaw=16384)
-     DrawScale=0.85
-     Skins(0)=Material'UT3WeaponSkins.Translocator.TranslocatorSkinRed'
-     Skins(1)=Material'UT3WeaponSkins.Translocator.TranslocatorSkinRed'
+     DrawScale=0.850000
+     Skins(0)=Shader'UT3WeaponSkins.Translocator.TranslocatorSkinRed'
+     Skins(1)=Shader'UT3WeaponSkins.Translocator.TranslocatorSkinRed'
 }

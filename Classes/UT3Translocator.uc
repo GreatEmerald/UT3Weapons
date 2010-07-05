@@ -150,52 +150,43 @@ simulated function PlayIdle()
 
 defaultproperties
 {
-	ItemName    = "UT3 Translocator"
-	Description = "The Translocator was originally designed by Liandri R&D for rapid rescue of expensive mining equipment during tunnel collapses and related emergencies. The technology also saved couintless lives, but not without a cost: rapid deresolution and reconstitution led to synaptic disruptions, and the debilitating symptoms like Teleportation Related Dementia (TReDs).||Today, after years of lucrative military development contracts, portable teleportation technology has been declared 'sufficiently safe' for regular use by frontline infantry."
-
-	FireModeClass[0] = class'UT3TranslocatorFire'
-	FireModeClass[1] = class'UT3TranslocatorActivate'
-	AttachmentClass = class'UT3TranslocatorAttachment'
-
-	SelectSound = Sound'TranslocatorRaise'
-	TransientSoundVolume = 0.7
-	TransientSoundRadius = 1000.0
-
-	// higher capacity and recharge rate
-	AmmoChargeF    = 7.0
-	RepAmmo        = 7
-	AmmoChargeMax  = 7.0
-	AmmoChargeRate = 0.8
-
-	CustomCrosshairTextureName="UT3HUD.Crosshairs.UT3CrosshairDefault"
-	CustomCrosshairColor=(B=128,G=255,R=255,A=255)
-	CustomCrosshairScale=1.2
-	HudColor=(B=128,G=255,R=255,A=255)
-
-	IconMaterial=Material'UT3HUD.Icons.UT3IconsScaled'
-    IconCoords=(X1=300,Y1=230,X2=361,Y2=256)
-    
+     RedSkin=Shader'UT3WeaponSkins.Translocator.TranslocatorSkinRed'
+     BlueSkin=Shader'UT3WeaponSkins.Translocator.TranslocatorSkinBlue'
+     RedEffect=FinalBlend'UT3WeaponSkins.Translocator.FbElec2'
+     BlueEffect=FinalBlend'UT3WeaponSkins.Translocator.FbElec1'
+     EmptyBringUpAnim="weaponequipempty"
+     IdleAnimEmpty="weaponidleempty"
+     PutDownEmptyAnim="weaponputdownempty"
+     AmmoChargeF=7.000000
+     RepAmmo=7
+     AmmoChargeMax=7.000000
+     AmmoChargeRate=0.800000
+     FireModeClass(0)=Class'UT3Style.UT3TranslocatorFire'
+     FireModeClass(1)=Class'UT3Style.UT3TranslocatorActivate'
      IdleAnim="WeaponIdle"
-     IdleAnimEmpty="WeaponIdleEmpty"
      RestAnim="WeaponIdle"
      AimAnim="WeaponIdle"
      RunAnim="WeaponIdle"
      SelectAnim="WeaponEquip"
-     EmptyBringUpAnim="WeaponEquipEmpty"
      PutDownAnim="WeaponPutDown"
-     PutDownEmptyAnim="WeaponPutDownEmpty"
+     BringUpTime=0.466700
+     SelectSound=Sound'UT3Style.Translocator.TranslocatorRaise'
+     Description="The Translocator was originally designed by Liandri R&D for rapid rescue of expensive mining equipment during tunnel collapses and related emergencies. The technology also saved couintless lives, but not without a cost: rapid deresolution and reconstitution led to synaptic disruptions, and the debilitating symptoms like Teleportation Related Dementia (TReDs).||Today, after years of lucrative military development contracts, portable teleportation technology has been declared 'sufficiently safe' for regular use by frontline infantry."
      Priority=0
+     HudColor=(B=128,G=255,R=255)
+     SmallViewOffset=(X=9.000000,Y=4.000000,Z=-6.000000)
      CustomCrosshair=19
+     CustomCrossHairColor=(B=128,G=255,R=255)
+     CustomCrossHairScale=1.200000
+     CustomCrossHairTextureName="UT3HUD.Crosshairs.UT3CrosshairDefault"
+     AttachmentClass=Class'UT3Style.UT3TranslocatorAttachment'
+     IconMaterial=TexScaler'UT3HUD.Icons.UT3IconsScaled'
+     IconCoords=(X1=300,Y1=230,X2=361,Y2=256)
+     ItemName="UT3 Translocator"
      Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_Translocator_1P'
-     DrawScale = 1.0
-     SmallViewOffset=(X=9,Y=4,Z=-6)
-     BringUpTime=0.4667
-     
-     RedSkin=Material'UT3WeaponSkins.Translocator.TranslocatorSkinRed'
-     BlueSkin=Material'UT3WeaponSkins.Translocator.TranslocatorSkinBlue'
-     RedEffect=Material'UT3WeaponSkins.Translocator.FbElec2'
-     BlueEffect=Material'UT3WeaponSkins.Translocator.FbElec1'
-     
-     Skins(0)=Material'UT3WeaponSkins.Translocator.FbElec2'
-     Skins(1)=Material'UT3WeaponSkins.Translocator.TranslocatorSkinRed'
+     DrawScale=1.000000
+     Skins(0)=FinalBlend'UT3WeaponSkins.Translocator.FbElec2'
+     Skins(1)=Shader'UT3WeaponSkins.Translocator.TranslocatorSkinRed'
+     TransientSoundVolume=0.700000
+     TransientSoundRadius=1000.000000
 }

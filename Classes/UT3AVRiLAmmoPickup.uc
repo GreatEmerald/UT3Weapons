@@ -6,8 +6,11 @@
 
 class UT3AVRiLAmmoPickup extends ONSAVRiLAmmoPickup;
 
-DefaultProperties
+defaultproperties
 {
-    InventoryType=class'UT3AVRiLAmmo' //what item to create in inventory (Epic comment)
-    PickupMessage="Longbow AVRiL Ammo"
+     InventoryType=Class'UT3Style.UT3AVRiLAmmo'
+     PickupMessage="Longbow AVRiL Ammo"
+     StaticMesh=StaticMesh'UT3Pickups-SM.Ammo.AVRILammo'
+     DrawScale=1.600000
+     PrePivot=(Z=5.000000)
 }

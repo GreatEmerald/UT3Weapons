@@ -85,18 +85,16 @@ simulated function Tick(float DeltaTime)
 
 defaultproperties
 {
-	VehicleNameString = "UT3 Manta"
-
-    MaxYawRate=3.0
-    UprightStiffness=450.000000 //The manual says it doesn't do anything
-	UprightDamping=20.000000  //The manual says it doesn't do anything
-	PitchTorqueMax=9.0  //18 is a bit too over the top  //13.5 as well
-	RollTorqueMax=25.0
-	DriverWeapons(0)=(WeaponClass=class'UT3MantaPlasmaGun',WeaponBone=PlasmaGunAttachment);
-	IdleSound=sound'UT3Vehicles.Manta.MantaEngine'
-    StartUpSound=sound'UT3Vehicles.Manta.MantaEnter'
-    ShutDownSound=sound'UT3Vehicles.Manta.MantaLeave'
-    JumpSound=sound'UT3Vehicles.Manta.MantaJump'
-    DuckSound=sound'UT3Vehicles.Manta.MantaDuck'
-    HornSounds(1)=sound'ONSVehicleSounds-S.Horns.LaCuchachaHorn'
+     JumpSound=Sound'UT3Vehicles.Manta.MantaJump'
+     DuckSound=Sound'UT3Vehicles.Manta.MantaDuck'
+     UprightStiffness=450.000000
+     UprightDamping=20.000000
+     MaxYawRate=3.000000
+     RollTorqueMax=25.000000
+     DriverWeapons(0)=(WeaponClass=Class'UT3Style.UT3MantaPlasmaGun')
+     IdleSound=Sound'UT3Vehicles.Manta.MantaEngine'
+     StartUpSound=Sound'UT3Vehicles.Manta.MantaEnter'
+     ShutDownSound=Sound'UT3Vehicles.Manta.MantaLeave'
+     VehicleNameString="UT3 Manta"
+     HornSounds(1)=Sound'ONSVehicleSounds-S.Horns.LaCuchachaHorn'
 }

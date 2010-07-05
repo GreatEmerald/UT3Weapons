@@ -5,12 +5,10 @@
 //-----------------------------------------------------------
 class UT3CicadaTurret extends ONSDualACGatlingGun;
 
-DefaultProperties
+defaultproperties
 {
-     BeamEffectClass(0)=Class'UT3CicadaTurretFire'
-     BeamEffectClass(1)=Class'UT3CicadaTurretFire'
-
-     FireSoundClass=sound'UT3Vehicles.Cicada.Cicada_TurretFire'
-     FireSoundVolume=3.000000 //GE: Again it's a FLOAT!!
-     //FireForce=""
+     BeamEffectClass(0)=Class'UT3Style.UT3CicadaTurretFire'
+     BeamEffectClass(1)=Class'UT3Style.UT3CicadaTurretFire'
+     FireSoundClass=SoundGroup'UT3Vehicles.Cicada.Cicada_TurretFire'
+     FireSoundVolume=3.000000
 }

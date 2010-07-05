@@ -52,26 +52,16 @@ function byte BestMode()
 
 defaultproperties
 {
-    bCanThrow=false
-    AIRating=+1.0
-    bNetNotify=false
-
-    FireModeClass(0)=UT3SuperShockBeamFire
-    FireModeClass(1)=UT3SuperShockBeamFire
-    //AttachmentClass=class'UT3InstagibRifleAttachment'
-    InventoryGroup=4
-    ItemName="UT3 Instagib Rifle"
-    PickupClass=class'UT3InstagibRiflePickup'
-    HudColor=(B=255,G=0,R=160,A=255)
-    CustomCrosshairTextureName="UT3HUD.Crosshairs.UT3CrosshairInstagib"
-	CustomCrosshairColor=(B=255,G=0,R=160,A=255)
-	CustomCrosshairScale=1.0
-
-	IconMaterial=Material'UT3HUD.Icons.UT3IconsScaled'
-    IconCoords=(X1=361,Y1=239,X2=444,Y2=259)
-    
-     Skins(0)=Shader'UT3WeaponSkins.ShockRifle.InstagibRifleSkin'
      RedSkin=Shader'UT3WeaponSkins.ShockRifle.InstagibRifleSkin'
      BlueSkin=Shader'UT3WeaponSkins.ShockRifle.InstagibRifleSkinB'
+     FireModeClass(0)=Class'UT3Style.UT3SuperShockBeamFire'
+     FireModeClass(1)=Class'UT3Style.UT3SuperShockBeamFire'
+     AIRating=1.000000
+     bCanThrow=False
+     CustomCrossHairTextureName="UT3HUD.Crosshairs.UT3CrosshairInstagib"
+     PickupClass=Class'UT3Style.UT3InstagibRiflePickup'
+     IconCoords=(X1=361,Y1=239,X2=444,Y2=259)
+     ItemName="UT3 Instagib Rifle"
+     Skins(0)=Shader'UT3WeaponSkins.ShockRifle.InstagibRifleSkin'
+     bNetNotify=False
 }
-

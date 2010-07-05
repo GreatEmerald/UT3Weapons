@@ -19,7 +19,6 @@ function bool KeyEvent(EInputKey Key, EInputAction Action, FLOAT Delta )
 //TODO !!GE: How to replicate this to the actual Scorpion code?
 //GE: UT3Scorpion.GoToState('Ejecting'); or more likely UT3Scorpion.Boost
 
-DefaultProperties
+defaultproperties
 {
-   bActive=true
 }

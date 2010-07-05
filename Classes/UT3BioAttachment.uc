@@ -32,7 +32,7 @@ simulated event ThirdPersonEffects()
 defaultproperties
 {
      Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_BioRifle_1P'
-     DrawScale=0.9
+     RelativeLocation=(X=90.000000,Y=-35.000000,Z=-48.000000)
      RelativeRotation=(Pitch=32768)
-     RelativeLocation=(X=90,Y=-35,Z=-48)
+     DrawScale=0.900000
 }

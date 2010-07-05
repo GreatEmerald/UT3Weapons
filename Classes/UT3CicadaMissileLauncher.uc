@@ -139,14 +139,13 @@ function Projectile SpawnProjectile(class<Projectile> ProjClass, bool bAltFire) 
     return P;
 }
 
-
-DefaultProperties
+defaultproperties
 {
-    FireInterval=0.25
-    AltFireInterval=0.5
-    ProjectileClass=class'UT3CicadaRocket'
-    AltFireProjectileClass=class'UT3CicadaRocket'
-    LoadSound=sound'UT3Vehicles.Cicada.Cicada_MissleLoad01'
-    FireSoundClass=Sound'UT3Vehicles.Cicada.Cicada_MissleEject01'
-    AltFireSoundClass=Sound'UT3Vehicles.Cicada.Cicada_MissleEject01'
+     LoadSound=Sound'UT3Vehicles.Cicada.Cicada_MissleLoad01'
+     FireInterval=0.250000
+     AltFireInterval=0.500000
+     FireSoundClass=Sound'UT3Vehicles.Cicada.Cicada_MissleEject01'
+     AltFireSoundClass=Sound'UT3Vehicles.Cicada.Cicada_MissleEject01'
+     ProjectileClass=Class'UT3Style.UT3CicadaRocket'
+     AltFireProjectileClass=Class'UT3Style.UT3CicadaRocket'
 }

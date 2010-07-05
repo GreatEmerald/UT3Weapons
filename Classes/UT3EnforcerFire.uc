@@ -76,18 +76,16 @@ function PlayFiring()
 
 defaultproperties
 {
-    AmmoClass=class'UT3EnforcerAmmo'
-    DamageMin=20
-    DamageMax=20
-    //bPawnRapidFireAnim=false
-    FireSound=Sound'UT3Weapons.Enforcer.EnforcerPrimary2'
-    Spread=0.030
-    FireRate=0.36
-    BotRefireRate=0.36
-    Momentum=1000.0
-    DamageType=class'DamTypeUT3Enforcer'
-    FireAnim="WeaponFire"
-    BeamEffectClass=Class'UT3EnforcerEffect'
-    AimError=600
+     BeamEffectClass=Class'UT3Style.UT3EnforcerEffect'
+     DamageType=Class'UT3Style.DamTypeUT3Enforcer'
+     DamageMin=20
+     DamageMax=20
+     Momentum=1000.000000
+     FireAnim="WeaponFire"
+     FireSound=Sound'UT3Weapons.Enforcer.EnforcerPrimary2'
+     FireRate=0.360000
+     AmmoClass=Class'UT3Style.UT3EnforcerAmmo'
+     BotRefireRate=0.360000
+     aimerror=600.000000
+     Spread=0.030000
 }
-

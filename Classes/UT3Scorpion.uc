@@ -285,24 +285,22 @@ function VehicleCeaseFire(bool bWasAltFire)
 
 defaultproperties
 {
-	VehicleNameString = "UT3 Scorpion"
-	VehiclePositionString="in a Scorpion"
-	RedSkin=Shader'VMVehicles-TX.RVGroup.RVChassisFinalRED'
-    BlueSkin=Shader'VMVehicles-TX.RVGroup.RVChassisFinalBLUE'
-    DriverWeapons(0)=(WeaponClass=Class'UT3ScorpionTurret',WeaponBone="ChainGunAttachment")
-    bHasAltFire=False
-    BoostForce=1800.000000
-    SelfDestructDamage=600
-    GroundSpeed=950.0000
-    bHasHandBrake=False //GE: Override for the space bar?
-    BoostSound=Sound'UT3Vehicles.SCORPION.ScorpionBoost'
-    BoostReadySound=None
-    //IdleSound=sound'UT3Vehicles.SCORPION.ScorpionEngine'
-    StartUpSound=sound'UT3Vehicles.SCORPION.ScorpionStartUp'
-    ShutDownSound=sound'UT3Vehicles.SCORPION.ScorpionExit'
-    RanOverDamageType=class'DamTypeRVRoadkill'
-    CrushedDamageType=class'DamTypeRVPancake'
-    SelfDestructDamageType=class'UT3ScorpionSDDamage'
-    BoostIconCoords = (X1=2,Y1=843,X2=97,Y2=50)
-    EjectIconCoords = (X1=92,Y1=317,X2=50,Y2=50)
+     BoostIconCoords=(X1=2,Y1=843,X2=97,Y2=50)
+     EjectIconCoords=(X1=92,Y1=317,X2=50,Y2=50)
+     BoostForce=1800.000000
+     BoostSound=Sound'UT3Vehicles.SCORPION.ScorpionBoost'
+     BoostReadySound=None
+     SelfDestructDamage=600
+     SelfDestructDamageType=Class'UT3Style.UT3ScorpionSDDamage'
+     DriverWeapons(0)=(WeaponClass=Class'UT3Style.UT3ScorpionTurret')
+     RedSkin=Shader'VMVehicles-TX.RVGroup.RVChassisFinalRED'
+     BlueSkin=Shader'VMVehicles-TX.RVGroup.RVChassisFinalBLUE'
+     StartUpSound=Sound'UT3Vehicles.SCORPION.ScorpionStartUp'
+     ShutDownSound=Sound'UT3Vehicles.SCORPION.ScorpionExit'
+     bHasHandbrake=False
+     VehiclePositionString="in a Scorpion"
+     VehicleNameString="UT3 Scorpion"
+     RanOverDamageType=Class'Onslaught.DamTypeRVRoadkill'
+     CrushedDamageType=Class'Onslaught.DamTypeRVPancake'
+     GroundSpeed=950.000000
 }

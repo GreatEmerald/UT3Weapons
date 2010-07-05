@@ -26,11 +26,11 @@ simulated function PlayFiring()
 
 defaultproperties
 {
-     Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_Avril_3P_Mid'     
-     RelativeLocation=(X=0,Y=-2,Z=1)
+     FireAnim="weaponreload"
+     FireAnimRate=0.500000
+     TweenTime=0.100000
+     Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_Avril_3P_Mid'
+     RelativeLocation=(X=0.000000,Y=-2.000000,Z=1.000000)
      RelativeRotation=(Pitch=32768,Yaw=16384)
-     DrawScale=0.9
-     FireAnim="WeaponReload"
-     FireAnimRate=0.5
-     TweenTime=0.1
+     DrawScale=0.900000
 }

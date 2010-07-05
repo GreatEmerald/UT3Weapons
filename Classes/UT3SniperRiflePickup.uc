@@ -8,16 +8,14 @@ class UT3SniperRiflePickup extends ClassicSniperriflePickup;
 
 defaultproperties
 {
-    InventoryType=class'UT3SniperRifle'
-    PickupMessage="UT3 Sniper Rifle"
-    PickupSound=Sound'UT3PickupSounds.Generic.SniperPickup'
-    TransientSoundVolume=0.58
-    
-    StaticMesh=StaticMesh'UT3WPStatics.UT3SniperRiflePickup'
-    PrePivot=(Y=19,Z=3)
-    DrawScale=1.1
-
-    MaxDesireability=0.630000
-	  Skins(0)=Shader'UT3WeaponSkins.SniperRifle.SniperRifleSkinRed'
-	  StandUp=(X=0.5,Y=0.0,Z=0.25)
+     StandUp=(X=0.500000,Z=0.250000)
+     MaxDesireability=0.630000
+     InventoryType=Class'UT3Style.UT3SniperRifle'
+     PickupMessage="UT3 Sniper Rifle"
+     PickupSound=Sound'UT3PickupSounds.Generic.sniperpickup'
+     StaticMesh=StaticMesh'UT3WPStatics.UT3SniperRiflePickup'
+     DrawScale=1.100000
+     PrePivot=(Y=19.000000,Z=3.000000)
+     Skins(0)=Shader'UT3WeaponSkins.SniperRifle.SniperRifleSkinRed'
+     TransientSoundVolume=0.580000
 }

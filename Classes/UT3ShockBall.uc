@@ -89,22 +89,16 @@ event TakeDamage( int Damage, Pawn EventInstigator, vector HitLocation, vector M
     }
 }
 
-
 defaultproperties
 {
-    Damage=55
-    ComboDamage=215
-    //ComboRadius=275
-    ComboSound=Sound'UT3Weapons.ShockRifle.ShockCombo'
-    ComboMomentumTransfer=150000.000000
-    DamageRadius=120.000000
-    MomentumTransfer=70000.000000
-    MyDamageType=class'DamTypeUT3ShockBall'
-    ComboDamageType=class'DamTypeUT3ShockCombo'
-    PrimaryDamageType=class'DamTypeUT3ShockBeam'
-
-    AmbientSound=Sound'UT3Weapons.ShockRifle.ShockRifleAltAmb'
-    ImpactSound=Sound'UT3Weapons.ShockRifle.ShockBallImpact'
-    ComboAmmoCost=3
-    LifeSpan=8.000000
+     PrimaryDamageType=Class'UT3Style.DamTypeUT3ShockBeam'
+     ComboSound=Sound'UT3Weapons.ShockRifle.ShockCombo'
+     ComboDamage=215.000000
+     ComboDamageType=Class'UT3Style.DamTypeUT3ShockCombo'
+     Damage=55.000000
+     DamageRadius=120.000000
+     MyDamageType=Class'UT3Style.DamTypeUT3ShockBall'
+     ImpactSound=Sound'UT3Weapons.ShockRifle.ShockBallImpact'
+     AmbientSound=Sound'UT3Weapons.ShockRifle.ShockRifleAltAmb'
+     LifeSpan=8.000000
 }

@@ -29,10 +29,9 @@ simulated function Explode(vector HitLocation, vector HitNormal)
 
 defaultproperties
 {
-    //TrailTex=FinalBlend'UT3WeaponsT.Stinger.StingerMuzFlash'
-    Damage=38
-    TransientSoundVolume=0.25
-    MyDamageType=class'UT3DamTypeStingerShard'
-    Speed=2500.000000
-    MaxSpeed=4000.000000
+     Speed=2500.000000
+     MaxSpeed=4000.000000
+     Damage=38.000000
+     MyDamageType=Class'UT3Style.UT3DamTypeStingerShard'
+     TransientSoundVolume=0.250000
 }

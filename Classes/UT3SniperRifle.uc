@@ -222,46 +222,36 @@ simulated function vector GetEffectStart()
 
 defaultproperties
 {
-    ItemName="UT3 Sniper Rifle"
-    Description="The venerable Axon Research long-range target interdiction rifle is the weapon of choice for the discerning sniper. Acquisition of a target at distance requires a steady hand, but the rewards merit the effort: the high-caliber round is lethal at any range. With a precise headshot, the target will be neutralized by the super-sonic bullet long before they hear the report. As they say in the N.E.G. Marines: 'any shot you hear is nothing to be worried about.'"
-
-    FireModeClass(0)=UT3SniperFire
-
-    PickupClass=class'UT3SniperRiflePickup'
-    AttachmentClass=class'UT3SniperAttachment'
-    SelectSound=Sound'UT3Weapons2.Sniper.SniperTakeOut'
-    TransientSoundVolume=0.73
-
-    bSniping=true
-    AIRating=0.700000
-    CurrentRating=0.700000
-
-    Priority=4.100000
-
-    CustomCrosshairTextureName="UT3HUD.Crosshairs.UT3CrosshairSniperRifle"
-	CustomCrosshairColor=(B=64,G=0,R=255,A=255)
-	CustomCrosshairScale=1.0
-	HudColor=(B=64,G=0,R=255,A=255)
-	HUDMaterial=Texture'UT3WeaponSkins.SniperRifle.T_SniperCrosshair'
-	HighDetailOverlay=Shader'UT3WeaponSkins.SniperRifle.SniperRifleSkinRed'
-	Skins(0)=Texture'UT3WeaponSkins.SniperRifle.T_WP_SniperRifle_D' //GE: The skin must not be a combiner or it gets the "ghost" effect
-	RedSkin=Shader'UT3WeaponSkins.SniperRifle.SniperRifleSkinRed'
-	BlueSkin=Shader'UT3WeaponSkins.SniperRifle.SniperRifleSkinBlue'
-
-	IconMaterial=Material'UT3HUD.Icons.UT3IconsScaled'
-    IconCoords=(X1=362,Y1=260,X2=445,Y2=286)
-    
+     HUDMaterial=Texture'UT3WeaponSkins.SniperRifle.T_SniperCrosshair'
+     RedSkin=Shader'UT3WeaponSkins.SniperRifle.SniperRifleSkinRed'
+     BlueSkin=Shader'UT3WeaponSkins.SniperRifle.SniperRifleSkinBlue'
+     FireModeClass(0)=Class'UT3Style.UT3SniperFire'
      IdleAnim="WeaponIdle"
      RestAnim="WeaponIdle"
      AimAnim="WeaponIdle"
      RunAnim="WeaponIdle"
      SelectAnim="WeaponEquip"
      PutDownAnim="WeaponPutDown"
-     //OldPlayerViewPivot=(Yaw=49152)
+     BringUpTime=0.533000
+     SelectSound=Sound'UT3Weapons2.Sniper.SniperTakeOut'
+     AIRating=0.700000
+     CurrentRating=0.700000
+     Description="The venerable Axon Research long-range target interdiction rifle is the weapon of choice for the discerning sniper. Acquisition of a target at distance requires a steady hand, but the rewards merit the effort: the high-caliber round is lethal at any range. With a precise headshot, the target will be neutralized by the super-sonic bullet long before they hear the report. As they say in the N.E.G. Marines: 'any shot you hear is nothing to be worried about.'"
+     Priority=4
+     HudColor=(B=64,G=0,R=255)
+     SmallViewOffset=(X=40.000000)
+     CustomCrossHairColor=(B=64,G=0,R=255)
+     CustomCrossHairTextureName="UT3HUD.Crosshairs.UT3CrosshairSniperRifle"
+     PickupClass=Class'UT3Style.UT3SniperRiflePickup'
+     PlayerViewPivot=(Pitch=1000,Yaw=0)
+     BobDamping=1.000000
+     AttachmentClass=Class'UT3Style.UT3SniperAttachment'
+     IconMaterial=TexScaler'UT3HUD.Icons.UT3IconsScaled'
+     IconCoords=(X1=362,Y1=260,X2=445,Y2=286)
+     ItemName="UT3 Sniper Rifle"
      Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_SniperRifle_1P'
      DrawScale=1.000000
-     PlayerViewPivot=(Pitch=1000,Yaw=0)
-     SmallViewOffset=(X=40,Y=10)
-     BobDamping=1.0
-     BringUpTime=0.533
+     Skins(0)=Texture'UT3WeaponSkins.T_WP_SniperRifle_D'
+     TransientSoundVolume=0.730000
+     HighDetailOverlay=Shader'UT3WeaponSkins.SniperRifle.SniperRifleSkinRed'
 }

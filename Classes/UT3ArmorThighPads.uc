@@ -8,8 +8,6 @@ Copyright (c) 2008, Wormbo
 
 class UT3ArmorThighPads extends UT3Armor;
 
-#exec OBJ LOAD FILE=UT3Pickups.utx
-#exec OBJ LOAD FILE=UT3Pickups-SM.usx
 
 //=============================================================================
 // Default values
@@ -17,11 +15,7 @@ class UT3ArmorThighPads extends UT3Armor;
 
 defaultproperties
 {
-	//PickupClass = class'UT3ArmorThighPadsPickup'
-	Charge=30
-	ArmorAbsorption=50
-	AbsorptionPriority=30
-	
-	StaticMesh=StaticMesh'UT3Pickups-SM.Powerups.ThighPads'
-	Skin=Shader'UT3Pickups.ThighPads.ThighPadsSkin'
+     ArmorAbsorption=50
+     AbsorptionPriority=30
+     Charge=30
 }

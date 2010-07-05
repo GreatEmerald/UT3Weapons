@@ -20,18 +20,13 @@ function Timer()
 
 defaultproperties
 {
-    AmmoClass=class'UT3AVRiLAmmo'
-    AmmoPerFire=1
-
-    ProjectileClass=class'UT3AVRiLRocket'
-    KickMomentum=(X=0,Y=0,Z=0)
-
-    FireSound=Sound'UT3Weapons2.AVRIL.AVRILFire'
-    TransientSoundVolume=0.5
-    ReloadSound=Sound'UT3Weapons2.AVRIL.AVRILReload'
-    AVRiLSoundVolume=0.7
-    
-      FireAnim="WeaponFire"
-      ReloadAnim="weaponreload"
-      ReloadAnimRate=0.85
+     AVRiLSoundVolume=0.700000
+     KickMomentum=(X=0.000000,Z=0.000000)
+     FireAnim="WeaponFire"
+     ReloadAnim="weaponreload"
+     ReloadAnimRate=0.850000
+     FireSound=Sound'UT3Weapons2.AVRiL.AVRILFire'
+     ReloadSound=Sound'UT3Weapons2.AVRiL.AVRILReload'
+     AmmoClass=Class'UT3Style.UT3AVRiLAmmo'
+     ProjectileClass=Class'UT3Style.UT3AVRiLRocket'
 }

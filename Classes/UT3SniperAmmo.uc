@@ -8,8 +8,7 @@ class UT3SniperAmmo extends ClassicSniperAmmo;
 
 defaultproperties
 {
-    PickupClass=class'UT3SniperAmmoPickup'
-    MaxAmmo=40
-    InitialAmount=10
+     MaxAmmo=40
+     InitialAmount=10
+     PickupClass=Class'UT3Style.UT3SniperAmmoPickup'
 }
-

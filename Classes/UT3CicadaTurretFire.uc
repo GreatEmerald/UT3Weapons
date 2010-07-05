@@ -16,10 +16,10 @@ simulated function PostNetBeginPlay()
 	PlaySound(TurretFireSound, SLOT_None, 1.0,, 300,1, false); //GE: 5 is too much!
 }
 
-DefaultProperties
+defaultproperties
 {
-   TurretFireSound=sound'UT3Vehicles.Cicada.Cicada_TurretFire'
-        Begin Object Class=BeamEmitter Name=BeamEmitter0
+     TurretFireSound=SoundGroup'UT3Vehicles.Cicada.Cicada_TurretFire'
+     Begin Object Class=BeamEmitter Name=BeamEmitter0
          BeamDistanceRange=(Min=512.000000,Max=512.000000)
          DetermineEndPointBy=PTEP_Distance
          RotatingSheets=3
@@ -126,4 +126,5 @@ DefaultProperties
          LifetimeRange=(Min=0.200000,Max=0.200000)
      End Object
      Emitters(3)=SpriteEmitter'OnslaughtBP.ONSBellyTurretFire.SpriteEmitter11'
+
 }

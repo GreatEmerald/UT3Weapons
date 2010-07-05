@@ -8,6 +8,6 @@ class UT3AVRiLAmmo extends ONSAVRiLAmmo;
 
 defaultproperties
 {
-    PickupClass=class'UT3AVRiLAmmoPickup'
-    MaxAmmo=15
+     MaxAmmo=15
+     PickupClass=Class'UT3Style.UT3AVRiLAmmoPickup'
 }

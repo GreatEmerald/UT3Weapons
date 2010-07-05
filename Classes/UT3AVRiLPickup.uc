@@ -6,17 +6,16 @@
 
 class UT3AVRiLPickup extends ONSAVRiLPickup;
 
-DefaultProperties
+defaultproperties
 {
-    InventoryType=class'UT3AVRIL'
-    PickupMessage="Longbow AVRiL"
-    PickupSound=Sound'UT3PickupSounds.Generic.AVRILPickup'
-    TransientSoundVolume=0.6
-    
-    StaticMesh=StaticMesh'UT3WPStatics.UT3AVRiLPickup'
-    PrePivot=(Y=25)
-    DrawScale=1.2
-    Skins(0)=Shader'UT3WeaponSkins.AVRiL.AVRiLSkin'
-    Skins(1)=Shader'UT3WeaponSkins.AVRiL.AVRiLProjSkin'
-    StandUp=(X=0.25,Y=0.0,Z=0.25)
+     StandUp=(X=0.250000,Y=0.000000,Z=0.250000)
+     InventoryType=Class'UT3Style.UT3AVRIL'
+     PickupMessage="Longbow AVRiL"
+     PickupSound=Sound'UT3PickupSounds.Generic.AVRILPickup'
+     StaticMesh=StaticMesh'UT3WPStatics.UT3AVRiLPickup'
+     DrawScale=1.200000
+     PrePivot=(Y=25.000000)
+     Skins(0)=Shader'UT3WeaponSkins.AVRiL.AVRiLSkin'
+     Skins(1)=Shader'UT3WeaponSkins.AVRiL.AVRiLProjSkin'
+     TransientSoundVolume=0.600000
 }

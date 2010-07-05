@@ -65,8 +65,8 @@ function SuperExplosion()
 
 defaultproperties
 {
-	Speed            =   1500.0
-	MaxSpeed         =   1500.0
-	Damage           =    120.0
-	DamageRadius     =    300.0
+     Speed=1500.000000
+     MaxSpeed=1500.000000
+     Damage=120.000000
+     DamageRadius=300.000000
 }

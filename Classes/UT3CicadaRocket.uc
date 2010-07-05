@@ -67,12 +67,12 @@ simulated function Timer() //GE: Change the sound volume to something bearable
 	}
 }
 
-DefaultProperties
+defaultproperties
 {
-   Speed=1000.000000
-   MaxSpeed=4000.000000
-   MomentumTransfer=40000.000000
-   DamageRadius=220.000000
-   KillRange=2000.000000
-   IgniteSound=Sound'UT3Vehicles.Cicada.Cicada_Fire'
+     KillRange=2000.000000
+     IgniteSound=SoundGroup'UT3Vehicles.Cicada.Cicada_Fire'
+     Speed=1000.000000
+     MaxSpeed=4000.000000
+     DamageRadius=220.000000
+     MomentumTransfer=40000.000000
 }

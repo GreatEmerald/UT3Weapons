@@ -37,13 +37,12 @@ simulated function PostNetBeginPlay()
     Super(xWeaponAttachment).ThirdPersonEffects();
 } */
 
-
 defaultproperties
 {
      Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_ShockRifle_3P'
-     RelativeLocation=(X=0,Y=-2,Z=1)
-     RelativeRotation=(Pitch=32768,Yaw=16384)
-     DrawScale=0.9
+     RelativeLocation=(X=0.000000,Y=-2.000000,Z=1.000000)
+     RelativeRotation=(Yaw=16384)
+     DrawScale=0.900000
      Skins(0)=Shader'UT3WeaponSkins.ShockRifle.ShockRifleSkin'
      Skins(1)=None
 }

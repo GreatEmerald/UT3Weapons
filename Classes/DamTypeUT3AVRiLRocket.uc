@@ -6,10 +6,10 @@
 
 class DamTypeUT3AVRiLRocket extends DamTypeONSAVRiLRocket;
 
-DefaultProperties
+defaultproperties
 {
-    WeaponClass=class'UT3AVRIL'
-    GibPerterbation=0.150000
-    KDamageImpulse=3000.000000
-    VehicleMomentumScaling=5.000000
+     WeaponClass=Class'UT3Style.UT3AVRIL'
+     GibPerterbation=0.150000
+     KDamageImpulse=3000.000000
+     VehicleMomentumScaling=5.000000
 }

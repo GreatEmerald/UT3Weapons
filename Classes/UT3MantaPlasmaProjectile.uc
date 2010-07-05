@@ -8,7 +8,5 @@ class UT3MantaPlasmaProjectile extends ONSHoverBikePlasmaProjectile;
 
 defaultproperties
 {
-   Damage=36.000000
-   MomentumTransfer=4000.000000
-   LifeSpan=1.600000
+     Damage=36.000000
 }

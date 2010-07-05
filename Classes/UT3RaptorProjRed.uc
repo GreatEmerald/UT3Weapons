@@ -6,10 +6,8 @@
 //-----------------------------------------------------------
 class UT3RaptorProjRed extends ONSAttackCraftPlasmaProjectileRed;
 
-DefaultProperties
+defaultproperties
 {
-   Damage=20.000000 //GE: We're weaker! Hooray!
-   AccelerationMagnitude=20000 //GE: And slower!
-   MomentumTransfer=4000.000000
-   LifeSpan=1.600000
+     AccelerationMagnitude=20000.000000
+     Damage=20.000000
 }

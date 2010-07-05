@@ -27,10 +27,10 @@ simulated function Explode(vector HitLocation, vector HitNormal)
 
 defaultproperties
 {
-    Damage=100.0
-    MomentumTransfer=85000.000000
-    MyDamageType=class'DamTypeUT3Rocket'
-    LifeSpan=8.0
-    AmbientSound=Sound'UT3Weapons2.RocketLauncher.RocketLauncherAmb'
-    ExplosionSound=Sound'UT3Weapons2.RocketLauncher.RocketLauncherExplosion'
+     ExplosionSound=Sound'UT3Weapons2.RocketLauncher.RocketLauncherExplosion'
+     Damage=100.000000
+     MomentumTransfer=85000.000000
+     MyDamageType=Class'UT3Style.DamTypeUT3Rocket'
+     AmbientSound=Sound'UT3Weapons2.RocketLauncher.RocketLauncherAmb'
+     LifeSpan=8.000000
 }

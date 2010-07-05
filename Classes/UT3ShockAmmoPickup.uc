@@ -8,11 +8,12 @@ class UT3ShockAmmoPickup extends ShockAmmoPickup;
 
 defaultproperties
 {
-    InventoryType=class'UT3ShockAmmo'
-    PickupMessage="Shock Core"
-    PickupSound=Sound'UT3PickupSounds.ShockCorePickup'
-    TransientSoundVolume=0.73
-    DrawScale=0.49
-    DrawScale3D=(X=1,Y=1,Z=1)
+     InventoryType=Class'UT3Style.UT3ShockAmmo'
+     PickupMessage="Shock Core"
+     PickupSound=Sound'UT3PickupSounds.Generic.ShockCorePickup'
+     StaticMesh=StaticMesh'UT3Pickups-SM.Ammo.ShockRifleAmmo'
+     DrawScale=1.500000
+     DrawScale3D=(X=1.000000,Z=1.000000)
+     PrePivot=(Z=22.000000)
+     TransientSoundVolume=0.730000
 }
-

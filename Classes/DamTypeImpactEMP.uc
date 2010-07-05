@@ -8,9 +8,8 @@ class DamTypeImpactEMP extends DamTypeShieldImpact;
 
 defaultproperties
 {
-    DeathString="%k's Impact Hammer made a short circuit in %o's vehicle."
-    MaleSuicide="%o managed to destroy his vehicle while being inside!"
-    FemaleSuicide="%o managed to destroy her vehicle while being inside!"
-
-    WeaponClass=class'UT3ImpactHammer'
+     WeaponClass=Class'UT3Style.UT3ImpactHammer'
+     DeathString="%k's Impact Hammer made a short circuit in %o's vehicle."
+     FemaleSuicide="%o managed to destroy her vehicle while being inside!"
+     MaleSuicide="%o managed to destroy his vehicle while being inside!"
 }

@@ -8,7 +8,7 @@ class UT3FlakAmmo extends FlakAmmo;
 
 defaultproperties
 {
-    PickupClass=class'UT3FlakAmmoPickup'
-    MaxAmmo=30
-    InitialAmount=10
+     MaxAmmo=30
+     InitialAmount=10
+     PickupClass=Class'UT3Style.UT3FlakAmmoPickup'
 }

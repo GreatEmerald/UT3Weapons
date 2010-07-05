@@ -528,7 +528,6 @@ exec function PrintPickup(string Variable, optional int i)
 
 defaultproperties
 {
-    bVisible=true
-    bActive=true
-    HUDSpaceSize=0.02
+     HUDSpaceSize=0.020000
+     bVisible=True
 }

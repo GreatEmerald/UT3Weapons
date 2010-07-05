@@ -25,12 +25,10 @@ simulated event ThirdPersonEffects()
     Super(xWeaponAttachment).ThirdPersonEffects();
 }
 
-
 defaultproperties
 {
      Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_RocketLauncher_3P'
-     RelativeLocation=(X=0,Y=-2,Z=1)
+     RelativeLocation=(Y=-2.000000,Z=1.000000)
      RelativeRotation=(Pitch=32768,Yaw=16384)
-     DrawScale=1.0
-
+     DrawScale=1.000000
 }

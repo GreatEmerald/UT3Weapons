@@ -15,9 +15,9 @@ class UT3LeviathanRocket extends UT3RocketProj; //GE: From RocketProj to UT3Rock
 
 defaultproperties
 {
-	Damage       =   80.0
-	DamageRadius =  180.0
-	Speed        = 5000.0
-	MaxSpeed     = 5000.0
-    MomentumTransfer=50000.000000
+     Speed=5000.000000
+     MaxSpeed=5000.000000
+     Damage=80.000000
+     DamageRadius=180.000000
+     MomentumTransfer=50000.000000
 }

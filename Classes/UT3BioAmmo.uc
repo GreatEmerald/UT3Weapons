@@ -8,6 +8,6 @@ class UT3BioAmmo extends BioAmmo;
 
 defaultproperties
 {
-    PickupClass=class'UT3BioAmmoPickup'
-    InitialAmount=25
+     InitialAmount=25
+     PickupClass=Class'UT3Style.UT3BioAmmoPickup'
 }

@@ -178,68 +178,51 @@ simulated function PlayIdle()
 
 defaultproperties
 {
-     //AttachLoc=(X=-77.000000,Y=6.000000,Z=4.000000)
      AttachRot=(Pitch=22000,Yaw=-16384)
      GearRatio=-2.370000
      Blend=1.000000
+     FireModeClass(0)=Class'UT3Style.UT3MinigunFire'
+     FireModeClass(1)=Class'UT3Style.UT3MinigunAltFire'
      IdleAnim="WeaponIdle"
      RestAnim="WeaoponIdle"
      AimAnim="WeaponIdle"
      RunAnim="WeaponIdle"
      SelectAnim="WeaponEquip"
      PutDownAnim="WeaponPutDown"
+     IdleAnimRate=0.733300
+     RestAnimRate=0.733300
+     AimAnimRate=0.733300
+     RunAnimRate=0.733300
+     SelectAnimRate=1.000000
+     PutDownAnimRate=1.000000
+     PutDownTime=0.760000
+     BringUpTime=1.160000
+     SelectSound=Sound'UT3Weapons2.Stinger.StingerTakeOut'
      SelectForce="SwitchToMiniGun"
-     
-     IdleAnimRate=0.7333
-     RestAnimRate=0.7333
-     AimAnimRate=0.7333
-     RunAnimRate=0.7333
-     SelectAnimRate=1.0
-     PutDownAnimRate=1.0
-     BringUpTime=1.16
-     PutDownTime=0.76
-     
-     CurrentRating=0.710000
-     Priority=6.000000
      AIRating=0.710000
-
-     //EffectOffset=(X=100.000000,Y=18.000000,Z=-16.000000)
+     CurrentRating=0.710000
+     Description="Replacing the Minigun in this year's Tournament, the 'Stinger' is actually a Liandri mining tool converted into military service.|The Stinger fires shards of unprocessed Tarydium crystal at an alarming rate, raking opponents with a storm of deadly needles. The alternate fire shoots larger hunks of crystal that can knock back an opponent, sometimes even pinning them to walls."
      DisplayFOV=60.000000
+     Priority=6
      SmallViewOffset=(X=8.500000,Y=2.000000,Z=-2.000000)
-     //CenteredOffsetY=-6.000000
-     //CenteredRoll=0
-     //CenteredYaw=-500
+     CustomCrossHairColor=(B=0)
+     CustomCrossHairScale=1.500000
+     CustomCrossHairTextureName="UT3HUD.Crosshairs.UT3CrosshairStinger"
      InventoryGroup=6
-     //PlayerViewOffset=(X=2.000000,Y=-1.000000)
-     //PlayerViewPivot=(Yaw=500)
+     PickupClass=Class'UT3Style.UT3MinigunPickup'
      BobDamping=2.250000
-     AttachmentClass=class'UT3MinigunAttachment'
-    bDynamicLight=false
-    LightType=LT_Pulse
-    LightEffect=LE_NonIncidence
-    LightPeriod=3
-    LightBrightness=255
-    LightHue=30
-    LightSaturation=150
-    LightRadius=5.0
+     AttachmentClass=Class'UT3Style.UT3MinigunAttachment'
+     IconMaterial=TexScaler'UT3HUD.Icons.UT3IconsScaled'
+     IconCoords=(X1=227,Y1=254,X2=299,Y2=279)
+     ItemName="UT3 Stinger Minigun"
+     LightType=LT_Pulse
+     LightEffect=LE_NonIncidence
+     LightHue=30
+     LightSaturation=150
+     LightBrightness=255.000000
+     LightRadius=5.000000
+     LightPeriod=3
      Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_Stinger_1P'
      DrawScale=0.400000
      SoundRadius=400.000000
-     //HighDetailOverlay=Combiner'UT2004Weapons.WeaponSpecMap2'
-
-    ItemName="UT3 Stinger Minigun"
-    Description="Replacing the Minigun in this year's Tournament, the 'Stinger' is actually a Liandri mining tool converted into military service.|The Stinger fires shards of unprocessed Tarydium crystal at an alarming rate, raking opponents with a storm of deadly needles. The alternate fire shoots larger hunks of crystal that can knock back an opponent, sometimes even pinning them to walls."
-
-    FireModeClass(0)=UT3MinigunFire
-    FireModeClass(1)=UT3MinigunAltFire
-    PickupClass=class'UT3MinigunPickup'
-    SelectSound=Sound'UT3Weapons2.Stinger.StingerTakeOut'
-
-    CustomCrosshairTextureName="UT3HUD.Crosshairs.UT3CrosshairStinger"
-	CustomCrosshairColor=(B=0,G=255,R=255,A=255)
-	CustomCrosshairScale=1.5
-	HudColor=(B=0,G=255,R=255,A=255)
-
-	IconMaterial=Material'UT3HUD.Icons.UT3IconsScaled'
-    IconCoords=(X1=227,Y1=254,X2=299,Y2=279)
 }

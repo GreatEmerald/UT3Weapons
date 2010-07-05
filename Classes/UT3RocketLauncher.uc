@@ -301,48 +301,37 @@ function bool BotFire(bool bFinished, optional name FiringMode)
 
 defaultproperties
 {
-    ItemName="UT3 Rocket Launcher"
-    Description="Each year, more accidental deaths are caused by the Trident Tri-barrel Rocket Launcher than in vehicular accidents and extreme sports combined. The kill radius for its standard dumbfire rocket is surprisingly high by design - so accidentally firing upon a nearby wall, or a nearby enemy soldier, can be quite fatal for the operator. The alternate fire adds to this suicidal lethality by loading and firing up to three rockets at once, in a spread, tight spiral, or lobbed like grenades. Regardless of the grim statistics, veteran soldiers still consider the 'old 8 ball' the most expedient way to put explosive ordnance on target."
-
-    FireModeClass(0)=UT3RocketFire
-    FireModeClass(1)=UT3RocketMultiFire
-    PickupClass=class'UT3RocketLauncherPickup'
-    AttachmentClass=class'UT3RocketAttachment'
-    SelectSound=Sound'UT3Weapons2.RocketLauncher.RocketLauncherTakeOut'
-    LockOnSound=Sound'UT3Weapons2.RocketLauncher.RocketLauncherSeekLock'
-    LockLostSound=Sound'UT3Weapons2.RocketLauncher.RocketLauncherSeekLost'
-    FireModeSwitchSound=Sound'UT3Weapons2.RocketLauncher.RocketLauncherAltModeChange'
-    LockRequiredTime=1.10000
-    LockAim=0.997000
-    SeekCheckFreq=0.100000
-    //LoadStartSound=Sound'UT3Weapons2.RocketLauncher.RocketLauncherLoad1'
-    //LoadEndSound=Sound'UT3Weapons2.RocketLauncher.RocketLauncherLoad2'
-    TransientSoundVolume=0.6
-    AIRating=0.78
-    CurrentRating=0.780000
-
-    Priority=10
-    CustomCrosshairTextureName="UT3HUD.Crosshairs.UT3CrosshairRocketLauncher"
-	CustomCrosshairColor=(B=0,G=0,R=255,A=255)
-	CustomCrosshairScale=1.2
-	HudColor=(B=0,G=0,R=255,A=255)
-	IconMaterial=Material'UT3HUD.Icons.UT3IconsScaled'
-    IconCoords=(X1=65,Y1=189,X2=130,Y2=214)
-    
+     LockOnSound=Sound'UT3Weapons2.RocketLauncher.RocketLauncherSeekLock'
+     LockLostSound=Sound'UT3Weapons2.RocketLauncher.RocketLauncherSeekLost'
+     FireModeSwitchSound=Sound'UT3Weapons2.RocketLauncher.RocketLauncherAltModeChange'
+     SpiralName="Spiral"
+     GrenadesName="Grenades"
+     SeekCheckFreq=0.100000
+     LockRequiredTime=1.100000
+     LockAim=0.997000
+     FireModeClass(0)=Class'UT3Style.UT3RocketFire'
+     FireModeClass(1)=Class'UT3Style.UT3RocketMultiFire'
      IdleAnim="WeaponIdle"
      RestAnim="WeaponIdle"
      AimAnim="WeaponIdle"
      RunAnim="WeaponIdle"
      SelectAnim="WeaponEquip"
      PutDownAnim="WeaponPutDown"
-     BringUpTime=0.6
      IdleAnimRate=1.000000
-     Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_RocketLauncher_1P'
-     HighDetailOverlay=None
-     
-     SpiralName="Spiral"
-     GrenadesName="Grenades"
-     
+     BringUpTime=0.600000
+     SelectSound=Sound'UT3Weapons2.RocketLauncher.RocketLauncherTakeOut'
+     Description="Each year, more accidental deaths are caused by the Trident Tri-barrel Rocket Launcher than in vehicular accidents and extreme sports combined. The kill radius for its standard dumbfire rocket is surprisingly high by design - so accidentally firing upon a nearby wall, or a nearby enemy soldier, can be quite fatal for the operator. The alternate fire adds to this suicidal lethality by loading and firing up to three rockets at once, in a spread, tight spiral, or lobbed like grenades. Regardless of the grim statistics, veteran soldiers still consider the 'old 8 ball' the most expedient way to put explosive ordnance on target."
+     Priority=10
+     SmallViewOffset=(X=15.000000,Y=12.000000,Z=-5.000000)
+     CustomCrossHairScale=1.200000
+     CustomCrossHairTextureName="UT3HUD.Crosshairs.UT3CrosshairRocketLauncher"
+     PickupClass=Class'UT3Style.UT3RocketLauncherPickup'
      PlayerViewPivot=(Pitch=1000,Roll=100)
-     SmallViewOffset=(X=15,Y=12,Z=-5)
+     AttachmentClass=Class'UT3Style.UT3RocketAttachment'
+     IconMaterial=TexScaler'UT3HUD.Icons.UT3IconsScaled'
+     IconCoords=(X1=65,Y1=189,X2=130,Y2=214)
+     ItemName="UT3 Rocket Launcher"
+     Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_RocketLauncher_1P'
+     TransientSoundVolume=0.600000
+     HighDetailOverlay=None
 }

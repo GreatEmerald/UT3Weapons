@@ -8,11 +8,12 @@ class UT3EnforcerAmmoPickup extends AssaultAmmoPickup;
 
 defaultproperties
 {
-    InventoryType=class'UT3EnforcerAmmo'
-
-    PickupMessage="Enforcer Clip"
-    PickupSound=Sound'UT3PickupSounds.Generic.EnforcerClipPickup'
-    TransientSoundVolume=1.15
-
-    AmmoAmount=16
+     AmmoAmount=16
+     InventoryType=Class'UT3Style.UT3EnforcerAmmo'
+     PickupMessage="Enforcer Clip"
+     PickupSound=Sound'UT3PickupSounds.Generic.EnforcerClipPickup'
+     StaticMesh=StaticMesh'UT3Pickups-SM.Ammo.EnforcerAmmo'
+     DrawScale=1.500000
+     PrePivot=(Z=11.000000)
+     TransientSoundVolume=1.150000
 }

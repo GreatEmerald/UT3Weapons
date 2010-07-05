@@ -21,7 +21,7 @@ function float SuggestAttackStyle()
 
 defaultproperties
 {
-  FireSoundClass=sound'UT3Vehicles.Manta.MantaFire'
-  TransientSoundVolume=0.4
-  ProjectileClass=class'UT3MantaPlasmaProjectile'
+     FireSoundClass=Sound'UT3Vehicles.Manta.MantaFire'
+     ProjectileClass=Class'UT3Style.UT3MantaPlasmaProjectile'
+     TransientSoundVolume=0.400000
 }

@@ -5,8 +5,8 @@
 //-----------------------------------------------------------
 class UT3CicadaTurretPawn extends ONSDualACGatlingGunPawn;
 
-DefaultProperties
+defaultproperties
 {
-    GunClass=Class'UT3CicadaTurret'
-    VehicleNameString="UT3 Cicada Laser Turret"
+     GunClass=Class'UT3Style.UT3CicadaTurret'
+     VehicleNameString="UT3 Cicada Laser Turret"
 }

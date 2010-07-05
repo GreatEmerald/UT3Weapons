@@ -110,40 +110,34 @@ simulated function bool StartFire(int Mode)
 
 defaultproperties
 {
-	ItemName = "UT3 Link Gun"
-
-	FireModeClass(0) = class'UT3LinkGunFire'
-	FireModeClass(1) = class'UT3LinkGunAltFire'
-
-	PickupClass     = class'UT3LinkGunPickup'
-	AttachmentClass = class'UT3LinkGunAttachment'
-
-	SelectSound = Sound'LinkGunRaise'
-	CustomCrosshairTextureName="UT3HUD.Crosshairs.UT3CrosshairLinkGun"
-	CustomCrosshairScale=1.3
-	CustomCrosshairColor=(B=0,G=255,R=255,A=255)
-	HudColor=(B=0,G=255,R=255,A=255)
-
-	IconMaterial=Material'UT3HUD.Icons.UT3IconsScaled'
-    IconCoords=(X1=226,Y1=233,X2=300,Y2=254)
-    Priority=5.000000
-    AIRating=0.710000
-    
+     FireModeClass(0)=Class'UT3Style.UT3LinkGunFire'
+     FireModeClass(1)=Class'UT3Style.UT3LinkGunAltFire'
      IdleAnim="WeaponIdle"
-     IdleAnimRate=0.7333
      RestAnim="WeaponIdle"
-     RestAnimRate=0.7333
      AimAnim="WeaponIdle"
-     AimAnimRate=0.7333
      RunAnim="WeaponIdle"
-     RunAnimRate=0.7333
      SelectAnim="WeaponEquip"
-     SelectAnimRate=0.7333
      PutDownAnim="WeaponPutDown"
-     PutDownAnimRate=0.7333
+     IdleAnimRate=0.733300
+     RestAnimRate=0.733300
+     AimAnimRate=0.733300
+     RunAnimRate=0.733300
+     SelectAnimRate=0.733300
+     PutDownAnimRate=0.733300
+     SelectSound=Sound'UT3Style.LinkGun.LinkGunRaise'
+     AIRating=0.710000
      OldPlayerViewPivot=(Yaw=49152)
+     Priority=5
+     HudColor=(B=0,R=255)
+     SmallViewOffset=(X=10.000000,Y=5.000000,Z=-10.000000)
+     CustomCrossHairColor=(B=0,R=255)
+     CustomCrossHairScale=1.300000
+     CustomCrossHairTextureName="UT3HUD.Crosshairs.UT3CrosshairLinkGun"
+     PickupClass=Class'UT3Style.UT3LinkGunPickup'
+     PlayerViewPivot=(Yaw=49152,Roll=-1200)
+     AttachmentClass=Class'UT3Style.UT3LinkGunAttachment'
+     IconMaterial=TexScaler'UT3HUD.Icons.UT3IconsScaled'
+     IconCoords=(X1=226,Y1=233,X2=300,Y2=254)
+     ItemName="UT3 Link Gun"
      Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_Linkgun_1P'
-     
-     SmallViewOffset=(X=10,Y=5,Z=-10)
-     PlayerViewPivot=(Pitch=0,Roll=-1200,Yaw=49152)
 }

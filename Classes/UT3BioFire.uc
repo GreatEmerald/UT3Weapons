@@ -45,12 +45,9 @@ function PlayFiring()
 
 defaultproperties
 {
-    AmmoClass=class'UT3BioAmmo'
-
-    ProjectileClass=class'UT3BioGlob'
-    FireRate=0.35
-
-    FireSound=Sound'UT3Weapons2.BioRifle.BioRifleFire'
      FireAnim="WeaponFire2"
-     TweenTime=0.1
+     FireSound=Sound'UT3Weapons2.BioRifle.BioRifleFire'
+     FireRate=0.350000
+     AmmoClass=Class'UT3Style.UT3BioAmmo'
+     ProjectileClass=Class'UT3Style.UT3BioGlob'
 }

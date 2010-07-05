@@ -142,7 +142,7 @@ static function UT3HudOverlay GetHudOverlay(Hud LocalHud)
 
 defaultproperties
 {
-	ToolTipColor        = (R=255,G=255,B=255,A=255)
-	DefaultIconMaterial = Texture'UT3HudIcons'
-	ToolTipSepCoords    = (X1=260,Y1=379,X2=29,Y2=27)
+     ToolTipColor=(B=255,G=255,R=255,A=255)
+     DefaultIconMaterial=Texture'UT3Style.Icons.UT3HudIcons'
+     ToolTipSepCoords=(X1=260,Y1=379,X2=29,Y2=27)
 }

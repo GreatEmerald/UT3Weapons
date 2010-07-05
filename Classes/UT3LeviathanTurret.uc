@@ -122,8 +122,8 @@ function DriverLeft()
 
 defaultproperties
 {
-	bShowChargingBar = True
-	bHasAltFire      = False
-	ShieldDuration   = 4.0
-	ShieldRecharge   = 5.0
+     ShieldDuration=4.000000
+     ShieldRecharge=5.000000
+     bHasAltFire=False
+     bShowChargingBar=True
 }

@@ -73,13 +73,12 @@ Begin:
 
 defaultproperties
 {
-    MomentumTransfer=250000.000000
-    MyDamageType=class'DamTypeUT3Redeemer'
-
-    AmbientSound=Sound'UT3Weapons2.Redeemer.RedeemerAmb'
-    RedeemerExplosionSound=Sound'UT3Weapons2.Redeemer.RedeemerExplOld'
-    RedeemerAmbExplosionSound=Sound'UT3Weapons2.Redeemer.RedeemerExplo2'
-    RedeemerAmbExplosionSound2=Sound'UT3Weapons2.Redeemer.RedeemerExplosion'
-    RotationRate=(Roll=0)
-    DesiredRotation=(Roll=0)
+     RedeemerExplosionSound=Sound'UT3Weapons2.Redeemer.RedeemerExplOld'
+     RedeemerAmbExplosionSound=Sound'UT3Weapons2.Redeemer.RedeemerExplo2'
+     RedeemerAmbExplosionSound2=Sound'UT3Weapons2.Redeemer.RedeemerExplosion'
+     MomentumTransfer=250000.000000
+     MyDamageType=Class'UT3Style.DamTypeUT3Redeemer'
+     AmbientSound=Sound'UT3Weapons2.Redeemer.RedeemerAmb'
+     RotationRate=(Roll=0)
+     DesiredRotation=(Roll=0)
 }

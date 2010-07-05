@@ -281,13 +281,11 @@ simulated function PostNetReceive()
 
 defaultproperties
 {
-	MortarCameraOffset = (X=-256.0,Z=128.0)
-	CVScale = 1.0
-	MaxTargetRange = 10240.0
-	Speed = 4000.0
-	
-	ImpactSound       = Sound'SPMAShellFragmentExplode'
-	bOrientToVelocity = True
-	bAlwaysRelevant   = True
-	TransientSoundRadius = 500.0
+     CVScale=1.000000
+     MaxTargetRange=10240.000000
+     MortarCameraOffset=(X=-256.000000,Z=128.000000)
+     ImpactSound=SoundGroup'UT3Style.SPMA.SPMAShellFragmentExplode'
+     bAlwaysRelevant=True
+     TransientSoundRadius=500.000000
+     bOrientToVelocity=True
 }

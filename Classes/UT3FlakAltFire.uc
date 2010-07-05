@@ -8,13 +8,10 @@ class UT3FlakAltFire extends FlakAltFire;
 
 defaultproperties
 {
-    AmmoClass=class'UT3FlakAmmo'
-
-    ProjectileClass=class'UT3FlakShell'
-    FireSound=Sound'UT3Weapons2.FlakCannon.FlakCannon_FireAltCue'
-    TransientSoundVolume=1.0
-
-    FireRate=1.0
-    FireAnim="WeaponFire"
+     TransientSoundVolume=1.000000
+     FireAnim="WeaponFire"
+     FireSound=SoundGroup'UT3Weapons2.FlakCannon.FlakCannon_FireAltCue'
+     FireRate=1.000000
+     AmmoClass=Class'UT3Style.UT3FlakAmmo'
+     ProjectileClass=Class'UT3Style.UT3FlakShell'
 }
-

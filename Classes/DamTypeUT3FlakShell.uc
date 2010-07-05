@@ -9,13 +9,11 @@ abstract;
 
 defaultproperties
 {
-    DeathString="%o was ripped to shreds by %k's shrapnel."
-    MaleSuicide="%o blew himself up with a flak shell."
-    FemaleSuicide="%o blew herself up with a flak shell."
-
-    GibPerterbation=0.25
-    bDetonatesGoop=true
-    bThrowRagdoll=true
-    VehicleMomentumScaling=3.000000
+     DeathString="%o was ripped to shreds by %k's shrapnel."
+     FemaleSuicide="%o blew herself up with a flak shell."
+     MaleSuicide="%o blew himself up with a flak shell."
+     bDetonatesGoop=True
+     bThrowRagdoll=True
+     GibPerterbation=0.250000
+     VehicleMomentumScaling=3.000000
 }
-

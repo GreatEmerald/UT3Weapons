@@ -94,17 +94,14 @@ function projectile SpawnProjectile(Vector Start, Rotator Dir)
 
 defaultproperties
 {
-    AmmoClass=class'UT3BioAmmo'
-    ProjectileClass=class'UT3BioGlobCharged'
-    FireSound=Sound'UT3Weapons2.BioRifle.BioRifleAltFire'
-    HoldSound=Sound'UT3Weapons2.BioRifle.BioRifleLoad'
-    ChargedAmbientSound=Sound'UT3Weapons2.BioRifle.BioRifleLoaded'
-    FireRate=0.35
-    //TransientSoundVolume=0.6
-    
-      GoopUpRate=0.350000
-      FireAnim="WeaponAltFire"
-      FireLoopAnim="weaponaltidle"
-      FireAnimRate=2.000000
+     ChargedAmbientSound=Sound'UT3Weapons2.BioRifle.BioRifleLoaded'
+     GoopUpRate=0.350000
+     HoldSound=Sound'UT3Weapons2.BioRifle.BioRifleLoad'
+     FireAnim="WeaponAltFire"
+     FireLoopAnim="WeaponAltIdle"
+     FireAnimRate=2.000000
+     FireSound=Sound'UT3Weapons2.BioRifle.BioRifleAltFire'
+     FireRate=0.350000
+     AmmoClass=Class'UT3Style.UT3BioAmmo'
+     ProjectileClass=Class'UT3Style.UT3BioGlobCharged'
 }
-

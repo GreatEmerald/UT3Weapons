@@ -66,8 +66,8 @@ function float DetourWeight(Pawn Other, float PathWeight)
 
 defaultproperties
 {
-	bPredictRespawns = true
-	RespawnTime = 30.0
-	RespawnSound = Sound'RespawnArmor'
-	MaxDesireability = 1.0
+     RespawnSound=Sound'UT3Style.Pickups.RespawnArmor'
+     MaxDesireability=1.000000
+     bPredictRespawns=True
+     RespawnTime=30.000000
 }

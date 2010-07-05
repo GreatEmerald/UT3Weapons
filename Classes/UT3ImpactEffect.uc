@@ -8,6 +8,6 @@ class UT3ImpactEffect extends ForceRingA;
 
 defaultproperties
 {
-     mColorRange(0)=(R=128,G=128,B=128)
-     mColorRange(1)=(R=128,G=128,B=128)
+     mColorRange(0)=(B=128,G=128,R=128)
+     mColorRange(1)=(B=128,G=128,R=128)
 }

@@ -8,10 +8,9 @@ class UT3ImpactHammerPickup extends ShieldGunPickup;
 
 defaultproperties
 {
-     InventoryType=Class'UT3ImpactHammer'
+     InventoryType=Class'UT3Style.UT3ImpactHammer'
      PickupMessage="Impact Hammer"
      PickupSound=None
      DrawType=DT_None
      StaticMesh=None
 }
-

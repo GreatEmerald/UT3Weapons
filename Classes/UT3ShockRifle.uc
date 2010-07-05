@@ -107,44 +107,36 @@ function byte BestMode()
 
 defaultproperties
 {
-    ItemName="UT3 Shock Rifle"
-    Description="The ASMD Shock Rifle has changed little since its first incorporation into the Liandri Tournament. The ASMD sports two firing modes: a thin photon beam, and a sphere of unstable plasma energy. These modes are each deadly in their own right, but used together they can neutralize opponents in a devastating shockwave. The energy spheres can be detonated with the photon beam, releasing the explosive energy of the anti-photons in the plasma's EM containment field."
-
-    FireModeClass(0)=UT3ShockFire
-    FireModeClass(1)=UT3ShockAltFire
-
-    PickupClass=class'UT3ShockRiflePickup'
-    AttachmentClass=class'UT3ShockRifleAttachment'
-
-    SelectSound=Sound'UT3Weapons.ShockRifle.ShockRifleTakeOut'
-    TransientSoundVolume=1.0
-
-    CustomCrosshairTextureName="UT3HUD.Crosshairs.UT3CrosshairShockRifle"
-	CustomCrosshairColor=(B=255,G=0,R=160,A=255)
-	HudColor=(B=255,G=0,R=160,A=255)
-	CustomCrosshairScale=1.00
-
-	IconMaterial=Material'UT3HUD.Icons.UT3IconsScaled'
-    IconCoords=(X1=363,Y1=190,X2=445,Y2=213)
-    bSniping=True
-
-    Priority=4.200000
-   AIRating=0.650000
-   
+     RedSkin=Shader'UT3WeaponSkins.ShockRifle.ShockRifleSkinRed'
+     BlueSkin=Shader'UT3WeaponSkins.ShockRifle.ShockRifleSkin'
+     FireModeClass(0)=Class'UT3Style.UT3ShockFire'
+     FireModeClass(1)=Class'UT3Style.UT3ShockAltFire'
      IdleAnim="WeaponIdle"
      RestAnim="WeaponIdle"
      AimAnim="WeaponIdle"
      RunAnim="WeaponIdle"
      SelectAnim="WeaponEquip"
      PutDownAnim="WeaponPutDown"
+     PutDownTime=0.367000
+     BringUpTime=0.367000
+     SelectSound=Sound'UT3Weapons.ShockRifle.ShockRifleTakeOut'
+     AIRating=0.650000
+     bSniping=True
+     Description="The ASMD Shock Rifle has changed little since its first incorporation into the Liandri Tournament. The ASMD sports two firing modes: a thin photon beam, and a sphere of unstable plasma energy. These modes are each deadly in their own right, but used together they can neutralize opponents in a devastating shockwave. The energy spheres can be detonated with the photon beam, releasing the explosive energy of the anti-photons in the plasma's EM containment field."
+     Priority=4
+     HudColor=(R=160)
+     SmallViewOffset=(X=25.000000,Y=11.000000,Z=-9.500000)
+     CustomCrossHairColor=(R=160)
+     CustomCrossHairScale=1.000000
+     CustomCrossHairTextureName="UT3HUD.Crosshairs.UT3CrosshairShockRifle"
+     PickupClass=Class'UT3Style.UT3ShockRiflePickup'
      PlayerViewPivot=(Pitch=0,Yaw=49652,Roll=-800)
-     SmallViewOffset=(X=25,Y=11,Z=-9.5)
+     AttachmentClass=Class'UT3Style.UT3ShockRifleAttachment'
+     IconMaterial=TexScaler'UT3HUD.Icons.UT3IconsScaled'
+     IconCoords=(X1=363,Y1=190,X2=445,Y2=213)
+     ItemName="UT3 Shock Rifle"
      Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_ShockRifle_1P'
-     BringUpTime=0.367
-     PutDownTime=0.367
-     HighDetailOverlay=None
      Skins(0)=Shader'UT3WeaponSkins.ShockRifle.ShockRifleSkin'
-     RedSkin=Shader'UT3WeaponSkins.ShockRifle.ShockRifleSkinRed'
-     BlueSkin=Shader'UT3WeaponSkins.ShockRifle.ShockRifleSkin'
+     TransientSoundVolume=1.000000
+     HighDetailOverlay=None
 }
-

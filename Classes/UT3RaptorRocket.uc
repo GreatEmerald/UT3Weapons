@@ -6,7 +6,7 @@
 //-----------------------------------------------------------
 class UT3RaptorRocket extends ONSAttackCraftMissle;
 
-DefaultProperties
+defaultproperties
 {
-   AccelRate=16000.000000 //GE: This is already ungodly fast. Now even faster!
+     AccelRate=16000.000000
 }

@@ -8,6 +8,6 @@ class UT3ImpactEffectAltB extends ForceRing;
 
 defaultproperties
 {
-     mColorRange(0)=(R=64,G=64,B=192)
-     mColorRange(1)=(R=64,G=64,B=192)
+     mColorRange(0)=(B=192,G=64,R=64)
+     mColorRange(1)=(B=192,G=64,R=64)
 }

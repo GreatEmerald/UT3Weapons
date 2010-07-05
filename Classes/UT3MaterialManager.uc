@@ -352,5 +352,5 @@ function FinalBlend GetSpawnEffectTexture(TexPannerTriggered SpawnEffectPanner, 
 
 defaultproperties
 {
-	RemoteRole = ROLE_None
+     RemoteRole=ROLE_None
 }

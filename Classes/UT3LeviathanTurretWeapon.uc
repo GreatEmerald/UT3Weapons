@@ -107,9 +107,8 @@ simulated function Destroyed()
 
 defaultproperties
 {
-	bNetNotify = True
-	
-	WeaponFireOffset     = 40.0
-	DualFireOffset       = 30.0
-	ShieldAttachmentBone = Object84
+     ShieldAttachmentBone="Object84"
+     WeaponFireOffset=40.000000
+     DualFireOffset=30.000000
+     bNetNotify=True
 }

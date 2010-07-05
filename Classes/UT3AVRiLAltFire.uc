@@ -113,11 +113,10 @@ simulated function vector GetBeamStart(vector X, optional bool bArt)
 
 defaultproperties
 {
-    AmmoClass=class'UT3AVRiLAmmo'
-
-    FireSound=Sound'UT3Weapons2.Generic.LaserTracer'
-    TransientSoundVolume=1.0
-    WarnTargetPct=0.100000
-    EffectOffset=(X=-5.000000,Y=15.000000,Z=20.000000)
-    TraceRange=10000.000000
+     EffectOffset=(X=-5.000000,Y=15.000000,Z=20.000000)
+     TraceRange=10000.000000
+     TransientSoundVolume=1.000000
+     FireSound=Sound'UT3Weapons2.Generic.LaserTracer'
+     AmmoClass=Class'UT3Style.UT3AVRiLAmmo'
+     WarnTargetPct=0.100000
 }

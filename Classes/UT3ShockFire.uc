@@ -36,15 +36,13 @@ function Rotator AdjustAim(Vector Start, float InAimError)
     return Super.AdjustAim(Start, InAimError);
 }
 
-
 defaultproperties
 {
-    AmmoClass=class'UT3ShockAmmo'
-    FireSound=Sound'UT3Weapons2.ShockRifle.ShockRifleFireCue'
-    TransientSoundVolume=0.47
-    FireRate=0.77
-    Momentum=60000.000000
-    DamageType=class'DamTypeUT3ShockBeam'
+     DamageType=Class'UT3Style.DamTypeUT3ShockBeam'
+     TransientSoundVolume=0.470000
      FireAnim="WeaponFire"
-     FireAnimRate=0.7333
+     FireAnimRate=0.733300
+     FireSound=SoundGroup'UT3Weapons2.ShockRifle.ShockRifleFireCue'
+     FireRate=0.770000
+     AmmoClass=Class'UT3Style.UT3ShockAmmo'
 }

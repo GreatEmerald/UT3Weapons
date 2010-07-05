@@ -137,44 +137,31 @@ function float GetAIRating()
     return FMin(0.6, 90.f / (EnemyDist + 1.f));
 }
 
-
-
 defaultproperties
 {
-	ItemName = "UT3 Impact Hammer"
-	Description="The Impact Hammer, originally designed for sub-surface drift mining, can focus several hundred metric tons of pressure into the space of a few square centimeters. The impact, and resulting shock wave, easily destabilizes solid stone to speed ore separation and excavation. After several mining accidents highlighted the Hammer's devastating effect on the human body, the N.E.G. military took interest. To improve the Hammer's effectiveness against vehicles with shock-absorbing armor, an alternate electromagnetic pulse (EMP) mode was added. The EMP violently scrambles onboard computer systems, quickly leading to engine failure. Field testing showed the EMP has a similar effect on infantry powerups, knocking them off soldiers and enabling battlefield recovery."
-
-	FireModeClass(0) = class'UT3ImpactHammerFire'
-    FireModeClass(1) = class'UT3ImpactHammerEMPFire'
-
-	PickupClass     = class'UT3ImpactHammerPickup'
-	AttachmentClass = class'UT3ImpactHammerAttachment'
-
-	SelectSound = Sound'UT3Weapons.ImpactHammer.ImpactHammerTakeOut'
-
-	CustomCrosshairTextureName="UT3HUD.Crosshairs.UT3CrosshairImpactHammer"
-	CustomCrosshairScale=1.5
-	CustomCrosshairColor=(B=128,G=255,R=255,A=255)
-	HudColor=(B=128,G=255,R=255,A=255)
-
-	IconMaterial=Material'UT3HUD.Icons.UT3IconsScaled'
-    IconCoords=(X1=226,Y1=162,X2=294,Y2=191)
-
-    //Priority=1.000000
-    //AIRating=0.350000
-    
-     HighDetailOverlay=None
-     Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_Impact_1P'
+     FireModeClass(0)=Class'UT3Style.UT3ImpactHammerFire'
+     FireModeClass(1)=Class'UT3Style.UT3ImpactHammerEMPFire'
      IdleAnim="WeaponIdle"
      RestAnim="WeaponIdle"
      AimAnim="WeaponIdle"
      RunAnim="WeaponIdle"
      SelectAnim="WeaponEquip"
      PutDownAnim="WeaponPutDown"
-     SelectAnimRate=1.3636
-     BringUpTime=0.5133
-     
-     PlayerViewPivot=(Pitch=2000,Yaw=-1000,Roll=0)
-     SmallViewOffset=(X=15,Y=6,Z=-5)
-     Skins(0)=Material'UT3WeaponSkins.ImpactHammer.ImpactHammerSkin'
-}           
+     BringUpTime=0.513300
+     SelectSound=Sound'UT3Weapons.ImpactHammer.ImpactHammerTakeOut'
+     Description="The Impact Hammer, originally designed for sub-surface drift mining, can focus several hundred metric tons of pressure into the space of a few square centimeters. The impact, and resulting shock wave, easily destabilizes solid stone to speed ore separation and excavation. After several mining accidents highlighted the Hammer's devastating effect on the human body, the N.E.G. military took interest. To improve the Hammer's effectiveness against vehicles with shock-absorbing armor, an alternate electromagnetic pulse (EMP) mode was added. The EMP violently scrambles onboard computer systems, quickly leading to engine failure. Field testing showed the EMP has a similar effect on infantry powerups, knocking them off soldiers and enabling battlefield recovery."
+     HudColor=(B=128,G=255)
+     SmallViewOffset=(X=15.000000,Y=6.000000,Z=-5.000000)
+     CustomCrossHairColor=(B=128,G=255)
+     CustomCrossHairScale=1.500000
+     CustomCrossHairTextureName="UT3HUD.Crosshairs.UT3CrosshairImpactHammer"
+     PickupClass=Class'UT3Style.UT3ImpactHammerPickup'
+     PlayerViewPivot=(Pitch=2000,Yaw=-1000)
+     AttachmentClass=Class'UT3Style.UT3ImpactHammerAttachment'
+     IconMaterial=TexScaler'UT3HUD.Icons.UT3IconsScaled'
+     IconCoords=(X1=226,Y1=162,X2=294,Y2=191)
+     ItemName="UT3 Impact Hammer"
+     Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_Impact_1P'
+     Skins(0)=Shader'UT3WeaponSkins.ImpactHammer.ImpactHammerSkin'
+     HighDetailOverlay=None
+}

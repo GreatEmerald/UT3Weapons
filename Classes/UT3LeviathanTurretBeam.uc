@@ -15,7 +15,7 @@ class UT3LeviathanTurretBeam extends UT3LeviathanTurret;
 
 defaultproperties
 {
-	GunClass=class'UT3LeviathanTurretWeaponBeam'
-	VehiclePositionString="in a Leviathan beam turret"
-	VehicleNameString="Leviathan Beam Turret"
+     GunClass=Class'UT3Style.UT3LeviathanTurretWeaponBeam'
+     VehiclePositionString="in a Leviathan beam turret"
+     VehicleNameString="Leviathan Beam Turret"
 }

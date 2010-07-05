@@ -8,5 +8,5 @@ class UT3ShockAmmo extends ShockAmmo;
 
 defaultproperties
 {
-    PickupClass=class'UT3ShockAmmoPickup'
+     PickupClass=Class'UT3Style.UT3ShockAmmoPickup'
 }

@@ -27,14 +27,11 @@ function Timer();
 
 defaultproperties
 {
-	Speed=1200
-	MaxSpeed=3500
-	AccelRate=20000.0
-	
-	Damage=100
-	DamageRadius=300
-	MomentumTransfer=4000
-	
-	DrawType   = DT_StaticMesh
-	StaticMesh = StaticMesh'WeaponStaticMesh.FlakChunk'
+     AccelRate=20000.000000
+     Speed=1200.000000
+     MaxSpeed=3500.000000
+     Damage=100.000000
+     DamageRadius=300.000000
+     MomentumTransfer=4000.000000
+     StaticMesh=StaticMesh'WeaponStaticMesh.FlakChunk'
 }

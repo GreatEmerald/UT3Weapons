@@ -15,9 +15,9 @@ class UT3LeviathanDriverWeapon extends ONSMASRocketPack;
 
 defaultproperties
 {
-	ProjectileClass  = Class'UT3LeviathanBolt'
-	FireInterval     = 0.3
-	DrawScale        = 0.6
-	DualFireOffset   = 45.0
-	RelativeLocation = (Z=-10)
+     DualFireOffset=45.000000
+     FireInterval=0.300000
+     ProjectileClass=Class'UT3Style.UT3LeviathanBolt'
+     RelativeLocation=(Z=-10.000000)
+     DrawScale=0.600000
 }

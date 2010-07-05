@@ -112,11 +112,13 @@ Respawn:
 
 defaultproperties
 {
-	bWasHidden = True
-	bNetNotify = True
-	RespawnEffectTime = 0.0
-	PickupSound = Sound'PickupHealthMedium'
-	RespawnSound = Sound'RespawnHealth'
-	TransientSoundVolume = 0.75
-	TransientSoundRadius = 1000.0
+     RespawnSound=Sound'UT3Style.Pickups.RespawnHealth'
+     bWasHidden=True
+     RespawnEffectTime=0.000000
+     PickupSound=Sound'UT3Style.Pickups.PickupHealthMedium'
+     StaticMesh=StaticMesh'UT3Pickups-SM.Powerups.HealthMedium'
+     DrawScale=1.600000
+     TransientSoundVolume=0.750000
+     TransientSoundRadius=1000.000000
+     bNetNotify=True
 }

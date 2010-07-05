@@ -106,18 +106,16 @@ function UpdateHit(Actor HitActor, vector HitLocation, vector HitNormal)
     mHitNormal = HitNormal;
 }
 
-
 defaultproperties
 {
-     Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_Stinger_3P_Mid'
-     DrawScale=0.9
-     RelativeRotation=(Pitch=32768,Yaw=16384)
-     RelativeLocation=(X=0,Y=-2,Z=2)
-     mShellCaseEmitterClass=Class'XEffects.ShellSpewer'
      mMuzFlashClass=Class'XEffects.NewMinigunMFlash'
+     mShellCaseEmitterClass=Class'XEffects.ShellSpewer'
+     FireAnim="WeaponFire"
+     AltFireAnim="WeaponAltFire"
+     FireAnimRate=1.000000
+     AltFireAnimRate=1.000000
      bHeavy=True
      bRapidFire=True
-     bAltRapidFire=False
      LightType=LT_Pulse
      LightEffect=LE_NonIncidence
      LightHue=30
@@ -126,10 +124,8 @@ defaultproperties
      LightRadius=5.000000
      LightPeriod=3
      CullDistance=5000.000000
-     FireAnim="WeaponFire"
-     AltFireAnim="WeaponAltFire"
-     FireAnimRate=1.0
-     AltFireAnimRate=1.0
-     TweenTime=0.0
-
+     Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_Stinger_3P_Mid'
+     RelativeLocation=(Y=-2.000000,Z=2.000000)
+     RelativeRotation=(Pitch=32768,Yaw=16384)
+     DrawScale=0.900000
 }

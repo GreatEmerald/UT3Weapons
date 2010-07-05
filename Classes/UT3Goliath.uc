@@ -15,14 +15,14 @@ class UT3Goliath extends ONSHoverTank;
 
 defaultproperties
 {
-	VehicleNameString = "UT3 Goliath"
-	DriverWeapons(0)=(WeaponClass=class'UT3GoliathCannon',WeaponBone=TankCannonWeapon)
-    PassengerWeapons(0)=(WeaponPawnClass=class'UT3GoliathTurretPawn',WeaponBone=MachineGunTurret)
-    IdleSound=sound'UT3Vehicles.Goliath.GoliathEngine'
-    StartUpSound=sound'UT3Vehicles.Goliath.GoliathStart'
-    ShutDownSound=sound'UT3Vehicles.Goliath.GoliathStop'
-    MaxGroundSpeed=600.0
-    GroundSpeed=500
-    SoundVolume=255
-    MaxThrust=200.000000//GE: was 65, maybe the tank is too fast now?
+     MaxGroundSpeed=600.000000
+     MaxThrust=200.000000
+     DriverWeapons(0)=(WeaponClass=Class'UT3Style.UT3GoliathCannon')
+     PassengerWeapons(0)=(WeaponPawnClass=Class'UT3Style.UT3GoliathTurretPawn')
+     IdleSound=Sound'UT3Vehicles.Goliath.GoliathEngine'
+     StartUpSound=Sound'UT3Vehicles.Goliath.GoliathStart'
+     ShutDownSound=Sound'UT3Vehicles.Goliath.GoliathStop'
+     VehicleNameString="UT3 Goliath"
+     GroundSpeed=500.000000
+     SoundVolume=255
 }

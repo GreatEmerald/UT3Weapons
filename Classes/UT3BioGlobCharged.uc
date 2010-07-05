@@ -8,8 +8,8 @@ class UT3BioGlobCharged extends UT3BioGlob;
 
 defaultproperties
 {
-    bMergeGlobs=true
-    ExplodeSound=Sound'UT3Weapons2.BioRifle.BioRifleAltExplode'
-    ImpactSound=Sound'UT3Weapons2.BioRifle.BioRifleAltStick'
-    LifeSpan=20.000000
+     bMergeGlobs=True
+     ExplodeSound=Sound'UT3Weapons2.BioRifle.BioRifleAltExplode'
+     ImpactSound=Sound'UT3Weapons2.BioRifle.BioRifleAltStick'
+     LifeSpan=20.000000
 }
