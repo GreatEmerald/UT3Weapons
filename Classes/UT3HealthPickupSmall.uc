@@ -13,7 +13,7 @@ class UT3HealthPickupSmall extends MiniHealthPack;
 // Imports
 //=============================================================================
 
-#exec audio import file=Sounds\PickupHealthSmall.wav group=Pickups
+#exec audio import file=Sounds\include\PickupHealthSmall.wav group=Pickups
 
 
 //=============================================================================

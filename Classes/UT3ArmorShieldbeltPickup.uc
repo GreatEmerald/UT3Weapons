@@ -13,7 +13,7 @@ class UT3ArmorShieldbeltPickup extends UT3ArmorPickup;
 // Imports
 //=============================================================================
 
-#exec audio import file=Sounds\PickupArmorShieldbelt.wav group=Pickups
+#exec audio import file=Sounds\include\PickupArmorShieldbelt.wav group=Pickups
 
 
 //=============================================================================

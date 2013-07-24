@@ -13,7 +13,7 @@ class UT3HealthPickupSuper extends SuperHealthPack;
 // Imports
 //=============================================================================
 
-#exec audio import file=Sounds\PickupHealthSuper.wav group=Pickups
+#exec audio import file=Sounds\include\PickupHealthSuper.wav group=Pickups
 
 
 //=============================================================================

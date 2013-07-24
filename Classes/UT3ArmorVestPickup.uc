@@ -13,7 +13,7 @@ class UT3ArmorVestPickup extends UT3ArmorPickup;
 // Imports
 //=============================================================================
 
-#exec audio import file=Sounds\PickupArmorChest.wav group=Pickups
+#exec audio import file=Sounds\include\PickupArmorChest.wav group=Pickups
 
 
 //=============================================================================

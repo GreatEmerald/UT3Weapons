@@ -13,7 +13,7 @@ class UT3HudOverlay extends HudOverlay;
 // Imports
 //=============================================================================
 
-#exec texture import file=Textures\UT3HudIcons.dds group=Icons alpha=1
+#exec texture import file=Textures\include\UT3HudIcons.dds group=Icons alpha=1
 
 
 //=============================================================================

@@ -13,8 +13,8 @@ class UT3HealthPickupMedium extends HealthPack;
 // Imports
 //=============================================================================
 
-#exec audio import file=Sounds\RespawnHealth.wav group=Pickups
-#exec audio import file=Sounds\PickupHealthMedium.wav group=Pickups
+#exec audio import file=Sounds\include\RespawnHealth.wav group=Pickups
+#exec audio import file=Sounds\include\PickupHealthMedium.wav group=Pickups
 
 
 //=============================================================================

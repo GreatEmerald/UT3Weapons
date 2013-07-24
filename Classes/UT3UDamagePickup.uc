@@ -13,9 +13,9 @@ class UT3UDamagePickup extends UT3TimedPickup;
 // Imports
 //=============================================================================
 
-#exec audio import group=UDamage file=Sounds\UDamage\UDamageSpawn.wav
-#exec audio import group=UDamage file=Sounds\UDamage\UDamageGroundLoop.wav
-#exec audio import group=UDamage file=Sounds\UDamage\UDamagePickup.wav
+#exec audio import group=UDamage file=Sounds\include\UDamage\UDamageSpawn.wav
+#exec audio import group=UDamage file=Sounds\include\UDamage\UDamageGroundLoop.wav
+#exec audio import group=UDamage file=Sounds\include\UDamage\UDamagePickup.wav
 #exec OBJ LOAD FILE=UT3Pickups.utx
 #exec OBJ LOAD FILE=UT3Pickups-SM.usx
 

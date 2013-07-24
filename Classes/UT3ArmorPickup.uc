@@ -13,7 +13,7 @@ class UT3ArmorPickup extends UT3Pickup abstract;
 // Imports
 //=============================================================================
 
-#exec audio import group=Pickups file=Sounds\RespawnArmor.wav
+#exec audio import group=Pickups file=Sounds\include\RespawnArmor.wav
 
 
 function int CanUseArmor(Pawn Other)

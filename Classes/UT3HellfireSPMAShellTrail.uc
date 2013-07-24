@@ -13,7 +13,7 @@ class UT3HellfireSPMAShellTrail extends ProjectileTrailEmitter;
 // Imports
 //=============================================================================
 
-#exec texture import file=Textures\SPMASmoke.dds
+#exec texture import file=Textures\include\SPMASmoke.dds
 
 
 //=============================================================================

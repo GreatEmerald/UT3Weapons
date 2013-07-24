@@ -13,10 +13,10 @@ class UT3UDamage extends UT3TimedPowerup;
 // Imports
 //=============================================================================
 
-#exec audio import group=UDamage file=Sounds\UDamage\UDamagePowerLoop.wav
-#exec audio import group=UDamage file=Sounds\UDamage\UDamageFire.wav
-#exec audio import group=UDamage file=Sounds\UDamage\UDamageWarning.wav
-#exec audio import group=UDamage file=Sounds\UDamage\UDamageEnd.wav
+#exec audio import group=UDamage file=Sounds\include\UDamage\UDamagePowerLoop.wav
+#exec audio import group=UDamage file=Sounds\include\UDamage\UDamageFire.wav
+#exec audio import group=UDamage file=Sounds\include\UDamage\UDamageWarning.wav
+#exec audio import group=UDamage file=Sounds\include\UDamage\UDamageEnd.wav
 
 
 //=============================================================================
