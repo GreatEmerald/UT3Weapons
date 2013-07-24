@@ -13,7 +13,7 @@ class UT3HellfireSPMATargetReticle extends ONSMortarTargetBeam;
 // Imports
 //=============================================================================
 
-#exec obj load file=UT3SPMAReticle.usx package=UT3Style.SPMAReticle
+#exec obj load file=StaticMeshes/include/UT3SPMAReticle.usx package=UT3Style.SPMAReticle
 
 
 //=============================================================================

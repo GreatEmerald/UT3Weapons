@@ -8,7 +8,7 @@ Copyright (c) 2008, 2010, 2013 Wormbo, 100GPing100, GreatEmerald
 
 class UT3ArmorThighPads extends UT3Armor;
 
-#exec OBJ LOAD FILE=UT3Pickups.utx
+#exec OBJ LOAD FILE=UT3PickupsOld.utx
 #exec OBJ LOAD FILE=UT3Pickups-SM.usx
 
 
@@ -23,5 +23,5 @@ defaultproperties
     ArmorAbsorption=50
     AbsorptionPriority=30
     StaticMesh=StaticMesh'UT3Pickups-SM.Powerups.ThighPads'
-    Skin=Shader'UT3Pickups.ThighPads.ThighPadsSkin'
+    Skins(0)=Shader'UT3PickupsOld.ThighPads.ThighPadsSkin'
 }

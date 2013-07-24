@@ -13,7 +13,7 @@ class UT3MaterialManager extends Inventory;
 // Imports
 //=============================================================================
 
-#exec obj load file=UT3Pickups.utx package=UT3Style
+#exec obj load file=Textures/include/Internal_MaterialManager.utx package=UT3Style
 #exec obj load file=UCGeneric.utx
 #exec obj load file=PickupSkins.utx
 #exec obj load file=XGameTextures.utx

@@ -13,7 +13,7 @@ class UT3Translocator extends TransLauncher;
 // Imports
 //=============================================================================
 
-#exec obj load file=UT3Translocator.uax package=UT3Style.Translocator
+#exec obj load file=Sounds/include/UT3Translocator.uax package=UT3Style.Translocator
 
 var Material RedSkin, BlueSkin, RedEffect, BlueEffect;
 var name EmptyBringUpAnim, IdleAnimEmpty, PutDownEmptyAnim; //GE: Woah, chaotic, isn't it?

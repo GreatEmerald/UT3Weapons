@@ -13,7 +13,7 @@ class UT3HellfireSPMA extends ONSArtillery;
 // Inports
 //=============================================================================
 
-#exec obj load file=UT3SPMA.uax package=UT3Style.SPMA
+#exec obj load file=Sounds/include/UT3SPMA.uax package=UT3Style.SPMA
 
 
 //=============================================================================

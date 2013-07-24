@@ -13,7 +13,7 @@ class UT3HellfireSPMAAirExplosion extends Emitter;
 // Imports
 //=============================================================================
 
-#exec obj load file=UT3SPMAEffects.usx package=UT3Style.SPMAEffects
+#exec obj load file=StaticMeshes/include/UT3SPMAEffects.usx package=UT3Style.SPMAEffects
 #exec obj load file=VMParticleTextures.utx
 
 

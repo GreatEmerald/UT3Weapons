@@ -1,0 +1,2 @@
+* Remove all #exec embeds and move them out into actual external packages
+* Disable "classic model" checkboxes for the weapons
