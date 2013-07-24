@@ -1,7 +1,7 @@
 //==============================================================================
 // UT3EnforcerAmmoPickup.uc
 // Anyone..?
-// 2008, GreatEmerald
+// 2008, 2010, 2013 GreatEmerald, 100GPing100
 //==============================================================================
 
 class UT3EnforcerAmmoPickup extends AssaultAmmoPickup;
@@ -15,4 +15,7 @@ defaultproperties
     TransientSoundVolume=1.15
 
     AmmoAmount=16
+    StaticMesh=StaticMesh'UT3Pickups-SM.Ammo.EnforcerAmmo'
+    DrawScale=1.500000
+    PrePivot=(Z=11.000000)
 }

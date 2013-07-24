@@ -3,7 +3,7 @@ UT3HealthPickupMedium
 
 Creation date: 2008-07-19 15:34
 Last change: $Id$
-Copyright (c) 2008, Wormbo
+Copyright (c) 2008, 2010, 2013 Wormbo, 100GPing100, GreatEmerald
 ******************************************************************************/
 
 class UT3HealthPickupMedium extends HealthPack;
@@ -112,11 +112,13 @@ Respawn:
 
 defaultproperties
 {
-	bWasHidden = True
-	bNetNotify = True
-	RespawnEffectTime = 0.0
-	PickupSound = Sound'PickupHealthMedium'
-	RespawnSound = Sound'RespawnHealth'
-	TransientSoundVolume = 0.75
-	TransientSoundRadius = 1000.0
+    bWasHidden = True
+    bNetNotify = True
+    RespawnEffectTime = 0.0
+    PickupSound = Sound'PickupHealthMedium'
+    RespawnSound = Sound'RespawnHealth'
+    TransientSoundVolume = 0.75
+    TransientSoundRadius = 1000.0
+    StaticMesh=StaticMesh'UT3Pickups-SM.Powerups.HealthMedium'
+    DrawScale=1.600000
 }

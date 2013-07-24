@@ -3,7 +3,7 @@ UT3ArmorVestPickup
 
 Creation date: 2008-07-19 18:45
 Last change: $Id$
-Copyright (c) 2008, Wormbo
+Copyright (c) 2008, 2010, 2013 Wormbo, 100GPing100, GreatEmerald
 ******************************************************************************/
 
 class UT3ArmorVestPickup extends UT3ArmorPickup;
@@ -26,8 +26,9 @@ defaultproperties
 	PickupSound   = Sound'PickupArmorChest'
 	PickupMessage = "Armor Vest"
 	PickupForce   = "ShieldPack"
-	StaticMesh    = StaticMesh'E_Pickups.RegShield'
-    Physics       = PHYS_Rotating
+	StaticMesh    = StaticMesh'UT3Pickups-SM.Powerups.Vest'
+	Physics       = PHYS_Rotating
 	RotationRate  = (Yaw=24000)
-	Skins         = (FinalBlend'PickupSkins.Shaders.ShieldFinal',FinalBlend'PickupSkins.Shaders.FinalHealthGlass')
+	Skins(0)      = Shader'UT3Pickups.Vest.VestSkin'
+	DrawScale     = 0.800000
 }

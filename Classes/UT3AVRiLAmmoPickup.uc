@@ -1,7 +1,7 @@
 //=============================================================================
 // UT3AVRiLAmmoPickup.uc
 // Yet I still need the class for referencing AVRiLAmmo.
-// 2008, GreatEmerald
+// 2008, 2010, 2013 GreatEmerald, 100GPing100
 //=============================================================================
 
 class UT3AVRiLAmmoPickup extends ONSAVRiLAmmoPickup;
@@ -10,4 +10,7 @@ DefaultProperties
 {
     InventoryType=class'UT3AVRiLAmmo' //what item to create in inventory (Epic comment)
     PickupMessage="Longbow AVRiL Ammo"
+    StaticMesh=StaticMesh'UT3Pickups-SM.Ammo.AVRILammo'
+    DrawScale=1.600000
+    PrePivot=(Z=5.000000)
 }

@@ -3,7 +3,7 @@ UT3ArmorShieldbeltPickup
 
 Creation date: 2008-07-19 18:45
 Last change: $Id$
-Copyright (c) 2008, Wormbo
+Copyright (c) 2008, 2010, 2013 Wormbo, 100GPing100, GreatEmerald
 ******************************************************************************/
 
 class UT3ArmorShieldbeltPickup extends UT3ArmorPickup;
@@ -28,9 +28,10 @@ defaultproperties
 	PickupSound   = Sound'PickupArmorShieldbelt'
 	PickupMessage = "Shield Belt"
 	PickupForce   = "LargeShieldPickup"
-	StaticMesh    = StaticMesh'E_Pickups.SuperShield'
-    Physics       = PHYS_Rotating
+	StaticMesh    = StaticMesh'UT3Pickups-SM.Powerups.ShieldBelt'
+	Physics       = PHYS_Rotating
 	RotationRate  = (Yaw=24000)
-    DrawScale     = 0.6
-	Skins         = (FinalBlend'PickupSkins.Shaders.ShieldFinal',FinalBlend'PickupSkins.Shaders.ShieldPanFinal',FinalBlend'PickupSkins.Shaders.FinalHealthGlass')
+	DrawScale     = 1.6
+	PrePivot      = (Z=10.000000)
+	Skins(0)      = Shader'UT3Pickups.ShieldBelt.ShieldBeltSkin'
 }
