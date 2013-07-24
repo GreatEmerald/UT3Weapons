@@ -16,7 +16,7 @@ class UT3UDamagePickup extends UT3TimedPickup;
 #exec audio import group=UDamage file=Sounds\include\UDamage\UDamageSpawn.wav
 #exec audio import group=UDamage file=Sounds\include\UDamage\UDamageGroundLoop.wav
 #exec audio import group=UDamage file=Sounds\include\UDamage\UDamagePickup.wav
-#exec OBJ LOAD FILE=UT3Pickups.utx
+#exec OBJ LOAD FILE=UT3PickupsOld.utx
 #exec OBJ LOAD FILE=UT3Pickups-SM.usx
 
 
@@ -39,5 +39,6 @@ defaultproperties
 
     DrawScale  = 0.9
     StaticMesh = StaticMesh'UT3Pickups-SM.Powerups.Udamage'
-    Skins      = (FinalBlend'UT3Pickups.Udamage.UDamageSkin',FinalBlend'PickupSkins.Shaders.FinalHealthGlass')
+    Skins(0)   = Shader'UT3PickupsOld.Udamage.UDamageSkin'
+    Skins(1)   = FinalBlend'PickupSkins.Shaders.FinalHealthGlass'
 }

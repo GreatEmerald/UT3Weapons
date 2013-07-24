@@ -1,2 +1,3 @@
 * Remove all #exec embeds and move them out into actual external packages
 * Disable "classic model" checkboxes for the weapons
+* Merge *Old* and new packages into one to remove redundancy
