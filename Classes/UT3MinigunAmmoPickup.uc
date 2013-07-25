@@ -13,6 +13,6 @@ defaultproperties
     PickupMessage="Stinger Shards"
     PickupSound=Sound'UT3PickupSounds.MiniAmmoPickup'
     StaticMesh=StaticMesh'UT3Pickups-SM.Ammo.StingerAmmo'
-    DrawScale=1.7
-    PrePivot=(Z=2.5)
+    DrawScale=1.8
+    PrePivot=(Z=2.0)
 }

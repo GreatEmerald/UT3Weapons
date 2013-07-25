@@ -13,6 +13,6 @@ defaultproperties
     PickupMessage="Flak Shells"
     PickupSound=Sound'UT3PickupSounds.Generic.FlakAmmoPickup'
     StaticMesh=StaticMesh'UT3Pickups-SM.Ammo.FlakCannonAmmo'
-    DrawScale=1.600000
-    PrePivot=(Z=2.000000)
+    DrawScale=2.0
+    PrePivot=(Z=1.000000)
 }

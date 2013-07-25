@@ -14,7 +14,9 @@ defaultproperties
     PickupSound=Sound'UT3PickupSounds.Generic.RocketPackPickup'
     TransientSoundVolume=0.6
     StaticMesh=StaticMesh'UT3Pickups-SM.Ammo.RocketLauncherAmmo'
-    DrawScale=1.600000
+    DrawScale=1.800000
+    PrePivot=(Z=0.0)
+    Rotation=(Roll=49152)
 }
 
 

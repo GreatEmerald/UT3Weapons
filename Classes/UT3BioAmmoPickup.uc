@@ -12,7 +12,7 @@ defaultproperties
     PickupMessage="Bio Rifle Ammo"
     PickupSound=Sound'UT3PickupSounds.BioSludgePickup'
     StaticMesh=StaticMesh'UT3Pickups-SM.Ammo.BioRifleAmmo'
-    DrawScale=1.7
+    DrawScale=1.875
     PrePivot=(Z=-2.0)
     TransientSoundVolume=1.15
 }

@@ -12,6 +12,6 @@ defaultproperties
     PickupMessage="Link Gun Ammo"
     PickupSound=Sound'UT3PickupSounds.Generic.LinkAmmoPickup'
     StaticMesh=StaticMesh'UT3Pickups-SM.Ammo.LinkGunAmmo'
-    DrawScale=1.6
+    DrawScale=1.8
     PrePivot=(Z=7.0)
 }

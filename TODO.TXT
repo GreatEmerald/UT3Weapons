@@ -1,3 +1,7 @@
 * Remove all #exec embeds and move them out into actual external packages
 * Disable "classic model" checkboxes for the weapons
 * Merge *Old* and new packages into one to remove redundancy
+* Adjust the DrawScale of pickups
+* Sort out the textures of UDamage and health pickups
+* Add the health vial mesh and make them jump around
+* Figure out why Like the Back of My Hand crashes

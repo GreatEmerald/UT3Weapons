@@ -16,6 +16,6 @@ defaultproperties
 
     AmmoAmount=16
     StaticMesh=StaticMesh'UT3Pickups-SM.Ammo.EnforcerAmmo'
-    DrawScale=1.500000
-    PrePivot=(Z=11.000000)
+    DrawScale=1.25
+    PrePivot=(Z=11.0)
 }
