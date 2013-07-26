@@ -31,7 +31,7 @@ defaultproperties
 	StaticMesh    = StaticMesh'UT3Pickups-SM.Powerups.ShieldBelt'
 	Physics       = PHYS_Rotating
 	RotationRate  = (Yaw=24000)
-	DrawScale     = 1.6
+	DrawScale     = 1.5
 	PrePivot      = (Z=10.000000)
 	Skins(0)      = Shader'UT3Pickups.ShieldBelt.ShieldBeltSkin'
 }
