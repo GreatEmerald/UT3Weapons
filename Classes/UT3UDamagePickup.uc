@@ -37,8 +37,6 @@ defaultproperties
     Physics      = PHYS_Rotating
     RotationRate = (Yaw=24000)
 
-    DrawScale  = 0.9
+    DrawScale  = 0.6
     StaticMesh = StaticMesh'UT3Pickups-SM.Powerups.Udamage'
-    Skins(0)   = Shader'UT3PickupsOld.Udamage.UDamageSkin'
-    Skins(1)   = FinalBlend'PickupSkins.Shaders.FinalHealthGlass'
 }
