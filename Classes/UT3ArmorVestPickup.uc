@@ -29,6 +29,5 @@ defaultproperties
 	StaticMesh    = StaticMesh'UT3Pickups-SM.Powerups.Vest'
 	Physics       = PHYS_Rotating
 	RotationRate  = (Yaw=24000)
-	Skins(0)      = Shader'UT3Pickups.Vest.VestSkin'
-	DrawScale     = 0.800000
+	DrawScale     = 1.000000
 }
