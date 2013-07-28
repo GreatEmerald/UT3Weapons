@@ -28,7 +28,8 @@ var() Sound RespawnSound;
 // Variables
 //=============================================================================
 
-var TexPannerTriggered RespawnBuildGlow;
+// GEm: Will need to fix this later
+/*var TexPannerTriggered RespawnBuildGlow;
 var bool bWasHidden;
 
 
@@ -60,7 +61,7 @@ simulated function Destroyed()
 		MaterialManager.ReleaseSpawnEffect(RespawnBuildGlow);
 	}
 	Super.Destroyed();
-}
+}*/
 
 
 function RespawnEffect()
@@ -69,13 +70,13 @@ function RespawnEffect()
 }
 
 
-simulated function PostNetReceive()
+/*simulated function PostNetReceive()
 {
 	if (!bHidden && bWasHidden) {
 		RespawnBuildGlow.Trigger(Self, None);
 	}
 	bWasHidden = bHidden;
-}
+}*/
 
 
 state Sleeping
@@ -112,7 +113,7 @@ Respawn:
 
 defaultproperties
 {
-    bWasHidden = True
+    //bWasHidden = True
     bNetNotify = True
     RespawnEffectTime = 0.0
     PickupSound = Sound'PickupHealthMedium'
