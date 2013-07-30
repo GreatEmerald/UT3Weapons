@@ -6,3 +6,5 @@
 * Add the health vial mesh and make them jump around
 * Figure out why Like the Back of My Hand crashes
 * Fix the MaterialManager to work with the new pickups
+* Figure out why some things are not replaced (Rocket ammo in FaceClassic, vials in BridgeOfFate)
+* Figure out why some things don't spawn (UDamage, vials in red base of CTF-Avaris)
