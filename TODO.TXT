@@ -8,3 +8,6 @@
 * Fix the MaterialManager to work with the new pickups
 * Figure out why some things are not replaced (Rocket ammo in FaceClassic, vials in BridgeOfFate)
 * Figure out why some things don't spawn (UDamage, vials in red base of CTF-Avaris)
+* Fix the 0 < n < 3 rocket infinite ammo exploit
+* Adjust the placement of weapons when SmallWeapons are off
+* Adjust the placement of AVRiL and the others when viewing from a 4:3 resolution
