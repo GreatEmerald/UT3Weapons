@@ -165,7 +165,7 @@ simulated function BringUp(optional Weapon PrevWeapon)
     {
         if (bAlreadyLoaded)
           PlayOwnedSound(SelectSound, SLOT_Interact,,,,, false);
-		ClientPlayForceFeedback(SelectForce);  // jdf
+        ClientPlayForceFeedback(SelectForce);  // jdf
 
         if ( Instigator.IsLocallyControlled() )
         {
@@ -212,14 +212,9 @@ simulated function bool PutDown()
     return Super.PutDown();
 }
 
-event Timer()
+simulated function Timer()
 {
-    if (TimerSetting == TS_None)
-    {
-        Super.Timer();
-    }
-    
-    else if (TimerSetting == TS_AkimboDelay)
+    if (TimerSetting == TS_AkimboDelay)
     {
         Super.Timer();
         DelayAkimbo();
@@ -231,7 +226,8 @@ event Timer()
         AkimboCheck();
     }
     
-    
+    else
+        Super.Timer();
 }
 
 simulated function DelayAkimbo()

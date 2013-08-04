@@ -14,3 +14,6 @@
 * Make the Link Gun fire immediately, without waiting for anims
 * Can we get the Sniper Rifle scope to become on even if the key is released before the scope is on?
 * Disable team-coloured shock rifles outside of Instagib
+* Online: Biorifle alt fire sound doesn't play
+* Online: Rocket Launcher alt fire effects don't play, reverts to UT2004 behaviour
+* Online: Enforcer alt-fire reverts to UT2004 behaviour, although the effects play fine
