@@ -1,7 +1,7 @@
 //==============================================================================
 // UT3Enforcer.uc
 // Death warrant - enforced.
-// 2008, GreatEmerald
+// 2008, 2013 GreatEmerald
 //==============================================================================
 
 class UT3Enforcer extends AssaultRifle;

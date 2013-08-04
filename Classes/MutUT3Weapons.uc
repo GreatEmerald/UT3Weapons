@@ -3,7 +3,7 @@ MutUT3Weapons
 
 Creation date: 2008-07-14 12:27
 Last change: $Id$
-Copyright (c) 2008, Wormbo
+Copyright (c) 2008, 2013 Wormbo, GreatEmerald
 ******************************************************************************/
 
 class MutUT3Weapons extends Mutator;

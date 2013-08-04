@@ -1,19 +1,18 @@
 //==============================================================================
 // UT3BioChargedFire.uc
 // This goes well.
-// 2008, GreatEmerald
+// 2008, 2013 GreatEmerald
 //==============================================================================
 
 class UT3BioChargedFire extends BioChargedFire;
 
 var() Sound ChargedAmbientSound;
 
-
-function ModeHoldFire()
+/*simulated function ModeHoldFire()
 {
     if ( Weapon.AmmoAmount(ThisModeNum) > 0 )
     {
-        Super.ModeHoldFire();
+        Super(ProjectileFire).ModeHoldFire();
         GotoState('Hold');
     }
 }
@@ -26,7 +25,7 @@ function float MaxRange()
 simulated function bool AllowFire()
 {
     return (Weapon.AmmoAmount(ThisModeNum) > 0 || GoopLoad > 0);
-}
+}*/
 
 simulated function PlayStartHold()
 {
@@ -40,7 +39,7 @@ state Hold
     {
         GoopLoad = 0;
         SetTimer(GoopUpRate, true);
-        Weapon.PlayOwnedSound(HoldSound,SLOT_Interact,1.0);
+        Weapon.PlayOwnedSound(HoldSound, SLOT_Interact, 1.0);
         Weapon.ClientPlayForceFeedback( "BioRiflePowerUp" );  // jdf
         Timer();
     }
@@ -75,6 +74,8 @@ function projectile SpawnProjectile(Vector Start, Rotator Dir)
 {
     local BioGlob Glob;
 
+    /* GEm: The below is only executed on the server! We need this
+            replicated on the client so they don't go out of sync! */
     GotoState('');
 
     if (GoopLoad == 0) return None;
@@ -90,6 +91,13 @@ function projectile SpawnProjectile(Vector Start, Rotator Dir)
     if ( Weapon.AmmoAmount(ThisModeNum) <= 0 )
         Weapon.OutOfAmmo();
     return Glob;
+}
+
+function PlayFiring()
+{
+    // GEm: Sync the state for the network client
+    GotoState('');
+    Super.PlayFiring();
 }
 
 defaultproperties
