@@ -3,7 +3,7 @@ UT3HealthPickupSmall
 
 Creation date: 2008-07-20 19:17
 Latest change: $Id$
-Copyright (c) 2008, Wormbo
+Copyright (c) 2008, 2013 Wormbo, GreatEmerald
 ******************************************************************************/
 
 class UT3HealthPickupSmall extends MiniHealthPack;
@@ -27,7 +27,7 @@ var() Sound RespawnSound;
 // Variables
 //=============================================================================
 
-var TexPannerTriggered RespawnBuildGlow;
+/*var TexPannerTriggered RespawnBuildGlow;
 var bool bWasHidden;
 
 
@@ -59,7 +59,7 @@ simulated function Destroyed()
 		MaterialManager.ReleaseSpawnEffect(RespawnBuildGlow);
 	}
 	Super.Destroyed();
-}
+}*/
 
 
 function RespawnEffect()
@@ -68,18 +68,18 @@ function RespawnEffect()
 }
 
 
-simulated function PostNetReceive()
+/*simulated function PostNetReceive()
 {
 	if (!bHidden && bWasHidden) {
 		RespawnBuildGlow.Trigger(Self, None);
 	}
 	bWasHidden = bHidden;
-}
+}*/
 
 
 state Sleeping
 {
-	function BeginState()
+	/*function BeginState()
 	{
 		Super.BeginState();
 		if (Level.NetMode != NM_DedicatedServer)
@@ -91,7 +91,7 @@ state Sleeping
 		Super.EndState();
 		if (Level.NetMode != NM_DedicatedServer)
 			PostNetReceive();
-	}
+	}*/
 	
 DelayedSpawn:
 Begin:
@@ -111,11 +111,13 @@ Respawn:
 
 defaultproperties
 {
-	bWasHidden = True
-	bNetNotify = True
-	RespawnEffectTime = 0.0
-	PickupSound = Sound'PickupHealthSmall'
-	RespawnSound = Sound'RespawnHealth'
-	TransientSoundVolume = 0.75
-	TransientSoundRadius = 1000.0
+    //bWasHidden = True
+    bNetNotify = True
+    RespawnEffectTime = 0.0
+    PickupSound = Sound'PickupHealthSmall'
+    RespawnSound = Sound'RespawnHealth'
+    TransientSoundVolume = 0.75
+    TransientSoundRadius = 1000.0
+    StaticMesh = StaticMesh'UT3PICKUPS_Mesh.Health_Small.S_Pickups_Health_Small'
+    DrawScale = 1.0
 }

@@ -1,9 +1,6 @@
 * Remove all #exec embeds and move them out into actual external packages
 * Disable "classic model" checkboxes for the weapons
-* Merge *Old* and new packages into one to remove redundancy
-* Adjust the DrawScale of pickups
-* Sort out the textures of UDamage and health pickups
-* Add the health vial mesh and make them jump around
+* Make health vials jump around
 * Figure out why Like the Back of My Hand crashes
 * Fix the MaterialManager to work with the new pickups
 * Figure out why some things are not replaced (Rocket ammo in FaceClassic, vials in BridgeOfFate)
@@ -14,6 +11,6 @@
 * Make the Link Gun fire immediately, without waiting for anims
 * Can we get the Sniper Rifle scope to become on even if the key is released before the scope is on?
 * Disable team-coloured shock rifles outside of Instagib
-* Online: Biorifle alt fire sound doesn't play
 * Online: Rocket Launcher alt fire effects don't play, reverts to UT2004 behaviour
 * Online: Enforcer alt-fire reverts to UT2004 behaviour, although the effects play fine
+* Prevent picking up Enforcer clips when full on ammo
