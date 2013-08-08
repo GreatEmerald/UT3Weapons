@@ -1,7 +1,7 @@
 //=============================================================================
 // UT3RocketFire.uc
 // No no, not the flames, the action!
-// 2008, GreatEmerald
+// 2008, 2013 GreatEmerald
 //=============================================================================
 
 class UT3RocketFire extends RocketFire;
@@ -10,7 +10,7 @@ function StartFiring()
 {
     Instigator.ClientMessage("UT3RocketFire: StartFiring() reached");
     if (UT3RocketLauncher(Weapon) != None)
-        UT3RocketLauncher(Weapon).IncrementFireMode();
+        UT3RocketLauncher(Weapon).IncrementFireModeServer();
     Super.StartFiring();
 }
 

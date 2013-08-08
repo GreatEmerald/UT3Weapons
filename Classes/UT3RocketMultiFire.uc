@@ -1,7 +1,7 @@
 //=============================================================================
 // UT3RocketMultiFire.uc
 // Hmm, not threee way... Yet...
-// 2008, GreatEmerald
+// 2008, 2013 GreatEmerald
 //=============================================================================
 
 class UT3RocketMultiFire extends RocketMultiFire
@@ -23,7 +23,7 @@ function PlayFireEnd()
     Super(WeaponFire).PlayFireEnd();
 }
 
-function PlayStartHold() //GE: Rerouting to Weapon since staes don't work here
+function PlayStartHold() //GE: Rerouting to Weapon since states don't work here
 {
     if (UT3RocketLauncher(Weapon) != None)
         UT3RocketLauncher(Weapon).GoToState('Loading');
@@ -159,6 +159,7 @@ simulated function SwitchFireMode(UT3RocketLauncher.ERocketFireMode LoadedFireMo
         return;
     CurrentFireMode = LoadedFireMode; //GE: Syncs the classes
     //Instigator.ClientMessage("UT3RocketMultiFire: Current mode is"@CurrentFireMode);
+    log("UT3RocketMultiFire: SwitchFireMode: LoadedFireMode"@LoadedFireMode@"bUseLastFireMode"@bUseLastFireMode@"LastFireMode"@LastFireMode);
     
     if ((bUseLastFireMode && LastFireMode == RFM_Spiral) || LoadedFireMode == RFM_Spiral)
     {

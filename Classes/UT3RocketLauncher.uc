@@ -1,7 +1,7 @@
 //=============================================================================
 // UT3RocketLauncher.uc
 // Rocket Scientist.
-// 2008, GreatEmerald
+// 2008, 2013 GreatEmerald
 //=============================================================================
 
 class UT3RocketLauncher extends RocketLauncher;
@@ -23,6 +23,16 @@ var enum ERocketFireMode
 var float FireModeSwitchTime; //GE: Time when the last switch in firing mode occured.
 var float FireModeSwitchDelay; //GE: More than 0.2 when you hold the fire mode switch buttons.
 var localized string SpiralName, GrenadesName;
+
+replication
+{
+    // GEm: Make sure we tell the server when we want to switch fire modes
+    reliable if (Role < ROLE_Authority)
+        IncrementFireModeServer;
+    // GEm: Have the server send us an all green
+    reliable if (Role == ROLE_Authority)
+        IncrementFireModeClient;
+}
 
 function Tick(float dt)
 {
@@ -148,8 +158,9 @@ simulated event ClientStartFire(int Mode)
 
         if ( FireMode[OtherMode].bIsFiring || (FireMode[OtherMode].NextFireTime > Level.TimeSeconds) )
         {
+            log("UT3RocketLauncher: ClientStartFire: IncrementFireMode");
             //if ( FireMode[OtherMode].Load > 0 )
-                IncrementFireMode();
+                IncrementFireModeServer();
             if ( bDebugging )
                 log("No RL reg fire because other firing "$FireMode[OtherMode].bIsFiring$" next fire "$(FireMode[OtherMode].NextFireTime - Level.TimeSeconds));
             return;
@@ -166,8 +177,9 @@ simulated event StopFire(int Mode)
 
 //GE: if bForce is true, disregard switch delay checks
 //Used by bots for instant change
-simulated function IncrementFireMode(optional bool bForce) 
+function IncrementFireModeServer(optional bool bForce)
 {
+    log("UT3RocketLauncher: IncrementFireMode: called");
     if (!bForce)
     {
         if ((FireModeSwitchTime+FireModeSwitchDelay) > Level.TimeSeconds)
@@ -194,11 +206,19 @@ simulated function IncrementFireMode(optional bool bForce)
             default: LoadedFireMode=RFM_None;
         } 
     }
-    PlayOwnedSound(FireModeSwitchSound);
+    //PlayOwnedSound(FireModeSwitchSound);
+    IncrementFireModeClient();
     if (UT3RocketMultiFire(FireMode[1]) != None)
         UT3RocketMultiFire(FireMode[1]).SwitchFireMode(LoadedFireMode);
         //UT3RocketMultiFire(FireMode[1]).SwitchFireMode(LoadedFireMode);
     //Instigator.ClientMessage("UT3RocketLauncher: LoadedFireMode is"@LoadedFireMode);
+}
+
+simulated function IncrementFireModeClient()
+{
+    PlayOwnedSound(FireModeSwitchSound);
+    if (UT3RocketMultiFire(FireMode[1]) != None)
+        UT3RocketMultiFire(FireMode[1]).SwitchFireMode(LoadedFireMode);
 }
 
 simulated function ClearFireMode()
@@ -293,9 +313,9 @@ function bool BotFire(bool bFinished, optional name FiringMode)
     Chance = FRand();
     
     if (BotMode == 1 && Chance < 0.66 ) //66% chance of the bot incrementing it once, 33% of twice
-        IncrementFireMode(true);
+        IncrementFireModeServer(true);
     if (BotMode == 1 && FRand() < 0.33 )
-        IncrementFireMode(true);
+        IncrementFireModeServer(true);
     return Super.BotFire(bFinished, FiringMode);
 }
 
