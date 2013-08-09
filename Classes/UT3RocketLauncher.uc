@@ -31,7 +31,7 @@ replication
         IncrementFireModeServer;
     // GEm: Have the server send us an all green
     reliable if (Role == ROLE_Authority)
-        IncrementFireModeClient;
+        IncrementFireModeClient, LoadedFireMode, SetFireSoundClient;
 }
 
 function Tick(float dt)
@@ -166,7 +166,7 @@ simulated event ClientStartFire(int Mode)
             return;
         }
     }
-    Super.ClientStartFire(Mode);
+    Super(Weapon).ClientStartFire(Mode);
 }
 
 simulated event StopFire(int Mode)
@@ -217,8 +217,14 @@ function IncrementFireModeServer(optional bool bForce)
 simulated function IncrementFireModeClient()
 {
     PlayOwnedSound(FireModeSwitchSound);
+}
+
+simulated function SetFireSoundClient(Sound NewSound)
+{
+    log("UT3RocketLauncher: SetFireSoundClient with"@NewSound);
     if (UT3RocketMultiFire(FireMode[1]) != None)
-        UT3RocketMultiFire(FireMode[1]).SwitchFireMode(LoadedFireMode);
+        UT3RocketMultiFire(FireMode[1]).FireSound = NewSound;
+    log("UT3RocketLauncher: SetFireSoundClient: Set to"@UT3RocketMultiFire(FireMode[1]).FireSound);
 }
 
 simulated function ClearFireMode()
@@ -264,9 +270,10 @@ simulated function BringUp(optional Weapon PrevWeapon) {Super(Weapon).BringUp(Pr
 simulated state AnimateLoad {}
 simulated function AnimEnd(int Channel) {Super(Weapon).AnimEnd(Channel);}
 
-state Loading
+simulated state Loading
 {
 Begin:
+    log("UT3RocketLauncher: State Loading");
     if (UT3RocketMultiFire(FireMode[1]) == None)
         GoToState('');
     UT3RocketMultiFire(FireMode[1]).Plunge();

@@ -12,6 +12,7 @@ var float OldLoad;
 var UT3RocketLauncher.ERocketFireMode CurrentFireMode, LastFireMode; //GE: UB3R-1337 way to transfer enums
 var bool bUseLastFireMode;
 var(Sound) sound GrenadeFireSound;
+var Sound LoadingSound;
 
 simulated function ServerPlayLoading()
 {
@@ -25,6 +26,8 @@ function PlayFireEnd()
 
 function PlayStartHold() //GE: Rerouting to Weapon since states don't work here
 {
+    log("UT3RocketMultiFire: PlayStartHold");
+    // GEm: This function is client-side
     if (UT3RocketLauncher(Weapon) != None)
         UT3RocketLauncher(Weapon).GoToState('Loading');
 }
@@ -39,6 +42,7 @@ function PlayFiring()
     
     Weapon.GoToState('WaitForReload');
     
+    log("UT3RocketMultiFire: PlayFiring: Load"@Load);
     if (Load == 1.0)
         FireAnim = 'WeaponAltFireLaunch1';
     else if (Load == 2.0)
@@ -46,7 +50,7 @@ function PlayFiring()
     else if (Load == 3.0)
         FireAnim = 'WeaponAltFireLaunch3';
     OldLoad = Load;
-    FireSound = Default.FireSound;
+    //FireSound = Default.FireSound;
     RLAttachment.PlayAnim(FireAnim, FireAnimRate, TweenTime);
     PlayRocketFire(true);
 	  Weapon.OutOfAmmo();
@@ -64,14 +68,15 @@ function PlayRocketFire(bool CountFire, optional bool bNotExactSync, optional in
     else if (Weapon.Mesh != None && Weapon.HasAnim(FireAnim))
         Weapon.PlayAnim(FireAnim, FireAnimRate, TweenTime, Channel);
     
-    if (FireSound != None && !CountFire)
-        Weapon.PlayOwnedSound(FireSound,SLOT_Interact,TransientSoundVolume,,TransientSoundRadius,Default.FireAnimRate/FireAnimRate,false);
-    else if (CountFire)
+    log("UT3RocketMultiFire: PlayRocketFire: FireSound"@FireSound);
+    if (LoadingSound != None && !CountFire)
+        Weapon.PlayOwnedSound(LoadingSound,SLOT_Interact,TransientSoundVolume,,TransientSoundRadius,Default.FireAnimRate/FireAnimRate,false);
+    else if (CountFire) // GEm: If we're actually firing
     {
-        if (FireSound != None && ProjectileClass != Class'XWeapons.Grenade')
+        //if (FireSound != None && ProjectileClass != Class'XWeapons.Grenade')
             Weapon.PlayOwnedSound(FireSound,SLOT_Interact,TransientSoundVolume,,TransientSoundRadius,Default.FireAnimRate/FireAnimRate,false);
-        else if (FireSound != None)
-            Weapon.PlayOwnedSound(GrenadeFireSound,SLOT_Interact,TransientSoundVolume,,TransientSoundRadius,Default.FireAnimRate/FireAnimRate,false); 
+        /*else if (FireSound != None)
+            Weapon.PlayOwnedSound(GrenadeFireSound,SLOT_Interact,TransientSoundVolume,,TransientSoundRadius,Default.FireAnimRate/FireAnimRate,false);*/
         ClientPlayForceFeedback(FireForce);  // jdf
         FireCount++;
     }
@@ -81,6 +86,7 @@ function Plunge()
 {
     local UT3RocketAttachment RLAttachment;
     
+    log("UT3RocketMultiFire: Plunge");
     if (UT3RocketLauncher(Weapon) == None || UT3RocketAttachment(UT3RocketLauncher(Weapon).ThirdPersonActor) == None)
         return;
     RLAttachment = UT3RocketAttachment(UT3RocketLauncher(Weapon).ThirdPersonActor);
@@ -88,21 +94,21 @@ function Plunge()
     if (Load == 1.0)
     {
         FireAnim = 'WeaponAltFireQueue1';
-        FireSound = Sound'UT3Weapons2.RocketLauncher.RocketLauncherQueue1';
+        LoadingSound = Sound'UT3Weapons2.RocketLauncher.RocketLauncherQueue1';
         RLAttachment.PlayAnim(FireAnim, FireAnimRate, TweenTime);
         PlayRocketFire(false);
     }
     else if (Load == 2.0)
     {
         FireAnim = 'WeaponAltFireQueue2';
-        FireSound = Sound'UT3Weapons2.RocketLauncher.RocketLauncherLoad1';
+        LoadingSound = Sound'UT3Weapons2.RocketLauncher.RocketLauncherLoad1';
         RLAttachment.PlayAnim(FireAnim, FireAnimRate, TweenTime);
         PlayRocketFire(false);
     }
     else if (Load == 3.0)
     {
         FireAnim = 'WeaponAltFireQueue3';
-        FireSound = Sound'UT3Weapons2.RocketLauncher.RocketLauncherQueue3';
+        LoadingSound = Sound'UT3Weapons2.RocketLauncher.RocketLauncherQueue3';
         RLAttachment.PlayAnim(FireAnim, FireAnimRate, TweenTime);
         PlayRocketFire(false);
     }
@@ -123,18 +129,20 @@ function PlayReload()
     else if (OldLoad == 3.0)
         FireAnim = 'WeaponAltFireLaunch3End';
     OldLoad = 0.0;
-    FireSound = None;
+    LoadingSound = None;
     RLAttachment.PlayAnim(FireAnim, FireAnimRate, TweenTime);
     PlayRocketFire(false);
 }
 
+// GEm: TODO: Investigate if its loading speed isn't too fast compared to the animation
 function ModeTick(float dt)
 {
     // auto fire if loaded last rocket
-    /*if (HoldTime >= MaxHoldTime && Load >= Weapon.AmmoAmount(ThisModeNum) && !bNowWaiting)
+    if (HoldTime >= 0.0 && Load >= Weapon.AmmoAmount(ThisModeNum) && !bNowWaiting)
     {
+        Instigator.ClientMessage("UT3RocketFire: ModeTick: Auto-fire at load"@Load);
         bIsFiring = false;
-    } */
+    }
 
     Super(ProjectileFire).ModeTick(dt);
 
@@ -146,14 +154,16 @@ function ModeTick(float dt)
             ServerPlayLoading();
             
         Load = Load + 1.0;
+        Instigator.ClientMessage("UT3RocketFire: ModeTick: PlayLoad, Load at"@Load);
     }
     else if (Load == 2.0 && HoldTime >= FireRate*2.0)
     {
         Load = Load + 1.0;
+        Instigator.ClientMessage("UT3RocketFire: ModeTick: Load at"@Load);
     }
 }
 
-simulated function SwitchFireMode(UT3RocketLauncher.ERocketFireMode LoadedFireMode)
+function SwitchFireMode(UT3RocketLauncher.ERocketFireMode LoadedFireMode)
 {
     if (UT3RocketLauncher(Weapon) == None || LoadedFireMode == RFM_None)
         return;
@@ -166,7 +176,7 @@ simulated function SwitchFireMode(UT3RocketLauncher.ERocketFireMode LoadedFireMo
         UT3RocketLauncher(Weapon).SetTightSpread(true);
         ProjectileClass=default.ProjectileClass;
         bTossed=default.bTossed;
-        FireSound=default.FireSound;
+        UT3RocketLauncher(Weapon).SetFireSoundClient(default.FireSound);
         Spread = TightSpread;
         SpreadStyle = SS_Ring;
     }
@@ -175,7 +185,7 @@ simulated function SwitchFireMode(UT3RocketLauncher.ERocketFireMode LoadedFireMo
         UT3RocketLauncher(Weapon).SetTightSpread(false);
         ProjectileClass=Class'XWeapons.Grenade';
         bTossed=True;
-        FireSound=GrenadeFireSound;
+        UT3RocketLauncher(Weapon).SetFireSoundClient(GrenadeFireSound);
         Spread = 1400;
         SpreadStyle = SS_Random;
     }
@@ -184,7 +194,7 @@ simulated function SwitchFireMode(UT3RocketLauncher.ERocketFireMode LoadedFireMo
         UT3RocketLauncher(Weapon).SetTightSpread(false);
         ProjectileClass=default.ProjectileClass;
         bTossed=default.bTossed;
-        FireSound=default.FireSound;
+        UT3RocketLauncher(Weapon).SetFireSoundClient(default.FireSound);
         SpreadStyle = SS_Line;
         Spread = LooseSpread;
     }
