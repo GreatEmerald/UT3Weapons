@@ -82,7 +82,7 @@ function PlayRocketFire(bool CountFire, optional bool bNotExactSync, optional in
     }
 }
 
-function Plunge()
+function Plunge(optional bool FirstRocket)
 {
     local UT3RocketAttachment RLAttachment;
     
@@ -91,21 +91,21 @@ function Plunge()
         return;
     RLAttachment = UT3RocketAttachment(UT3RocketLauncher(Weapon).ThirdPersonActor);
     
-    if (Load == 1.0)
+    if (FirstRocket)
     {
         FireAnim = 'WeaponAltFireQueue1';
         LoadingSound = Sound'UT3Weapons2.RocketLauncher.RocketLauncherQueue1';
         RLAttachment.PlayAnim(FireAnim, FireAnimRate, TweenTime);
         PlayRocketFire(false);
     }
-    else if (Load == 2.0)
+    else if (Load == 1.0)
     {
         FireAnim = 'WeaponAltFireQueue2';
         LoadingSound = Sound'UT3Weapons2.RocketLauncher.RocketLauncherLoad1';
         RLAttachment.PlayAnim(FireAnim, FireAnimRate, TweenTime);
         PlayRocketFire(false);
     }
-    else if (Load == 3.0)
+    else if (Load == 2.0)
     {
         FireAnim = 'WeaponAltFireQueue3';
         LoadingSound = Sound'UT3Weapons2.RocketLauncher.RocketLauncherQueue3';

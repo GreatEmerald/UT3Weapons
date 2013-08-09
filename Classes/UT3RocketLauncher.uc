@@ -276,20 +276,20 @@ Begin:
     log("UT3RocketLauncher: State Loading");
     if (UT3RocketMultiFire(FireMode[1]) == None)
         GoToState('');
-    UT3RocketMultiFire(FireMode[1]).Plunge();
-    Sleep(0.2666); //GE: (Frames-1)/FrameRate
+    UT3RocketMultiFire(FireMode[1]).Plunge(true);
+    Sleep(0.2666); //GE: (Frames-1)/FrameRate 8, 18, 18
     //if (IsAnimating())
     //    StopAnimating();
-    while (UT3RocketMultiFire(FireMode[1]).Load != 2.0)
-        Sleep(0.1);
     UT3RocketMultiFire(FireMode[1]).Plunge();
     Sleep(0.55);
+    while (UT3RocketMultiFire(FireMode[1]).Load < 2.0)
+        Sleep(0.01);
     //if (IsAnimating())
     //    StopAnimating();
-    while (UT3RocketMultiFire(FireMode[1]).Load != 3.0)
-        Sleep(0.1);
     UT3RocketMultiFire(FireMode[1]).Plunge();
     Sleep(0.55);
+    while (UT3RocketMultiFire(FireMode[1]).Load < 3.0)
+        Sleep(0.01);
     //if (IsAnimating())
     //    StopAnimating();
     GoToState('');

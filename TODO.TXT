@@ -5,12 +5,12 @@
 * Fix the MaterialManager to work with the new pickups
 * Figure out why some things are not replaced (Rocket ammo in FaceClassic, vials in BridgeOfFate)
 * Figure out why some things don't spawn (UDamage, vials in red base of CTF-Avaris)
-* Fix the 0 < n < 3 rocket infinite ammo exploit
+* Check whether the Rocket Launcher loads rockets too fast
 * Adjust the placement of weapons when SmallWeapons are off
 * Adjust the placement of AVRiL and the others when viewing from a 4:3 resolution
 * Make the Link Gun fire immediately, without waiting for anims
 * Can we get the Sniper Rifle scope to become on even if the key is released before the scope is on?
 * Disable team-coloured shock rifles outside of Instagib
-* Online: Rocket Launcher alt fire effects don't play, reverts to UT2004 behaviour
+* Online: Link Gun doesn't alt-fire
 * Online: Enforcer alt-fire reverts to UT2004 behaviour, although the effects play fine
 * Prevent picking up Enforcer clips when full on ammo
