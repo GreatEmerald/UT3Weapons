@@ -1,7 +1,7 @@
 //==============================================================================
 // UT3MinigunPickup.uc
 // Take it!
-// 2008, GreatEmerald
+// 2008, 2013 GreatEmerald
 //==============================================================================
 
 class UT3MinigunPickup extends MinigunPickup;
@@ -32,5 +32,6 @@ defaultproperties
     PrePivot=(X=-40)
     DesiredRotation=(Yaw=0)
     Skins(0)=Shader'UT3WeaponSkins.Stinger.StingerSkin'
+    AmbientGlow=77
     
 }

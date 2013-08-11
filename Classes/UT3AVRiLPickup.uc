@@ -1,7 +1,7 @@
 //=============================================================================
 // UT3AVRiLPickup.uc
 // Wow, a Longbow, in the 24th century?
-// 2008, GreatEmerald
+// 2008, 2013 GreatEmerald
 //=============================================================================
 
 class UT3AVRiLPickup extends ONSAVRiLPickup;
@@ -19,4 +19,5 @@ DefaultProperties
     Skins(0)=Shader'UT3WeaponSkins.AVRiL.AVRiLSkin'
     Skins(1)=Shader'UT3WeaponSkins.AVRiL.AVRiLProjSkin'
     StandUp=(X=0.25,Y=0.0,Z=0.25)
+    AmbientGlow=77
 }

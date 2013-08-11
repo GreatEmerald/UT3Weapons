@@ -1,7 +1,7 @@
 //=============================================================================
 // UT3RedeemerPickup.uc
 // Woah it's big.
-// 2008, GreatEmerald
+// 2008, 2013 GreatEmerald
 //=============================================================================
 
 class UT3RedeemerPickup extends RedeemerPickup;
@@ -16,4 +16,5 @@ defaultproperties
     StaticMesh=StaticMesh'UT3WPStatics.UT3RedeemerPickup'
     Skins(0)=Shader'UT3WeaponSkins.Redeemer.RedeemerSkin'
     Skins(1)=Shader'UT3WeaponSkins.Redeemer.RedeemerLauncher'
+    AmbientGlow=77
 }

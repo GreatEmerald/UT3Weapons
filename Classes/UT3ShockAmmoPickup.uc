@@ -16,5 +16,6 @@ defaultproperties
     DrawScale3D=(X=1,Y=1,Z=1)
     StaticMesh=StaticMesh'UT3Pickups-SM.Ammo.ShockRifleAmmo'
     PrePivot=(Z=18.000000)
+    AmbientGlow=77
 }
 

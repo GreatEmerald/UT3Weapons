@@ -3,7 +3,7 @@ UT3ArmorPickup
 
 Creation date: 2008-07-20 12:30
 Last change: $Id$
-Copyright (c) 2008, Wormbo
+Copyright (c) 2008, 2013 Wormbo, GreatEmerald
 ******************************************************************************/
 
 class UT3ArmorPickup extends UT3Pickup abstract;
@@ -66,8 +66,9 @@ function float DetourWeight(Pawn Other, float PathWeight)
 
 defaultproperties
 {
-	bPredictRespawns = true
-	RespawnTime = 30.0
-	RespawnSound = Sound'RespawnArmor'
-	MaxDesireability = 1.0
+    bPredictRespawns = true
+    RespawnTime = 30.0
+    RespawnSound = Sound'RespawnArmor'
+    MaxDesireability = 1.0
+    AmbientGlow = 77
 }

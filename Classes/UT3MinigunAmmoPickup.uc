@@ -15,4 +15,5 @@ defaultproperties
     StaticMesh=StaticMesh'UT3Pickups-SM.Ammo.StingerAmmo'
     DrawScale=1.8
     PrePivot=(Z=2.0)
+    AmbientGlow=77
 }

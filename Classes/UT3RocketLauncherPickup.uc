@@ -1,7 +1,7 @@
 //=============================================================================
 // UT3RocketLauncherPickup.uc
 // Got it.
-// 2008, GreatEmerald
+// 2008, 2013 GreatEmerald
 //=============================================================================
 
 class UT3RocketLauncherPickup extends RocketLauncherPickup;
@@ -34,4 +34,5 @@ defaultproperties
     DrawScale=1.5
     Skins(0)=Shader'UT3WeaponSkins.RocketLauncher.RocketLauncherSkin'
     StandUp=(X=0.0,Y=0.0,Z=0.25)
+    AmbientGlow=77
 }

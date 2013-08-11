@@ -18,4 +18,5 @@ defaultproperties
     StaticMesh=StaticMesh'UT3Pickups-SM.Ammo.EnforcerAmmo'
     DrawScale=1.25
     PrePivot=(Z=11.0)
+    AmbientGlow=77
 }

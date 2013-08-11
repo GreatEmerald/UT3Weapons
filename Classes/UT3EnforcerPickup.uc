@@ -1,7 +1,7 @@
 //==============================================================================
 // UT3EnforcerPickup.uc
 // Yay, you can actually make it appear without hacks, unlike in UT3 :)
-// 2008, GreatEmerald
+// 2008, 2013 GreatEmerald
 //==============================================================================
 
 class UT3EnforcerPickup extends AssaultRiflePickup;
@@ -18,5 +18,6 @@ defaultproperties
     Rotation=(Yaw=16384)
     TransientSoundVolume=1.15
     Skins(0)=Shader'UT3WeaponSkins.Enforcer.EnforcerShader'
+    AmbientGlow=77
 }
 

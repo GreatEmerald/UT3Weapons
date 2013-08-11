@@ -15,4 +15,5 @@ defaultproperties
     StaticMesh=StaticMesh'UT3Pickups-SM.Ammo.FlakCannonAmmo'
     DrawScale=2.0
     PrePivot=(Z=1.000000)
+    AmbientGlow=77
 }

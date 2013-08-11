@@ -22,16 +22,16 @@ class UT3ArmorShieldbeltPickup extends UT3ArmorPickup;
 
 defaultproperties
 {
-	RespawnTime   = 60.0
-	MaxDesireability = 1.5
-	InventoryType = class'UT3ArmorShieldbelt'
-	PickupSound   = Sound'PickupArmorShieldbelt'
-	PickupMessage = "Shield Belt"
-	PickupForce   = "LargeShieldPickup"
-	StaticMesh    = StaticMesh'UT3Pickups-SM.Powerups.ShieldBelt'
-	Physics       = PHYS_Rotating
-	RotationRate  = (Yaw=24000)
-	DrawScale     = 1.5
-	PrePivot      = (Z=10.000000)
-	Skins(0)      = Shader'UT3Pickups.ShieldBelt.ShieldBeltSkin'
+    RespawnTime   = 60.0
+    MaxDesireability = 1.5
+    InventoryType = class'UT3ArmorShieldbelt'
+    PickupSound   = Sound'PickupArmorShieldbelt'
+    PickupMessage = "Shield Belt"
+    PickupForce   = "LargeShieldPickup"
+    StaticMesh    = StaticMesh'UT3Pickups-SM.Powerups.ShieldBelt'
+    Physics       = PHYS_Rotating
+    RotationRate  = (Yaw=24000)
+    DrawScale     = 1.5
+    PrePivot      = (Z=10.000000)
+    Skins(0)      = Shader'UT3Pickups.ShieldBelt.ShieldBeltSkin'
 }

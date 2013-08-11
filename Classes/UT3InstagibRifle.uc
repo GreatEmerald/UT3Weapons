@@ -8,6 +8,43 @@ class UT3InstagibRifle extends UT3ShockRifle
     HideDropDown
     CacheExempt;
 
+var const Material RedSkin, BlueSkin;
+
+simulated function ApplySkin()
+{
+    local Controller Contra;
+    local UT3ShockRifleAttachment Tach;
+
+    if (Instigator.Controller != None)
+        Contra = Instigator.Controller;
+    else
+        return;
+
+    Tach = UT3ShockRifleAttachment(ThirdPersonActor);
+    if ( (Contra != None) && (Contra.PlayerReplicationInfo != None)&& (Contra.PlayerReplicationInfo.Team != None) )
+    {
+        if ( Contra.PlayerReplicationInfo.Team.TeamIndex == 0 )
+        {
+            Skins[0] = RedSkin;
+            if (Tach != None)
+                Tach.Skins[0] = RedSkin;
+        }
+        else if ( Contra.PlayerReplicationInfo.Team.TeamIndex == 1 )
+        {
+            Skins[0] = BlueSkin;
+            if (Tach != None)
+                Tach.Skins[0] = BlueSkin;
+        }
+        //log("UT3ShockRifle: Tach skin is"@Tach.Skins[0]);
+    }
+}
+
+function AttachToPawn(Pawn P)
+{
+    Super.AttachToPawn(P);
+    ApplySkin(); //GE: Applying skin here instead of PostBeginPlay() since we don't have the Instigator nor attachment there yet... We get Instigator on GiveTo, Attachment here.
+}
+
 simulated event RenderOverlays( Canvas Canvas )
 {
     if ( (Instigator.PlayerReplicationInfo.Team != None) && (Instigator.PlayerReplicationInfo.Team.TeamIndex == 1) )

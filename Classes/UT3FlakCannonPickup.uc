@@ -1,7 +1,7 @@
 //==============================================================================
 // UT3FlakCannonPickup.uc
 // I've got the Flak!
-// 2008, GreatEmerald
+// 2008, 2013 GreatEmerald
 //==============================================================================
 
 class UT3FlakCannonPickup extends FlakCannonPickup;
@@ -17,4 +17,5 @@ defaultproperties
      StaticMesh=StaticMesh'UT3WPStatics.UT3FlakPickup'
      UV2Mode=UVM_LightMap
      Skins(0)=Shader'UT3WeaponSkins.FlakCannon.FlakCannon_Skin'
+     AmbientGlow=77
 }

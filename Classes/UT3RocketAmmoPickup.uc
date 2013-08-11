@@ -17,6 +17,7 @@ defaultproperties
     DrawScale=1.800000
     PrePivot=(Z=0.0)
     Rotation=(Roll=49152)
+    AmbientGlow=77
 }
 
 

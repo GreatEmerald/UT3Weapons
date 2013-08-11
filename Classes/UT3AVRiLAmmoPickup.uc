@@ -13,4 +13,5 @@ DefaultProperties
     StaticMesh=StaticMesh'UT3Pickups-SM.Ammo.AVRILammo'
     DrawScale=1.8
     PrePivot=(Z=4.0)
+    AmbientGlow=77
 }

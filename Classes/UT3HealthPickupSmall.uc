@@ -120,4 +120,6 @@ defaultproperties
     TransientSoundRadius = 1000.0
     StaticMesh = StaticMesh'UT3PICKUPS_Mesh.Health_Small.S_Pickups_Health_Small'
     DrawScale = 1.0
+    AmbientGlow = 77
+    ScaleGlow = 1.0
 }

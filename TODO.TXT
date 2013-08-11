@@ -10,7 +10,8 @@
 * Adjust the placement of AVRiL and the others when viewing from a 4:3 resolution
 * Make the Link Gun fire immediately, without waiting for anims
 * Can we get the Sniper Rifle scope to become on even if the key is released before the scope is on?
-* Disable team-coloured shock rifles outside of Instagib
 * Online: Link Gun doesn't alt-fire
 * Online: Enforcer alt-fire reverts to UT2004 behaviour, although the effects play fine
 * Prevent picking up Enforcer clips when full on ammo
+* Adjust the pickups' Weapon Locker offset
+* Find a way to make a glowy overlay effect on pickups

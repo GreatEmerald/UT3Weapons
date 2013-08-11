@@ -16,5 +16,6 @@ defaultproperties
     StaticMesh=StaticMesh'UT3Pickups-SM.Ammo.SniperRifleAmmo'
     DrawScale=1.500000
     PrePivot=(Z=11.000000)
+    AmbientGlow=77
 }
 

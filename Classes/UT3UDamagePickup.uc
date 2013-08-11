@@ -39,4 +39,5 @@ defaultproperties
 
     DrawScale  = 0.6
     StaticMesh = StaticMesh'UT3Pickups-SM.Powerups.Udamage'
+    AmbientGlow = 77
 }

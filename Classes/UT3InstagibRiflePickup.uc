@@ -1,7 +1,7 @@
 //=============================================================================
 // UT3InstagibRiflePickup.uc
 // This isn't your usual weapon.
-// 2008, GreatEmerald
+// 2008, 2013 GreatEmerald
 //=============================================================================
 
 class UT3InstagibRiflePickup extends SuperShockRiflePickup;
@@ -19,4 +19,5 @@ defaultproperties
     StaticMesh=staticmesh'NewWeaponPickups.ShockPickupSM'
     DrawType=DT_StaticMesh
     DrawScale=0.5
+    AmbientGlow=77
 }

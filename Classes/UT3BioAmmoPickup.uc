@@ -15,4 +15,5 @@ defaultproperties
     DrawScale=1.875
     PrePivot=(Z=-2.0)
     TransientSoundVolume=1.15
+    AmbientGlow=77
 }

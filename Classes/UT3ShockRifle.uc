@@ -6,7 +6,7 @@
 
 class UT3ShockRifle extends ShockRifle;
 
-var const Material RedSkin, BlueSkin;
+/*var const Material RedSkin, BlueSkin;
 
 simulated function ApplySkin()
 {
@@ -41,7 +41,7 @@ function AttachToPawn(Pawn P)
 {
     Super.AttachToPawn(P);
     ApplySkin(); //GE: Applying skin here instead of PostBeginPlay() since we don't have the Instigator nor attachment there yet... We get Instigator on GiveTo, Attachment here.
-}
+}*/
 
 function byte BestMode()
 {
@@ -144,7 +144,5 @@ defaultproperties
      PutDownTime=0.367
      HighDetailOverlay=None
      Skins(0)=Shader'UT3WeaponSkins.ShockRifle.ShockRifleSkin'
-     RedSkin=Shader'UT3WeaponSkins.ShockRifle.ShockRifleSkinRed'
-     BlueSkin=Shader'UT3WeaponSkins.ShockRifle.ShockRifleSkin'
 }
 
