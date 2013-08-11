@@ -8,6 +8,7 @@ Copyright (c) 2008, 2013 Wormbo, GreatEmerald
 
 class MutUT3Weapons extends Mutator;
 
+#exec obj load file=UT3PICKUPS_Mesh.usx
 
 /**
 Modifies pickup bases to spawn the corresponding UT3-style pickups.
@@ -19,11 +20,17 @@ function bool CheckReplacement(Actor Other, out byte bSuperRelevant)
 	local class<Weapon> NewWeaponClass;
 	local WeaponLocker Locker;
 
-	if (xWeaponBase(Other) != None) {
-		NewWeaponClass = GetReplacementWeapon(xWeaponBase(Other).WeaponType);
-		if (NewWeaponClass != None)
-			xWeaponBase(Other).WeaponType = NewWeaponClass;
-	}
+    if (xWeaponBase(Other) != None)
+    {
+        NewWeaponClass = GetReplacementWeapon(xWeaponBase(Other).WeaponType);
+        if (NewWeaponClass != None)
+            xWeaponBase(Other).WeaponType = NewWeaponClass;
+        xWeaponBase(Other).SetStaticMesh(StaticMesh'UT3PICKUPS_Mesh.WeaponBase.S_Pickups_WeaponBase');
+        xWeaponBase(Other).NewDrawScale = 2.0;
+        xWeaponBase(Other).NewPrePivot = vect(0.0, 0.0, 0.0);
+        xWeaponBase(Other).SetDrawScale(2.0);
+        xWeaponBase(Other).PrePivot = vect(0.0, 0.0, 0.0);
+    }
 	else if (WildcardBase(Other) != None) {
 		// TODO: replace individual powerups
 	}

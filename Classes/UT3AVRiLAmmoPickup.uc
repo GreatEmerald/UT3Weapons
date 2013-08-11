@@ -6,6 +6,41 @@
 
 class UT3AVRiLAmmoPickup extends ONSAVRiLAmmoPickup;
 
+#exec obj load file=UT3Pickups.utx
+
+var UT3AmmoHighlight HighlightEffect;
+
+simulated function PostBeginPlay()
+{
+    HighlightEffect = Spawn(class'UT3AmmoHighlight'); // GEm: TODO: Spawn client-side only
+    HighlightEffect.SetStaticMesh(default.StaticMesh);
+    HighlightEffect.Skins[0] = Material'UT3Pickups.highlight.AVRIL_Highlight';
+    HighlightEffect.SetDrawScale(default.DrawScale);
+    HighlightEffect.PrePivot = default.PrePivot;
+    Super.PostBeginPlay();
+}
+
+state Sleeping
+{
+    function BeginState()
+    {
+        Super.BeginState();
+        HighlightEffect.bHidden = true;
+    }
+
+    function EndState()
+    {
+        Super.EndState();
+        HighlightEffect.bHidden = false;
+    }
+}
+
+simulated function Destroyed()
+{
+    HighlightEffect.Destroy();
+    Super.Destroyed();
+}
+
 DefaultProperties
 {
     InventoryType=class'UT3AVRiLAmmo' //what item to create in inventory (Epic comment)
