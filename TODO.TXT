@@ -15,3 +15,4 @@
 * Prevent picking up Enforcer clips when full on ammo
 * Adjust the pickups' Weapon Locker offset
 * Find a way to make a glowy overlay effect on pickups
+* Enable the glow functionality of pickup bases
