@@ -25,19 +25,24 @@ function bool CheckReplacement(Actor Other, out byte bSuperRelevant)
         NewWeaponClass = GetReplacementWeapon(xWeaponBase(Other).WeaponType);
         if (NewWeaponClass != None)
             xWeaponBase(Other).WeaponType = NewWeaponClass;
+        // GEm: TODO: Disable bases, spawn our own on top, otherwise it doesn't scale and has net issues
         xWeaponBase(Other).SetStaticMesh(StaticMesh'UT3PICKUPS_Mesh.WeaponBase.S_Pickups_WeaponBase');
-        xWeaponBase(Other).NewDrawScale = 2.0;
+        xWeaponBase(Other).NewDrawScale = 1.0;
         xWeaponBase(Other).NewPrePivot = vect(0.0, 0.0, 0.0);
-        xWeaponBase(Other).SetDrawScale(2.0);
+        xWeaponBase(Other).SetDrawScale(1.0);
         xWeaponBase(Other).PrePivot = vect(0.0, 0.0, 0.0);
     }
 	else if (WildcardBase(Other) != None) {
 		// TODO: replace individual powerups
 	}
 	else if (xPickupBase(Other) != None) {
+            log("MutUT3Weapons: CheckReplacement: Attempting to replace rooted pickup:"@Other);
 		NewPickupClass = GetReplacementPickup(xPickupBase(Other).Powerup);
 		if (NewPickupClass != None)
+		{
+                    log("MutUT3Weapons: CheckReplacement: Successfully replaced rooted pickup:"@NewPickupClass);
 			xPickupBase(Other).Powerup = NewPickupClass;
+		}
 	}
 	else if (WeaponLocker(Other) != None) {
 		Locker = WeaponLocker(Other);
@@ -51,8 +56,10 @@ function bool CheckReplacement(Actor Other, out byte bSuperRelevant)
 	else if (Pickup(Other) != None && Pickup(Other).MyMarker != None) {
 		NewPickupClass = GetReplacementPickup(Pickup(Other).Class);
 		if (NewPickupClass != None && ReplaceWith(Other, string(NewPickupClass))) {
+                    log("MutUT3Weapons: CheckReplacement: Successful pickup spawn:"@NewPickupClass);
 			return false;
 		}
+		log("MutUT3Weapons: CheckReplacement: Not replacing"@Other);
 	}
 	return Super.CheckReplacement(Other, bSuperRelevant);
 }

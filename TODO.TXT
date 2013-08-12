@@ -14,5 +14,5 @@
 * Online: Enforcer alt-fire reverts to UT2004 behaviour, although the effects play fine
 * Prevent picking up Enforcer clips when full on ammo
 * Adjust the pickups' Weapon Locker offset
-* Find a way to make a glowy overlay effect on pickups
+* Replace pickup bases with custom ones
 * Enable the glow functionality of pickup bases
