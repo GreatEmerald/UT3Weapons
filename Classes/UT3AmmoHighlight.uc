@@ -13,4 +13,6 @@ defaultproperties
     bCollideWorld = false
     bWorldGeometry = false
     bStatic = false
+    bNotOnDedServer = true
+    RemoteRole = ROLE_None
 }

@@ -12,32 +12,52 @@ var UT3AmmoHighlight HighlightEffect;
 
 simulated function PostBeginPlay()
 {
-    HighlightEffect = Spawn(class'UT3AmmoHighlight'); // GEm: TODO: Spawn client-side only
+    Super.PostBeginPlay();
+    HighlightEffect = Spawn(class'UT3AmmoHighlight'); // GEm: This is all client-side
+    if (HighlightEffect == None)
+        return;
     HighlightEffect.SetStaticMesh(default.StaticMesh);
     HighlightEffect.Skins[0] = Material'UT3Pickups.highlight.AVRIL_Highlight';
     HighlightEffect.SetDrawScale(default.DrawScale);
     HighlightEffect.PrePivot = default.PrePivot;
-    Super.PostBeginPlay();
 }
 
+// GEm: In netgames
+simulated function PostNetReceive()
+{
+    // GEm: Nice thing about bOnlyReplicateHidden – PostNetReceive is super predictable!
+    if (HighlightEffect == None)
+        return;
+
+    if (bHidden)
+        HighlightEffect.bHidden = true;
+    else
+        HighlightEffect.bHidden = false;
+}
+
+// GEm: Locally
 state Sleeping
 {
     function BeginState()
     {
         Super.BeginState();
-        HighlightEffect.bHidden = true;
+        if (HighlightEffect != None)
+            HighlightEffect.bHidden = true;
     }
 
     function EndState()
     {
         Super.EndState();
-        HighlightEffect.bHidden = false;
+        if (HighlightEffect != None)
+            HighlightEffect.bHidden = false;
     }
 }
 
-simulated function Destroyed()
+// GEm: In unexpected situations (CheckReplacement et al.)
+function Destroyed()
 {
-    HighlightEffect.Destroy();
+    if (HighlightEffect != None)
+        HighlightEffect.Destroy();
     Super.Destroyed();
 }
 
@@ -49,4 +69,5 @@ DefaultProperties
     DrawScale=1.8
     PrePivot=(Z=4.0)
     AmbientGlow=77
+    bNetNotify=true
 }
