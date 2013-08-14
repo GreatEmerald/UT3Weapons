@@ -12,7 +12,10 @@
 * Can we get the Sniper Rifle scope to become on even if the key is released before the scope is on?
 * Online: Link Gun doesn't alt-fire
 * Online: Enforcer alt-fire reverts to UT2004 behaviour, although the effects play fine
+* Online: Sniper doesn't zoom
+* Online: Weapon lockers use old meshes
 * Prevent picking up Enforcer clips when full on ammo
 * Adjust the pickups' Weapon Locker offset
 * Replace pickup bases with custom ones
 * Enable the glow functionality of pickup bases
+* Enable the highlight function of the Sniper Ammo Pickup (prerequisite: UT2004 UnCodeX sources on website)
