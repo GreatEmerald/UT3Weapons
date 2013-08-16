@@ -18,4 +18,3 @@
 * Adjust the pickups' Weapon Locker offset
 * Replace pickup bases with custom ones
 * Enable the glow functionality of pickup bases
-* Enable the highlight function of the Sniper Ammo Pickup (prerequisite: UT2004 UnCodeX sources on website)

@@ -35,15 +35,38 @@ function bool CheckReplacement(Actor Other, out byte bSuperRelevant)
 	else if (WildcardBase(Other) != None) {
 		// TODO: replace individual powerups
 	}
-	else if (xPickupBase(Other) != None) {
-            log("MutUT3Weapons: CheckReplacement: Attempting to replace rooted pickup:"@Other);
-		NewPickupClass = GetReplacementPickup(xPickupBase(Other).Powerup);
-		if (NewPickupClass != None)
-		{
-                    log("MutUT3Weapons: CheckReplacement: Successfully replaced rooted pickup:"@NewPickupClass);
-			xPickupBase(Other).Powerup = NewPickupClass;
-		}
-	}
+    else if (xPickupBase(Other) != None)
+    {
+        log("MutUT3Weapons: CheckReplacement: Attempting to replace rooted pickup:"@Other);
+        NewPickupClass = GetReplacementPickup(xPickupBase(Other).Powerup);
+        if (NewPickupClass != None)
+        {
+            log("MutUT3Weapons: CheckReplacement: Successfully replaced rooted pickup:"@NewPickupClass);
+            xPickupBase(Other).Powerup = NewPickupClass;
+        }
+        // GEm: Temporary hacks below!
+        if (HealthCharger(Other) != None || SuperHealthCharger(Other) != None)
+        {
+            xPickupBase(Other).SetStaticMesh(StaticMesh'UT3PICKUPS_Mesh.Health_Large.S_Pickups_Base_Health_Large');
+        }
+        else if (ShieldCharger(Other) != None || SuperShieldCharger(Other) != None)
+        {
+            xPickupBase(Other).SetStaticMesh(StaticMesh'UT3PICKUPS_Mesh.Base_Armor.S_Pickups_Base_Armor');
+        }
+        else if (UDamageCharger(Other) != None || WildcardBase(Other) != None)
+        {
+            xPickupBase(Other).SetStaticMesh(StaticMesh'UT3PICKUPS_Mesh.Base_Powerup.S_Pickups_Base_Powerup01');
+        }
+        if (HealthCharger(Other) != None || SuperHealthCharger(Other) != None
+            || ShieldCharger(Other) != None || SuperShieldCharger(Other) != None
+            || UDamageCharger(Other) != None || WildcardBase(Other) != None)
+        {
+            xPickupBase(Other).NewDrawScale = 1.0;
+            xPickupBase(Other).NewPrePivot = vect(0.0, 0.0, 0.0);
+            xPickupBase(Other).SetDrawScale(1.0);
+            xPickupBase(Other).PrePivot = vect(0.0, 0.0, 0.0);
+        }
+    }
 	else if (WeaponLocker(Other) != None) {
 		Locker = WeaponLocker(Other);
 

@@ -4,7 +4,7 @@
 // 2008, 2010, 2013 GreatEmerald, 100GPing100
 //=============================================================================
 
-class UT3SniperAmmoPickup extends ClassicSniperAmmoPickup;
+class UT3SniperAmmoPickup extends UT3AmmoPickup;
 
 defaultproperties
 {
@@ -13,9 +13,12 @@ defaultproperties
     PickupMessage="Sniper Shells"
     PickupSound=Sound'UT3PickupSounds.SniperAmmoPickup'
     TransientSoundVolume=1.0
+    PickupForce="SniperAmmoPickup"
+    AmmoAmount=10
+    CollisionHeight=16.0
     StaticMesh=StaticMesh'UT3Pickups-SM.Ammo.SniperRifleAmmo'
     DrawScale=1.500000
     PrePivot=(Z=11.000000)
-    AmbientGlow=77
+    HighlightSkins(0)=Material'UT3Pickups.highlight.Sniper_Highlight'
 }
 

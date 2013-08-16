@@ -9,16 +9,33 @@ class UT3AmmoPickup extends UTAmmoPickup;
 var UT3AmmoHighlight HighlightEffect;
 var array<Material> HighlightSkins;
 
-simulated function PostBeginPlay()
+simulated function PostNetBeginPlay()
 {
-    Super.PostBeginPlay();
+    Super.PostNetBeginPlay();
+    CheckHighlightEffect();
+}
+
+// GEm: Checks if the highlight exists, tries to spawn if not, returns false if it can't
+simulated function bool CheckHighlightEffect()
+{
+    if (HighlightEffect != None)
+        return true;
+
     HighlightEffect = Spawn(class'UT3AmmoHighlight'); // GEm: This is all client-side
     if (HighlightEffect == None)
-        return;
+        return false;
+    log(self@"CheckHighlightEffect: Rotation"@Rotation@"="@HighlightEffect.Rotation);
     HighlightEffect.SetStaticMesh(StaticMesh);
     HighlightEffect.Skins = HighlightSkins;
     HighlightEffect.SetDrawScale(DrawScale);
     HighlightEffect.PrePivot = PrePivot;
+    return true;
+}
+
+simulated function BaseChange()
+{
+    if (CheckHighlightEffect())
+        Highlighteffect.SetLocation(Location);
 }
 
 // GEm: In netgames
@@ -31,7 +48,10 @@ simulated function PostNetReceive()
     if (bHidden)
         HighlightEffect.bHidden = true;
     else
+    {
         HighlightEffect.bHidden = false;
+        HighlightEffect.SetRotation(Rotation);
+    }
 }
 
 // GEm: Locally
