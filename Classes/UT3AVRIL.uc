@@ -1,7 +1,7 @@
 //=============================================================================
 // UT3AVRIL.uc
 // Not sure why Wormbo chose "AVRIL" instead of "AVRiL".
-// 2008, GreatEmerald
+// 2008, 2013 GreatEmerald
 //=============================================================================
 
 class UT3AVRIL extends ONSAVRiL;
@@ -156,23 +156,23 @@ defaultproperties
     Description="The Longbow Anti-Vehicle Rocket Launcher, a.k.a. the 'AVRiL', gives dismounted infantry a fighting chance in an armored conflict. Its solid fuel missile can be 'dumbfired' as an unguided rocket, but the AVRiL's famed kill percentages come from its optical tracking system.|The alternate fire zooms and locks on to a vehicle, guiding the missile towards its target at inescapable speeds. The missile's microdappled control planes use increased surface area to give unprecedented turning radius, guaranteeing delivery of its shaped PolyDiChlorite charge into all but the most nimble vehicles.|The AVRiL is notoriously slow to reload, so it should be employed with caution in a pitched battle.|Note, the Longbow's targeting laser is (not yet) standardized for most Axon military equipment, so it can be used in other battlefield applications such as directing spider mines."  //TODO Lasers
     LockOnSound=Sound'UT3Weapons2.Generic.LockOn'
     
-      IdleAnim="WeaponIdle"
-      RestAnim="WeaponIdle"
-      AimAnim="WeaponIdle"
-      RunAnim="WeaponIdle"
-      SelectAnim="WeaponEquip"
-      PutDownAnim="WeaponPutDown"
-      SelectAnimRate=0.8
-      PutDownAnimRate=0.8
-      IdleAnimRate=0.8
-      RestAnimRate=0.8
-      RunAnimRate=0.8
-      AimAnimRate=0.8
-      Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_Avril_1P'
-      BringUpTime=0.5833
-      //PlayerViewOffset=(X=100.0,Y=100.0,Z=100.0)
-      PlayerViewPivot=(Pitch=3000,Yaw=-1000) //Pitch: +=Z Yaw:-=X
-      DrawScale=0.4
+    IdleAnim="WeaponIdle"
+    RestAnim="WeaponIdle"
+    AimAnim="WeaponIdle"
+    RunAnim="WeaponIdle"
+    SelectAnim="WeaponEquip"
+    PutDownAnim="WeaponPutDown"
+    SelectAnimRate=0.8
+    PutDownAnimRate=0.8
+    IdleAnimRate=0.8
+    RestAnimRate=0.8
+    RunAnimRate=0.8
+    AimAnimRate=0.8
+    Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_Avril_1P'
+    BringUpTime=0.5833
+    SmallViewOffset=(X=85.0,Y=27.0,Z=-20.0)
+    PlayerViewPivot=(Pitch=500,Yaw=-5000) //Pitch: +=Z Yaw:-=X
+    DrawScale=0.4
 
     FireModeClass(0)=UT3AVRiLFire
     FireModeClass(1)=UT3AVRiLAltFire
