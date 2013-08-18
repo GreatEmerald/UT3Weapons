@@ -446,8 +446,8 @@ defaultproperties
      ReloadAnimRate=1.3636
      Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_Enforcers_1P'
      DrawScale=1.000000
-     SmallViewOffset=(X=70,Y=0,Z=0)
-     PlayerViewPivot=(Pitch=-500,Yaw=1500,Roll=0)
+     SmallViewOffset=(X=60.0,Y=12.0,Z=-13.0)
+     PlayerViewPivot=(Pitch=-500,Yaw=750,Roll=0)
      AttachmentClass=class'UT3EnforcerAttachment'
      ReloadSound=Sound'UT3Weapons2.Enforcer.EnforcerReload'
      bAlreadyLoaded=False
