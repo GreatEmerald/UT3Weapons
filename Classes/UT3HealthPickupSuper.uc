@@ -122,4 +122,6 @@ defaultproperties
     DrawScale = 1.0
     AmbientGlow = 77
     ScaleGlow = 1.0
+    RotationRate = (Yaw=16384)
+    PickupMessage = "Big Keg O' Health +"
 }

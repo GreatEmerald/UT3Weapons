@@ -124,4 +124,6 @@ defaultproperties
     DrawScale=1.600000
     AmbientGlow=77
     ScaleGlow=1.0
+    RotationRate = (Yaw=16384)
+    PickupMessage="Health Pack +"
 }

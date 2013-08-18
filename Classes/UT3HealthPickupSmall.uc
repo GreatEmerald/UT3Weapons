@@ -27,6 +27,51 @@ var() Sound RespawnSound;
 // Variables
 //=============================================================================
 
+const TAU = 6.283185;
+var float BobTimer;
+var float BobOffset;
+var float BobSpeed;
+var Vector OriginalPrePivot;
+
+simulated function PreBeginPlay()
+{
+    Super.PreBeginPlay();
+    BobTimer = FRand()*TAU;
+    OriginalPrePivot = PrePivot;
+}
+
+auto simulated state Pickup
+{
+
+    simulated function Tick(float DeltaTime)
+    {
+        PrePivot.Z = OriginalPrePivot.Z + sin((Level.TimeSeconds + BobTimer) * BobSpeed) * BobOffset;
+    }
+
+    function BeginState()
+    {
+        // GEm: Let the server ignore the tick
+        Disable('Tick');
+        Super.BeginState();
+    }
+
+    function EndState()
+    {
+        // GEm: Reenable it after that, it's required for some effects
+        Enable('Tick');
+        Super.EndState();
+    }
+}
+
+simulated function PostNetReceive()
+{
+    // GEm: On clients, disable Tick when hidden
+    if (bHidden)
+        Disable('Tick');
+    else
+        Enable('Tick');
+}
+
 /*var TexPannerTriggered RespawnBuildGlow;
 var bool bWasHidden;
 
@@ -66,15 +111,6 @@ function RespawnEffect()
 {
 	PlaySound(RespawnSound);
 }
-
-
-/*simulated function PostNetReceive()
-{
-	if (!bHidden && bWasHidden) {
-		RespawnBuildGlow.Trigger(Self, None);
-	}
-	bWasHidden = bHidden;
-}*/
 
 
 state Sleeping
@@ -122,4 +158,9 @@ defaultproperties
     DrawScale = 1.0
     AmbientGlow = 77
     ScaleGlow = 1.0
+    PickupMessage = "Health Vial +"
+    RotationRate = (Yaw=32000)
+    BobOffset = 5.0
+    BobSpeed = 4.0
+    RemoteRole = ROLE_SimulatedProxy
 }
