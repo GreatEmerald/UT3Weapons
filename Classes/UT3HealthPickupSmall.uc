@@ -45,20 +45,22 @@ auto simulated state Pickup
 
     simulated function Tick(float DeltaTime)
     {
-        PrePivot.Z = OriginalPrePivot.Z + sin((Level.TimeSeconds + BobTimer) * BobSpeed) * BobOffset;
+        PrePivot.Z = OriginalPrePivot.Z + sin(Level.TimeSeconds * BobSpeed + BobTimer) * BobOffset;
     }
 
     function BeginState()
     {
         // GEm: Let the server ignore the tick
-        Disable('Tick');
+        if (Level.NetMode == NM_DedicatedServer)
+            Disable('Tick');
         Super.BeginState();
     }
 
     function EndState()
     {
         // GEm: Reenable it after that, it's required for some effects
-        Enable('Tick');
+        if (Level.NetMode == NM_DedicatedServer)
+            Enable('Tick');
         Super.EndState();
     }
 }

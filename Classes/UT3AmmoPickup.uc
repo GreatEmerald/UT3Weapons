@@ -35,7 +35,7 @@ simulated function bool CheckHighlightEffect()
 simulated function BaseChange()
 {
     if (CheckHighlightEffect())
-        Highlighteffect.SetLocation(Location);
+        HighlightEffect.SetLocation(Location);
 }
 
 // GEm: In netgames

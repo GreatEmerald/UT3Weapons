@@ -1,7 +1,7 @@
 //=============================================================================
 // UT3LTBOMHInteraction.uc
 // "Like the Back of My Hand" Interaction, similar to UT3, all handling is here
-// 2010, GreatEmerald
+// 2010, 2013 GreatEmerald
 //=============================================================================
 
 class UT3LTBOMHInteraction extends Interaction;
@@ -189,7 +189,7 @@ function RegisterPickup(Actor MyPickup)//, optional string Destination)
     UpdateList(MyPickup, UnknownArray);
 }
 
-//GE: Labour saving yay! Her we add things to the lists.
+//GE: Labour saving yay! Here we add things to the lists.
 function UpdateList(Actor MyPickup, out array<PickupNode> Destination)
 {
     local PickupNode PN;
@@ -463,7 +463,32 @@ function PostRender( canvas Canvas )
 
 event NotifyLevelChange()
 {
+    /* GEm: We need to cut all Actor references for the garbage collector to not
+            bork out due to trying to access None during level changes */
+    CutReferences(HealthArray);
+    CutReferences(ShieldArray);
+    CutReferences(SuperHealthArray);
+    CutReferences(SuperShieldArray);
+    CutReferences(UDamageArray);
+    CutReferences(WildcardArray);
+    CutReferences(WeaponArray);
+    CutReferences(SuperWeaponArray);
+    CutReferences(AmmoArray);
+    CutReferences(AdrenalineArray);
+    CutReferences(VialArray);
+    CutReferences(LockerArray);
+    CutReferences(UnknownArray);
     Master.RemoveInteraction( Self );
+}
+
+function CutReferences(out array<PickupNode> CurrentNode)
+{
+    local int i;
+
+    for (i=0; i < CurrentNode.Length; i++)
+    {
+        CurrentNode[i].PickupReference = None;
+    }
 }
 
 /******************************************************************************
