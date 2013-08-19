@@ -85,4 +85,5 @@ defaultproperties
     bNetNotify = true
     AmbientGlow = 77
     DrawType = DT_StaticMesh
+    MessageClass = class'UT3PickupMessage'
 }

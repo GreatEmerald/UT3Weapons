@@ -165,4 +165,5 @@ defaultproperties
     BobOffset = 5.0
     BobSpeed = 4.0
     RemoteRole = ROLE_SimulatedProxy
+    MessageClass = class'UT3PickupMessage'
 }
