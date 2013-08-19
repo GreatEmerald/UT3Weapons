@@ -175,6 +175,7 @@ defaultproperties
      BringUpTime=0.5133
      
      PlayerViewPivot=(Pitch=500,Yaw=-500,Roll=0)
+     PlayerViewOffset=(X=3.0,Y=0.5,Z=-0.5)
      SmallViewOffset=(X=9,Y=3,Z=-3)
      Skins(0)=Material'UT3WeaponSkins.ImpactHammer.ImpactHammerSkin'
 }           

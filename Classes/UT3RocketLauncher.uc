@@ -371,5 +371,6 @@ defaultproperties
      GrenadesName="Grenades"
      
      PlayerViewPivot=(Pitch=0,Roll=0,Yaw=0)
+     PlayerViewOffset=(X=0.0,Y=8.0,Z=1.2)
      SmallViewOffset=(X=8,Y=12,Z=-2)
 }

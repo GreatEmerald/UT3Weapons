@@ -188,7 +188,9 @@ defaultproperties
      CustomCrosshair=19
      Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_Translocator_1P'
      DrawScale = 1.0
-     SmallViewOffset=(X=9,Y=4,Z=-6)
+     PlayerViewPivot=(Pitch=0,Roll=0,Yaw=0)
+     PlayerViewOffset=(X=-3.0,Y=0.3,Z=-0.3)
+     SmallViewOffset=(X=5.0,Y=4.0,Z=-4.0)
      BringUpTime=0.4667
      
      RedSkin=Material'UT3WeaponSkins.Translocator.TranslocatorSkinRed'

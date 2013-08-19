@@ -261,6 +261,7 @@ defaultproperties
      Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_SniperRifle_1P'
      DrawScale=1.000000
      PlayerViewPivot=(Pitch=0,Yaw=0,Roll=0)
+     PlayerViewOffset=(X=7.0,Y=0.0,Z=0.0)
      SmallViewOffset=(X=37,Y=10,Z=-10)
      BobDamping=1.0
      BringUpTime=0.533

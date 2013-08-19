@@ -30,6 +30,7 @@ defaultproperties
      PutDownAnim="WeaponPutDown"
      //OldPlayerViewOffset=(Y=7.000000)
      PlayerViewPivot=(Yaw=-250,Pitch=500,Roll=0)
+     PlayerViewOffset=(X=-10.0,Y=10.0,Z=-5.0)
      SmallViewOffset=(X=12,Y=20,Z=-13)
      Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_FlakCannon_1P'
      AttachmentClass=class'UT3FlakAttachment'

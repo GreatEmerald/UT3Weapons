@@ -144,6 +144,7 @@ defaultproperties
      OldPlayerViewPivot=(Yaw=49152)
      Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_Linkgun_1P'
      
+     PlayerViewOffset=(X=-11.0,Y=-3.5,Z=2.5)
      SmallViewOffset=(X=4,Y=2,Z=-3)
      PlayerViewPivot=(Pitch=0,Roll=0,Yaw=-16384)
 }

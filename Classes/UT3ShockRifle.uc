@@ -138,6 +138,7 @@ defaultproperties
      SelectAnim="WeaponEquip"
      PutDownAnim="WeaponPutDown"
      PlayerViewPivot=(Pitch=0,Yaw=-15884,Roll=500)
+     PlayerViewOffset=(X=16.0,Y=7.7,Z=-6.2)
      SmallViewOffset=(X=24,Y=11.5,Z=-9.5)
      Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_ShockRifle_1P'
      BringUpTime=0.367

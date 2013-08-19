@@ -52,6 +52,7 @@ defaultproperties
       
       DrawScale=0.9
       PlayerViewPivot=(Pitch=0,Roll=0,Yaw=0)
+      PlayerViewOffset=(X=4.0,Y=2.0,Z=0.0)
       SmallViewOffset=(X=15,Y=6,Z=-4)
      
      UV2Mode=UVM_LightMap

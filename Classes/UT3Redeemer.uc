@@ -75,6 +75,7 @@ defaultproperties
      Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_Redeemer_1P'
      BringUpTime=2.1
      PutDownTime=0.97
+     PlayerViewOffset=(X=-8.0,Y=0.0,Z=-16.0)
      SmallViewOffset=(X=-8.0,Y=0.0,Z=-16.0)
      PlayerViewPivot=(Pitch=0,Roll=0,Yaw=0)
      BobDamping=2.2

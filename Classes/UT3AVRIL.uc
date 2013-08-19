@@ -170,8 +170,9 @@ defaultproperties
     AimAnimRate=0.8
     Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_Avril_1P'
     BringUpTime=0.5833
+    PlayerViewOffset=(X=40.0,Y=15.0,Z=-8.0)
     SmallViewOffset=(X=85.0,Y=27.0,Z=-20.0)
-    PlayerViewPivot=(Pitch=500,Yaw=-500) //Pitch: +=Z Yaw:-=X
+    PlayerViewPivot=(Pitch=500,Roll=0,Yaw=-500) //Pitch: +=Z Yaw:-=X
     DrawScale=0.4
 
     FireModeClass(0)=UT3AVRiLFire

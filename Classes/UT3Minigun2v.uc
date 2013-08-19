@@ -203,18 +203,19 @@ defaultproperties
      Priority=6.000000
      AIRating=0.710000
 
-     //EffectOffset=(X=100.000000,Y=18.000000,Z=-16.000000)
-     DisplayFOV=60.000000
-     SmallViewOffset=(X=6.0,Y=1.3,Z=-1.3)
-     PlayerViewPivot=(Pitch=0,Roll=0,Yaw=0)
-     //CenteredOffsetY=-6.000000
-     //CenteredRoll=0
-     //CenteredYaw=-500
-     InventoryGroup=6
-     //PlayerViewOffset=(X=2.000000,Y=-1.000000)
-     //PlayerViewPivot=(Yaw=500)
-     BobDamping=2.250000
-     AttachmentClass=class'UT3MinigunAttachment'
+    //EffectOffset=(X=100.000000,Y=18.000000,Z=-16.000000)
+    DisplayFOV=60.000000
+    PlayerViewOffset=(X=1.0,Y=-0.5,Z=0.5)
+    SmallViewOffset=(X=6.0,Y=1.3,Z=-1.3)
+    PlayerViewPivot=(Pitch=0,Roll=0,Yaw=0)
+    //CenteredOffsetY=-6.000000
+    //CenteredRoll=0
+    //CenteredYaw=-500
+    InventoryGroup=6
+    //PlayerViewOffset=(X=2.000000,Y=-1.000000)
+    //PlayerViewPivot=(Yaw=500)
+    BobDamping=2.250000
+    AttachmentClass=class'UT3MinigunAttachment'
     bDynamicLight=false
     LightType=LT_Pulse
     LightEffect=LE_NonIncidence
