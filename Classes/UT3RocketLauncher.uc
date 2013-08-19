@@ -370,6 +370,6 @@ defaultproperties
      SpiralName="Spiral"
      GrenadesName="Grenades"
      
-     PlayerViewPivot=(Pitch=1000,Roll=100)
-     SmallViewOffset=(X=15,Y=12,Z=-5)
+     PlayerViewPivot=(Pitch=0,Roll=0,Yaw=0)
+     SmallViewOffset=(X=8,Y=12,Z=-2)
 }

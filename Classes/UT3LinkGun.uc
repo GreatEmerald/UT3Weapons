@@ -3,7 +3,7 @@ UT3LinkGun
 
 Creation date: 2008-07-17 11:16
 Last change: 2008-11-01
-Copyright (c) 2008, Wormbo and GreatEmerald
+Copyright (c) 2008, 2013 Wormbo and GreatEmerald
 ******************************************************************************/
 
 class UT3LinkGun extends LinkGun;
@@ -144,6 +144,6 @@ defaultproperties
      OldPlayerViewPivot=(Yaw=49152)
      Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_Linkgun_1P'
      
-     SmallViewOffset=(X=10,Y=5,Z=-10)
-     PlayerViewPivot=(Pitch=0,Roll=-1200,Yaw=49152)
+     SmallViewOffset=(X=4,Y=2,Z=-3)
+     PlayerViewPivot=(Pitch=0,Roll=0,Yaw=-16384)
 }

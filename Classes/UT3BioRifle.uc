@@ -1,7 +1,7 @@
 //==============================================================================
 // UT3BioRifle.uc
 // Biohazard!
-// 2008, GreatEmerald
+// 2008, 2013 GreatEmerald
 //==============================================================================
 
 class UT3BioRifle extends BioRifle;
@@ -51,7 +51,8 @@ defaultproperties
       AimAnimRate=0.8
       
       DrawScale=0.9
-      PlayerViewPivot=(Pitch=1000,Yaw=-500)
+      PlayerViewPivot=(Pitch=0,Roll=0,Yaw=0)
+      SmallViewOffset=(X=15,Y=6,Z=-4)
      
      UV2Mode=UVM_LightMap
      AttachmentClass=class'UT3BioAttachment'

@@ -1,7 +1,7 @@
 //=============================================================================
 // UT3Redeemer.uc
 // Denied!
-// 2008, GreatEmerald
+// 2008, 2013 GreatEmerald
 //=============================================================================
 
 class UT3Redeemer extends Redeemer;
@@ -75,6 +75,7 @@ defaultproperties
      Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_Redeemer_1P'
      BringUpTime=2.1
      PutDownTime=0.97
-     SmallViewOffset=(X=-6.000000,Y=1.500000,Z=-17.000000)
+     SmallViewOffset=(X=-8.0,Y=0.0,Z=-16.0)
+     PlayerViewPivot=(Pitch=0,Roll=0,Yaw=0)
      BobDamping=2.2
 }

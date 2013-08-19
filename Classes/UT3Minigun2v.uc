@@ -1,7 +1,7 @@
 //=============================================================================
 // UT3Minigun2v.uc
 // It was supposed to be UT3Minigunv2, but they won't like classes ending in a digit :(
-// 2008, GreatEmerald
+// 2008, 2013 GreatEmerald
 //=============================================================================
 class UT3Minigun2v extends Weapon
     config(user);
@@ -205,7 +205,8 @@ defaultproperties
 
      //EffectOffset=(X=100.000000,Y=18.000000,Z=-16.000000)
      DisplayFOV=60.000000
-     SmallViewOffset=(X=8.500000,Y=2.000000,Z=-2.000000)
+     SmallViewOffset=(X=6.0,Y=1.3,Z=-1.3)
+     PlayerViewPivot=(Pitch=0,Roll=0,Yaw=0)
      //CenteredOffsetY=-6.000000
      //CenteredRoll=0
      //CenteredYaw=-500

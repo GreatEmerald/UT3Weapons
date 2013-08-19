@@ -1,7 +1,7 @@
 //==============================================================================
 // UT3ShockRifle.uc
 // Shocking.
-// 2008, GreatEmerald
+// 2008, 2013 GreatEmerald
 //==============================================================================
 
 class UT3ShockRifle extends ShockRifle;
@@ -137,8 +137,8 @@ defaultproperties
      RunAnim="WeaponIdle"
      SelectAnim="WeaponEquip"
      PutDownAnim="WeaponPutDown"
-     PlayerViewPivot=(Pitch=0,Yaw=49652,Roll=-800)
-     SmallViewOffset=(X=25,Y=11,Z=-9.5)
+     PlayerViewPivot=(Pitch=0,Yaw=-15884,Roll=500)
+     SmallViewOffset=(X=24,Y=11.5,Z=-9.5)
      Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_ShockRifle_1P'
      BringUpTime=0.367
      PutDownTime=0.367

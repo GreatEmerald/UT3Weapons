@@ -1,7 +1,7 @@
 //=============================================================================
 // UT3SniperRifle.uc
 // Head Hunter.
-// 2008, GreatEmerald
+// 2008, 2013 GreatEmerald
 //=============================================================================
 
 class UT3SniperRifle extends ClassicSniperRifle;
@@ -260,8 +260,8 @@ defaultproperties
      //OldPlayerViewPivot=(Yaw=49152)
      Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_SniperRifle_1P'
      DrawScale=1.000000
-     PlayerViewPivot=(Pitch=1000,Yaw=0)
-     SmallViewOffset=(X=40,Y=10)
+     PlayerViewPivot=(Pitch=0,Yaw=0,Roll=0)
+     SmallViewOffset=(X=37,Y=10,Z=-10)
      BobDamping=1.0
      BringUpTime=0.533
 }

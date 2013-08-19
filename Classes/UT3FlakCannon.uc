@@ -1,7 +1,7 @@
 //==============================================================================
 // UT3FlakCannon.uc
 // Flak Monkey.
-// 2008, GreatEmerald
+// 2008, 2013 GreatEmerald
 //==============================================================================
 
 class UT3FlakCannon extends FlakCannon;
@@ -28,9 +28,9 @@ defaultproperties
      RunAnim="WeaponIdle"
      SelectAnim="WeaponEquip"
      PutDownAnim="WeaponPutDown"
-     OldPlayerViewOffset=(Y=7.000000)
-     PlayerViewPivot=(Yaw=-500,Pitch=800,Roll=0)
-     SmallViewOffset=(X=18,Y=25,Z=-10)
+     //OldPlayerViewOffset=(Y=7.000000)
+     PlayerViewPivot=(Yaw=-250,Pitch=500,Roll=0)
+     SmallViewOffset=(X=12,Y=20,Z=-13)
      Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_FlakCannon_1P'
      AttachmentClass=class'UT3FlakAttachment'
      HighDetailOverlay=None

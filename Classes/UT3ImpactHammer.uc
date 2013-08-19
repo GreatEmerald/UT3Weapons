@@ -1,7 +1,7 @@
 //==============================================================================
 // UT3ImpactHammer.uc
 // The Impact Hammer!
-// 2008, GreatEmerald
+// 2008, 2013 GreatEmerald
 //==============================================================================
 
 class UT3ImpactHammer extends ShieldGun;
@@ -174,7 +174,7 @@ defaultproperties
      SelectAnimRate=1.3636
      BringUpTime=0.5133
      
-     PlayerViewPivot=(Pitch=2000,Yaw=-1000,Roll=0)
-     SmallViewOffset=(X=15,Y=6,Z=-5)
+     PlayerViewPivot=(Pitch=500,Yaw=-500,Roll=0)
+     SmallViewOffset=(X=9,Y=3,Z=-3)
      Skins(0)=Material'UT3WeaponSkins.ImpactHammer.ImpactHammerSkin'
 }           
