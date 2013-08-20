@@ -1,13 +1,10 @@
 * Remove all #exec embeds and move them out into actual external packages
 * Disable "classic model" checkboxes for the weapons
-* Make health vials jump around
 * Figure out why Like the Back of My Hand crashes
 * Fix the MaterialManager to work with the new pickups
 * Figure out why some things are not replaced (Rocket ammo in FaceClassic, vials in BridgeOfFate)
 * Figure out why some things don't spawn (UDamage, vials in red base of CTF-Avaris)
 * Check whether the Rocket Launcher loads rockets too fast
-* Adjust the placement of weapons when SmallWeapons are off
-* Adjust the placement of AVRiL and the others when viewing from a 4:3 resolution
 * Make the Link Gun fire immediately, without waiting for anims
 * Can we get the Sniper Rifle scope to become on even if the key is released before the scope is on?
 * Online: Link Gun doesn't alt-fire

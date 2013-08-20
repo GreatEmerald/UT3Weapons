@@ -15,10 +15,12 @@ Modifies pickup bases to spawn the corresponding UT3-style pickups.
 */
 function bool CheckReplacement(Actor Other, out byte bSuperRelevant)
 {
-	local int i;
-	local class<Pickup> NewPickupClass;
-	local class<Weapon> NewWeaponClass;
-	local WeaponLocker Locker;
+    local int i;
+    local class<Pickup> NewPickupClass;
+    local class<Weapon> NewWeaponClass;
+    local WeaponLocker Locker;
+    local bool bOriginalCollision;
+    local bool bResult;
 
     if (xWeaponBase(Other) != None)
     {
@@ -37,11 +39,9 @@ function bool CheckReplacement(Actor Other, out byte bSuperRelevant)
 	}
     else if (xPickupBase(Other) != None)
     {
-        log("MutUT3Weapons: CheckReplacement: Attempting to replace rooted pickup:"@Other);
         NewPickupClass = GetReplacementPickup(xPickupBase(Other).Powerup);
         if (NewPickupClass != None)
         {
-            log("MutUT3Weapons: CheckReplacement: Successfully replaced rooted pickup:"@NewPickupClass);
             xPickupBase(Other).Powerup = NewPickupClass;
         }
         // GEm: Temporary hacks below!
@@ -76,17 +76,75 @@ function bool CheckReplacement(Actor Other, out byte bSuperRelevant)
 				Locker.Weapons[i].WeaponClass = NewWeaponClass;
 		}
 	}
-	else if (Pickup(Other) != None && Pickup(Other).MyMarker != None) {
-		NewPickupClass = GetReplacementPickup(Pickup(Other).Class);
-		if (NewPickupClass != None && ReplaceWith(Other, string(NewPickupClass))) {
-                    log("MutUT3Weapons: CheckReplacement: Successful pickup spawn:"@NewPickupClass);
-			return false;
-		}
-		log("MutUT3Weapons: CheckReplacement: Not replacing"@Other);
-	}
+    else if (Pickup(Other) != None && Pickup(Other).MyMarker != None)
+    {
+        NewPickupClass = GetReplacementPickup(Pickup(Other).Class);
+        if (NewPickupClass != None)
+        {
+            // GEm: Temporarily disable collision so we could spawn near walls
+            //bOriginalCollision = NewPickupClass.default.bCollideWorld;
+            //NewPickupClass.default.bCollideWorld = false;
+            bResult = ReplaceWith(Other, string(NewPickupClass));
+            //NewPickupClass.default.bCollideWorld = bOriginalCollision;
+            if (bResult)
+                return false;
+        }
+        log("MutUT3Weapons: CheckReplacement: Not replacing"@Other);
+    }
 	return Super.CheckReplacement(Other, bSuperRelevant);
 }
 
+// GEm: Hope nothing blows up!
+function bool ReplaceWith(actor Other, string aClassName)
+{
+    local Actor A;
+    local class<Actor> aClass;
+    local bool bOldCollideWorld;
+
+    if ( aClassName == "" )
+        return true;
+
+    aClass = class<Actor>(DynamicLoadObject(aClassName, class'Class'));
+    if ( aClass == None )
+        return false;
+
+    if ( Other.IsA('Pickup') )
+    {
+        bOldCollideWorld = Other.default.bCollideWorld;
+        aClass.default.bCollideWorld = false;
+
+        A = Spawn(aClass,Other.Owner,Other.tag,Other.Location, Other.Rotation);
+
+        A.default.bCollideWorld = bOldCollideWorld;
+        aClass.default.bCollideWorld = bOldCollideWorld;
+
+        if ( Pickup(Other).MyMarker != None )
+        {
+            Pickup(Other).MyMarker.markedItem = Pickup(A);
+            if ( Pickup(A) != None )
+            {
+                Pickup(A).MyMarker = Pickup(Other).MyMarker;
+                A.SetLocation(A.Location
+                    + (A.CollisionHeight - Other.CollisionHeight) * vect(0,0,1));
+                if (Level.NetMode != NM_DedicatedServer && UT3AmmoPickup(A) != None)
+                    UT3AmmoPickup(A).BaseChange();
+            }
+            Pickup(Other).MyMarker = None;
+        }
+        else if ( A.IsA('Pickup') )
+            Pickup(A).Respawntime = 0.0;
+    }
+    else
+        A = Spawn(aClass,Other.Owner,Other.tag,Other.Location, Other.Rotation);
+
+    if ( A != None )
+    {
+        A.event = Other.event;
+        A.tag = Other.tag;
+        return true;
+    }
+        return false;
+}
 
 function string GetInventoryClassOverride(string InventoryClassName)
 {

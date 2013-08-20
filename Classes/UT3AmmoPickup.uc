@@ -24,7 +24,6 @@ simulated function bool CheckHighlightEffect()
     HighlightEffect = Spawn(class'UT3AmmoHighlight'); // GEm: This is all client-side
     if (HighlightEffect == None)
         return false;
-    log(self@"CheckHighlightEffect: Rotation"@Rotation@"="@HighlightEffect.Rotation);
     HighlightEffect.SetStaticMesh(StaticMesh);
     HighlightEffect.Skins = HighlightSkins;
     HighlightEffect.SetDrawScale(DrawScale);
@@ -35,7 +34,9 @@ simulated function bool CheckHighlightEffect()
 simulated function BaseChange()
 {
     if (CheckHighlightEffect())
+    {
         HighlightEffect.SetLocation(Location);
+    }
 }
 
 // GEm: In netgames
