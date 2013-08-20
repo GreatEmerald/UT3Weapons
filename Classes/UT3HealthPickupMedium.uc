@@ -6,7 +6,7 @@ Last change: $Id$
 Copyright (c) 2008, 2010, 2013 Wormbo, 100GPing100, GreatEmerald
 ******************************************************************************/
 
-class UT3HealthPickupMedium extends HealthPack;
+class UT3HealthPickupMedium extends UT3HealthPickup;
 
 
 //=============================================================================
@@ -16,21 +16,8 @@ class UT3HealthPickupMedium extends HealthPack;
 #exec audio import file=Sounds\include\RespawnHealth.wav group=Pickups
 #exec audio import file=Sounds\include\PickupHealthMedium.wav group=Pickups
 
-
-//=============================================================================
-// Properties
-//=============================================================================
-
-var() Sound RespawnSound;
-
-
-//=============================================================================
-// Variables
-//=============================================================================
-
 // GEm: Will need to fix this later
-/*var TexPannerTriggered RespawnBuildGlow;
-var bool bWasHidden;
+/*
 
 
 simulated function PostBeginPlay()
@@ -64,66 +51,23 @@ simulated function Destroyed()
 }*/
 
 
-function RespawnEffect()
-{
-	PlaySound(RespawnSound);
-}
-
-
-/*simulated function PostNetReceive()
-{
-	if (!bHidden && bWasHidden) {
-		RespawnBuildGlow.Trigger(Self, None);
-	}
-	bWasHidden = bHidden;
-}*/
-
-
-state Sleeping
-{
-	function BeginState()
-	{
-		Super.BeginState();
-		if (Level.NetMode != NM_DedicatedServer)
-			PostNetReceive();
-	}
-	
-	function EndState()
-	{
-		Super.EndState();
-		if (Level.NetMode != NM_DedicatedServer)
-			PostNetReceive();
-	}
-	
-DelayedSpawn:
-Begin:
-	Sleep(GetReSpawnTime() - RespawnEffectTime);
-Respawn:
-	RespawnEffect();
-	Sleep(RespawnEffectTime);
-    if (PickUpBase != None)
-		PickUpBase.TurnOn();
-    GotoState('Pickup');
-}
-
-
 //=============================================================================
 // Default values
 //=============================================================================
 
 defaultproperties
 {
-    //bWasHidden = True
-    bNetNotify = True
-    RespawnEffectTime = 0.0
     PickupSound = Sound'PickupHealthMedium'
-    RespawnSound = Sound'RespawnHealth'
-    TransientSoundVolume = 0.75
-    TransientSoundRadius = 1000.0
-    StaticMesh=StaticMesh'UT3Pickups-SM.Powerups.HealthMedium'
-    DrawScale=1.600000
-    AmbientGlow=77
-    ScaleGlow=1.0
+    StaticMesh = StaticMesh'UT3Pickups-SM.Powerups.HealthMedium'
+    DrawScale = 1.6
     RotationRate = (Yaw=16384)
-    PickupMessage="Health Pack +"
+    PickupMessage = "Health Pack +"
+    bFloatingPickup = true
+    bRandomStart = true
+    BobSpeed = 1.0
+    BobOffset = 5.0
+    PickupForce = "HealthPack"
+    CollisionRadius = 32.0
+    HealingAmount = 25
+    CullDistance = +6500.0
 }

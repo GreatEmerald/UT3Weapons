@@ -6,7 +6,7 @@ Latest change: $Id$
 Copyright (c) 2008, 2013 Wormbo, GreatEmerald
 ******************************************************************************/
 
-class UT3HealthPickupSmall extends MiniHealthPack;
+class UT3HealthPickupSmall extends UT3HealthPickup;
 
 
 //=============================================================================
@@ -15,70 +15,7 @@ class UT3HealthPickupSmall extends MiniHealthPack;
 
 #exec audio import file=Sounds\include\PickupHealthSmall.wav group=Pickups
 
-
-//=============================================================================
-// Properties
-//=============================================================================
-
-var() Sound RespawnSound;
-
-
-//=============================================================================
-// Variables
-//=============================================================================
-
-const TAU = 6.283185;
-var float BobTimer;
-var float BobOffset;
-var float BobSpeed;
-var Vector OriginalPrePivot;
-
-simulated function PreBeginPlay()
-{
-    Super.PreBeginPlay();
-    BobTimer = FRand()*TAU;
-    OriginalPrePivot = PrePivot;
-}
-
-auto simulated state Pickup
-{
-
-    simulated function Tick(float DeltaTime)
-    {
-        PrePivot.Z = OriginalPrePivot.Z + sin(Level.TimeSeconds * BobSpeed + BobTimer) * BobOffset;
-    }
-
-    function BeginState()
-    {
-        // GEm: Let the server ignore the tick
-        if (Level.NetMode == NM_DedicatedServer)
-            Disable('Tick');
-        Super.BeginState();
-    }
-
-    function EndState()
-    {
-        // GEm: Reenable it after that, it's required for some effects
-        if (Level.NetMode == NM_DedicatedServer)
-            Enable('Tick');
-        Super.EndState();
-    }
-}
-
-simulated function PostNetReceive()
-{
-    // GEm: On clients, disable Tick when hidden
-    if (bHidden)
-        Disable('Tick');
-    else
-        Enable('Tick');
-}
-
-/*var TexPannerTriggered RespawnBuildGlow;
-var bool bWasHidden;
-
-
-simulated function PostBeginPlay()
+/*simulated function PostBeginPlay()
 {
 	local UT3MaterialManager MaterialManager;
 	
@@ -109,61 +46,25 @@ simulated function Destroyed()
 }*/
 
 
-function RespawnEffect()
-{
-	PlaySound(RespawnSound);
-}
-
-
-state Sleeping
-{
-	/*function BeginState()
-	{
-		Super.BeginState();
-		if (Level.NetMode != NM_DedicatedServer)
-			PostNetReceive();
-	}
-	
-	function EndState()
-	{
-		Super.EndState();
-		if (Level.NetMode != NM_DedicatedServer)
-			PostNetReceive();
-	}*/
-	
-DelayedSpawn:
-Begin:
-	Sleep(GetReSpawnTime() - RespawnEffectTime);
-Respawn:
-	RespawnEffect();
-	Sleep(RespawnEffectTime);
-    if (PickUpBase != None)
-		PickUpBase.TurnOn();
-    GotoState('Pickup');
-}
-
-
 //=============================================================================
 // Default values
 //=============================================================================
 
 defaultproperties
 {
-    //bWasHidden = True
-    bNetNotify = True
-    RespawnEffectTime = 0.0
     PickupSound = Sound'PickupHealthSmall'
-    RespawnSound = Sound'RespawnHealth'
-    TransientSoundVolume = 0.75
-    TransientSoundRadius = 1000.0
     StaticMesh = StaticMesh'UT3PICKUPS_Mesh.Health_Small.S_Pickups_Health_Small'
     DrawScale = 1.0
-    AmbientGlow = 77
-    ScaleGlow = 1.0
     PickupMessage = "Health Vial +"
     RotationRate = (Yaw=32000)
+    bFloatingPickup = true
+    bRandomStart = true
     BobOffset = 5.0
     BobSpeed = 4.0
-    RemoteRole = ROLE_SimulatedProxy
-    MessageClass = class'UT3PickupMessage'
+    MaxDesireability = 0.3
+    bSuperHeal = true
+    PickupForce = "HealthPack"
+    CollisionRadius = 24.0
+    HealingAmount = 5
+    CullDistance = +4500.0
 }

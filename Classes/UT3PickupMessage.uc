@@ -76,4 +76,5 @@ static function ClientReceive(
 defaultproperties
 {
     LastDisplayCount = 1
+    PosY = 0.86
 }
