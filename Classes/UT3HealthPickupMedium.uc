@@ -59,7 +59,7 @@ defaultproperties
 {
     PickupSound = Sound'PickupHealthMedium'
     StaticMesh = StaticMesh'UT3Pickups-SM.Powerups.HealthMedium'
-    DrawScale = 1.6
+    DrawScale = 1.0
     RotationRate = (Yaw=16384)
     PickupMessage = "Health Pack +"
     bFloatingPickup = true

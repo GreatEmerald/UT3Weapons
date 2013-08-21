@@ -18,6 +18,7 @@ function bool CheckReplacement(Actor Other, out byte bSuperRelevant)
     local int i;
     local class<Pickup> NewPickupClass;
     local class<Weapon> NewWeaponClass;
+    local class<UT3PickupFactory> NewFactoryClass;
     local WeaponLocker Locker;
     local bool bOriginalCollision;
     local bool bResult;
@@ -37,19 +38,30 @@ function bool CheckReplacement(Actor Other, out byte bSuperRelevant)
 	else if (WildcardBase(Other) != None) {
 		// TODO: replace individual powerups
 	}
-    else if (xPickupBase(Other) != None)
+    else if (xPickUpBase(Other) != None)
     {
-        NewPickupClass = GetReplacementPickup(xPickupBase(Other).Powerup);
+        NewFactoryClass = GetReplacementFactory(xPickUpBase(Other).class);
+        if (NewFactoryClass != None)
+        {
+            Other.bHidden = true;
+            xPickUpBase(Other).PowerUp = None;
+            if (xPickUpBase(Other).myEmitter != None)
+                xPickUpBase(Other).myEmitter.Destroy();
+            if (xPickUpBase(Other).myPickUp != None)
+                xPickUpBase(Other).myPickUp.Destroy();
+
+            if (ReplaceWith(Other, string(NewFactoryClass)))
+                return true;
+        }
+
+        // GEm: Legacy code follows
+        NewPickupClass = GetReplacementPickup(xPickUpBase(Other).Powerup);
         if (NewPickupClass != None)
         {
             xPickupBase(Other).Powerup = NewPickupClass;
         }
         // GEm: Temporary hacks below!
-        if (HealthCharger(Other) != None || SuperHealthCharger(Other) != None)
-        {
-            xPickupBase(Other).SetStaticMesh(StaticMesh'UT3PICKUPS_Mesh.Health_Large.S_Pickups_Base_Health_Large');
-        }
-        else if (ShieldCharger(Other) != None || SuperShieldCharger(Other) != None)
+        if (ShieldCharger(Other) != None || SuperShieldCharger(Other) != None)
         {
             xPickupBase(Other).SetStaticMesh(StaticMesh'UT3PICKUPS_Mesh.Base_Armor.S_Pickups_Base_Armor');
         }
@@ -94,7 +106,7 @@ function bool CheckReplacement(Actor Other, out byte bSuperRelevant)
 	return Super.CheckReplacement(Other, bSuperRelevant);
 }
 
-// GEm: Hope nothing blows up!
+// GEm: Override so all the new pickups could spawn correctly
 function bool ReplaceWith(actor Other, string aClassName)
 {
     local Actor A;
@@ -115,7 +127,7 @@ function bool ReplaceWith(actor Other, string aClassName)
 
         A = Spawn(aClass,Other.Owner,Other.tag,Other.Location, Other.Rotation);
 
-        A.default.bCollideWorld = bOldCollideWorld;
+        A.bCollideWorld = bOldCollideWorld;
         aClass.default.bCollideWorld = bOldCollideWorld;
 
         if ( Pickup(Other).MyMarker != None )
@@ -126,8 +138,7 @@ function bool ReplaceWith(actor Other, string aClassName)
                 Pickup(A).MyMarker = Pickup(Other).MyMarker;
                 A.SetLocation(A.Location
                     + (A.CollisionHeight - Other.CollisionHeight) * vect(0,0,1));
-                if (Level.NetMode != NM_DedicatedServer && UT3AmmoPickup(A) != None)
-                    UT3AmmoPickup(A).BaseChange();
+                A.SetBase(Other.Base);
             }
             Pickup(Other).MyMarker = None;
         }
@@ -143,7 +154,7 @@ function bool ReplaceWith(actor Other, string aClassName)
         A.tag = Other.tag;
         return true;
     }
-        return false;
+    return false;
 }
 
 function string GetInventoryClassOverride(string InventoryClassName)
@@ -234,6 +245,19 @@ function class<Pickup> GetReplacementPickup(class<Pickup> Original)
 	}
 }
 
+function class<UT3PickupFactory> GetReplacementFactory(class<xPickUpBase> Original)
+{
+    switch (Original)
+    {
+        case class'HealthCharger':
+        case class'NewHealthCharger':
+            return class'UT3PickupFactory_MediumHealth';
+        case class'SuperHealthCharger':
+        case class'NewSuperHealthCharger':
+            return class'UT3PickupFactory_SuperHealth';
+        default: return none;
+    }
+}
 
 //=============================================================================
 // Default values

@@ -37,7 +37,7 @@ static function string GetString
         {
             default.LastDisplayCount++;
             if (Count > 1)
-                CounterString = LocalString@"x"$Count;
+                CounterString = LocalString@"X"@Count;
             log("UT3PickupMessage: GetString: Printing modded message"@CounterString);
         }
         else
@@ -76,5 +76,5 @@ static function ClientReceive(
 defaultproperties
 {
     LastDisplayCount = 1
-    PosY = 0.86
+    PosY = 0.865
 }

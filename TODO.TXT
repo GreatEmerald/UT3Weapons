@@ -1,8 +1,6 @@
 * Remove all #exec embeds and move them out into actual external packages
 * Disable "classic model" checkboxes for the weapons
-* Figure out why Like the Back of My Hand crashes
 * Fix the MaterialManager to work with the new pickups
-* Figure out why some things are not replaced (Rocket ammo in FaceClassic, vials in BridgeOfFate)
 * Figure out why some things don't spawn (UDamage, vials in red base of CTF-Avaris)
 * Check whether the Rocket Launcher loads rockets too fast
 * Make the Link Gun fire immediately, without waiting for anims
@@ -14,4 +12,3 @@
 * Prevent picking up Enforcer clips when full on ammo
 * Adjust the pickups' Weapon Locker offset
 * Replace pickup bases with custom ones
-* Enable the glow functionality of pickup bases

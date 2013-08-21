@@ -6,7 +6,7 @@
 
 class UT3AmmoPickup extends UTAmmoPickup;
 
-var UT3AmmoHighlight HighlightEffect;
+var UT3DecorativeMesh HighlightEffect;
 var array<Material> HighlightSkins;
 
 simulated function PostNetBeginPlay()
@@ -21,7 +21,7 @@ simulated function bool CheckHighlightEffect()
     if (HighlightEffect != None)
         return true;
 
-    HighlightEffect = Spawn(class'UT3AmmoHighlight'); // GEm: This is all client-side
+    HighlightEffect = Spawn(class'UT3DecorativeMesh'); // GEm: This is all client-side
     if (HighlightEffect == None)
         return false;
     HighlightEffect.SetStaticMesh(StaticMesh);

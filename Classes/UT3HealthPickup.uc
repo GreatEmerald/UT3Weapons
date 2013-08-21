@@ -41,10 +41,14 @@ auto simulated state Pickup
 
     function BeginState()
     {
+        Super.BeginState();
         // GEm: Let the server ignore the tick
         if (Level.NetMode == NM_DedicatedServer || !bFloatingPickup)
             Disable('Tick');
-        Super.BeginState();
+        if (UT3PickupFactory(PickUpBase) != None)
+        {
+            UT3PickupFactory(PickUpBase).StartPulse(true);
+        }
     }
 
     function EndState()
@@ -79,14 +83,18 @@ function RespawnEffect()
 
 state Sleeping
 {
-    /*function BeginState()
+    function BeginState()
     {
         Super.BeginState();
-        if (Level.NetMode != NM_DedicatedServer)
-            PostNetReceive();
+        if (UT3PickupFactory(PickUpBase) != None)
+        {
+            UT3PickupFactory(PickUpBase).StartPulse(false);
+        }
+        /*if (Level.NetMode != NM_DedicatedServer)
+            PostNetReceive();*/
     }
 
-    function EndState()
+    /*function EndState()
     {
         Super.EndState();
         if (Level.NetMode != NM_DedicatedServer)
@@ -95,7 +103,14 @@ state Sleeping
 
 DelayedSpawn:
 Begin:
-    Sleep(GetReSpawnTime() - RespawnEffectTime);
+    if (UT3PickupFactory(PickUpBase) != None)
+    {
+        Sleep(GetReSpawnTime() - UT3PickupFactory(PickUpBase).PulseThreshold);
+        UT3PickupFactory(PickUpBase).StartPulse(true);
+        Sleep(UT3PickupFactory(PickUpBase).PulseThreshold);
+    }
+    else
+        Sleep(GetReSpawnTime() - RespawnEffectTime);
 Respawn:
     RespawnEffect();
     Sleep(RespawnEffectTime);
