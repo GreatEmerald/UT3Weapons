@@ -87,24 +87,33 @@ function RegisterPickup(Actor MyPickup)//, optional string Destination)
         S = ViewportOwner.Actor.RewardAnnouncer.GetSound('Totalled');
         if (S == None)
             AnnouncementSound = Sound'announcermale2k4.Totalled';
-    }    
+    }
+
+    // GEm: Ignore disabled bases
+    if (xPickUpBase(MyPickup) != None
+        && (xPickUpBase(MyPickup).PowerUp == None || MyPickup.bHidden))
+        return;
     
-    if ( HealthCharger(MyPickup) != None || HealthPack(MyPickup) != None )
+    if (HealthCharger(MyPickup) != None || UT3PickupFactory_MediumHealth(MyPickup) != None
+        || HealthPack(MyPickup) != None || UT3HealthPickupMedium(MyPickup) != None)
     {
         UpdateList(MyPickup, HealthArray);
         return; //GE: We found what we wanted, no need to worry about other ifs.
     }
-    if (ShieldCharger(MyPickup) != None || ShieldPack(MyPickup) != None) //GE: No else since we already returned from everything above.
+    if (ShieldCharger(MyPickup) != None || UT3ArmorFactory_Vest(MyPickup) != None
+        || ShieldPack(MyPickup) != None || UT3ArmorVestPickup(MyPickup) != None) //GE: No else since we already returned from everything above.
     {
         UpdateList(MyPickup, ShieldArray);
         return;
     }
-    if ( SuperHealthCharger(MyPickup) != None || SuperHealthPack(MyPickup) != None )
+    if (SuperHealthCharger(MyPickup) != None || UT3PickupFactory_SuperHealth(MyPickup) != None
+        || SuperHealthPack(MyPickup) != None || UT3HealthPickupSuper(MyPickup) != None)
     {
         UpdateList(MyPickup, SuperHealthArray);
         return;
     }
-    if ( SuperShieldCharger(MyPickup) != None || SuperShieldPack(MyPickup) != None )
+    if (SuperShieldCharger(MyPickup) != None || UT3ArmorFactory_ShieldBelt(MyPickup) != None
+        || SuperShieldPack(MyPickup) != None || UT3ArmorShieldbeltPickup(MyPickup) != None)
     {
         UpdateList(MyPickup, SuperShieldArray);
         return;
@@ -225,22 +234,26 @@ function UpdatePickupStatus(Pawn Receiver, Pickup Item)
         SaveProgress(Query, WildcardArray, WildcardFound);
         return;
     }
-    if ( HealthPack(Query) != None || HealthCharger(Query) != None )
+    if (HealthPack(Query) != None || UT3HealthPickupMedium(Query) != None
+        || HealthCharger(Query) != None || UT3PickupFactory_MediumHealth(Query) != None)
     {
         SaveProgress(Query, HealthArray, HealthFound);
         return;
     }
-    if ( ShieldPack(Query) != None || ShieldCharger(Query) != None )
+    if (ShieldPack(Query) != None || UT3ArmorVestPickup(Query) != None
+        || ShieldCharger(Query) != None || UT3ArmorFactory_Vest(Query) != None)
     {
         SaveProgress(Query, ShieldArray, ShieldFound);
         return;
     }
-    if ( SuperHealthPack(Query) != None || SuperHealthCharger(Query) != None )
+    if (SuperHealthPack(Query) != None || UT3HealthPickupSuper(Query) != None
+        || SuperHealthCharger(Query) != None || UT3PickupFactory_SuperHealth(Query) != None)
     {
         SaveProgress(Query, SuperHealthArray, SuperHealthFound);
         return;
     }
-    if ( SuperShieldPack(Query) != None || SuperShieldCharger(Query) != None )
+    if (SuperShieldPack(Query) != None || UT3ArmorShieldbeltPickup(Query) != None
+        || SuperShieldCharger(Query) != None || UT3ArmorFactory_ShieldBelt(Query) != None)
     {
         SaveProgress(Query, SuperShieldArray, SuperShieldFound);
         return;
@@ -408,6 +421,13 @@ function CheckForVictory()
      local string MapName, URL;
      local int i;
      
+     // GEm: Don't grant automatic wins if there are no pickups
+     if (HealthArray.Length + ShieldArray.Length + SuperHealthArray.Length
+        + SuperShieldArray.Length + UDamageArray.Length + WildcardArray.Length
+        + WeaponArray.Length + SuperWeaponArray.Length + AmmoArray.Length
+        + AdrenalineArray.Length + VialArray.Length == 0)
+        return;
+
      if (HealthFound == HealthArray.Length && ShieldFound == ShieldArray.Length &&
         SuperHealthFound == SuperHealthArray.Length && SuperShieldFound == SuperShieldArray.Length &&
         UDamageFound == UDamageArray.Length && WildcardFound == WildcardArray.Length &&

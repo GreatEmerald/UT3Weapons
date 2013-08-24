@@ -59,6 +59,42 @@ function float DetourWeight(Pawn Other, float PathWeight)
 	return (0.013 * MaxDesireability * Need) / PathWeight;
 }
 
+auto simulated state Pickup
+{
+    function BeginState()
+    {
+        Super.BeginState();
+        if (UT3PickupFactory(PickUpBase) != None)
+            UT3PickupFactory(PickUpBase).StartPulse(true);
+    }
+}
+
+state Sleeping
+{
+    function BeginState()
+    {
+        Super.BeginState();
+        if (UT3PickupFactory(PickUpBase) != None)
+            UT3PickupFactory(PickUpBase).StartPulse(false);
+    }
+
+DelayedSpawn:
+Begin:
+    if (UT3PickupFactory(PickUpBase) != None)
+    {
+        Sleep(GetReSpawnTime() - UT3PickupFactory(PickUpBase).PulseThreshold);
+        UT3PickupFactory(PickUpBase).StartPulse(true);
+        Sleep(UT3PickupFactory(PickUpBase).PulseThreshold);
+    }
+    else
+        Sleep(GetReSpawnTime() - RespawnEffectTime);
+Respawn:
+    RespawnEffect();
+    Sleep(RespawnEffectTime);
+    if (PickUpBase != None)
+        PickUpBase.TurnOn();
+    GotoState('Pickup');
+}
 
 //=============================================================================
 // Default values

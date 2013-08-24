@@ -61,11 +61,7 @@ function bool CheckReplacement(Actor Other, out byte bSuperRelevant)
             xPickupBase(Other).Powerup = NewPickupClass;
         }
         // GEm: Temporary hacks below!
-        if (ShieldCharger(Other) != None || SuperShieldCharger(Other) != None)
-        {
-            xPickupBase(Other).SetStaticMesh(StaticMesh'UT3PICKUPS_Mesh.Base_Armor.S_Pickups_Base_Armor');
-        }
-        else if (UDamageCharger(Other) != None || WildcardBase(Other) != None)
+        if (UDamageCharger(Other) != None || WildcardBase(Other) != None)
         {
             xPickupBase(Other).SetStaticMesh(StaticMesh'UT3PICKUPS_Mesh.Base_Powerup.S_Pickups_Base_Powerup01');
         }
@@ -255,6 +251,10 @@ function class<UT3PickupFactory> GetReplacementFactory(class<xPickUpBase> Origin
         case class'SuperHealthCharger':
         case class'NewSuperHealthCharger':
             return class'UT3PickupFactory_SuperHealth';
+        case class'ShieldCharger':
+            return class'UT3ArmorFactory_Vest';
+        case class'SuperShieldCharger':
+            return class'UT3ArmorFactory_ShieldBelt';
         default: return none;
     }
 }

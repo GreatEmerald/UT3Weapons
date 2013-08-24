@@ -83,6 +83,8 @@ function RespawnEffect()
 
 state Sleeping
 {
+    ignores Touch;
+
     function BeginState()
     {
         Super.BeginState();
