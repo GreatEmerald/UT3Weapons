@@ -118,7 +118,8 @@ function RegisterPickup(Actor MyPickup)//, optional string Destination)
         UpdateList(MyPickup, SuperShieldArray);
         return;
     }
-    if ( UDamageCharger(MyPickup) != None || UDamagePack(MyPickup) != None )
+    if (UDamageCharger(MyPickup) != None || UT3PickupFactory_UDamage(MyPickup) != None
+        || UDamagePack(MyPickup) != None || UT3UDamagePickup(MyPickup) != None)
     {
         UpdateList(MyPickup, UDamageArray);
         return;
@@ -184,7 +185,7 @@ function RegisterPickup(Actor MyPickup)//, optional string Destination)
         UpdateList(MyPickup, AdrenalineArray);
         return;
     }
-    if ( MiniHealthPack(MyPickup) != None )
+    if (MiniHealthPack(MyPickup) != None || UT3HealthPickupSmall(MyPickup) != None)
     {
         UpdateList(MyPickup, VialArray);
         return;
@@ -258,7 +259,8 @@ function UpdatePickupStatus(Pawn Receiver, Pickup Item)
         SaveProgress(Query, SuperShieldArray, SuperShieldFound);
         return;
     }
-    if ( UDamagePack(Query) != None || UDamageCharger(Query) != None)
+    if (UDamagePack(Query) != None || UT3UDamagePickup(Query) != None
+        || UDamageCharger(Query) != None || UT3PickupFactory_UDamage(Query) != None)
     {
         SaveProgress(Query, UDamageArray, UDamageFound);
         return;
@@ -281,7 +283,7 @@ function UpdatePickupStatus(Pawn Receiver, Pickup Item)
         SaveProgress(Query, AdrenalineArray, AdrenalineFound);
         return;
     }
-    if ( MiniHealthPack(Item) != None )
+    if (MiniHealthPack(Item) != None || UT3HealthPickupSmall(Item) != None)
     {
         SaveProgress(Query, VialArray, VialFound);
         return;

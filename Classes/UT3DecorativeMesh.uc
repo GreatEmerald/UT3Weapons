@@ -12,6 +12,7 @@ defaultproperties
     bCollideActors = false
     bCollideWorld = false
     bWorldGeometry = false
+    bAcceptsProjectors = false
     bStatic = false
     bNotOnDedServer = true
     RemoteRole = ROLE_None
