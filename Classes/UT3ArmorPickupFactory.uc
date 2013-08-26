@@ -14,4 +14,5 @@ defaultproperties
     DrawScale = 1.0
     // GEm: TODO: add particles
     SpawnHeight = 44.0
+    PrePivot = (Z=5.0)
 }

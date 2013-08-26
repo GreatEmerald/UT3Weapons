@@ -22,6 +22,8 @@ var UT3DecorativeMesh GlowDim;
 var StaticMesh GlowStaticMesh;
 var array<Material> GlowBrightSkins;
 var array<Material> GlowDimSkins;
+var Vector GlowBrightScale;
+var Vector GlowDimScale;
 
 var array<Material> BaseBrightSkins;
 var array<Material> BaseDimSkins;
@@ -36,11 +38,15 @@ simulated function PostBeginPlay()
         GlowBright = Spawn(class'UT3DecorativeMesh');
         GlowBright.SetStaticMesh(GlowStaticMesh);
         GlowBright.SetDrawScale(DrawScale*1.25);
+        GlowBright.SetDrawScale3D(GlowBrightScale);
+        GlowBright.PrePivot = PrePivot;
         if (GlowBrightSkins.length > 0)
             GlowBright.Skins = GlowBrightSkins;
         GlowDim = Spawn(class'UT3DecorativeMesh');
         GlowDim.SetStaticMesh(GlowStaticMesh);
         GlowDim.SetDrawScale(DrawScale*1.25);
+        GlowDim.SetDrawScale3D(GlowDimScale);
+        GlowDim.PrePivot = PrePivot;
         if (GlowDimSkins.length > 0)
             GlowDim.Skins = GlowDimSkins;
     }
@@ -68,6 +74,12 @@ simulated function StartPulse(bool bBright, optional bool bPulseBase)
     }
 }
 
+function SpawnPickup()
+{
+    log(self@"SpawnPickup: Called to spawn"@PowerUp);
+    Super.SpawnPickup();
+}
+
 defaultproperties
 {
     BasePulseRate = 0.5
@@ -75,4 +87,6 @@ defaultproperties
     bStatic = false
     AmbientGlow = 77
     DrawType = DT_StaticMesh
+    GlowBrightScale = (X=1.0,Y=1.0,Z=1.0)
+    GlowDimScale = (X=1.0,Y=1.0,Z=1.0)
 }

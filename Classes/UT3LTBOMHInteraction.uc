@@ -129,10 +129,13 @@ function RegisterPickup(Actor MyPickup)//, optional string Destination)
         UpdateList(MyPickup, WildcardArray);
         return;
     }
-    if ( xWeaponBase(MyPickup) != None)
+    if (xWeaponBase(MyPickup) != None || UT3WeaponPickupFactory(MyPickup) != None)
     {
         PN.PickupReference = MyPickup;
-        if (xWeaponBase(MyPickup).WeaponType.default.PickupClass.default.MaxDesireability >= 1.0)
+        if ((xWeaponBase(MyPickup) != None
+                && xWeaponBase(MyPickup).WeaponType.default.PickupClass.default.MaxDesireability >= 1.0)
+            || (UT3WeaponPickupFactory(MyPickup) != None
+                && UT3WeaponPickupFactory(MyPickup).WeaponType.default.PickupClass.default.MaxDesireability >= 1.0))
         {
             for (i=0; i < SuperWeaponArray.Length; i++) //GE: Check for duplicates
             {
@@ -265,7 +268,8 @@ function UpdatePickupStatus(Pawn Receiver, Pickup Item)
         SaveProgress(Query, UDamageArray, UDamageFound);
         return;
     }
-    if ( WeaponPickup(Item) != None || xWeaponBase(Query) != None)
+    if (WeaponPickup(Item) != None
+        || xWeaponBase(Query) != None || UT3WeaponPickupFactory(Query) != None)
     {
         if (WeaponPickup(Item).MaxDesireability >= 1.0)
             SaveProgress(Query, SuperWeaponArray, SuperWeaponFound);

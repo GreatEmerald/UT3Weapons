@@ -12,6 +12,7 @@ defaultproperties
     PowerUp = class'UT3HealthPickupMedium'
     StaticMesh = StaticMesh'UT3PICKUPS_Mesh.Health_Large.S_Pickups_Base_Health_Large'
     DrawScale = 0.8
+    PrePivot = (Z=5.0)
     BaseBrightSkins(0) = Material'UT3Pickups.Health_Large.M_Pickups_Base_Health_Large'
     BaseDimSkins(0) = Material'UT3Pickups.Health_Large.M_Pickups_Base_Health_Large_Dim'
     SpawnHeight = +44.0

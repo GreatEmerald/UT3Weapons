@@ -23,22 +23,10 @@ function bool CheckReplacement(Actor Other, out byte bSuperRelevant)
     local bool bOriginalCollision;
     local bool bResult;
 
-    if (xWeaponBase(Other) != None)
-    {
-        NewWeaponClass = GetReplacementWeapon(xWeaponBase(Other).WeaponType);
-        if (NewWeaponClass != None)
-            xWeaponBase(Other).WeaponType = NewWeaponClass;
-        // GEm: TODO: Disable bases, spawn our own on top, otherwise it doesn't scale and has net issues
-        xWeaponBase(Other).SetStaticMesh(StaticMesh'UT3PICKUPS_Mesh.WeaponBase.S_Pickups_WeaponBase');
-        xWeaponBase(Other).NewDrawScale = 1.0;
-        xWeaponBase(Other).NewPrePivot = vect(0.0, 0.0, 0.0);
-        xWeaponBase(Other).SetDrawScale(1.0);
-        xWeaponBase(Other).PrePivot = vect(0.0, 0.0, 0.0);
-    }
-	else if (WildcardBase(Other) != None) {
+	/*else if (WildcardBase(Other) != None) {
 		// TODO: replace individual powerups
 	}
-    else if (xPickUpBase(Other) != None)
+    else*/ if (xPickUpBase(Other) != None)
     {
         NewFactoryClass = GetReplacementFactory(xPickUpBase(Other).class);
         if (NewFactoryClass != None)
@@ -48,7 +36,10 @@ function bool CheckReplacement(Actor Other, out byte bSuperRelevant)
             if (xPickUpBase(Other).myEmitter != None)
                 xPickUpBase(Other).myEmitter.Destroy();
             if (xPickUpBase(Other).myPickUp != None)
+            {
+                log(self@"CheckReplacement: Destroying"@xPickUpBase(Other).myPickUp);
                 xPickUpBase(Other).myPickUp.Destroy();
+                }
 
             if (ReplaceWith(Other, string(NewFactoryClass)))
                 return true;
@@ -64,15 +55,6 @@ function bool CheckReplacement(Actor Other, out byte bSuperRelevant)
         if (WildcardBase(Other) != None)
         {
             xPickupBase(Other).SetStaticMesh(StaticMesh'UT3PICKUPS_Mesh.Base_Powerup.S_Pickups_Base_Powerup01');
-        }
-        if (HealthCharger(Other) != None || SuperHealthCharger(Other) != None
-            || ShieldCharger(Other) != None || SuperShieldCharger(Other) != None
-            || UDamageCharger(Other) != None || WildcardBase(Other) != None)
-        {
-            xPickupBase(Other).NewDrawScale = 1.0;
-            xPickupBase(Other).NewPrePivot = vect(0.0, 0.0, 0.0);
-            xPickupBase(Other).SetDrawScale(1.0);
-            xPickupBase(Other).PrePivot = vect(0.0, 0.0, 0.0);
         }
     }
 	else if (WeaponLocker(Other) != None) {
@@ -108,6 +90,7 @@ function bool ReplaceWith(actor Other, string aClassName)
     local Actor A;
     local class<Actor> aClass;
     local bool bOldCollideWorld;
+    local class<Weapon> NewWeaponClass;
 
     if ( aClassName == "" )
         return true;
@@ -140,6 +123,21 @@ function bool ReplaceWith(actor Other, string aClassName)
         }
         else if ( A.IsA('Pickup') )
             Pickup(A).Respawntime = 0.0;
+    }
+    else if (xWeaponBase(Other) != None)
+    {
+        A = Spawn(aClass,Other.Owner,Other.tag,Other.Location, Other.Rotation);
+        if (UT3WeaponPickupFactory(A) != None)
+        {
+            NewWeaponClass = GetReplacementWeapon(xWeaponBase(Other).WeaponType);
+            if (NewWeaponClass != None)
+                UT3WeaponPickupFactory(A).WeaponType = NewWeaponClass;
+            else
+                UT3WeaponPickupFactory(A).WeaponType = xWeaponBase(Other).WeaponType;
+            log(self@"ReplaceWith: Set new weapon to"@UT3WeaponPickupFactory(A).WeaponType);
+            UT3WeaponPickupFactory(A).WeaponChanged();
+            xWeaponBase(Other).WeaponType = None;
+        }
     }
     else
         A = Spawn(aClass,Other.Owner,Other.tag,Other.Location, Other.Rotation);
@@ -257,6 +255,9 @@ function class<UT3PickupFactory> GetReplacementFactory(class<xPickUpBase> Origin
             return class'UT3ArmorFactory_ShieldBelt';
         case class'UDamageCharger':
             return class'UT3PickupFactory_UDamage';
+        case class'xWeaponBase':
+        case class'NewWeaponBase':
+            return class'UT3WeaponPickupFactory';
         default: return none;
     }
 }
