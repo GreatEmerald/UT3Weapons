@@ -89,20 +89,23 @@ function RegisterPickup(Actor MyPickup)//, optional string Destination)
             AnnouncementSound = Sound'announcermale2k4.Totalled';
     }
 
+    log(self@"RegisterPickup: Iterating through"@MyPickup);
     // GEm: Ignore disabled bases
     if (xPickUpBase(MyPickup) != None
-        && (xPickUpBase(MyPickup).PowerUp == None || MyPickup.bHidden))
-        return;
+        && (xPickUpBase(MyPickup).PowerUp == None || MyPickup.bHidden)){log(self@"RegisterPickup: Denied"@MyPickup@"because"@xPickUpBase(MyPickup).PowerUp == None@MyPickup.bHidden);
+        return;}
     
     if (HealthCharger(MyPickup) != None || UT3PickupFactory_MediumHealth(MyPickup) != None
         || HealthPack(MyPickup) != None || UT3HealthPickupMedium(MyPickup) != None)
     {
+        log(self@"RegisterPickup:"@MyPickup@"is health!");
         UpdateList(MyPickup, HealthArray);
         return; //GE: We found what we wanted, no need to worry about other ifs.
     }
     if (ShieldCharger(MyPickup) != None || UT3ArmorFactory_Vest(MyPickup) != None
         || ShieldPack(MyPickup) != None || UT3ArmorVestPickup(MyPickup) != None) //GE: No else since we already returned from everything above.
     {
+        log(self@"RegisterPickup:"@MyPickup@"is shield!");
         UpdateList(MyPickup, ShieldArray);
         return;
     }
@@ -200,6 +203,7 @@ function RegisterPickup(Actor MyPickup)//, optional string Destination)
     }
     //GE: If nothing above was executed, this will be.
     UpdateList(MyPickup, UnknownArray);
+    log(self@"RegisterPickup: Unknown pickup type"@MyPickup);
 }
 
 //GE: Labour saving yay! Here we add things to the lists.

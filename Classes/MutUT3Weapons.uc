@@ -10,6 +10,24 @@ class MutUT3Weapons extends Mutator;
 
 #exec obj load file=UT3PICKUPS_Mesh.usx
 
+// GEm: This is not in CheckReplacement for replication purposes
+simulated function BeginPlay()
+{
+    local xPickUpBase P;
+
+    foreach AllActors(class'xPickUpBase', P)
+    {
+        if (UT3PickupFactory(P) != None)
+            continue;
+        P.bHidden = true;
+        if (P.myEmitter != None)
+            P.myEmitter.Destroy();
+        P.ResetStaticFilterState();
+    }
+
+    Super.BeginPlay();
+}
+
 /**
 Modifies pickup bases to spawn the corresponding UT3-style pickups.
 */
@@ -31,17 +49,13 @@ function bool CheckReplacement(Actor Other, out byte bSuperRelevant)
         NewFactoryClass = GetReplacementFactory(xPickUpBase(Other).class);
         if (NewFactoryClass != None)
         {
-            Other.bHidden = true;
-            xPickUpBase(Other).PowerUp = None;
-            if (xPickUpBase(Other).myEmitter != None)
-                xPickUpBase(Other).myEmitter.Destroy();
-            if (xPickUpBase(Other).myPickUp != None)
-            {
-                log(self@"CheckReplacement: Destroying"@xPickUpBase(Other).myPickUp);
-                xPickUpBase(Other).myPickUp.Destroy();
-                }
+            bResult = ReplaceWith(Other, string(NewFactoryClass));
 
-            if (ReplaceWith(Other, string(NewFactoryClass)))
+            xPickUpBase(Other).PowerUp = None;
+            if (xPickUpBase(Other).myPickUp != None)
+                xPickUpBase(Other).myPickUp.Destroy();
+
+            if (bResult)
                 return true;
         }
 
@@ -124,17 +138,24 @@ function bool ReplaceWith(actor Other, string aClassName)
         else if ( A.IsA('Pickup') )
             Pickup(A).Respawntime = 0.0;
     }
-    else if (xWeaponBase(Other) != None)
+    else if (xPickUpBase(Other) != None)
     {
         A = Spawn(aClass,Other.Owner,Other.tag,Other.Location, Other.Rotation);
-        if (UT3WeaponPickupFactory(A) != None)
+
+        if (xPickUpBase(A) != None)
+        {
+            xPickUpBase(A).PowerUp = GetReplacementPickup(xPickUpBase(Other).PowerUp);
+            if (UT3PickupFactory(A) != None)
+                UT3PickupFactory(A).SpawnPickup();
+        }
+
+        if (xWeaponBase(Other) != None && UT3WeaponPickupFactory(A) != None)
         {
             NewWeaponClass = GetReplacementWeapon(xWeaponBase(Other).WeaponType);
             if (NewWeaponClass != None)
                 UT3WeaponPickupFactory(A).WeaponType = NewWeaponClass;
             else
                 UT3WeaponPickupFactory(A).WeaponType = xWeaponBase(Other).WeaponType;
-            log(self@"ReplaceWith: Set new weapon to"@UT3WeaponPickupFactory(A).WeaponType);
             UT3WeaponPickupFactory(A).WeaponChanged();
             xWeaponBase(Other).WeaponType = None;
         }
@@ -272,4 +293,7 @@ defaultproperties
     Description  = "Modifies UT2004 weapons so they work similarly to their UT3 counterparts."
     GroupName    = "Arena"
     bAddToServerPackages = true
+    bAlwaysRelevant = true
+    RemoteRole   = ROLE_SimulatedProxy
+    bNetTemporary = true
 }

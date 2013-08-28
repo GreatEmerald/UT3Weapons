@@ -12,5 +12,5 @@ defaultproperties
     bDelayedSpawn = true
     SpawnHeight = 44.0
     StaticMesh = StaticMesh'UT3PICKUPS_Mesh.Base_Powerup.S_Pickups_Base_Powerup01'
-    PrePivot = (Z=5.0)
+    PrePivot = (Z=4.0)
 }

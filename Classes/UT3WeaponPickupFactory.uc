@@ -39,8 +39,6 @@ simulated function PostBeginPlay()
 
 function WeaponChanged()
 {
-    if (myPickUp != None)
-        myPickUp.Destroy();
     if (WeaponType != None)
     {
         PowerUp = WeaponType.default.PickupClass;
@@ -48,13 +46,6 @@ function WeaponChanged()
             bDelayedSpawn = true;
     }
     SpawnPickup();
-    if ( bDelayedSpawn && (myPickup != None) )
-    {
-        if (myPickup.IsInState('Pickup'))
-            myPickup.GotoState('WaitingForMatch');
-        if (myPickup.myMarker != None)
-            myPickup.myMarker.bSuperPickup = true;
-    }
 }
 
 defaultproperties

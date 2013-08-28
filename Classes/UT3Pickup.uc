@@ -3,7 +3,7 @@ UT3Pickup
 
 Creation date: 2008-07-20 11:48
 Last change: $Id$
-Copyright (c) 2008, Wormbo
+Copyright (c) 2008, 2013 Wormbo, GreatEmerald
 ******************************************************************************/
 
 class UT3Pickup extends TournamentPickup notplaceable;
@@ -97,6 +97,13 @@ simulated function PostNetReceive()
 
 auto state Pickup
 {
+    function BeginState()
+    {
+        Super.BeginState();
+        if (UT3PickupFactory(PickUpBase) != None)
+            UT3PickupFactory(PickUpBase).StartPulse(true);
+    }
+
 Begin:
 	CheckTouching();
 	AmbientSound = SpawnedAmbientSound;
@@ -105,24 +112,37 @@ Begin:
 
 state Sleeping
 {
-	function BeginState()
-	{
-		AmbientSound = None;
-		Super.BeginState();
-		if (Level.NetMode != NM_DedicatedServer)
-			PostNetReceive();
-	}
-	
-	function EndState()
-	{
-		Super.EndState();
-		if (Level.NetMode != NM_DedicatedServer)
-			PostNetReceive();
-	}
-	
+    function BeginState()
+    {
+        AmbientSound = None;
+        Super.BeginState();
+        if (Level.NetMode != NM_DedicatedServer)
+            PostNetReceive();
+        if (UT3PickupFactory(PickUpBase) != None)
+        {
+            log(self@"Sleeping: Entered BeginState");
+            UT3PickupFactory(PickUpBase).StartPulse(false);
+        }
+    }
+
+    function EndState()
+    {
+        Super.EndState();
+        if (Level.NetMode != NM_DedicatedServer)
+            PostNetReceive();
+    }
+
 DelayedSpawn:
 Begin:
-	Sleep(GetReSpawnTime() - RespawnEffectTime);
+    if (UT3PickupFactory(PickUpBase) != None)
+    {
+        Sleep(GetReSpawnTime() - UT3PickupFactory(PickUpBase).PulseThreshold);
+        log(self@"Sleeping: Should start pulsing now");
+        UT3PickupFactory(PickUpBase).StartPulse(true);
+        Sleep(UT3PickupFactory(PickUpBase).PulseThreshold);
+    }
+    else
+        Sleep(GetReSpawnTime() - RespawnEffectTime);
 Respawn:
 	RespawnEffect();
 	Sleep(RespawnEffectTime);

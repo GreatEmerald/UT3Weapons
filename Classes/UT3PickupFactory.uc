@@ -28,6 +28,28 @@ var Vector GlowDimScale;
 var array<Material> BaseBrightSkins;
 var array<Material> BaseDimSkins;
 
+replication
+{
+    unreliable if (Role == ROLE_Authority)
+        StartPulse;
+}
+
+function SpawnPickup()
+{
+    if (myPickUp != None)
+        myPickUp.Destroy();
+
+    Super.SpawnPickup();
+
+    if ( bDelayedSpawn && (myPickup != None))
+    {
+        if (myPickup.IsInState('Pickup'))
+            myPickup.GotoState('WaitingForMatch');
+        if (myPickup.myMarker != None)
+            myPickup.myMarker.bSuperPickup = true;
+    }
+}
+
 simulated function PostBeginPlay()
 {
     Super.PostBeginPlay();
@@ -50,10 +72,12 @@ simulated function PostBeginPlay()
         if (GlowDimSkins.length > 0)
             GlowDim.Skins = GlowDimSkins;
     }
+    StartPulse(!bDelayedSpawn);
 }
 
 simulated function StartPulse(bool bBright, optional bool bPulseBase)
 {
+    log(self@"StartPulse"@bBright);
     if (bBright)
     {
         if (GlowBright != None)
@@ -74,10 +98,12 @@ simulated function StartPulse(bool bBright, optional bool bPulseBase)
     }
 }
 
-function SpawnPickup()
+simulated function PostNetReceive()
 {
-    log(self@"SpawnPickup: Called to spawn"@PowerUp);
-    Super.SpawnPickup();
+    if (GlowBright != None)
+        GlowBright.SetRotation(Rotation);
+    if (GlowDim != None)
+        GlowDim.SetRotation(Rotation);
 }
 
 defaultproperties
@@ -89,4 +115,6 @@ defaultproperties
     DrawType = DT_StaticMesh
     GlowBrightScale = (X=1.0,Y=1.0,Z=1.0)
     GlowDimScale = (X=1.0,Y=1.0,Z=1.0)
+    RemoteRole = ROLE_SimulatedProxy
+    bNetNotify = true
 }
