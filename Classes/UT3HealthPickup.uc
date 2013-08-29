@@ -47,7 +47,8 @@ auto simulated state Pickup
             Disable('Tick');
         if (UT3PickupFactory(PickUpBase) != None)
         {
-            UT3PickupFactory(PickUpBase).StartPulse(true);
+            UT3PickupFactory(PickUpBase).bPulseBright = true;
+            UT3PickupFactory(PickUpBase).StartPulse();
         }
     }
 
@@ -90,7 +91,8 @@ state Sleeping
         Super.BeginState();
         if (UT3PickupFactory(PickUpBase) != None)
         {
-            UT3PickupFactory(PickUpBase).StartPulse(false);
+            UT3PickupFactory(PickUpBase).bPulseBright = false;
+            UT3PickupFactory(PickUpBase).StartPulse();
         }
         /*if (Level.NetMode != NM_DedicatedServer)
             PostNetReceive();*/
@@ -108,7 +110,8 @@ Begin:
     if (UT3PickupFactory(PickUpBase) != None)
     {
         Sleep(GetReSpawnTime() - UT3PickupFactory(PickUpBase).PulseThreshold);
-        UT3PickupFactory(PickUpBase).StartPulse(true);
+        UT3PickupFactory(PickUpBase).bPulseBright = true;
+        UT3PickupFactory(PickUpBase).StartPulse();
         Sleep(UT3PickupFactory(PickUpBase).PulseThreshold);
     }
     else

@@ -6,11 +6,6 @@
 
 class UT3PickupFactory_UDamage extends UT3PowerupPickupFactory;
 
-simulated function StartPulse(bool bBright, optional bool bPulseBase)
-{
-    Super.StartPulse(bBright, bPulseBase);
-}
-
 defaultproperties
 {
     PowerUp = class'UT3UDamagePickup'

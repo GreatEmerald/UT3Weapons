@@ -16,6 +16,8 @@ var float BasePulseTime;
     before respawn. */
 var float PulseThreshold;
 
+var bool bOldPulseBright, bPulseBright;
+
 // GEm: Two decorative meshes for base pulsing
 var UT3DecorativeMesh GlowBright;
 var UT3DecorativeMesh GlowDim;
@@ -31,7 +33,7 @@ var array<Material> BaseDimSkins;
 replication
 {
     unreliable if (Role == ROLE_Authority)
-        StartPulse;
+        bPulseBright;
 }
 
 function SpawnPickup()
@@ -72,13 +74,14 @@ simulated function PostBeginPlay()
         if (GlowDimSkins.length > 0)
             GlowDim.Skins = GlowDimSkins;
     }
-    StartPulse(!bDelayedSpawn);
+    bPulseBright = !bDelayedSpawn;
+    StartPulse();
 }
 
-simulated function StartPulse(bool bBright, optional bool bPulseBase)
+simulated function StartPulse(optional bool bPulseBase)
 {
-    log(self@"StartPulse"@bBright);
-    if (bBright)
+    log(self@"StartPulse"@bPulseBright);
+    if (bPulseBright)
     {
         if (GlowBright != None)
             GlowBright.bHidden = false;
@@ -104,6 +107,11 @@ simulated function PostNetReceive()
         GlowBright.SetRotation(Rotation);
     if (GlowDim != None)
         GlowDim.SetRotation(Rotation);
+    if (bOldPulseBright != bPulseBright)
+    {
+        bOldPulseBright = bPulseBright;
+        StartPulse();
+    }
 }
 
 defaultproperties
@@ -117,4 +125,5 @@ defaultproperties
     GlowDimScale = (X=1.0,Y=1.0,Z=1.0)
     RemoteRole = ROLE_SimulatedProxy
     bNetNotify = true
+    bAlwaysRelevant = true
 }
