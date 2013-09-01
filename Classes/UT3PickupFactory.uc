@@ -17,23 +17,29 @@ var float BasePulseTime;
 var float PulseThreshold;
 
 var bool bOldPulseBright, bPulseBright;
+var bool bPulseBase;
+var bool bPulseFadeOut;
+var bool bTickEnabled;
 
 // GEm: Two decorative meshes for base pulsing
 var UT3DecorativeMesh GlowBright;
 var UT3DecorativeMesh GlowDim;
-var StaticMesh GlowStaticMesh;
-var array<Material> GlowBrightSkins;
-var array<Material> GlowDimSkins;
-var Vector GlowBrightScale;
-var Vector GlowDimScale;
+var() StaticMesh GlowStaticMesh;
+var() array<Material> GlowBrightSkins;
+var() array<Material> GlowDimSkins;
+var() Vector GlowBrightScale;
+var() Vector GlowDimScale;
 
-var array<Material> BaseBrightSkins;
-var array<Material> BaseDimSkins;
+var ConstantColor GlowConstantColour;
+var() Color GlowColour;
+
+var() array<Material> BaseBrightSkins;
+var() array<Material> BaseDimSkins;
 
 replication
 {
-    unreliable if (Role == ROLE_Authority)
-        bPulseBright;
+    reliable if (Role == ROLE_Authority)
+        bPulseBase, bPulseBright;
 }
 
 function SpawnPickup()
@@ -52,11 +58,21 @@ function SpawnPickup()
     }
 }
 
+simulated function PreBeginPlay()
+{
+    log(self@"Disabing tick in PreBeginPlay");
+    Disable('Tick');
+    Super.PreBeginPlay();
+}
+
 simulated function PostBeginPlay()
 {
+    log(self@"Disabing tick in PostBeginPlay");
+    Disable('Tick');
+
     Super.PostBeginPlay();
 
-    if (!bHidden && (Level.NetMode != NM_DedicatedServer)
+    if (!bHidden && Level.NetMode != NM_DedicatedServer
         && GlowStaticMesh != None)
     {
         GlowBright = Spawn(class'UT3DecorativeMesh');
@@ -73,16 +89,58 @@ simulated function PostBeginPlay()
         GlowDim.PrePivot = PrePivot;
         if (GlowDimSkins.length > 0)
             GlowDim.Skins = GlowDimSkins;
+        InitGlowMaterials();
     }
     bPulseBright = !bDelayedSpawn;
     StartPulse();
 }
 
-simulated function StartPulse(optional bool bPulseBase)
+simulated function InitGlowMaterials()
 {
-    log(self@"StartPulse"@bPulseBright);
+    local Combiner GlowGradientCombiner;
+    local Combiner GlowPannerCombiner;
+    local Shader GlowShader;
+
+    GlowConstantColour = new(None) class'ConstantColor';
+    GlowConstantColour.Color = GlowColour;
+
+    GlowGradientCombiner = new(None) class'Combiner';
+    GlowGradientCombiner.CombineOperation = CO_Multiply;
+    GlowGradientCombiner.Material1 = Material'UT3Pickups.Health_Large.T_Pickups_Base_Health_Glow01';
+    GlowGradientCombiner.Material2 = GlowConstantColour;
+
+    GlowPannerCombiner = new(None) class'Combiner';
+    GlowPannerCombiner.CombineOperation = CO_Multiply;
+    GlowPannerCombiner.Material1 = GlowGradientCombiner;
+    GlowPannerCombiner.Material2 = Material'UT3Pickups.Health_Large.Panner0';
+
+    GlowShader = new(None) class'Shader';
+    GlowShader.SelfIllumination = GlowPannerCombiner;
+    GlowShader.OutputBlending = OB_Translucent;
+
+    GlowBright.Skins[0] = GlowShader;
+}
+
+simulated function StartPulse()
+{
+    if (GlowConstantColour == None)
+        return;
+    log(self@"StartPulse"@bPulseBright@bPulseBase@Level.TimeSeconds);
     if (bPulseBright)
     {
+        if (bPulseBase)
+        {
+            log(self@"ENABLING tick in StartPulse");
+            Enable('Tick');
+            bTickEnabled = true;
+        }
+        else
+        {
+            log(self@"Disabing tick in StartPulse");
+            Disable('Tick');
+            bTickEnabled = false;
+            GlowConstantColour.Color = GlowColour;
+        }
         if (GlowBright != None)
             GlowBright.bHidden = false;
         if (myEmitter != None)
@@ -92,6 +150,9 @@ simulated function StartPulse(optional bool bPulseBase)
     }
     else
     {
+        Disable('Tick');
+        bTickEnabled = false;
+        GlowConstantColour.Color = GlowColour;
         if (GlowBright != None)
             GlowBright.bHidden = true;
         if (myEmitter != None)
@@ -99,6 +160,23 @@ simulated function StartPulse(optional bool bPulseBase)
         if (BaseDimSkins.length > 0)
             Skins = BaseDimSkins;
     }
+}
+
+simulated function Tick(float DeltaTime)
+{
+    if (!bTickEnabled)
+        return;
+
+    BasePulseTime += DeltaTime;
+    if (BasePulseTime > BasePulseRate)
+    {
+        BasePulseTime -= BasePulseRate;
+        bPulseFadeOut = !bPulseFadeOut;
+    }
+    if (bPulseFadeOut)
+        GlowConstantColour.Color = GlowColour * ((BasePulseRate - BasePulseTime) / BasePulseRate);
+    else
+        GlowConstantColour.Color = GlowColour * (BasePulseTime / BasePulseRate);
 }
 
 simulated function PostNetReceive()
@@ -118,6 +196,7 @@ defaultproperties
 {
     BasePulseRate = 0.5
     PulseThreshold = 5.0
+    GlowColour = (A=255,R=255,G=255,B=255)
     bStatic = false
     AmbientGlow = 77
     DrawType = DT_StaticMesh
