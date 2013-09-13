@@ -1,5 +1,4 @@
 * Remove all #exec embeds and move them out into actual external packages
-* Disable "classic model" checkboxes for the weapons
 * Fix the MaterialManager to work with the new pickups
 * Figure out why some things don't spawn (UDamage, vials in red base of CTF-Avaris)
 * Check whether the Rocket Launcher loads rockets too fast

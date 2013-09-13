@@ -144,6 +144,7 @@ defaultproperties
      BringUpTime=0.367
      PutDownTime=0.367
      HighDetailOverlay=None
+     OldMesh=None
      Skins(0)=Shader'UT3WeaponSkins.ShockRifle.ShockRifleSkin'
 }
 

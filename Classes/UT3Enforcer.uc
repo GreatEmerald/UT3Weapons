@@ -445,6 +445,7 @@ defaultproperties
      ReloadAnim="weaponequipempty"
      ReloadAnimRate=1.3636
      Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_Enforcers_1P'
+     OldMesh=None
      DrawScale=1.000000
      PlayerViewOffset=(X=10.0,Y=-10.0,Z=7.0)
      SmallViewOffset=(X=60.0,Y=12.0,Z=-13.0)

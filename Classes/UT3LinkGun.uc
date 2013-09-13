@@ -143,6 +143,7 @@ defaultproperties
      PutDownAnimRate=0.7333
      OldPlayerViewPivot=(Yaw=49152)
      Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_Linkgun_1P'
+     OldMesh=None
      
      PlayerViewOffset=(X=-11.0,Y=-3.5,Z=2.5)
      SmallViewOffset=(X=4,Y=2,Z=-3)
