@@ -19,4 +19,5 @@ defaultproperties
     GlowStaticMesh = StaticMesh'UT3PICKUPS_Mesh.Health_Large.S_Pickups_Base_HealthGlow01'
     GlowBrightSkins(0) = Material'UT3Pickups.Health_Large.M_Pickups_Base_Health_Glow'
     GlowDimSkins(0) = Material'UT3Pickups.Health_Large.M_Pickups_Base_Health_Glow_Dim'
+    GlowColour = (R=16,G=255,B=170)
 }

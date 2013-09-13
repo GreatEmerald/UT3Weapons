@@ -16,8 +16,15 @@ var float BasePulseTime;
     before respawn. */
 var float PulseThreshold;
 
-var bool bOldPulseBright, bPulseBright;
-var bool bPulseBase;
+enum EPulseState
+{
+    PS_Static,
+    PS_Pulsing,
+    PS_Off
+};
+
+var EPulseState PulseState, OldPulseState;
+
 var bool bPulseFadeOut;
 var bool bTickEnabled;
 
@@ -38,8 +45,8 @@ var() array<Material> BaseDimSkins;
 
 replication
 {
-    reliable if (Role == ROLE_Authority)
-        bPulseBase, bPulseBright;
+    unreliable if (Role == ROLE_Authority)
+        PulseState;
 }
 
 function SpawnPickup()
@@ -60,16 +67,13 @@ function SpawnPickup()
 
 simulated function PreBeginPlay()
 {
-    log(self@"Disabing tick in PreBeginPlay");
     Disable('Tick');
+    OldPulseState = PulseState;
     Super.PreBeginPlay();
 }
 
 simulated function PostBeginPlay()
 {
-    log(self@"Disabing tick in PostBeginPlay");
-    Disable('Tick');
-
     Super.PostBeginPlay();
 
     if (!bHidden && Level.NetMode != NM_DedicatedServer
@@ -91,7 +95,8 @@ simulated function PostBeginPlay()
             GlowDim.Skins = GlowDimSkins;
         InitGlowMaterials();
     }
-    bPulseBright = !bDelayedSpawn;
+    if (bDelayedSpawn)
+        PulseState = PS_Off;
     StartPulse();
 }
 
@@ -125,22 +130,24 @@ simulated function StartPulse()
 {
     if (GlowConstantColour == None)
         return;
-    log(self@"StartPulse"@bPulseBright@bPulseBase@Level.TimeSeconds);
-    if (bPulseBright)
+    log(self@"StartPulse"@PulseState@Level.TimeSeconds);
+
+    // GEm: Pulsing effect management
+    if (PulseState == PS_Pulsing)
     {
-        if (bPulseBase)
-        {
-            log(self@"ENABLING tick in StartPulse");
-            Enable('Tick');
-            bTickEnabled = true;
-        }
-        else
-        {
-            log(self@"Disabing tick in StartPulse");
-            Disable('Tick');
-            bTickEnabled = false;
-            GlowConstantColour.Color = GlowColour;
-        }
+        Enable('Tick');
+        bTickEnabled = true;
+    }
+    else
+    {
+        Disable('Tick');
+        bTickEnabled = false;
+        GlowConstantColour.Color = GlowColour;
+    }
+
+    // GEm: Glow effect management
+    if (PulseState != PS_Off)
+    {
         if (GlowBright != None)
             GlowBright.bHidden = false;
         if (myEmitter != None)
@@ -150,9 +157,6 @@ simulated function StartPulse()
     }
     else
     {
-        Disable('Tick');
-        bTickEnabled = false;
-        GlowConstantColour.Color = GlowColour;
         if (GlowBright != None)
             GlowBright.bHidden = true;
         if (myEmitter != None)
@@ -185,9 +189,9 @@ simulated function PostNetReceive()
         GlowBright.SetRotation(Rotation);
     if (GlowDim != None)
         GlowDim.SetRotation(Rotation);
-    if (bOldPulseBright != bPulseBright)
+    if (OldPulseState != PulseState)
     {
-        bOldPulseBright = bPulseBright;
+        OldPulseState = PulseState;
         StartPulse();
     }
 }
@@ -196,6 +200,7 @@ defaultproperties
 {
     BasePulseRate = 0.5
     PulseThreshold = 5.0
+    PulseState = PS_Static
     GlowColour = (A=255,R=255,G=255,B=255)
     bStatic = false
     AmbientGlow = 77

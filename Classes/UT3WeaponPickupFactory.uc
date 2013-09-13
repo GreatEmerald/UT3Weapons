@@ -57,4 +57,5 @@ defaultproperties
     GlowDimSkins(0) = Material'UT3Pickups.WeaponBase.M_Pickups_WeaponBase_Glow_Dim'
     GlowBrightScale = (X=1.35,Y=0.78)
     GlowDimScale = (X=1.35,Y=0.78)
+    GlowColour = (R=120,G=108,B=27)
 }

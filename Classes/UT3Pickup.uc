@@ -102,7 +102,7 @@ auto state Pickup
         Super.BeginState();
         if (UT3PickupFactory(PickUpBase) != None)
         {
-            UT3PickupFactory(PickUpBase).bPulseBright = true;
+            UT3PickupFactory(PickUpBase).PulseState = PS_Static;
             UT3PickupFactory(PickUpBase).StartPulse();
         }
     }
@@ -123,7 +123,7 @@ state Sleeping
             PostNetReceive();
         if (UT3PickupFactory(PickUpBase) != None)
         {
-            UT3PickupFactory(PickUpBase).bPulseBright = false;
+            UT3PickupFactory(PickUpBase).PulseState = PS_Off;
             UT3PickupFactory(PickUpBase).StartPulse();
         }
     }
@@ -140,7 +140,7 @@ Begin:
     if (UT3PickupFactory(PickUpBase) != None)
     {
         Sleep(GetReSpawnTime() - UT3PickupFactory(PickUpBase).PulseThreshold);
-        UT3PickupFactory(PickUpBase).bPulseBright = true;
+        UT3PickupFactory(PickUpBase).PulseState = PS_Pulsing;
         UT3PickupFactory(PickUpBase).StartPulse();
         Sleep(UT3PickupFactory(PickUpBase).PulseThreshold);
     }
