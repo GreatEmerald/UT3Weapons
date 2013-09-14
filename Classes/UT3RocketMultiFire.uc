@@ -134,7 +134,6 @@ function PlayReload()
     PlayRocketFire(false);
 }
 
-// GEm: TODO: Investigate if its loading speed isn't too fast compared to the animation
 function ModeTick(float dt)
 {
     // auto fire if loaded last rocket
@@ -309,10 +308,10 @@ defaultproperties
     TransientSoundVolume=0.4
     FireAnimRate=0.7
 
-    FireRate=0.95
+    FireRate=1.041667
     TweenTime=0.0
     bFireOnRelease=true
-    MaxHoldTime=2.9//2.6 // FireRate*2 + 0.9
+    MaxHoldTime=3.043333//2.9 // FireRate*2 + 0.9
     
      FireAnim=
      GrenadeFireSound=sound'UT3Weapons2.RocketLauncher.RocketLauncherGrenadeFire'
