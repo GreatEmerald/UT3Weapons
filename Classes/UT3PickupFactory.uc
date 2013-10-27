@@ -51,10 +51,22 @@ replication
 
 function SpawnPickup()
 {
+    local bool bOldCollideWorld;
+
     if (myPickUp != None)
         myPickUp.Destroy();
 
+    if (PowerUp == None)
+        return;
+
+    bOldCollideWorld = PowerUp.default.bCollideWorld;
+    PowerUp.default.bCollideWorld = false;
+
     Super.SpawnPickup();
+
+    if (myPickup != None)
+        myPickUp.bCollideWorld = bOldCollideWorld;
+    PowerUp.default.bCollideWorld = bOldCollideWorld;
 
     if ( bDelayedSpawn && (myPickup != None))
     {

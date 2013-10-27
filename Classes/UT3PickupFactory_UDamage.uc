@@ -6,6 +6,12 @@
 
 class UT3PickupFactory_UDamage extends UT3PowerupPickupFactory;
 
+function SpawnPickup()
+{
+    Super.SpawnPickup();
+    log(self@"SpawnPickup: Spawned pickup"@myPickUp);
+}
+
 defaultproperties
 {
     PowerUp = class'UT3UDamagePickup'

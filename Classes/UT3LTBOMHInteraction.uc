@@ -90,6 +90,9 @@ function RegisterPickup(Actor MyPickup)//, optional string Destination)
     }
 
     log(self@"RegisterPickup: Iterating through"@MyPickup);
+    // GEm: Ignore items that are supposed to be deleted soon
+    if (MyPickup == None || MyPickup.bDeleteMe == true){log(self@"RegisterPickup: Ignoring destroyed item"@MyPickup);
+        return;}
     // GEm: Ignore disabled bases
     if (xPickUpBase(MyPickup) != None
         && (xPickUpBase(MyPickup).PowerUp == None || MyPickup.bHidden)){log(self@"RegisterPickup: Denied"@MyPickup@"because"@xPickUpBase(MyPickup).PowerUp == None@MyPickup.bHidden);
