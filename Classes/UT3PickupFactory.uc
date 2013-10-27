@@ -208,6 +208,28 @@ simulated function PostNetReceive()
     }
 }
 
+simulated function UpdatePrecacheMaterials()
+{
+    local int i;
+
+    for (i = 0; i < GlowBrightSkins.length; i++)
+        Level.AddPrecacheMaterial(GlowBrightSkins[i]);
+    for (i = 0; i < GlowDimSkins.length; i++)
+        Level.AddPrecacheMaterial(GlowDimSkins[i]);
+    for (i = 0; i < BaseBrightSkins.length; i++)
+        Level.AddPrecacheMaterial(BaseBrightSkins[i]);
+    for (i = 0; i < BaseDimSkins.length; i++)
+        Level.AddPrecacheMaterial(BaseDimSkins[i]);
+    Level.AddPrecacheMaterial(Material'UT3Pickups.Health_Large.Panner0');
+    Super.UpdatePrecacheMaterials();
+}
+
+simulated function UpdatePrecacheStaticMeshes()
+{
+    Level.AddPrecacheStaticMesh(GlowStaticMesh);
+    Super.UpdatePrecacheStaticMeshes();
+}
+
 defaultproperties
 {
     BasePulseRate = 0.5

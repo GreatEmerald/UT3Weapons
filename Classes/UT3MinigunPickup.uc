@@ -9,17 +9,11 @@ class UT3MinigunPickup extends MinigunPickup;
 #exec OBJ LOAD FILE=UT3WeaponSkins.utx
 #exec OBJ LOAD FILE=UT3WPStatics.usx
 
-static function StaticPrecache(LevelInfo L)
-{
-    L.AddPrecacheMaterial(Shader'UT3WeaponSkins.Stinger.StingerSkin');
-    L.AddPrecacheStaticMesh(StaticMesh'UT3WPStatics.UT3StingerPickup');
-}
+static function StaticPrecache(LevelInfo L);
 
 simulated function UpdatePrecacheMaterials()
 {
-    Level.AddPrecacheMaterial(Shader'UT3WeaponSkins.Stinger.StingerSkin');
-
-    super.UpdatePrecacheMaterials();
+    Super(UTWeaponPickup).UpdatePrecacheMaterials();
 }
 
 defaultproperties
@@ -33,5 +27,5 @@ defaultproperties
     DesiredRotation=(Yaw=0)
     Skins(0)=Shader'UT3WeaponSkins.Stinger.StingerSkin'
     AmbientGlow=77
-    
+
 }

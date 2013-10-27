@@ -9,17 +9,11 @@ class UT3RocketLauncherPickup extends RocketLauncherPickup;
 #exec OBJ LOAD FILE=UT3WeaponSkins.utx
 #exec OBJ LOAD FILE=UT3WPStatics.usx
 
-static function StaticPrecache(LevelInfo L)
-{
-    L.AddPrecacheMaterial(Shader'UT3WeaponSkins.RocketLauncher.RocketLauncherSkin');
-    L.AddPrecacheStaticMesh(StaticMesh'UT3WPStatics.UT3RocketLauncherPickup');
-}
+static function StaticPrecache(LevelInfo L);
 
 simulated function UpdatePrecacheMaterials()
 {
-    Level.AddPrecacheMaterial(Shader'UT3WeaponSkins.RocketLauncher.RocketLauncherSkin');
-
-    super.UpdatePrecacheMaterials();
+    Super(UTWeaponPickup).UpdatePrecacheMaterials();
 }
 
 defaultproperties

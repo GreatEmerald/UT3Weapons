@@ -283,6 +283,39 @@ function class<UT3PickupFactory> GetReplacementFactory(class<xPickUpBase> Origin
     }
 }
 
+// GEm: Debug
+function PostBeginPlay()
+{
+    Super.PostBeginPlay();
+
+    log(self@"PostBeginPlay: Start precached material listings.");
+    UpdatePrecacheMaterials();
+    UpdatePrecacheStaticMeshes();
+
+}
+
+function UpdatePrecacheMaterials()
+{
+    local int i;
+
+    Super.UpdatePrecacheMaterials();
+    log(self@"UpdatePrecacheMaterials: Precached material listing:");
+    for (i=0; i<Level.PrecacheMaterials.length; i++)
+        log(Level.PrecacheMaterials[i]);
+    log(self@"UpdatePrecacheMaterials: End of listing.");
+}
+
+function UpdatePrecacheStaticMeshes()
+{
+    local int i;
+
+    Super.UpdatePrecacheStaticMeshes();
+    log(self@"UpdatePrecacheStaticMeshes: Precached static mesh listing:");
+    for (i=0; i<Level.PrecacheStaticMeshes.length; i++)
+        log(Level.PrecacheStaticMeshes[i]);
+    log(self@"UpdatePrecacheStaticMeshes: End of listing.");
+}
+
 //=============================================================================
 // Default values
 //=============================================================================

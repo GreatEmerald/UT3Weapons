@@ -1,6 +1,5 @@
 * Remove all #exec embeds and move them out into actual external packages
 * Fix the MaterialManager to work with the new pickups
-* Figure out why some things don't spawn (UDamage, vials in red base of CTF-Avaris)
 * Make the Link Gun fire immediately, without waiting for anims
 * Can we get the Sniper Rifle scope to become on even if the key is released before the scope is on?
 * Online: Link Gun doesn't alt-fire
@@ -9,6 +8,6 @@
 * Online: Weapon lockers use old meshes
 * Prevent picking up Enforcer clips when full on ammo
 * Adjust the pickups' Weapon Locker offset
-* Precache all weapon and pickup resources
+* Remove old inherited precache statements
 * Make all pickups use the counting messages
 * Remove all logs and clientmessages

@@ -39,6 +39,21 @@ simulated function BaseChange()
     }
 }
 
+// GEm: Make sure we precache everything before level start
+static function StaticPrecache(LevelInfo L)
+{
+    local int i;
+
+    for (i = 0; i < default.HighlightSkins.length; i++)
+        L.AddPrecacheMaterial(default.HighlightSkins[i]);
+}
+
+simulated function UpdatePrecacheMaterials()
+{
+    StaticPrecache(Level);
+    Super.UpdatePrecacheMaterials();
+}
+
 // GEm: In netgames
 simulated function PostNetReceive()
 {
