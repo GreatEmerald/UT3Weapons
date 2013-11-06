@@ -84,7 +84,7 @@ simulated function RenderDualOverlay(Canvas Canvas)
 
     bDrawingFirstPerson = true;
     Canvas.DrawActor(self, false, false, DisplayFOV);
-    
+
     bDrawingFirstPerson = false;
     Hand *= -1;
 }
@@ -181,7 +181,7 @@ simulated function BringUp(optional Weapon PrevWeapon)
                     PlayOwnedSound(ReloadSound, SLOT_Interact, TransientSoundVolume*1.5,,,, false);
                     bAlreadyLoaded = true;
                   }
-            
+
             else if ( (Mesh!=None) && HasAnim(SelectAnim) )
                 PlayAnim(SelectAnim, SelectAnimRate, 0.0);
         }
@@ -201,7 +201,7 @@ simulated function BringUp(optional Weapon PrevWeapon)
 	  if ( (PrevWeapon != None) && PrevWeapon.HasAmmo() && !PrevWeapon.bNoVoluntarySwitch )
 		  OldWeapon = PrevWeapon;
 	  else
-		  OldWeapon = None; 
+		  OldWeapon = None;
 
 }
 
@@ -219,13 +219,13 @@ simulated function Timer()
         Super.Timer();
         DelayAkimbo();
     }
-    
+
     else if (TimerSetting == TS_AkimboCheck)
     {
         Super.Timer();
         AkimboCheck();
     }
-    
+
     else
         Super.Timer();
 }
@@ -341,11 +341,11 @@ function bool HandlePickupQuery( pickup Item )
 
         if ( item.inventorytype == AmmoClass[0] )
     {
-        if ( (AmmoCharge[1] >= MaxAmmo(1)) && (AmmoCharge[0] >= MaxAmmo(0)) )
+        if (AmmoCharge[0] >= MaxAmmo(0))
             return true;
         item.AnnouncePickup(Pawn(Owner));
-        AddAmmo(16, 0);
-        AddAmmo(Ammo(item).AmmoAmount, 1);
+        //AddAmmo(16, 0);
+        AddAmmo(Ammo(item).AmmoAmount, 0);
         item.SetRespawn();
         return true;
     }
@@ -402,7 +402,7 @@ simulated event StopFire(int Mode)
 {
     if (UT3EnforcerAltFire(FireMode[Mode]) != None && Level.TimeSeconds - UT3EnforcerAltFire(FireMode[Mode]).StartFireTime < 3*FireMode[Mode].FireRate)
         return;
-    
+
     Super.StopFire(Mode);
 }
 
@@ -427,7 +427,7 @@ defaultproperties
 
     //Priority=2.000000
    //AIRating=0.400000
-   
+
      AkimboTransTAnim="weapontranition_toside"
      AkimboTransFAnim="weapontranition_fromside"
      AkimboFireAnim="weaponfire_side"
@@ -435,7 +435,7 @@ defaultproperties
      AkimboPutDownAnim="weaponputdown_side"
      AkimboIdleAnim="weaponidle_side"
      AkimboIdleBAnim="WeaponIdleB_Side"
-     
+
      IdleAnim="WeaponIdle"
      RestAnim="WeaponIdleB"
      AimAnim="WeaponIdleB"
