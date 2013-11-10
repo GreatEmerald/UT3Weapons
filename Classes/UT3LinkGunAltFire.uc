@@ -1,7 +1,7 @@
 //==============================================================================
 // UT3LinkGunAltFire.uc
 // Hmm, how does this work?
-// 2008, GreatEmerald
+// 2008, 2013 GreatEmerald
 //==============================================================================
 
 class UT3LinkGunAltFire extends LinkFire;
@@ -23,7 +23,7 @@ function PlayFiring()
 	  bStartFire = true;
     if (LinkGun(Weapon).Links <= 0 && Weapon.AmmoAmount(ThisModeNum) >= AmmoPerFire)
 		    ClientPlayForceFeedback("BLinkGunBeam1");
-    
+
     if ( Weapon.Mesh != None && FireCount > 0 && Weapon.HasAnim(FireLoopAnim) )
     {
         Weapon.LoopAnim(FireLoopAnim, FireLoopAnimRate, 0.0);//GE: Cound someone explain why in the world doesn't fireLOOPANIM call LOOPANIM by default?!
@@ -43,7 +43,7 @@ function PlayPreFire()
         //Instigator.ClientMessage("UT3LinkGunAltFire: Playing"@PreFireAnim);
     }
     Weapon.PlayOwnedSound(PreFireSound, SLOT_Interact, TransientSoundVolume*1.1);
-    bStartFire = False;
+    //bStartFire = False;
 }
 
 function PlayFireEnd()
@@ -92,7 +92,7 @@ function DrawMuzzleFlash(Canvas Canvas)
         SmokeEmitter.SetLocation( GetTipLocation() );
         Canvas.DrawActor( SmokeEmitter, false, false, Weapon.DisplayFOV );
     }
-    
+
     if (FlashEmitter != None)
     {
         FlashEmitter.SetRotation( GetTipRotation() );
@@ -124,7 +124,7 @@ defaultproperties
 
 
     // TODO: Make it really sound when it hits different materials
-    
+
      PreFireAnim="WeaponAltFireStart"
      FireAnim=
      FireLoopAnim="WeaponAltFire"

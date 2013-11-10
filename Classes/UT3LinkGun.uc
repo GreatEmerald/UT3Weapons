@@ -21,7 +21,7 @@ simulated function UpdateLinkColor( LinkAttachment.ELinkColor Color ) //GE: Clea
         LinkFire(FireMode[1]).UpdateLinkColor( Color );
 }
 
-/*event ServerStartFire(byte Mode) //GE: Disabling PreFireTime delay.
+event ServerStartFire(byte Mode) //GE: Disabling PreFireTime delay.
 {
     if ( (Instigator != None) && (Instigator.Weapon != self) )
     {
@@ -63,7 +63,7 @@ simulated function bool ReadyToFire(int Mode)
     }
 
     return true;
-} 
+}
 
 simulated function bool StartFire(int Mode)
 {
@@ -96,7 +96,7 @@ simulated function bool StartFire(int Mode)
     }
 
     return true;
-}*/ //GE: /disable PreFireTime delay
+} //GE: /disable PreFireTime delay
 
 
 
@@ -128,7 +128,7 @@ defaultproperties
     IconCoords=(X1=226,Y1=233,X2=300,Y2=254)
     Priority=5.000000
     AIRating=0.710000
-    
+
      IdleAnim="WeaponIdle"
      IdleAnimRate=0.7333
      RestAnim="WeaponIdle"
@@ -144,7 +144,7 @@ defaultproperties
      OldPlayerViewPivot=(Yaw=49152)
      Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_Linkgun_1P'
      OldMesh=None
-     
+
      PlayerViewOffset=(X=-11.0,Y=-3.5,Z=2.5)
      SmallViewOffset=(X=4,Y=2,Z=-3)
      PlayerViewPivot=(Pitch=0,Roll=0,Yaw=-16384)

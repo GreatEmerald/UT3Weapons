@@ -1,6 +1,5 @@
 * Remove all #exec embeds and move them out into actual external packages
 * Fix the MaterialManager to work with the new pickups
-* Make the Link Gun fire immediately, without waiting for anims
 * Can we get the Sniper Rifle scope to become on even if the key is released before the scope is on?
 * Online: Link Gun doesn't alt-fire
 * Online: Enforcer alt-fire reverts to UT2004 behaviour, although the effects play fine

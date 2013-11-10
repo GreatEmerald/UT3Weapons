@@ -284,7 +284,7 @@ function class<UT3PickupFactory> GetReplacementFactory(class<xPickUpBase> Origin
 }
 
 // GEm: Debug
-function PostBeginPlay()
+/*function PostBeginPlay()
 {
     Super.PostBeginPlay();
 
@@ -314,7 +314,7 @@ function UpdatePrecacheStaticMeshes()
     for (i=0; i<Level.PrecacheStaticMeshes.length; i++)
         log(Level.PrecacheStaticMeshes[i]);
     log(self@"UpdatePrecacheStaticMeshes: End of listing.");
-}
+}*/
 
 //=============================================================================
 // Default values
