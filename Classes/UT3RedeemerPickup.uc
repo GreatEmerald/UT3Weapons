@@ -11,6 +11,7 @@ defaultproperties
     InventoryType=class'UT3Redeemer'
 
     PickupMessage="Redeemer"
+    MessageClass=class'UT3PickupMessage'
     PickupSound=Sound'UT3PickupSounds.Generic.RedeemerPickup'
     TransientSoundVolume=0.73
     StaticMesh=StaticMesh'UT3WPStatics.UT3RedeemerPickup'

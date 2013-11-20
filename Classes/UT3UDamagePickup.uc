@@ -32,6 +32,7 @@ defaultproperties
     SpawnedAmbientSound = Sound'UDamageGroundLoop'
     PickupSound         = Sound'UDamagePickup'
     PickupMessage       = "DAMAGE AMP!"
+    MessageClass        = class'UT3PickupMessage'
 
     PickupForce  = "UDamagePickup"
     Physics      = PHYS_Rotating

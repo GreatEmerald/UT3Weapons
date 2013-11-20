@@ -10,6 +10,7 @@ defaultproperties
 {
      InventoryType=Class'UT3ImpactHammer'
      PickupMessage="Impact Hammer"
+     MessageClass=class'UT3PickupMessage'
      PickupSound=None
      DrawType=DT_None
      StaticMesh=None

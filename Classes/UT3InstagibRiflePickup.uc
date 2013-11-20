@@ -11,6 +11,7 @@ defaultproperties
     InventoryType=class'UT3InstagibRifle'
 
     PickupMessage="Instagib ShockRifle"
+    MessageClass=class'UT3PickupMessage'
     PickupSound=Sound'PickupSounds.ShockRiflePickup'
     PickupForce="ShockRiflePickup"  // jdf
 

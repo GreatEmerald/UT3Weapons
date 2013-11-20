@@ -21,6 +21,7 @@ defaultproperties
     InventoryType=class'UT3RocketLauncher'
 
     PickupMessage="Rocket Launcher"
+    MessageClass=class'UT3PickupMessage'
     PickupSound=Sound'UT3PickupSounds.Generic.RocketLauncherPickup'
     TransientSoundVolume=0.6
     StaticMesh=StaticMesh'UT3WPStatics.UT3RocketLauncherPickup'

@@ -11,9 +11,10 @@ defaultproperties
     InventoryType=class'UT3ShockRifle'
 
     PickupMessage="Shock Rifle"
+    MessageClass = class'UT3PickupMessage'
     PickupSound=Sound'UT3PickupSounds.ShockRiflePickup'
     TransientSoundVolume=0.58
-    
+
     StaticMesh=StaticMesh'UT3WPStatics.UT3ShockRiflePickup'
     PrePivot=(Y=23)
     DrawScale=1.1

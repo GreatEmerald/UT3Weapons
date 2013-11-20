@@ -10,9 +10,10 @@ defaultproperties
 {
     InventoryType=class'UT3SniperRifle'
     PickupMessage="UT3 Sniper Rifle"
+    MessageClass=class'UT3PickupMessage'
     PickupSound=Sound'UT3PickupSounds.Generic.SniperPickup'
     TransientSoundVolume=0.58
-    
+
     StaticMesh=StaticMesh'UT3WPStatics.UT3SniperRiflePickup'
     PrePivot=(Y=19,Z=3)
     DrawScale=1.1

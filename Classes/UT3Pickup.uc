@@ -29,9 +29,9 @@ simulated function PostBeginPlay()
 {
 	local UT3MaterialManager MaterialManager;
 	local int i;
-	
+
 	Super.PostBeginPlay();
-	
+
 	if (Level.NetMode != NM_DedicatedServer) {
 		MaterialManager = class'UT3MaterialManager'.static.GetMaterialManager(Level);
 		RespawnBuildGlow = MaterialManager.GetSpawnEffectPanner(1.6 / GetSoundDuration(RespawnSound));
@@ -58,7 +58,7 @@ simulated function PostBeginPlay()
 				}
 			}
 		}
-		
+
 		PostNetReceive();
 	}
 }
@@ -68,7 +68,7 @@ simulated function Destroyed()
 {
 	local UT3MaterialManager MaterialManager;
 	local int i;
-	
+
 	if (Level.NetMode != NM_DedicatedServer) {
 		MaterialManager = class'UT3MaterialManager'.static.GetMaterialManager(Level);
 		for (i = 0; i < Skins.Length; ++i) {
@@ -161,16 +161,17 @@ Respawn:
 
 defaultproperties
 {
-	bNetNotify = True
-	CollisionRadius = 40.0
-	CollisionHeight = 44.0
-	
-	TransientSoundVolume = 1.0
-	TransientSoundRadius = 1000.0
-	SoundVolume = 200
-	SoundRadius = 500.0
-	
-	bWasHidden = True
-	RespawnEffectTime = 0.0
-	DrawType = DT_StaticMesh
+    bNetNotify = True
+    CollisionRadius = 40.0
+    CollisionHeight = 44.0
+
+    TransientSoundVolume = 1.0
+    TransientSoundRadius = 1000.0
+    SoundVolume = 200
+    SoundRadius = 500.0
+
+    bWasHidden = True
+    RespawnEffectTime = 0.0
+    DrawType = DT_StaticMesh
+    MessageClass = class'UT3PickupMessage'
 }

@@ -19,6 +19,7 @@ defaultproperties
     PickupSound=Sound'UT3PickupSounds.LinkGunPickup'
     Skins(0)=Shader'UT3WeaponSkins.LinkGun.LinkGunSkin'
     PickupMessage="Link Gun"
+    MessageClass=class'UT3PickupMessage'
     StaticMesh=StaticMesh'UT3WPStatics.UT3LinkGunPickup'
     PrePivot=(Y=24)
     DrawScale=1.1

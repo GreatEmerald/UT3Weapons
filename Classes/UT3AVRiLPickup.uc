@@ -10,9 +10,10 @@ DefaultProperties
 {
     InventoryType=class'UT3AVRIL'
     PickupMessage="Longbow AVRiL"
+    MessageClass=class'UT3PickupMessage'
     PickupSound=Sound'UT3PickupSounds.Generic.AVRILPickup'
     TransientSoundVolume=0.6
-    
+
     StaticMesh=StaticMesh'UT3WPStatics.UT3AVRiLPickup'
     PrePivot=(Y=25)
     DrawScale=1.2

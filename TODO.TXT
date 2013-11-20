@@ -7,5 +7,4 @@
 * Online: Weapon lockers use old meshes
 * Adjust the pickups' Weapon Locker offset
 * Remove old inherited precache statements
-* Make all pickups use the counting messages
 * Remove all logs and clientmessages

@@ -11,6 +11,7 @@ defaultproperties
     InventoryType=class'UT3BioRifle'
 
     PickupMessage="Bio Rifle"
+    MessageClass=class'UT3PickupMessage'
     PickupSound=Sound'UT3PickupSounds.Generic.BioRiflePickup'
     TransientSoundVolume=1.15
     StaticMesh=StaticMesh'UT3WPStatics.UT3BioPickup'

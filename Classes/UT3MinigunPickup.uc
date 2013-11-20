@@ -21,6 +21,7 @@ defaultproperties
     InventoryType=class'UT3Minigun2v'
 
     PickupMessage="Stinger Minigun"
+    MessageClass=class'UT3PickupMessage'
     PickupSound=Sound'UT3PickupSounds.FlakShellPickup'
     StaticMesh=StaticMesh'UT3WPStatics.UT3StingerPickup'
     PrePivot=(X=-40)
