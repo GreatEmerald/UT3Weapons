@@ -13,8 +13,6 @@ class UT3ArmorVestPickup extends UT3ArmorPickup;
 // Imports
 //=============================================================================
 
-#exec audio import file=Sounds\include\PickupArmorChest.wav group=Pickups
-
 
 //=============================================================================
 // Default values
@@ -23,7 +21,7 @@ class UT3ArmorVestPickup extends UT3ArmorPickup;
 defaultproperties
 {
 	InventoryType = class'UT3ArmorVest'
-	PickupSound   = Sound'PickupArmorChest'
+	PickupSound   = Sound'UT3A_Pickups.Armor.A_Pickups_Armor_Chest01'
 	PickupMessage = "Armor Vest"
 	PickupForce   = "ShieldPack"
 	StaticMesh    = StaticMesh'UT3Pickups-SM.Powerups.Vest'

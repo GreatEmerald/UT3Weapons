@@ -13,9 +13,6 @@ class UT3HealthPickupMedium extends UT3HealthPickup;
 // Imports
 //=============================================================================
 
-#exec audio import file=Sounds\include\RespawnHealth.wav group=Pickups
-#exec audio import file=Sounds\include\PickupHealthMedium.wav group=Pickups
-
 // GEm: Will need to fix this later
 /*
 
@@ -23,15 +20,15 @@ class UT3HealthPickupMedium extends UT3HealthPickup;
 simulated function PostBeginPlay()
 {
 	local UT3MaterialManager MaterialManager;
-	
+
 	Super.PostBeginPlay();
-	
+
 	if (Level.NetMode != NM_DedicatedServer) {
 		MaterialManager = class'UT3MaterialManager'.static.GetMaterialManager(Level);
 		RespawnBuildGlow = MaterialManager.GetSpawnEffectPanner(1.6 / GetSoundDuration(RespawnSound));
 		Skins[0] = MaterialManager.GetSpawnEffectHealth(RespawnBuildGlow);
 		Skins[2] = MaterialManager.GetSpawnEffectGlass(RespawnBuildGlow);
-		
+
 		PostNetReceive();
 	}
 }
@@ -40,7 +37,7 @@ simulated function PostBeginPlay()
 simulated function Destroyed()
 {
 	local UT3MaterialManager MaterialManager;
-	
+
 	if (Level.NetMode != NM_DedicatedServer) {
 		MaterialManager = class'UT3MaterialManager'.static.GetMaterialManager(Level);
 		MaterialManager.ReleaseSpawnEffect(Skins[0]);
@@ -57,7 +54,7 @@ simulated function Destroyed()
 
 defaultproperties
 {
-    PickupSound = Sound'PickupHealthMedium'
+    PickupSound = Sound'UT3A_Pickups.Health.A_Pickups_Health_Medium01'
     StaticMesh = StaticMesh'UT3Pickups-SM.Powerups.HealthMedium'
     DrawScale = 1.0
     RotationRate = (Yaw=16384)

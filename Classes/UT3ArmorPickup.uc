@@ -13,13 +13,11 @@ class UT3ArmorPickup extends UT3Pickup abstract;
 // Imports
 //=============================================================================
 
-#exec audio import group=Pickups file=Sounds\include\RespawnArmor.wav
-
 
 function int CanUseArmor(Pawn Other)
 {
 	local UT3Armor Armor;
-	
+
 	Armor = UT3Armor(Other.FindInventoryType(InventoryType));
 	if (Armor != None) {
 		return InventoryType.Default.Charge - Armor.Charge;
@@ -32,7 +30,7 @@ function float BotDesireability(Pawn Bot)
 	local float Desire;
 
 	Desire = 0.013 * MaxDesireability * CanUseArmor(Bot);
-	
+
 	if (!Level.Game.bTeamGame && AIController(Bot.Controller) != None && AIController(Bot.Controller).Skill >= 4.0) {
 		// consider denying the enemy a chance to pick up this armor
 		Desire = FMax(Desire, 0.001);
@@ -44,7 +42,7 @@ function float BotDesireability(Pawn Bot)
 function float DetourWeight(Pawn Other, float PathWeight)
 {
 	local float Need;
-	
+
 	Need = CanUseArmor(Other);
 	if (AIController(Other.Controller).PriorityObjective() && Need < 0.4 * InventoryType.Default.Charge)
 		return (0.005 * MaxDesireability * Need) / PathWeight;
@@ -111,7 +109,7 @@ defaultproperties
 {
     bPredictRespawns = true
     RespawnTime = 30.0
-    RespawnSound = Sound'RespawnArmor'
+    RespawnSound = Sound'UT3A_Pickups.Armor.A_Pickups_Armor_Respawn01'
     MaxDesireability = 1.0
     AmbientGlow = 77
 }

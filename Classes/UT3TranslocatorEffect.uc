@@ -3,7 +3,7 @@ UT3TranslocatorEffect
 
 Creation date: 2008-07-14 14:45
 Last change: $Id$
-Copyright (c) 2008, Wormbo
+Copyright (c) 2008, 2013 Wormbo, GreatEmerald
 ******************************************************************************/
 
 class UT3TranslocatorEffect extends Emitter abstract;
@@ -15,6 +15,7 @@ class UT3TranslocatorEffect extends Emitter abstract;
 
 #exec obj load file=EpicParticles.utx
 #exec obj load file=ParticleMeshes.usx
+#exec obj load file=UT3Translocator.uax
 
 
 //=============================================================================
@@ -38,7 +39,7 @@ simulated function PostNetBeginPlay()
 {
 	local PlayerController PC;
 	local float Dist;
-	
+
 	if (Instigator != None) {
 		SetLocation(Instigator.Location);
 		SetBase(Instigator);
@@ -62,7 +63,7 @@ simulated function PostNetBeginPlay()
 			}
 		}
 	}
-	PlaySound(Sound'TranslocatorTeleport', SLOT_None);
+	PlaySound(Sound'UT3Translocator.TranslocatorTeleport', SLOT_None);
 	Super.PostNetBeginPlay();
 }
 
@@ -78,9 +79,9 @@ defaultproperties
 	bNetTemporary        = true
 	bNoDelete            = false
 	AutoDestroy          = true
-	
+
 	TransientSoundVolume = 1.0
 	TransientSoundRadius = 1000.0
-	
+
 	FlashScale = 0.7
 }

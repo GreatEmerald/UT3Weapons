@@ -13,7 +13,7 @@ class UT3LinkGun extends LinkGun;
 // Imports
 //=============================================================================
 
-#exec obj load file=Sounds/include/UT3LinkGun.uax package=UT3Style.LinkGun
+#exec obj load file=Sounds/include/UT3LinkGun.uax
 
 simulated function UpdateLinkColor( LinkAttachment.ELinkColor Color ) //GE: Cleaning Skins[] hax.
 {

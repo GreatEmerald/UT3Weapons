@@ -13,9 +13,6 @@ class UT3UDamagePickup extends UT3TimedPickup;
 // Imports
 //=============================================================================
 
-#exec audio import group=UDamage file=Sounds\include\UDamage\UDamageSpawn.wav
-#exec audio import group=UDamage file=Sounds\include\UDamage\UDamageGroundLoop.wav
-#exec audio import group=UDamage file=Sounds\include\UDamage\UDamagePickup.wav
 //#exec OBJ LOAD FILE=UT3PickupsOld.utx
 #exec OBJ LOAD FILE=UT3Pickups-SM.usx
 
@@ -28,9 +25,9 @@ defaultproperties
 {
     InventoryType       = class'UT3UDamage'
     TimeRemaining       = 30.0
-    RespawnSound        = Sound'UDamageSpawn'
-    SpawnedAmbientSound = Sound'UDamageGroundLoop'
-    PickupSound         = Sound'UDamagePickup'
+    RespawnSound        = Sound'UT3A_Pickups_Powerups.Powerups.A_Powerup_UDamage_Spawn'
+    SpawnedAmbientSound = Sound'UT3A_Pickups_Powerups.Powerups.A_Powerup_UDamage_GroundLoop'
+    PickupSound         = Sound'UT3A_Pickups_Powerups.Powerups.A_Powerup_UDamage_Pickup'
     PickupMessage       = "DAMAGE AMP!"
     MessageClass        = class'UT3PickupMessage'
 

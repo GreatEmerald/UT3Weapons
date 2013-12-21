@@ -13,21 +13,19 @@ class UT3HealthPickupSuper extends UT3HealthPickup;
 // Imports
 //=============================================================================
 
-#exec audio import file=Sounds\include\PickupHealthSuper.wav group=Pickups
-
 
 /*simulated function PostBeginPlay()
 {
 	local UT3MaterialManager MaterialManager;
-	
+
 	Super.PostBeginPlay();
-	
+
 	if (Level.NetMode != NM_DedicatedServer) {
 		MaterialManager = class'UT3MaterialManager'.static.GetMaterialManager(Level);
 		RespawnBuildGlow = MaterialManager.GetSpawnEffectPanner(1.6 / GetSoundDuration(RespawnSound));
 		Skins[0] = MaterialManager.GetSpawnEffectTexture(RespawnBuildGlow, Texture'PickupSkins.Health.SuperkegSkin');
 		Skins[1] = MaterialManager.GetSpawnEffectHealth(RespawnBuildGlow);
-		
+
 		PostNetReceive();
 	}
 }
@@ -36,7 +34,7 @@ class UT3HealthPickupSuper extends UT3HealthPickup;
 simulated function Destroyed()
 {
 	local UT3MaterialManager MaterialManager;
-	
+
 	if (Level.NetMode != NM_DedicatedServer) {
 		MaterialManager = class'UT3MaterialManager'.static.GetMaterialManager(Level);
 		MaterialManager.ReleaseSpawnEffect(Skins[0]);
@@ -53,7 +51,7 @@ simulated function Destroyed()
 
 defaultproperties
 {
-    PickupSound = Sound'PickupHealthSuper'
+    PickupSound = Sound'UT3PickupSounds.Generic.SuperHealthPickup'
     StaticMesh = StaticMesh'UT3PICKUPS_Mesh.Health_Large.S_Pickups_Health_Large_Keg'
     DrawScale = 1.0
     RotationRate = (Yaw=16384)

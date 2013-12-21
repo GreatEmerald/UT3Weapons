@@ -126,7 +126,7 @@ Respawn:
 
 defaultproperties
 {
-    RespawnSound = Sound'RespawnHealth'
+    RespawnSound = Sound'UT3A_Pickups.Health.A_Pickups_Health_Respawn01'
     bWasHidden = true
     bNetNotify = true
     RespawnEffectTime = 0.0

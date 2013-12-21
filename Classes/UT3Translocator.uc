@@ -3,7 +3,7 @@ UT3Translocator
 
 Creation date: 2008-07-08 12:25
 Latest change: $Id$
-Copyright (c) 2008, Wormbo
+Copyright (c) 2008, 2013 Wormbo, GreatEmerald
 ******************************************************************************/
 
 class UT3Translocator extends TransLauncher;
@@ -13,7 +13,7 @@ class UT3Translocator extends TransLauncher;
 // Imports
 //=============================================================================
 
-#exec obj load file=Sounds/include/UT3Translocator.uax package=UT3Style.Translocator
+#exec obj load file=Sounds/include/UT3Translocator.uax
 
 var Material RedSkin, BlueSkin, RedEffect, BlueEffect;
 var name EmptyBringUpAnim, IdleAnimEmpty, PutDownEmptyAnim; //GE: Woah, chaotic, isn't it?
@@ -125,7 +125,7 @@ simulated event WeaponTick( float dt )
     {
         bBeaconDeployed = True;     //GE: Now we know
         if (!FireMode[0].bIsFiring) //GE: And if we're currently not firing
-            PlayIdle();             //GE: refresh the idle anim        
+            PlayIdle();             //GE: refresh the idle anim
     }
     else if (Transbeacon == None && bBeaconDeployed)                               //GE: If the beacon isn't deployed and we don't know that
     {
@@ -174,7 +174,7 @@ defaultproperties
 
 	IconMaterial=Material'UT3HUD.Icons.UT3IconsScaled'
     IconCoords=(X1=300,Y1=230,X2=361,Y2=256)
-    
+
      IdleAnim="WeaponIdle"
      IdleAnimEmpty="WeaponIdleEmpty"
      RestAnim="WeaponIdle"
@@ -192,12 +192,12 @@ defaultproperties
      PlayerViewOffset=(X=-3.0,Y=0.3,Z=-0.3)
      SmallViewOffset=(X=5.0,Y=4.0,Z=-4.0)
      BringUpTime=0.4667
-     
+
      RedSkin=Material'UT3WeaponSkins.Translocator.TranslocatorSkinRed'
      BlueSkin=Material'UT3WeaponSkins.Translocator.TranslocatorSkinBlue'
      RedEffect=Material'UT3WeaponSkins.Translocator.FbElec2'
      BlueEffect=Material'UT3WeaponSkins.Translocator.FbElec1'
-     
+
      Skins(0)=Material'UT3WeaponSkins.Translocator.FbElec2'
      Skins(1)=Material'UT3WeaponSkins.Translocator.TranslocatorSkinRed'
 }

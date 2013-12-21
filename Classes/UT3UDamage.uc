@@ -3,7 +3,7 @@ UT3UDamage
 
 Creation date: 2008-07-20 11:10
 Last change: $Id$
-Copyright (c) 2008, Wormbo
+Copyright (c) 2008, 2013 Wormbo, GreatEmerald
 ******************************************************************************/
 
 class UT3UDamage extends UT3TimedPowerup;
@@ -12,11 +12,6 @@ class UT3UDamage extends UT3TimedPowerup;
 //=============================================================================
 // Imports
 //=============================================================================
-
-#exec audio import group=UDamage file=Sounds\include\UDamage\UDamagePowerLoop.wav
-#exec audio import group=UDamage file=Sounds\include\UDamage\UDamageFire.wav
-#exec audio import group=UDamage file=Sounds\include\UDamage\UDamageWarning.wav
-#exec audio import group=UDamage file=Sounds\include\UDamage\UDamageEnd.wav
 
 
 //=============================================================================
@@ -67,11 +62,11 @@ defaultproperties
 	bAlwaysRelevant = True
 	bOnlyRelevantToOwner = False
 	bReplicateInstigator = True
-	
+
 	PickupClass = class'UT3UDamagePickup'
-	
-	UDamageFireSound = Sound'UDamageFire'
-	PowerAmbientSound = Sound'UDamagePowerLoop'
-	WarningSound = Sound'UDamageWarning'
-	EndSound = Sound'UDamageEnd'
+
+	UDamageFireSound = Sound'UT3A_Pickups_Powerups.Powerups.A_Powerup_UDamage_Fire'
+	PowerAmbientSound = Sound'UT3A_Pickups_Powerups.Powerups.A_Powerup_UDamage_PowerLoop'
+	WarningSound = Sound'UT3A_Pickups_Powerups.Powerups.A_Powerup_UDamage_Warning'
+	EndSound = Sound'UT3A_Pickups_Powerups.Powerups.A_Powerup_UDamage_End'
 }

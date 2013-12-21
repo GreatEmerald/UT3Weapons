@@ -13,8 +13,6 @@ class UT3HudOverlay extends HudOverlay;
 // Imports
 //=============================================================================
 
-#exec texture import file=Textures\include\UT3HudIcons.dds group=Icons alpha=1
-
 
 //=============================================================================
 // Properties
@@ -56,12 +54,12 @@ not bound, the tooltip won't be displayed.
 static function DrawToolTip(Canvas C, PlayerController PC, string Command, float X, float Y, IntBox IconCoords, optional Material IconMaterial)
 {
 	local float ResScale, ScaleX, ScaleY, WholeWidth, DrawX, XL, YL;
-	
+
 	if (PC.PlayerReplicationInfo.bOnlySpectator || default.LastToolTipDrawTime == PC.Level.TimeSeconds)
 		return; // draw only a single tooltip at any time and don't draw any for spectators
-	
+
 	default.LastToolTipDrawTime = PC.Level.TimeSeconds;
-	
+
 	if (IconMaterial == None)
 		IconMaterial = default.DefaultIconMaterial;
 	if (!(Command ~= default.CachedCommand)) {
@@ -70,29 +68,29 @@ static function DrawToolTip(Canvas C, PlayerController PC, string Command, float
 	}
 	if (default.CachedKeyName == "")
 		return; // no key bound
-	
+
 	C.DrawColor = default.ToolTipColor;
 	C.Style = 5; // STY_Alpha
 	C.Font = PC.MyHud.GetMediumFontFor(C);
-	
+
 	// calculate width of the entire tooltip
 	ResScale = C.ClipY / 768.0;
 	ScaleX = Abs(IconCoords.X2);
 	ScaleY = Abs(IconCoords.Y2);
 	C.StrLen(default.CachedKeyName, XL, YL);
 	WholeWidth = XL + (ScaleX + default.ToolTipSepCoords.X2) * ResScale;
-	
+
 	// draw key name
 	DrawX = X - 0.5 * WholeWidth;
 	C.SetPos(DrawX, Y - 0.5 * YL);
 	C.DrawTextClipped(default.CachedKeyName);
-	
+
 	// draw separator arrow
 	DrawX += XL;
 	C.SetPos(DrawX, Y - 0.5 * default.ToolTipSepCoords.Y2 * ResScale);
 	C.DrawTile(default.DefaultIconMaterial, default.ToolTipSepCoords.X2 * ResScale, default.ToolTipSepCoords.Y2 * ResScale,
 		default.ToolTipSepCoords.X1, default.ToolTipSepCoords.Y1, default.ToolTipSepCoords.X2, default.ToolTipSepCoords.Y2);
-	
+
 	// draw tooltip icon
 	DrawX += default.ToolTipSepCoords.X2 * ResScale;
 	C.SetPos(DrawX, Y - 0.5 * IconCoords.Y2 * ResScale);
@@ -115,18 +113,18 @@ static function UT3HudOverlay GetHudOverlay(Hud LocalHud)
 {
 	local int i;
 	local UT3HudOverlay NewOverlay;
-	
+
 	if (LocalHud == None) {
 		// no HUD
 		return None;
 	}
-	
+
 	// try to find existing HUD overlay
 	for (i = 0; i < LocalHud.Overlays.Length; ++i) {
 		if (UT3HudOverlay(LocalHud.Overlays[i]) != None)
 			return UT3HudOverlay(LocalHud.Overlays[i]);
 	}
-	
+
 	// create new HUD overlay
 	NewOverlay = LocalHud.Spawn(class'UT3HudOverlay');
 	if (NewOverlay != None) {
@@ -143,6 +141,6 @@ static function UT3HudOverlay GetHudOverlay(Hud LocalHud)
 defaultproperties
 {
 	ToolTipColor        = (R=255,G=255,B=255,A=255)
-	DefaultIconMaterial = Texture'UT3HudIcons'
+	DefaultIconMaterial = Material'UT3HUD.Icons.UT3HudIcons'
 	ToolTipSepCoords    = (X1=260,Y1=379,X2=29,Y2=27)
 }

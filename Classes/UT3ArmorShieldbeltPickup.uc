@@ -13,8 +13,6 @@ class UT3ArmorShieldbeltPickup extends UT3ArmorPickup;
 // Imports
 //=============================================================================
 
-#exec audio import file=Sounds\include\PickupArmorShieldbelt.wav group=Pickups
-
 
 //=============================================================================
 // Default values
@@ -25,7 +23,7 @@ defaultproperties
     RespawnTime   = 60.0
     MaxDesireability = 1.5
     InventoryType = class'UT3ArmorShieldbelt'
-    PickupSound   = Sound'PickupArmorShieldbelt'
+    PickupSound   = Sound'UT3PickupSounds.Generic.ShieldbeltPickup'
     PickupMessage = "Shield Belt"
     PickupForce   = "LargeShieldPickup"
     StaticMesh    = StaticMesh'UT3Pickups-SM.Powerups.ShieldBelt'

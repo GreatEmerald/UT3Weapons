@@ -1,10 +1,12 @@
 //==============================================================================
 // UT3LinkProjectile.uc
 // Just for the nice sound.
-// 2008, GreatEmerald
+// 2008, 2013 GreatEmerald
 //==============================================================================
 
 class UT3LinkProjectile extends LinkProjectile;
+
+#exec obj load file=UT3LinkGun.uax
 
 simulated function Explode(vector HitLocation, vector HitNormal)
 {
@@ -15,7 +17,7 @@ simulated function Explode(vector HitLocation, vector HitNormal)
         else
             Spawn(class'LinkProjSparksYellow',,, HitLocation, rotator(HitNormal));
     }
-    PlaySound(Sound'UT3Style.LinkGunFireImpact');
+    PlaySound(Sound'UT3LinkGun.LinkGunFireImpact');
     Destroy();
 }
 

@@ -1,7 +1,7 @@
 //==============================================================================
 // UT3LinkGunFire.uc
 // This + Berserk = Pwnage
-// 2008, GreatEmerald
+// 2008, 2013 GreatEmerald
 //==============================================================================
 
 class UT3LinkGunFire extends LinkAltFire;
@@ -46,7 +46,7 @@ function DrawMuzzleFlash(Canvas Canvas)
         SmokeEmitter.SetLocation( GetTipLocation() );
         Canvas.DrawActor( SmokeEmitter, false, false, Weapon.DisplayFOV );
     }
-    
+
     if (FlashEmitter != None)
     {
         FlashEmitter.SetRotation( GetTipRotation() );
@@ -61,8 +61,8 @@ defaultproperties
 {
   LinkProj=class'UT3LinkProjectile'
   AmmoClass=class'UT3LinkAmmo'
-  FireSound=Sound'UT3Style.LinkGunFire'
-  LinkedFireSound=Sound'UT3Style.LinkGunFire'
+  FireSound=Sound'UT3LinkGun.LinkGunFire'
+  LinkedFireSound=Sound'UT3LinkGun.LinkGunFire'
   FireRate=0.16
   AmmoPerFire=1
   FireAnim="WeaponFire"

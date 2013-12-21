@@ -13,20 +13,18 @@ class UT3HealthPickupSmall extends UT3HealthPickup;
 // Imports
 //=============================================================================
 
-#exec audio import file=Sounds\include\PickupHealthSmall.wav group=Pickups
-
 /*simulated function PostBeginPlay()
 {
 	local UT3MaterialManager MaterialManager;
-	
+
 	Super.PostBeginPlay();
-	
+
 	if (Level.NetMode != NM_DedicatedServer) {
 		MaterialManager = class'UT3MaterialManager'.static.GetMaterialManager(Level);
 		RespawnBuildGlow = MaterialManager.GetSpawnEffectPanner(1.6 / GetSoundDuration(RespawnSound));
 		Skins[0] = MaterialManager.GetSpawnEffectTexture(RespawnBuildGlow, Texture'XGameTextures.SuperPickups.MHPickup');
 		Skins[1] = MaterialManager.GetSpawnEffectBubbles(RespawnBuildGlow);
-		
+
 		PostNetReceive();
 	}
 }
@@ -35,7 +33,7 @@ class UT3HealthPickupSmall extends UT3HealthPickup;
 simulated function Destroyed()
 {
 	local UT3MaterialManager MaterialManager;
-	
+
 	if (Level.NetMode != NM_DedicatedServer) {
 		MaterialManager = class'UT3MaterialManager'.static.GetMaterialManager(Level);
 		MaterialManager.ReleaseSpawnEffect(Skins[0]);
@@ -52,7 +50,7 @@ simulated function Destroyed()
 
 defaultproperties
 {
-    PickupSound = Sound'PickupHealthSmall'
+    PickupSound = Sound'UT3PickupSounds.Generic.HealthVialPickup'
     StaticMesh = StaticMesh'UT3PICKUPS_Mesh.Health_Small.S_Pickups_Health_Small'
     DrawScale = 1.0
     PickupMessage = "Health Vial +"
