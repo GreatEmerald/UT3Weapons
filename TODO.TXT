@@ -1,4 +1,3 @@
-* Remove all #exec embeds and move them out into actual external packages
 * Fix the MaterialManager to work with the new pickups
 * Can we get the Sniper Rifle scope to become on even if the key is released before the scope is on?
 * Online: Link Gun doesn't alt-fire

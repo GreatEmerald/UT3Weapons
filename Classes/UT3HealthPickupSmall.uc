@@ -13,6 +13,77 @@ class UT3HealthPickupSmall extends UT3HealthPickup;
 // Imports
 //=============================================================================
 
+var() Material PatternCombiner;
+var() Material SpawnBand;
+var() Material BasicTexture;
+var TexPannerTriggered TriggerTexture;
+var FinalBlend SpawnSkin;
+var array<Material> TempSkins;
+
+simulated function PostBeginPlay()
+{
+    local Combiner EffectCombiner;
+    local Shader SpawnShader;
+
+    Super.PostBeginPlay();
+
+    // GEm: Create a texture whose animation start we can control
+    TriggerTexture = new(None) class'TexPannerTriggered'; // GEm: Must not forget to destroy objects
+    TriggerTexture.Material = SpawnBand;
+    TriggerTexture.PanRate = 1.1/GetSoundDuration(RespawnSound);
+    TriggerTexture.StopAfterPeriod = 2.1 * TriggerTexture.PanRate;
+    TriggerTexture.PanDirection = rot(0,-16384,0);
+
+    // GEm: This combines the pattern effect with the spawn band
+    EffectCombiner = new(None) class'Combiner';
+    EffectCombiner.CombineOperation = CO_Add;
+    EffectCombiner.AlphaOperation = AO_Use_Alpha_From_Material2;
+    EffectCombiner.Material1 = PatternCombiner;
+    EffectCombiner.Material2 = TriggerTexture;
+
+    // GEm: Skin that we'll apply to the pickup while spawning
+    SpawnShader = new(None) class'Shader';
+    SpawnShader.Diffuse = BasicTexture;
+    SpawnShader.Opacity = TriggerTexture;
+    SpawnShader.Specular = EffectCombiner;
+    SpawnShader.SpecularityMask = TriggerTexture;
+
+    // GEm: Get a FinalBlend to solve Z-sort issues
+    SpawnSkin = new(None) class'FinalBlend'; // GEm: Must not forget to destroy objects
+    SpawnSkin.FrameBufferBlending = FB_AlphaBlend;
+    SpawnSkin.Material = SpawnShader;
+    //SpawnSkin.TwoSided = BasicTexture.bTwoSided;
+
+    // GEm: Back up our default Skins
+    TempSkins = Skins;
+}
+
+auto simulated state Pickup
+{
+    function EndState()
+    {
+        Skins = TempSkins;
+        Super.EndState();
+    }
+Begin:
+    Skins[0] = SpawnSkin;
+    TriggerTexture.Trigger(Self, None);
+    Sleep(GetSoundDuration(RespawnSound));
+    Skins = TempSkins;
+}
+
+simulated function Destroyed()
+{
+    local int i;
+
+    SpawnSkin = None;
+    TriggerTexture = None;
+    for (i = 0; i < TempSkins.Length; i++)
+        TempSkins[i] = None;
+
+    Super.Destroyed();
+}
+
 /*simulated function PostBeginPlay()
 {
 	local UT3MaterialManager MaterialManager;
@@ -65,4 +136,9 @@ defaultproperties
     CollisionRadius = 24.0
     HealingAmount = 5
     CullDistance = +4500.0
+
+    PatternCombiner = Material'UT3Pickups.Health_Small.PatternMultiply'
+    SpawnBand = Material'UT3Pickups.Health_Small.SpawnBandTexCoord'
+    BasicTexture = Material'UT3Pickups.Health_Small.T_Pickups_Health_Small_D'
+    //RespawnTime = 3.0 // GEm: DEBUG!!!
 }
