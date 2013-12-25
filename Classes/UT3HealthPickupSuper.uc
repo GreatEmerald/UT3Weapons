@@ -63,4 +63,5 @@ defaultproperties
     CollisionRadius = 42.0
     HealingAmount = 100
     bPredictRespawns = true
+    BasicTexture = Material'UT3Pickups.Health_Large.T_Pickups_Health_Large_Keg_D'
 }

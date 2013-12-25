@@ -17,23 +17,36 @@ var() bool bRandomStart;
 
 // GEm: Spawn effect-related variables
 var() Sound RespawnSound;
-var bool bWasHidden;
-var TexPannerTriggered RespawnBuildGlow;
+/*var bool bWasHidden;
+var TexPannerTriggered RespawnBuildGlow;*/
+var() Material PatternCombiner;
+var() Material SpawnBand;
+var() Material BasicTexture;
+var TexPannerTriggered TriggerTexture;
+var FinalBlend SpawnSkin;
+var array<Material> TempSkins;
 
 simulated function PreBeginPlay()
 {
     Super.PreBeginPlay();
+    // GEm: Set up bobbing start origin
     if (bFloatingPickup)
     {
         if (bRandomStart)
             BobTimer = FRand()*TAU;
         BobBaseOffset = PrePivot;
     }
+
+    // GEm: Create spawn-in effect materials
+    TriggerTexture = class'UT3MaterialManager'.static.GetTriggerTexture(SpawnBand, GetSoundDuration(RespawnSound));
+    SpawnSkin = class'UT3MaterialManager'.static.GetSpawnSkin(TriggerTexture, PatternCombiner, BasicTexture);
+
+    // GEm: Back up our default Skins
+    TempSkins = Skins;
 }
 
 auto simulated state Pickup
 {
-
     simulated function Tick(float DeltaTime)
     {
         PrePivot.Z = BobBaseOffset.Z + sin(Level.TimeSeconds * BobSpeed + BobTimer) * BobOffset;
@@ -57,8 +70,18 @@ auto simulated state Pickup
         // GEm: Reenable it after that, it's required for some effects
         if (Level.NetMode == NM_DedicatedServer || !bFloatingPickup)
             Enable('Tick');
+
+        // GEm: Reset skins to default, in case it's picked up before sleep is finished
+        Skins = TempSkins;
         Super.EndState();
     }
+
+// GEm: Use state time abilities to trigger and wait until the spawn effect is finished
+Begin:
+    Skins[0] = SpawnSkin;
+    TriggerTexture.Trigger(Self, None);
+    Sleep(GetSoundDuration(RespawnSound));
+    Skins = TempSkins;
 }
 
 simulated function PostNetReceive()
@@ -127,7 +150,9 @@ Respawn:
 defaultproperties
 {
     RespawnSound = Sound'UT3A_Pickups.Health.A_Pickups_Health_Respawn01'
-    bWasHidden = true
+    PatternCombiner = Material'UT3Pickups.Health_Small.PatternMultiply'
+    SpawnBand = Material'UT3Pickups.Health_Small.SpawnBandTexCoord'
+    //bWasHidden = true
     bNetNotify = true
     RespawnEffectTime = 0.0
     TransientSoundVolume = 0.75

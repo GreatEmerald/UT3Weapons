@@ -67,4 +67,5 @@ defaultproperties
     CollisionRadius = 32.0
     HealingAmount = 25
     CullDistance = +6500.0
+    BasicTexture = Material'UT3Pickups.HealthMedium.Health_Medium_D'
 }
