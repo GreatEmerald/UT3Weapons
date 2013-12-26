@@ -20,4 +20,7 @@ defaultproperties
     PrePivot=(Z=1.000000)
     CollisionHeight=8.250000
     HighlightSkins(0)=Material'UT3Pickups.Ammo_Flak.Flak_Highlight'
+    PatternCombiner=Material'UT3Pickups.Ammo_Flak.SpawnPatternMultiply'
+    SpawnBand=Material'UT3Pickups.Ammo_Flak.SpawnBandTexCoord'
+    BasicTexture=Material'UT3Pickups.Ammo.Flakcannon_D'
 }

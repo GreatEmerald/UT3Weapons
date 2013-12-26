@@ -21,4 +21,7 @@ defaultproperties
     PrePivot=(Z=11.0)
     CollisionHeight=12.5
     HighlightSkins(0)=Material'UT3Pickups.Ammo_Enforcer.Enforcer_Highlight'
+    PatternCombiner=Material'UT3Pickups.Ammo_Enforcer.SpawnPatternMultiply'
+    SpawnBand=Material'UT3Pickups.Ammo_Enforcer.SpawnBandTexCoord'
+    BasicTexture=Material'UT3Pickups.Ammo_Enforcer.Enforcer_D'
 }

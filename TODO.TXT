@@ -5,5 +5,6 @@
 * Online: Sniper doesn't zoom
 * Online: Weapon lockers use old meshes
 * Adjust the pickups' Weapon Locker offset
+* Test weapons without always on (even if Epic themselves barely tested it)
 * Remove old inherited precache statements
 * Remove all logs and clientmessages

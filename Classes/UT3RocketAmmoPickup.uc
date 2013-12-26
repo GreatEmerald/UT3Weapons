@@ -29,6 +29,9 @@ defaultproperties
     CollisionHeight=13.5
     Rotation=(Roll=49152)
     HighlightSkins(0)=Material'UT3Pickups.Ammo_Rockets.Rockets_Highlight'
+    PatternCombiner=Material'UT3Pickups.Ammo_Rockets.SpawnPatternMultiply'
+    SpawnBand=Material'UT3Pickups.Ammo_Rockets.SpawnBandTexCoord'
+    BasicTexture=Material'UT3Pickups.Ammo.RocketLauncher_D'
 }
 
 

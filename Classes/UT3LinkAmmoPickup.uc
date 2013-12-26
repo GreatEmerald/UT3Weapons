@@ -27,4 +27,7 @@ defaultproperties
     PrePivot=(Z=7.0)
     CollisionHeight=10.5
     HighlightSkins(0)=Material'UT3Pickups.Ammo_Link.Link_Highlight'
+    PatternCombiner=Material'UT3Pickups.Ammo_Link.SpawnPatternMultiply'
+    SpawnBand=Material'UT3Pickups.Ammo_Link.SpawnBandTexCoord'
+    BasicTexture=Material'UT3Pickups.Ammo_Link.T_Ammo_LinkGun_D'
 }

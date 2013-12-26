@@ -19,4 +19,7 @@ defaultproperties
     PrePivot=(Z=2.0)
     CollisionHeight=12.750000
     HighlightSkins(0)=Material'UT3Pickups.Ammo_Stinger.Stinger_Highlight'
+    PatternCombiner=Material'UT3WeaponSkins.Stinger.SpawnPatternMultiply'
+    SpawnBand=Material'UT3WeaponSkins.Stinger.SpawnBandTexCoord'
+    BasicTexture=Material'UT3WeaponSkins.Stinger.T_WP_Stinger_D'
 }

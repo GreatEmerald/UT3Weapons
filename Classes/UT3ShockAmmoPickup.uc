@@ -19,5 +19,8 @@ defaultproperties
     PrePivot=(Z=18.000000)
     CollisionHeight=32.0
     HighlightSkins(0)=Material'UT3Pickups.Ammo_Shock.Shock_Highlight'
+    PatternCombiner=Material'UT3Pickups.Ammo_Shock.SpawnPatternMultiply'
+    SpawnBand=Material'UT3Pickups.Ammo_Shock.SpawnBandTexCoord'
+    BasicTexture=Material'UT3Pickups.Ammo_Shock.T_Ammo_ShockRifle_D'
 }
 

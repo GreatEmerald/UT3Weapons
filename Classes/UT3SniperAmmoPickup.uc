@@ -20,5 +20,8 @@ defaultproperties
     DrawScale=1.500000
     PrePivot=(Z=11.000000)
     HighlightSkins(0)=Material'UT3Pickups.highlight.Sniper_Highlight'
+    PatternCombiner=Material'UT3Pickups.Ammo_Enforcer.SpawnPatternMultiply'
+    SpawnBand=Material'UT3Pickups.Ammo_Enforcer.SpawnBandTexCoord'
+    BasicTexture=Material'UT3Pickups.Ammo.SniperRifle_D'
 }
 

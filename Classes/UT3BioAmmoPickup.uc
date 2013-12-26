@@ -33,4 +33,7 @@ defaultproperties
     CollisionHeight=8.250000
     TransientSoundVolume=1.15
     HighlightSkins(0)=Material'UT3Pickups.Ammo_Bio.Bio_Highlight'
+    PatternCombiner=Material'UT3Pickups.Ammo_Bio.SpawnPatternMultiply'
+    SpawnBand=Material'UT3Pickups.Ammo_Bio.SpawnBandTexCoord'
+    BasicTexture=Material'UT3WP_BioRifle_Materials.Materials.T_WP_BioRifle_D'
 }

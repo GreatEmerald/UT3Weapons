@@ -38,8 +38,10 @@ simulated function PreBeginPlay()
     }
 
     // GEm: Create spawn-in effect materials
-    TriggerTexture = class'UT3MaterialManager'.static.GetTriggerTexture(SpawnBand, GetSoundDuration(RespawnSound));
-    SpawnSkin = class'UT3MaterialManager'.static.GetSpawnSkin(TriggerTexture, PatternCombiner, BasicTexture);
+    if (SpawnBand != None && RespawnSound != None)
+        TriggerTexture = class'UT3MaterialManager'.static.GetTriggerTexture(SpawnBand, GetSoundDuration(RespawnSound));
+    if (TriggerTexture != None && PatternCombiner != None && BasicTexture != None)
+        SpawnSkin = class'UT3MaterialManager'.static.GetSpawnSkin(TriggerTexture, PatternCombiner, BasicTexture);
 
     // GEm: Back up our default Skins
     TempSkins = Skins;
@@ -65,7 +67,7 @@ auto simulated state Pickup
         }
     }
 
-    function EndState()
+    simulated function EndState()
     {
         // GEm: Reenable it after that, it's required for some effects
         if (Level.NetMode == NM_DedicatedServer || !bFloatingPickup)
@@ -78,9 +80,12 @@ auto simulated state Pickup
 
 // GEm: Use state time abilities to trigger and wait until the spawn effect is finished
 Begin:
-    Skins[0] = SpawnSkin;
-    TriggerTexture.Trigger(Self, None);
-    Sleep(GetSoundDuration(RespawnSound));
+    if (SpawnSkin != None)
+    {
+        Skins[0] = SpawnSkin;
+        TriggerTexture.Trigger(Self, None);
+        Sleep(GetSoundDuration(RespawnSound));
+    }
     Skins = TempSkins;
 }
 
@@ -93,6 +98,8 @@ simulated function PostNetReceive()
         Enable('Tick');
 
     // GEm: Respawn effect related:
+    if (!bHidden)
+        GotoState('Pickup');
     /*if (!bHidden && bWasHidden) {
        RespawnBuildGlow.Trigger(Self, None);
     }
@@ -102,7 +109,7 @@ simulated function PostNetReceive()
 
 function RespawnEffect()
 {
-    PlaySound(RespawnSound);
+    PlaySound(RespawnSound, SLOT_Interact);
 }
 
 state Sleeping
@@ -145,6 +152,18 @@ Respawn:
     if (PickUpBase != None)
         PickUpBase.TurnOn();
     GotoState('Pickup');
+}
+
+simulated function Destroyed()
+{
+    local int i;
+
+    SpawnSkin = None;
+    TriggerTexture = None;
+    for (i = 0; i < TempSkins.Length; i++)
+        TempSkins[i] = None;
+
+    Super.Destroyed();
 }
 
 defaultproperties

@@ -19,4 +19,7 @@ DefaultProperties
     DrawScale=1.8
     PrePivot=(Z=4.0)
     HighlightSkins(0)=Material'UT3Pickups.highlight.AVRIL_Highlight'
+    PatternCombiner=Material'UT3WeaponSkins.AVRiL.SpawnPatternMultiply'
+    SpawnBand=Material'UT3WeaponSkins.AVRiL.SpawnBandTexCoord'
+    BasicTexture=Material'UT3WeaponSkins.AVRiL.T_WP_Avril_Ammo_D'
 }
