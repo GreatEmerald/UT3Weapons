@@ -355,7 +355,7 @@ static function TexPannerTriggered GetTriggerTexture(Material SpawnBand, float D
     // GEm: Create a texture whose animation start we can control
     TriggerTexture = new(None) class'TexPannerTriggered';
     TriggerTexture.Material = SpawnBand;
-    TriggerTexture.PanRate = 1.1/Duration;
+    TriggerTexture.PanRate = 1.2/Duration;
     TriggerTexture.StopAfterPeriod = 2.1 * TriggerTexture.PanRate;
     TriggerTexture.PanDirection = rot(0,-16384,0);
 

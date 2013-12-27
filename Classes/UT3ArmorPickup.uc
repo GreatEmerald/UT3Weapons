@@ -112,4 +112,6 @@ defaultproperties
     RespawnSound = Sound'UT3A_Pickups.Armor.A_Pickups_Armor_Respawn01'
     MaxDesireability = 1.0
     AmbientGlow = 77
+    PatternCombiner = Material'UT3Pickups.Vest.SpawnPatternMultiply'
+    SpawnBand = Material'UT3Pickups.Vest.SpawnBandTexCoord'
 }

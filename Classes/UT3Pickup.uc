@@ -21,81 +21,56 @@ var() Sound SpawnedAmbientSound;
 // Variables
 //=============================================================================
 
-var TexPannerTriggered RespawnBuildGlow;
-var bool bWasHidden;
-
+var() Material PatternCombiner;
+var() Material SpawnBand;
+var() Material BasicTexture;
+var TexPannerTriggered TriggerTexture;
+var FinalBlend SpawnSkin;
+var array<Material> TempSkins;
 
 simulated function PostBeginPlay()
 {
-	local UT3MaterialManager MaterialManager;
-	local int i;
+    Super.PostBeginPlay();
 
-	Super.PostBeginPlay();
+    // GEm: Create spawn-in effect materials
+    if (SpawnBand != None && RespawnSound != None)
+        TriggerTexture = class'UT3MaterialManager'.static.GetTriggerTexture(SpawnBand, GetSoundDuration(RespawnSound));
+    if (TriggerTexture != None && PatternCombiner != None && BasicTexture != None)
+        SpawnSkin = class'UT3MaterialManager'.static.GetSpawnSkin(TriggerTexture, PatternCombiner, BasicTexture);
 
-	if (Level.NetMode != NM_DedicatedServer) {
-		MaterialManager = class'UT3MaterialManager'.static.GetMaterialManager(Level);
-		RespawnBuildGlow = MaterialManager.GetSpawnEffectPanner(1.6 / GetSoundDuration(RespawnSound));
-		for (i = 0; i < Skins.Length; ++i) {
-			switch (Skins[i]) {
-			case FinalBlend'PickupSkins.Shaders.FinalHealthGlass':
-				Skins[i] = MaterialManager.GetSpawnEffectGlass(RespawnBuildGlow);
-				break;
-			case Shader'XGameTextures.SuperPickups.MHInnerS':
-				Skins[i] = MaterialManager.GetSpawnEffectBubbles(RespawnBuildGlow);
-				break;
-			case FinalBlend'PickupSkins.Shaders.FinalHealthCore':
-				Skins[i] = MaterialManager.GetSpawnEffectHealth(RespawnBuildGlow);
-				break;
-			case FinalBlend'PickupSkins.Shaders.ShieldFinal':
-				Skins[i] = MaterialManager.GetSpawnEffectShield(RespawnBuildGlow);
-				break;
-			case FinalBlend'PickupSkins.Shaders.FinalDamShader':
-				Skins[i] = MaterialManager.GetSpawnEffectUDamage(RespawnBuildGlow);
-				break;
-			default:
-				if (Texture(Skins[i]) != None) {
-					Skins[i] = MaterialManager.GetSpawnEffectTexture(RespawnBuildGlow, Texture(Skins[i]));
-				}
-			}
-		}
-
-		PostNetReceive();
-	}
+    // GEm: Back up our default Skins
+    TempSkins = Skins;
 }
 
 
 simulated function Destroyed()
 {
-	local UT3MaterialManager MaterialManager;
-	local int i;
+    local int i;
 
-	if (Level.NetMode != NM_DedicatedServer) {
-		MaterialManager = class'UT3MaterialManager'.static.GetMaterialManager(Level);
-		for (i = 0; i < Skins.Length; ++i) {
-			MaterialManager.ReleaseSpawnEffect(Skins[i]);
-		}
-		MaterialManager.ReleaseSpawnEffect(RespawnBuildGlow);
-	}
-	Super.Destroyed();
+    SpawnSkin = None;
+    TriggerTexture = None;
+    for (i = 0; i < TempSkins.Length; i++)
+        TempSkins[i] = None;
+
+    Super.Destroyed();
 }
 
 
 function RespawnEffect()
 {
-	PlaySound(RespawnSound);
+    PlaySound(RespawnSound, SLOT_Interact);
 }
 
 
 simulated function PostNetReceive()
 {
-	if (!bHidden && bWasHidden) {
-		RespawnBuildGlow.Trigger(Self, None);
-	}
-	bWasHidden = bHidden;
+    // GEm: Respawn effect related:
+    if (!bHidden)
+        GotoState('Pickup');
 }
 
 
-auto state Pickup
+auto simulated state Pickup
 {
     function BeginState()
     {
@@ -107,9 +82,23 @@ auto state Pickup
         }
     }
 
+    simulated function EndState()
+    {
+        Skins = TempSkins;
+        Super.EndState();
+    }
+
 Begin:
-	CheckTouching();
-	AmbientSound = SpawnedAmbientSound;
+    CheckTouching();
+    AmbientSound = SpawnedAmbientSound;
+
+    if (SpawnSkin != None)
+    {
+        Skins[0] = SpawnSkin;
+        TriggerTexture.Trigger(Self, None);
+        Sleep(GetSoundDuration(RespawnSound));
+    }
+    Skins = TempSkins;
 }
 
 
@@ -162,6 +151,7 @@ Respawn:
 defaultproperties
 {
     bNetNotify = True
+    RemoteRole = ROLE_SimulatedProxy
     CollisionRadius = 40.0
     CollisionHeight = 44.0
 
@@ -170,7 +160,7 @@ defaultproperties
     SoundVolume = 200
     SoundRadius = 500.0
 
-    bWasHidden = True
+    //bWasHidden = True
     RespawnEffectTime = 0.0
     DrawType = DT_StaticMesh
     MessageClass = class'UT3PickupMessage'

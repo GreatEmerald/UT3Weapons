@@ -16,6 +16,41 @@ class UT3UDamagePickup extends UT3TimedPickup;
 //#exec OBJ LOAD FILE=UT3PickupsOld.utx
 #exec OBJ LOAD FILE=UT3Pickups-SM.usx
 
+// GEm: UDamage doesn't use a pattern combiner and has two materials per mesh
+simulated function PostBeginPlay()
+{
+    local Shader SpawnShader;
+
+    Super.PostBeginPlay();
+
+    // GEm: Skin that we'll apply to the pickup while spawning
+    SpawnShader = new(None) class'Shader';
+    SpawnShader.Diffuse = BasicTexture;
+    SpawnShader.Opacity = TriggerTexture;
+    SpawnShader.Specular = TriggerTexture;
+    SpawnShader.SpecularityMask = TriggerTexture;
+
+    // GEm: Get a FinalBlend to solve Z-sort issues
+    SpawnSkin = new(None) class'FinalBlend';
+    SpawnSkin.FrameBufferBlending = FB_AlphaBlend;
+    SpawnSkin.Material = SpawnShader;
+}
+
+auto simulated state Pickup
+{
+Begin:
+    CheckTouching();
+    AmbientSound = SpawnedAmbientSound;
+
+    if (SpawnSkin != None)
+    {
+        Skins[0] = SpawnSkin;
+        Skins[1] = SpawnSkin;
+        TriggerTexture.Trigger(Self, None);
+        Sleep(GetSoundDuration(RespawnSound));
+    }
+    Skins = TempSkins;
+}
 
 //=============================================================================
 // Default values
@@ -38,4 +73,7 @@ defaultproperties
     DrawScale  = 0.6
     StaticMesh = StaticMesh'UT3Pickups-SM.Powerups.Udamage'
     AmbientGlow = 77
+
+    SpawnBand = Material'UT3Pickups.Udamage.SpawnBandTexCoord'
+    BasicTexture = Material'UT3Pickups.Udamage.UDamage_D'
 }

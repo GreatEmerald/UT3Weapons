@@ -6,5 +6,8 @@
 * Online: Weapon lockers use old meshes
 * Adjust the pickups' Weapon Locker offset
 * Test weapons without always on (even if Epic themselves barely tested it)
+* Solve UDamage base colour problems
+* Create UDamage overlay effect
 * Remove old inherited precache statements
 * Remove all logs and clientmessages
+* Remove all obsolete code

@@ -32,4 +32,5 @@ defaultproperties
     DrawScale     = 1.5
     PrePivot      = (Z=10.000000)
     Skins(0)      = Shader'UT3Pickups.ShieldBelt.ShieldBeltSkin'
+    BasicTexture  = Material'UT3Pickups.ShieldBelt.Shield_Belt_D'
 }
