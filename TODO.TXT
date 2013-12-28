@@ -1,13 +1,11 @@
-* Fix the MaterialManager to work with the new pickups
-* Can we get the Sniper Rifle scope to become on even if the key is released before the scope is on?
 * Online: Link Gun doesn't alt-fire
 * Online: Enforcer alt-fire reverts to UT2004 behaviour, although the effects play fine
-* Online: Sniper doesn't zoom
 * Online: Weapon lockers use old meshes
 * Adjust the pickups' Weapon Locker offset
 * Test weapons without always on (even if Epic themselves barely tested it)
 * Solve UDamage base colour problems
 * Create UDamage overlay effect
+* Alter the weapon despawn effect so they would spin
 * Remove old inherited precache statements
 * Remove all logs and clientmessages
 * Remove all obsolete code

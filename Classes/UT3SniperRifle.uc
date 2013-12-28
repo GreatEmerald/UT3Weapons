@@ -10,6 +10,8 @@ class UT3SniperRifle extends ClassicSniperRifle;
 var Material HudMaterial;
 var Material RedSkin, BlueSkin;
 
+var bool bStopZooming;
+
 simulated function PostBeginPlay()
 {
     Super.PostBeginPlay();
@@ -26,12 +28,12 @@ simulated function ApplySkin()
 {
     local Controller Contra;
     local UT3SniperAttachment Tach;
-    
+
     if (Instigator.Controller != None)
         Contra = Instigator.Controller;
     else
         return;
-    
+
     Tach = UT3SniperAttachment(ThirdPersonActor);
     if ( (Contra != None) && (Contra.PlayerReplicationInfo != None)&& (Contra.PlayerReplicationInfo.Team != None) )
     {
@@ -45,7 +47,7 @@ simulated function ApplySkin()
         {
             HighDetailOverlay = BlueSkin;
             if (Tach != None)
-                Tach.HighDetailOverlay = BlueSkin; 
+                Tach.HighDetailOverlay = BlueSkin;
         }
         //log("UT3ShockRifle: Tach skin is"@Tach.Skins[0]);
     }
@@ -71,7 +73,7 @@ simulated event RenderOverlays( Canvas Canvas )
     }
     else if ( LastFOV < PlayerController(Instigator.Controller).DesiredFOV )
     {
-        
+
     } */
     LastFOV = PlayerController(Instigator.Controller).DesiredFOV;
 
@@ -91,13 +93,13 @@ simulated event RenderOverlays( Canvas Canvas )
         Canvas.OrgY = 0.0;
         Canvas.ClipX = Canvas.SizeX;
         Canvas.ClipY = Canvas.SizeY;
-    
+
         //bDisplayCrosshair = false;
-    
+
         ScaleY = Canvas.ClipY/768.0;
         ScaleX = ScaleY;
         StartX = 0.5*Canvas.ClipX - 512.0*ScaleX;
-    
+
         if ( (Instigator == None) || (Instigator.PlayerReplicationInfo == None)
             || (Instigator.PlayerReplicationInfo.Team == None) || (Instigator.PlayerReplicationInfo.Team.TeamIndex == 0) )
         {
@@ -107,37 +109,37 @@ simulated event RenderOverlays( Canvas Canvas )
         {
             Canvas.SetDrawColor(64,64,255);
         }
-    
+
         // Draw the crosshair
         // Draw the 4 corners
         Canvas.SetPos(StartX, 0.0);
         Canvas.DrawTile(HudMaterial, 512.0 * ScaleX, 384.0 * ScaleY, 2, 0, 510, 383);
-    
+
         Canvas.SetPos(Canvas.ClipX*0.5, 0.0);
         Canvas.DrawTile(HudMaterial, 512.0 * ScaleX, 384.0 * ScaleY, 510, 0, -510, 383);
-    
+
         Canvas.SetPos(StartX, Canvas.ClipY*0.5);
         Canvas.DrawTile(HudMaterial, 512.0 * ScaleX, 384.0 * ScaleY, 2, 383, 510, -383);
-    
+
         Canvas.SetPos(Canvas.ClipX*0.5, Canvas.ClipY*0.5);
         Canvas.DrawTile(HudMaterial, 512.0 * ScaleX, 384.0 * ScaleY, 510, 383, -510, -383);
-    
+
         if ( StartX > 0 )
         {
             // Draw the Horizontal Borders
             Canvas.SetPos(0.0, 0.0);
             Canvas.DrawTile(HudMaterial, StartX, 384.0 * ScaleY, 1, 0, 3, 383);
-    
+
             Canvas.SetPos(Canvas.ClipX - StartX, 0.0);
             Canvas.DrawTile(HudMaterial, StartX, 384.0 * ScaleY, 4, 0, -3, 383);
-    
+
             Canvas.SetPos(0.0, Canvas.ClipY*0.5);
             Canvas.DrawTile(HudMaterial, StartX, 384.0 * ScaleY, 1, 383, 3, -383);
-    
+
             Canvas.SetPos(Canvas.ClipX - StartX, Canvas.ClipY*0.5);
             Canvas.DrawTile(HudMaterial, StartX, 384.0 * ScaleY, 4, 383, -3, -383);
         }
-    
+
         // restore the canvas parameters
         Canvas.OrgX = OldOrgX;
         Canvas.OrgY = OldOrgY;
@@ -163,13 +165,29 @@ simulated function ClientStartFire(int mode)
     }
 }
 
-function ZoomIn()
+simulated function ClientStopFire(int mode)
 {
+    if (mode == 1)
+    {
+        FireMode[mode].bIsFiring = false;
+        bStopZooming = true;
+        if (PlayerController(Instigator.Controller) != None && !IsInState('ZoomingIn'))
+            PlayerController(Instigator.Controller).StopZoom();
+    }
+    else
+    {
+        Super(Weapon).ClientStopFire(mode);
+    }
+}
+
+simulated function ZoomIn()
+{
+    bStopZooming = false;
     if ( !IsInState('ZoomingIn') )
         GoToState('ZoomingIn'); //GE: Need latency, thus state
 }
 
-function ZoomOut()
+simulated function ZoomOut()
 {
     FireMode[1].bIsFiring = true;
     if( Instigator.Controller.IsA( 'PlayerController' ) )
@@ -178,16 +196,26 @@ function ZoomOut()
     PlayAnim('WeaponZoomOut');
 }
 
-state ZoomingIn
+simulated state ZoomingIn
 {
 Begin:
-PlaySound(Sound'UT3Weapons2.Sniper.SniperZoomIn', SLOT_Interact,,,,,false);
-PlayAnim('WeaponZoomIn', 2.666);
-Sleep(0.2);
-FireMode[1].bIsFiring = true;
-if( Instigator.Controller.IsA( 'PlayerController' ) )
-    PlayerController(Instigator.Controller).ToggleZoom();
-GoToState('');
+    PlaySound(Sound'UT3Weapons2.Sniper.SniperZoomIn', SLOT_Interact,,,,,false);
+    PlayAnim('WeaponZoomIn', 2.666);
+    Sleep(0.2);
+    FireMode[1].bIsFiring = true;
+    if (Instigator.Controller.IsA('PlayerController') )
+    {
+        PlayerController(Instigator.Controller).StartZoom();
+        Sleep(0.05); // GEm: Needs at least a few ticks to start zooming...
+        if (bStopZooming)
+            PlayerController(Instigator.Controller).StopZoom();
+    }
+    GoToState('');
+}
+
+simulated function bool WantsZoomFade()
+{
+    return false;
 }
 
 /*
@@ -250,7 +278,7 @@ defaultproperties
 
 	IconMaterial=Material'UT3HUD.Icons.UT3IconsScaled'
     IconCoords=(X1=362,Y1=260,X2=445,Y2=286)
-    
+
      IdleAnim="WeaponIdle"
      RestAnim="WeaponIdle"
      AimAnim="WeaponIdle"
