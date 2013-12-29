@@ -1,7 +1,7 @@
 //==============================================================================
 // UT3EnforcerFire.uc
 // Three round burst - how?
-// 2008, 2009, GreatEmerald
+// 2008, 2009, 2013 GreatEmerald
 //==============================================================================
 
 class UT3EnforcerAltFire extends UT3EnforcerFire;
@@ -9,6 +9,8 @@ class UT3EnforcerAltFire extends UT3EnforcerFire;
 var float ReBurstDelay;
 var float StartFireTime;
 var float AimErrorTime;
+var int ServerFireCount;
+var int DelayStopFire; // GEm: 0 - no delay, 1 - delay in progress, 2 - stop now
 
 event ModeDoFire()
 {
@@ -52,6 +54,7 @@ event ModeDoFire()
     }
 
     Weapon.IncrementFlashCount(ThisModeNum);
+    ServerFireCount++;
 
     // set the next firing time. must be careful here so client and server do not get out of sync
     if (bFireOnRelease)
@@ -63,13 +66,19 @@ event ModeDoFire()
     }
     else
     {
-        if (FireCount < 3)
+        if (ServerFireCount < 3)
             NextFireTime += FireRate;
         else
         {
             NextFireTime += ReBurstDelay;
-            FireCount = 0;
+            ServerFireCount = 0;
             LastFireTime = Level.TimeSeconds;
+            //StartFireTime = Level.TimeSeconds + ReBurstDelay;
+            if (DelayStopFire == 1)
+            {
+                DelayStopFire = 2;
+                Weapon.StopFire(1);
+            }
         }
         NextFireTime = FMax(NextFireTime, Level.TimeSeconds);
     }
@@ -83,7 +92,6 @@ event ModeDoFire()
         Weapon.PutDown();
     }
 }
-
 
 defaultproperties
 {

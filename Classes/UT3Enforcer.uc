@@ -394,14 +394,25 @@ function byte BestMode()
 simulated function bool StartFire(int Mode)
 {
     if (UT3EnforcerAltFire(FireMode[Mode]) != None)
+    {
         UT3EnforcerAltFire(FireMode[Mode]).StartFireTime = Level.TimeSeconds;
+        UT3EnforcerAltFire(FireMode[Mode]).DelayStopFire = 0;
+    }
     return Super.StartFire(Mode);
 }
 
 simulated event StopFire(int Mode)
 {
-    if (UT3EnforcerAltFire(FireMode[Mode]) != None && Level.TimeSeconds - UT3EnforcerAltFire(FireMode[Mode]).StartFireTime < 3*FireMode[Mode].FireRate)
-        return;
+    if (UT3EnforcerAltFire(FireMode[Mode]) != None)
+    {
+        if (UT3EnforcerAltFire(FireMode[Mode]).DelayStopFire == 2)
+            UT3EnforcerAltFire(FireMode[Mode]).DelayStopFire = 0;
+        else if (UT3EnforcerAltFire(FireMode[Mode]).ServerFireCount > 0)
+        {
+            UT3EnforcerAltFire(FireMode[Mode]).DelayStopFire = 1;
+            return;
+        }
+    }
 
     Super.StopFire(Mode);
 }

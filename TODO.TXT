@@ -1,4 +1,4 @@
-* Online: Enforcer alt-fire reverts to UT2004 behaviour, although the effects play fine
+* Online: The Impact Hammer animations get stuck after a while
 * Online: Weapon lockers use old meshes
 * Adjust the pickups' Weapon Locker offset
 * Add Thigh Pads and Helmets
