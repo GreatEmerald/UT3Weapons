@@ -8,16 +8,6 @@ class UT3LinkGunAltFire extends LinkFire;
 
 var Sound PreFireSound, PostFireSound;
 
-simulated function ModeTick(float dt)
-{
-    if (/*Weapon.IsTweening(0) ||*/ !bStartFire)
-    {
-        //Instigator.ClientMessage("UT3LinkGunAltFire: The beam is"@Beam);
-        return;
-    }
-    Super.ModeTick(dt);
-}
-
 function PlayFiring()
 {
 	  bStartFire = true;
