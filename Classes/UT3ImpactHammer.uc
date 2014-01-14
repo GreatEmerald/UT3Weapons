@@ -1,7 +1,7 @@
 //==============================================================================
 // UT3ImpactHammer.uc
 // The Impact Hammer!
-// 2008, 2013 GreatEmerald
+// 2008, 2013, 2014 GreatEmerald
 //==============================================================================
 
 class UT3ImpactHammer extends ShieldGun;
@@ -15,7 +15,7 @@ simulated function float ChargeBar()
         Skins[0] = Material'UT3WeaponSkins.ImpactHammer.ImpactHammerActive';
     else
         Skins[0] = default.Skins[0];
-    
+
     if (FireMode[0].bIsFiring)
         return FMin(1,FireMode[0].HoldTime/UT3ImpactHammerFire(FireMode[0]).FullyChargedTime);
     else if (FireMode[1].bIsFiring)
@@ -46,14 +46,16 @@ simulated function float AmmoStatus(optional int Mode) // returns float value fo
     return Super(Weapon).AmmoStatus(Mode);
 }
 
-function AnimEnd(int channel)
+simulated function AnimEnd(int channel)
 {
     if (FireMode[0].bIsFiring || FireMode[1].bIsFiring)
     {
-        LoopAnim('WeaponChargedIdle');
+        LoopAnim('WeaponChargedIdle', , , channel);
         if (UT3ImpactHammerAttachment(ThirdPersonActor) != None)
             UT3ImpactHammerAttachment(ThirdPersonActor).PlayCharged();
     }
+    else
+        Super(Weapon).AnimEnd(channel);
 }
 
 function byte BestMode()
@@ -162,7 +164,7 @@ defaultproperties
 
     //Priority=1.000000
     //AIRating=0.350000
-    
+
      HighDetailOverlay=None
      Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_Impact_1P'
      IdleAnim="WeaponIdle"
@@ -173,9 +175,9 @@ defaultproperties
      PutDownAnim="WeaponPutDown"
      SelectAnimRate=1.3636
      BringUpTime=0.5133
-     
+
      PlayerViewPivot=(Pitch=500,Yaw=-500,Roll=0)
      PlayerViewOffset=(X=3.0,Y=0.5,Z=-0.5)
      SmallViewOffset=(X=9,Y=3,Z=-3)
      Skins(0)=Material'UT3WeaponSkins.ImpactHammer.ImpactHammerSkin'
-}           
+}
