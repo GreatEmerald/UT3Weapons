@@ -3,7 +3,7 @@ MutUT3Weapons
 
 Creation date: 2008-07-14 12:27
 Last change: $Id$
-Copyright (c) 2008, 2013 Wormbo, GreatEmerald
+Copyright (c) 2008, 2013, 2014 Wormbo, GreatEmerald
 ******************************************************************************/
 
 class MutUT3Weapons extends Mutator;
@@ -14,6 +14,7 @@ class MutUT3Weapons extends Mutator;
 simulated function BeginPlay()
 {
     local xPickUpBase P;
+    local Pickup L;
 
     foreach AllActors(class'xPickUpBase', P)
     {
@@ -25,6 +26,10 @@ simulated function BeginPlay()
         P.ResetStaticFilterState();
     }
 
+    foreach AllActors(class'Pickup', L)
+        if ( L.IsA('WeaponLocker') )
+            L.GotoState('Disabled');
+
     Super.BeginPlay();
 }
 
@@ -33,12 +38,8 @@ Modifies pickup bases to spawn the corresponding UT3-style pickups.
 */
 function bool CheckReplacement(Actor Other, out byte bSuperRelevant)
 {
-    local int i;
     local class<Pickup> NewPickupClass;
-    local class<Weapon> NewWeaponClass;
     local class<UT3PickupFactory> NewFactoryClass;
-    local WeaponLocker Locker;
-    local bool bOriginalCollision;
     local bool bResult;
 
 	/*else if (WildcardBase(Other) != None) {
@@ -71,15 +72,11 @@ function bool CheckReplacement(Actor Other, out byte bSuperRelevant)
             xPickupBase(Other).SetStaticMesh(StaticMesh'UT3PICKUPS_Mesh.Base_Powerup.S_Pickups_Base_Powerup01');
         }
     }
-	else if (WeaponLocker(Other) != None) {
-		Locker = WeaponLocker(Other);
-
-		for (i = 0; i < Locker.Weapons.Length; ++i) {
-			NewWeaponClass = GetReplacementWeapon(Locker.Weapons[i].WeaponClass);
-			if (NewWeaponClass != None)
-				Locker.Weapons[i].WeaponClass = NewWeaponClass;
-		}
-	}
+    // GEm: We disable stock lockers and spawn our own
+    else if (WeaponLocker(Other) != None && UT3WeaponLocker(Other) == None)
+    {
+        ReplaceWith(Other, string(class'UT3WeaponLocker'));
+    }
     else if (Pickup(Other) != None && Pickup(Other).MyMarker != None)
     {
         NewPickupClass = GetReplacementPickup(Pickup(Other).Class);
@@ -95,7 +92,7 @@ function bool CheckReplacement(Actor Other, out byte bSuperRelevant)
         }
         log("MutUT3Weapons: CheckReplacement: Not replacing"@Other);
     }
-	return Super.CheckReplacement(Other, bSuperRelevant);
+    return Super.CheckReplacement(Other, bSuperRelevant);
 }
 
 // GEm: Override so all the new pickups could spawn correctly
@@ -118,7 +115,10 @@ function bool ReplaceWith(actor Other, string aClassName)
         bOldCollideWorld = Other.default.bCollideWorld;
         aClass.default.bCollideWorld = false;
 
-        A = Spawn(aClass,Other.Owner,Other.tag,Other.Location, Other.Rotation);
+        if (WeaponLocker(Other) != None)
+            A = Spawn(aClass, Other, Other.tag, Other.Location, Other.Rotation);
+        else
+            A = Spawn(aClass,Other.Owner,Other.tag,Other.Location, Other.Rotation);
 
         A.bCollideWorld = bOldCollideWorld;
         aClass.default.bCollideWorld = bOldCollideWorld;
@@ -129,9 +129,12 @@ function bool ReplaceWith(actor Other, string aClassName)
             if ( Pickup(A) != None )
             {
                 Pickup(A).MyMarker = Pickup(Other).MyMarker;
-                A.SetLocation(A.Location
-                    + (A.CollisionHeight - Other.CollisionHeight) * vect(0,0,1));
-                A.SetBase(Other.Base);
+                if (UT3WeaponLocker(A) == None)
+                {
+                    A.SetLocation(A.Location
+                        + (A.CollisionHeight - Other.CollisionHeight) * vect(0,0,1));
+                    A.SetBase(Other.Base);
+                }
             }
             Pickup(Other).MyMarker = None;
         }
@@ -184,7 +187,7 @@ function string GetInventoryClassOverride(string InventoryClassName)
 }
 
 
-function class<Weapon> GetReplacementWeapon(coerce string Original)
+static function class<Weapon> GetReplacementWeapon(coerce string Original)
 {
 	if (Right(Original, 6) ~= "Pickup")
 		Original = Left(Original, Len(Original) - 6);
@@ -222,7 +225,7 @@ function class<Weapon> GetReplacementWeapon(coerce string Original)
 }
 
 
-function class<Pickup> GetReplacementPickup(class<Pickup> Original)
+static function class<Pickup> GetReplacementPickup(class<Pickup> Original)
 {
 	switch (Original) {
 	case class'MiniHealthPack':
@@ -260,7 +263,7 @@ function class<Pickup> GetReplacementPickup(class<Pickup> Original)
 	}
 }
 
-function class<UT3PickupFactory> GetReplacementFactory(class<xPickUpBase> Original)
+static function class<UT3PickupFactory> GetReplacementFactory(class<xPickUpBase> Original)
 {
     switch (Original)
     {

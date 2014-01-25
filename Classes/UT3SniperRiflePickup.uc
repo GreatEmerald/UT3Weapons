@@ -1,7 +1,7 @@
 //=============================================================================
 // UT3SniperRiflePickup.uc
 // It looks like a sniper, shoots like a sniper... It's a sniper.
-// 2010, 2013 GreatEmerald
+// 2010, 2013, 2014 GreatEmerald
 //=============================================================================
 
 class UT3SniperRiflePickup extends ClassicSniperriflePickup;
@@ -20,6 +20,6 @@ defaultproperties
 
     MaxDesireability=0.630000
     Skins(0)=Shader'UT3WeaponSkins.SniperRifle.SniperRifleSkinRed'
-    StandUp=(X=0.5,Y=0.0,Z=0.25)
+    StandUp=(X=0.25,Y=0.0,Z=0.25)
     AmbientGlow=77
 }

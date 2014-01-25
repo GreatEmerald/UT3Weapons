@@ -1,13 +1,14 @@
-* Online: Weapon lockers use old meshes
-* Adjust the pickups' Weapon Locker offset
+* Online: Weapon locker weapons don't appear
 * Add Thigh Pads and Helmets
 * Check base glow meshes
 * Test weapons without always on (even if Epic themselves barely tested it)
 * Solve UDamage base colour problems
 * Online: UDamage emits sounds before spawning
 * Create UDamage overlay effect
+* Fix wildcard base appearance
 * Alter the weapon despawn effect so they would spin
 * Add support for weapon put down sounds
 * Remove old inherited precache statements
 * Remove all logs and clientmessages
 * Remove all obsolete code
+* Fix all log warnings (figure out the situation with paths)

@@ -1,7 +1,7 @@
 //==============================================================================
 // UT3BioRiflePickup.uc
 // It had a nice sound all along, but it was unused!
-// 2008, 2013 GreatEmerald
+// 2008, 2013, 2014 GreatEmerald
 //==============================================================================
 
 class UT3BioRiflePickup extends BioRiflePickup;
@@ -17,5 +17,6 @@ defaultproperties
     StaticMesh=StaticMesh'UT3WPStatics.UT3BioPickup'
     Skins(0)=Shader'UT3WeaponSkins.BioRifle.BioRifle_Skin'
     AmbientGlow=77
+    StandUp=(X=0.25)
 }
 

@@ -1,7 +1,7 @@
 //=============================================================================
 // UT3LTBOMHInteraction.uc
 // "Like the Back of My Hand" Interaction, similar to UT3, all handling is here
-// 2010, 2013 GreatEmerald
+// 2010, 2013, 2014 GreatEmerald
 //=============================================================================
 
 class UT3LTBOMHInteraction extends Interaction;
@@ -17,15 +17,15 @@ class UT3LTBOMHInteraction extends Interaction;
  * are different from pickups from xPickupBases. Each Pickup has its own unique
  * name, but pickups spawned by xPickupBases don't. So instead of registering
  * such pickups, we need to register their xPickupBases.
- * 
+ *
  * We have different lists for all of the different pickups. The HUD might be
  * set to merge some of the information. Possibly controlled by config.
  * Hybrid arrays contain both pickups and their bases (since some people love
  * to add non-based versions of pickups into their maps).
  * Unknown array keeps all of the leftover pickups that don't fall into any of
- * the given arrays. Probably custom pickups.        
+ * the given arrays. Probably custom pickups.
  */
-struct PickupNode 
+struct PickupNode
 {
     var Actor PickupReference;
     var bool bComplete;
@@ -52,7 +52,7 @@ var bool bBeaten;
 
 /******************************************************************************
  * Creates the pickup list
- ******************************************************************************/ 
+ ******************************************************************************/
 
 //GE: Clear the pickup list (reinitialisation purposes)
 function ClearLists()
@@ -76,11 +76,11 @@ function ClearLists()
 //By now we are spawned, don't know anything and getting raw info on all pickups.
 //Gets called a gazillion times.
 function RegisterPickup(Actor MyPickup)//, optional string Destination)
-{    
+{
     local PickupNode PN;
     local Sound S;
     local int i;
-    
+
     //GE: Register the award announcement
     if (AnnouncementSound == None)
     {
@@ -97,7 +97,7 @@ function RegisterPickup(Actor MyPickup)//, optional string Destination)
     if (xPickUpBase(MyPickup) != None
         && (xPickUpBase(MyPickup).PowerUp == None || MyPickup.bHidden)){log(self@"RegisterPickup: Denied"@MyPickup@"because"@xPickUpBase(MyPickup).PowerUp == None@MyPickup.bHidden);
         return;}
-    
+
     if (HealthCharger(MyPickup) != None || UT3PickupFactory_MediumHealth(MyPickup) != None
         || HealthPack(MyPickup) != None || UT3HealthPickupMedium(MyPickup) != None)
     {
@@ -199,7 +199,7 @@ function RegisterPickup(Actor MyPickup)//, optional string Destination)
         UpdateList(MyPickup, VialArray);
         return;
     }
-    if ( WeaponLocker(MyPickup) != None )
+    if (WeaponLocker(MyPickup) != None && !WeaponLocker(MyPickup).bHidden && !WeaponLocker(MyPickup).IsInState('Disabled'))
     {
         UpdateList(MyPickup, LockerArray);
         return;
@@ -214,7 +214,7 @@ function UpdateList(Actor MyPickup, out array<PickupNode> Destination)
 {
     local PickupNode PN;
     local int i;
-    
+
     for (i=0; i < Destination.Length; i++) //GE: Check for duplicates
     {
         if (Destination[i].PickupReference == MyPickup)
@@ -232,14 +232,14 @@ function UpdateList(Actor MyPickup, out array<PickupNode> Destination)
 function UpdatePickupStatus(Pawn Receiver, Pickup Item)
 {
     local Actor Query;
-    
+
     //GE: Discard any pickups that were done by other players.
     if (ViewportOwner.Actor.Pawn != Receiver)
         return;
-    
+
     Query = GetQuery(Item);
     //ViewportOwner.Actor.ClientMessage("UT3LTBOMHInteraction: Picked up"@Item@"and checking"@Query);
-    
+
     if ( WildcardBase(Query) != None ) //GE: Since wildcard can be anything, they have priority over others
     {
         SaveProgress(Query, WildcardArray, WildcardFound);
@@ -334,17 +334,17 @@ function SaveProgress(Actor Query, out array<PickupNode> Destination, out int Pi
 {
     local int i;
     //local int FoundPickup;
-    
+
     for (i=0; i<Destination.Length; i++)
     {
         if (Destination[i].PickupReference == Query && !Destination[i].bComplete)
         {
             Destination[i].bComplete = True;
-            
+
             ++PickupFound;
             //CheckForVictory();
             //return;
-            
+
             //FoundPickup = GetFoundFromDestination(Destination);
             //if (FoundPickup != None)
             //    PickupFound( FoundPickup );
@@ -369,7 +369,7 @@ function int GetFoundFromDestination(array<PickupNode> Destination)
     if (Destination == VialArray) { return VialFound; }
     if (Destination == LockerArray) { return LockerFound; }
     if (Destination == UnknownArray) { return UnknownFound; }
-    
+
     if (Destination[0].PickupReference != None)
         warn("UT3Style.UT3LTBOMHInteraction: GetFoundFromDestination failed! Input was"@Destination[0].PickupReference);
     else
@@ -379,7 +379,7 @@ function int GetFoundFromDestination(array<PickupNode> Destination)
 /******************************************************************************
  * Draws current info on screen
  ******************************************************************************/
- 
+
 //GE: The list of pickups might be huge, so recalculating each pickup type every
 //tick is a stupid idea. So we'll have global variables for getting all the info
 //and one function to update it when necessary.
@@ -388,12 +388,12 @@ function int GetFoundFromDestination(array<PickupNode> Destination)
 //GE: I could theoretically just note what I added and where, but I don't want
 //to risk going off the scale with something like 100/12.
 function UpdateHUD()
-{    
+{
     //GE: We don't count the totals because Array.Length is already there.
-    
+
     if (bBeaten)
         return; //GE: Since we already won, don't bother updating it
-    
+
     //GE: Reset the current counter and then recount. Should be fast enough
     //not to be noticeable by the end user.
     /*Recalculate(HealthFound, HealthArray);
@@ -408,7 +408,7 @@ function UpdateHUD()
     Recalculate(AdrenalineFound, AdrenalineArray);
     Recalculate(VialFound, VialArray);
     Recalculate(LockerFound, LockerArray);
-    Recalculate(UnknownFound, UnknownArray);*/ 
+    Recalculate(UnknownFound, UnknownArray);*/
     CheckForVictory();
 }
 
@@ -417,9 +417,9 @@ function UpdateHUD()
 function Recalculate(out int Statistic, array<PickupNode> Target)
 {
     local int i;
-    
+
     Statistic = 0; //GE: Would reset to defaults, but there's no way to get them
-    
+
     for (i=0; i<Target.Length; ++i)
     {
         if (Target[i].bComplete)
@@ -429,11 +429,11 @@ function Recalculate(out int Statistic, array<PickupNode> Target)
 
 //GE: Checking if we got everything
 function CheckForVictory()
-{     
+{
      local array<string> CompletedMaps;
      local string MapName, URL;
      local int i;
-     
+
      // GEm: Don't grant automatic wins if there are no pickups
      if (HealthArray.Length + ShieldArray.Length + SuperHealthArray.Length
         + SuperShieldArray.Length + UDamageArray.Length + WildcardArray.Length
@@ -452,7 +452,7 @@ function CheckForVictory()
               ViewportOwner.Actor.PlayRewardAnnouncement('Totalled', 1, true);
           else
               ViewportOwner.Actor.ClientPlaySound(AnnouncementSound,true,2.0 * FClamp(0.1 + float(ViewportOwner.Actor.AnnouncerVolume)*0.225,0.2,1.0),SLOT_Talk);
-          
+
           ViewportOwner.Actor.ClientMessage("All powerups found!", 'CriticalEvent');
           bBeaten = True;
           CompletedMaps = class'UT3LTBOMHMapList'.static.StaticGetMaps();
@@ -470,7 +470,7 @@ function CheckForVictory()
 
 //GE: Finally, draw all this on HUD. Phew.
 function PostRender( canvas Canvas )
-{    
+{
     Canvas.Style = ViewportOwner.Actor.ERenderStyle.STY_Normal;
     Canvas.DrawColor = class'HUD'.Default.WhiteColor;
     Canvas.Font = Canvas.MedFont;
@@ -531,7 +531,7 @@ function CutReferences(out array<PickupNode> CurrentNode)
 exec function PrintList(string Variable, optional int i)
 {
     local array<PickupNode> CurrentArray;
-    
+
     if (Variable ~= "HealthArray") { CurrentArray = HealthArray; }
     if (Variable ~= "ShieldArray") { CurrentArray = ShieldArray; }
     if (Variable ~= "SuperHealthArray") { CurrentArray = SuperHealthArray; }
@@ -545,7 +545,7 @@ exec function PrintList(string Variable, optional int i)
     if (Variable ~= "VialArray") { CurrentArray = VialArray; }
     if (Variable ~= "LockerArray") { CurrentArray = LockerArray; }
     if (Variable ~= "UnknownArray") { CurrentArray = UnknownArray; }
-    
+
     if (i > 0)
         ViewportOwner.Actor.ClientMessage(Variable$"["$i$"] ="@CurrentArray[i].PickupReference);
     else
@@ -553,13 +553,13 @@ exec function PrintList(string Variable, optional int i)
         for (i=0; i < CurrentArray.Length; i++)
             ViewportOwner.Actor.ClientMessage(Variable$"["$i$"] ="@CurrentArray[i].PickupReference);
     }
-    
+
 }
 
 exec function PrintPickup(string Variable, optional int i)
 {
     local array<PickupNode> CurrentArray;
-    
+
     if (Variable ~= "HealthArray") { CurrentArray = HealthArray; }
     if (Variable ~= "ShieldArray") { CurrentArray = ShieldArray; }
     if (Variable ~= "SuperHealthArray") { CurrentArray = SuperHealthArray; }
@@ -573,7 +573,7 @@ exec function PrintPickup(string Variable, optional int i)
     if (Variable ~= "VialArray") { CurrentArray = VialArray; }
     if (Variable ~= "LockerArray") { CurrentArray = LockerArray; }
     if (Variable ~= "UnknownArray") { CurrentArray = UnknownArray; }
-    
+
     if (i > 0)
         ViewportOwner.Actor.ClientMessage(xPickUpBase(CurrentArray[i].PickupReference).PowerUp);
     else
@@ -581,7 +581,7 @@ exec function PrintPickup(string Variable, optional int i)
         for (i=0; i < CurrentArray.Length; i++)
             ViewportOwner.Actor.ClientMessage(xPickUpBase(CurrentArray[i].PickupReference).PowerUp);
     }
-    
+
 }
 
 defaultproperties

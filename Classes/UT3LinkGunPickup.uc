@@ -3,7 +3,7 @@ UT3LinkGunPickup
 
 Creation date: 2008-07-17 11:16
 Last change: $Id$
-Copyright (c) 2008, 2013 Wormbo, GreatEmerald
+Copyright (c) 2008, 2013, 2014 Wormbo, GreatEmerald
 ******************************************************************************/
 
 class UT3LinkGunPickup extends LinkGunPickup;
@@ -23,6 +23,6 @@ defaultproperties
     StaticMesh=StaticMesh'UT3WPStatics.UT3LinkGunPickup'
     PrePivot=(Y=24)
     DrawScale=1.1
-    StandUp=(X=0.25,Y=0.0,Z=0.25)
+    Standup=(X=0.25,Y=0.0,Z=0.25) // GEm: This is actually a rotator in tau radians
     AmbientGlow=77
 }
