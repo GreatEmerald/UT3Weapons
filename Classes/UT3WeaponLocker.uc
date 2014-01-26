@@ -7,12 +7,14 @@
 class UT3WeaponLocker extends WeaponLocker;
 
 var UT3DecorativeMesh PickupMeshes[6];
-//var() float RespawnTime;
+
+var WeaponLocker LockerToCopy;
+var bool bUT3MutatorActive;
 
 replication
 {
     unreliable if (Role == ROLE_Authority) // GEm: Send from server to client
-        CopyWeapon;
+        LockerToCopy, bUT3MutatorActive;
 }
 
 // GEm: Make the respawn time customisable
@@ -44,15 +46,29 @@ function bool AddCustomer(Pawn P)
     return true;
 }
 
+simulated function PreBeginPlay()
+{
+    local Mutator M;
+
+    if (Level.Game != None) // GEm: Only on servers
+    {
+        for (M = Level.Game.BaseMutator; M != None; M = M.NextMutator)
+            if (MutUT3Weapons(M) != None)
+                bUT3MutatorActive = true;
+    }
+    if (WeaponLocker(Owner) != None)
+        LockerToCopy = WeaponLocker(Owner);
+    if (LockerToCopy != None)
+        CopyLocker(LockerToCopy);
+
+    Super.PreBeginPlay();
+}
+
 simulated function PostNetBeginPlay()
 {
     local int i;
 
     Super(Pickup).PostNetBeginPlay();
-
-    log(self@"PostNetBeginPlay: Owner is"@Owner);
-    if (WeaponLocker(Owner) != None)
-        CopyLocker(WeaponLocker(Owner));
 
     MaxDesireability = 0;
 
@@ -67,35 +83,46 @@ simulated function PostNetBeginPlay()
         Effect = Spawn(class'FX_WeaponLocker', Self,, Location, Rotation );*/
 }
 
-function CopyLocker(WeaponLocker Original)
+simulated function PostNetReceive()
+{
+    if (LockerToCopy != None)
+    {
+        CopyLocker(LockerToCopy);
+        //PostNetBeginPlay();
+    }
+}
+
+simulated function CopyLocker(WeaponLocker Original)
 {
     local int i;
-    local MutUT3Weapons UT3Mut;
-    local Mutator M;
+    //local MutUT3Weapons UT3Mut;
+    //local Mutator M;
     local class<Weapon> NewWeaponClass;
     local array<WeaponEntry> NewWeapons;
 
     bSentinelProtected = Original.bSentinelProtected;
     NewWeapons = Original.Weapons;
 
-    log(self@"CopyLocker");
-    for (M = Level.Game.BaseMutator; M != None; M = M.NextMutator)
+    /*for (M = Level.Game.BaseMutator; M != None; M = M.NextMutator)
     {
+        log(self@"CopyLocker: Searching for mutators...");
         if (MutUT3Weapons(M) != None)
         {
-            UT3Mut = MutUT3Weapons(M);
+            log(self@"CopyLocker: Found it!");
+            UT3Mut = MutUT3Weapons(M);*/
 
             for (i = 0; i < Original.Weapons.length; i++)
             {
-                NewWeaponClass = UT3Mut.static.GetReplacementWeapon(Original.Weapons[i].WeaponClass);
+                //NewWeaponClass = UT3Mut.static.GetReplacementWeapon(Original.Weapons[i].WeaponClass);
+                if (bUT3MutatorActive)
+                    NewWeaponClass = class'MutUT3Weapons'.static.GetReplacementWeapon(Original.Weapons[i].WeaponClass);
                 if (NewWeaponClass != None)
                     NewWeapons[i].WeaponClass = NewWeaponClass;
             }
-            break;
+            /*break;
         }
-    }
+    }*/
 
-    log(self@"CopyLocker: NewWeapons contains"@NewWeapons.length);
     // GEm: Need to put on a different function for replication (clients do not concern themselves with Owner)
     for (i = 0; i < NewWeapons.length; i++)
     {
@@ -105,7 +132,6 @@ function CopyLocker(WeaponLocker Original)
 
 simulated function CopyWeapon(int Slot, class<Weapon> WeaponClass, int ExtraAmmo)
 {
-    log(self@"CopyWeapon:"@WeaponClass);
     if (Weapons.length <= Slot)
         Weapons.length = Slot+1;
     Weapons[Slot].WeaponClass = WeaponClass;
@@ -122,7 +148,6 @@ simulated function SpawnLockerWeapon()
     if ( (Level.NetMode == NM_DedicatedServer) || (Level.DetailMode == DM_Low) )
         return;
 
-    log(self@"SpawnLockerWeapon: We have"@Weapons.length@"weapons in the locker");
     for (i = 0; i < Weapons.length; i++)
     {
         if (n >= ArrayCount(PickupMeshes))
@@ -260,6 +285,7 @@ defaultproperties
     RespawnTime = 30.0
     bShouldBaseAtStartup = false
     RemoteRole = ROLE_SimulatedProxy
-    NetUpdateFrequency = 0.1
-    bOnlyReplicateHidden = false
+    //NetUpdateFrequency = 0.1
+    //bOnlyReplicateHidden = false
+    bNetNotify = true
 }

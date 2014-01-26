@@ -1,4 +1,4 @@
-* Online: Weapon locker weapons don't appear
+* Add correct weapon locker sounds
 * Add Thigh Pads and Helmets
 * Check base glow meshes
 * Test weapons without always on (even if Epic themselves barely tested it)
@@ -8,6 +8,7 @@
 * Fix wildcard base appearance
 * Alter the weapon despawn effect so they would spin
 * Add support for weapon put down sounds
+* Online: Sniper tracer origin stays in place when moving scoped
 * Remove old inherited precache statements
 * Remove all logs and clientmessages
 * Remove all obsolete code
