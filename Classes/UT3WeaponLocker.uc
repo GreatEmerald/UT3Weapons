@@ -95,33 +95,19 @@ simulated function PostNetReceive()
 simulated function CopyLocker(WeaponLocker Original)
 {
     local int i;
-    //local MutUT3Weapons UT3Mut;
-    //local Mutator M;
     local class<Weapon> NewWeaponClass;
     local array<WeaponEntry> NewWeapons;
 
     bSentinelProtected = Original.bSentinelProtected;
     NewWeapons = Original.Weapons;
 
-    /*for (M = Level.Game.BaseMutator; M != None; M = M.NextMutator)
+    for (i = 0; i < Original.Weapons.length; i++)
     {
-        log(self@"CopyLocker: Searching for mutators...");
-        if (MutUT3Weapons(M) != None)
-        {
-            log(self@"CopyLocker: Found it!");
-            UT3Mut = MutUT3Weapons(M);*/
-
-            for (i = 0; i < Original.Weapons.length; i++)
-            {
-                //NewWeaponClass = UT3Mut.static.GetReplacementWeapon(Original.Weapons[i].WeaponClass);
-                if (bUT3MutatorActive)
-                    NewWeaponClass = class'MutUT3Weapons'.static.GetReplacementWeapon(Original.Weapons[i].WeaponClass);
-                if (NewWeaponClass != None)
-                    NewWeapons[i].WeaponClass = NewWeaponClass;
-            }
-            /*break;
-        }
-    }*/
+        if (bUT3MutatorActive)
+            NewWeaponClass = class'MutUT3Weapons'.static.GetReplacementWeapon(Original.Weapons[i].WeaponClass);
+        if (NewWeaponClass != None)
+            NewWeapons[i].WeaponClass = NewWeaponClass;
+    }
 
     // GEm: Need to put on a different function for replication (clients do not concern themselves with Owner)
     for (i = 0; i < NewWeapons.length; i++)
@@ -209,20 +195,30 @@ auto simulated state LockerPickup
                 InventoryType = Weapons[i].WeaponClass;
                 Copy =  Weapon(Pawn(Other).FindInventoryType(Weapons[i].WeaponClass));
                 if ( Copy != None )
+                {
+                    Level.Game.PickupQuery(Pawn(Other), self); // GEm: Fix for LTBOMH
                     Copy.FillToInitialAmmo();
+                }
                 else if ( Level.Game.PickupQuery(Pawn(Other), self) )
                 {
                     Copy = Weapon(SpawnCopy(Pawn(Other)));
                     if ( Copy != None )
                     {
                         Copy.PickupFunction(Pawn(Other));
+                        //Copy.GiveTo(Pawn(Other));
+                        //Copy.AnnouncePickup(Pawn(Other));
                         if ( Weapons[i].ExtraAmmo > 0 )
                             Copy.AddAmmo(Weapons[i].ExtraAmmo, 0);
                     }
                 }
+                if (Copy != None && Copy.PickupClass.default.PickupSound != None)
+                {
+                    PlaySound(Copy.PickupClass.default.PickupSound, SLOT_Interact,
+                        Copy.PickupClass.default.TransientSoundVolume);
+                }
             }
 
-            AnnouncePickup( Pawn(Other) );
+            //AnnouncePickup( Pawn(Other) );
         }
     }
 
@@ -288,4 +284,5 @@ defaultproperties
     //NetUpdateFrequency = 0.1
     //bOnlyReplicateHidden = false
     bNetNotify = true
+    PickupSound = None
 }
