@@ -106,7 +106,8 @@ function RegisterPickup(Actor MyPickup)//, optional string Destination)
         return; //GE: We found what we wanted, no need to worry about other ifs.
     }
     if (ShieldCharger(MyPickup) != None || UT3ArmorFactory_Vest(MyPickup) != None
-        || ShieldPack(MyPickup) != None || UT3ArmorVestPickup(MyPickup) != None) //GE: No else since we already returned from everything above.
+        || ShieldPack(MyPickup) != None || UT3ArmorVestPickup(MyPickup) != None
+        || UT3ArmorFactory_Thighpads(MyPickup) != None || UT3ArmorPickup_Thighpads(MyPickup) != None) //GE: No else since we already returned from everything above.
     {
         log(self@"RegisterPickup:"@MyPickup@"is shield!");
         UpdateList(MyPickup, ShieldArray);
@@ -252,7 +253,8 @@ function UpdatePickupStatus(Pawn Receiver, Pickup Item)
         return;
     }
     if (ShieldPack(Query) != None || UT3ArmorVestPickup(Query) != None
-        || ShieldCharger(Query) != None || UT3ArmorFactory_Vest(Query) != None)
+        || ShieldCharger(Query) != None || UT3ArmorFactory_Vest(Query) != None
+        || UT3ArmorPickup_Thighpads(Query) != None || UT3ArmorFactory_Thighpads(Query) != None)
     {
         SaveProgress(Query, ShieldArray, ShieldFound);
         return;

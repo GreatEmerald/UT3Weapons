@@ -213,7 +213,7 @@ auto simulated state LockerPickup
                 }
                 if (Copy != None && Copy.PickupClass.default.PickupSound != None)
                 {
-                    PlaySound(Copy.PickupClass.default.PickupSound, SLOT_Interact,
+                    PlaySound(Copy.PickupClass.default.PickupSound, SLOT_None,
                         Copy.PickupClass.default.TransientSoundVolume);
                 }
             }

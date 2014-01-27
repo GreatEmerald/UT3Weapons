@@ -1,6 +1,4 @@
-* Add correct weapon locker sounds
-* Add Thigh Pads and Helmets
-* Check base glow meshes
+* Add Helmets
 * Test weapons without always on (even if Epic themselves barely tested it)
 * Solve UDamage base colour problems
 * Online: UDamage emits sounds before spawning
@@ -10,6 +8,9 @@
 * Add support for weapon put down sounds
 * Online: Sniper tracer origin stays in place when moving scoped
 * Remove old inherited precache statements
+- Add new vehicle meshes
+- Bundle UT3 announcements
 * Remove all logs and clientmessages
 * Remove all obsolete code
 * Fix all log warnings (figure out the situation with paths)
+- Change particles and projectiles

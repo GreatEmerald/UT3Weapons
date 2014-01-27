@@ -3,7 +3,7 @@ UT3ArmorPickup
 
 Creation date: 2008-07-20 12:30
 Last change: $Id$
-Copyright (c) 2008, 2013 Wormbo, GreatEmerald
+Copyright (c) 2008, 2013, 2014 Wormbo, GreatEmerald
 ******************************************************************************/
 
 class UT3ArmorPickup extends UT3Pickup abstract;
@@ -114,4 +114,6 @@ defaultproperties
     AmbientGlow = 77
     PatternCombiner = Material'UT3Pickups.Vest.SpawnPatternMultiply'
     SpawnBand = Material'UT3Pickups.Vest.SpawnBandTexCoord'
+    Physics = PHYS_Rotating
+    RotationRate = (Yaw=24000)
 }
