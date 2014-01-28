@@ -3,7 +3,7 @@ UT3ArmorHelmet
 
 Creation date: 2008-07-15 11:40
 Last change: $Id$
-Copyright (c) 2008, Wormbo
+Copyright (c) 2008, 2014 Wormbo, GreatEmerald
 ******************************************************************************/
 
 class UT3ArmorHelmet extends UT3Armor;
@@ -31,7 +31,7 @@ function int ArmorAbsorbDamage(int Damage, class<DamageType> DamageType, vector 
 		Destroy();
 		return 0;
 	}
-	
+
 	return Super.ArmorAbsorbDamage(Damage, DamageType, HitLocation);
 }
 
@@ -42,8 +42,8 @@ function int ArmorAbsorbDamage(int Damage, class<DamageType> DamageType, vector 
 
 defaultproperties
 {
-	//PickupClass = class'UT3ArmorHelmetPickup'
-	Charge=20
-	ArmorAbsorption=50
-	AbsorptionPriority=20
+    PickupClass = class'UT3ArmorPickup_Helmet'
+    Charge=20
+    ArmorAbsorption=50
+    AbsorptionPriority=20
 }

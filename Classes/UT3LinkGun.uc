@@ -3,7 +3,7 @@ UT3LinkGun
 
 Creation date: 2008-07-17 11:16
 Last change: 2008-11-01
-Copyright (c) 2008, 2013 Wormbo and GreatEmerald
+Copyright (c) 2008, 2013, 2014 Wormbo and GreatEmerald
 ******************************************************************************/
 
 class UT3LinkGun extends LinkGun;
@@ -13,7 +13,7 @@ class UT3LinkGun extends LinkGun;
 // Imports
 //=============================================================================
 
-#exec obj load file=Sounds/include/UT3LinkGun.uax
+//#exec obj load file=Sounds/include/UT3LinkGun.uax
 
 simulated function UpdateLinkColor( LinkAttachment.ELinkColor Color ) //GE: Cleaning Skins[] hax.
 {

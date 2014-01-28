@@ -3,7 +3,7 @@ UT3Translocator
 
 Creation date: 2008-07-08 12:25
 Latest change: $Id$
-Copyright (c) 2008, 2013 Wormbo, GreatEmerald
+Copyright (c) 2008, 2013, 2014 Wormbo, GreatEmerald
 ******************************************************************************/
 
 class UT3Translocator extends TransLauncher;
@@ -13,7 +13,7 @@ class UT3Translocator extends TransLauncher;
 // Imports
 //=============================================================================
 
-#exec obj load file=Sounds/include/UT3Translocator.uax
+//#exec obj load file=Sounds/include/UT3Translocator.uax
 
 var Material RedSkin, BlueSkin, RedEffect, BlueEffect;
 var name EmptyBringUpAnim, IdleAnimEmpty, PutDownEmptyAnim; //GE: Woah, chaotic, isn't it?
