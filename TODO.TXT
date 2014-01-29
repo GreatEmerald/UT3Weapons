@@ -1,4 +1,3 @@
-* Test weapons without always on (even if Epic themselves barely tested it)
 * Solve UDamage base colour problems
 * Online: UDamage emits sounds before spawning
 * Create UDamage overlay effect
@@ -6,8 +5,10 @@
 * Alter the weapon despawn effect so they would spin
 * Add support for weapon put down sounds
 * Online: Sniper tracer origin stays in place when moving scoped
+* Fix Rocket Launcher firing three rockets in one initially
 * Test pickup reset after round end
 * Remove old inherited precache statements
+* Update Helmet mesh
 - Add new vehicle meshes
 - Bundle UT3 announcements
 * Remove all logs and clientmessages

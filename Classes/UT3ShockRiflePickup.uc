@@ -1,17 +1,16 @@
 //==============================================================================
 // UT3ShockRiflePickup.uc
 // Nice sound this is.
-// 2008, 2013 GreatEmerald
+// 2008, 2013, 2014 GreatEmerald
 //==============================================================================
 
-class UT3ShockRiflePickup extends ShockRiflePickup;
+class UT3ShockRiflePickup extends UT3WeaponPickup;
 
 defaultproperties
 {
     InventoryType=class'UT3ShockRifle'
 
     PickupMessage="Shock Rifle"
-    MessageClass = class'UT3PickupMessage'
     PickupSound=Sound'UT3PickupSounds.ShockRiflePickup'
     TransientSoundVolume=0.58
 
@@ -21,6 +20,7 @@ defaultproperties
     Skins(0)=Shader'UT3WeaponSkins.ShockRifle.ShockRifleSkin'
     Skins(1)=None
     StandUp=(X=0.25,Y=0.0,Z=0.25)
-    AmbientGlow=77
+    MaxDesireability=+0.63
+    PickupForce="ShockRiflePickup"
 }
 

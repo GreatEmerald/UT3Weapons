@@ -3,7 +3,7 @@ UT3Pickup
 
 Creation date: 2008-07-20 11:48
 Last change: $Id$
-Copyright (c) 2008, 2013 Wormbo, GreatEmerald
+Copyright (c) 2008, 2013, 2014 Wormbo, GreatEmerald
 ******************************************************************************/
 
 class UT3Pickup extends TournamentPickup notplaceable;
@@ -164,4 +164,5 @@ defaultproperties
     RespawnEffectTime = 0.0
     DrawType = DT_StaticMesh
     MessageClass = class'UT3PickupMessage'
+    AmbientGlow = 77
 }

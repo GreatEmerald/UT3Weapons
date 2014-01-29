@@ -57,7 +57,7 @@ function float DetourWeight(Pawn Other, float PathWeight)
 	return (0.013 * MaxDesireability * Need) / PathWeight;
 }
 
-auto simulated state Pickup
+/*auto simulated state Pickup
 {
     function BeginState()
     {
@@ -99,7 +99,7 @@ Respawn:
     if (PickUpBase != None)
         PickUpBase.TurnOn();
     GotoState('Pickup');
-}
+}*/
 
 //=============================================================================
 // Default values
@@ -111,7 +111,6 @@ defaultproperties
     RespawnTime = 30.0
     RespawnSound = Sound'UT3A_Pickups.Armor.A_Pickups_Armor_Respawn01'
     MaxDesireability = 1.0
-    AmbientGlow = 77
     PatternCombiner = Material'UT3Pickups.Vest.SpawnPatternMultiply'
     SpawnBand = Material'UT3Pickups.Vest.SpawnBandTexCoord'
     Physics = PHYS_Rotating

@@ -4,19 +4,19 @@
 // 2008, 2013, 2014 GreatEmerald
 //==============================================================================
 
-class UT3BioRiflePickup extends BioRiflePickup;
+class UT3BioRiflePickup extends UT3WeaponPickup;
 
 defaultproperties
 {
     InventoryType=class'UT3BioRifle'
-
     PickupMessage="Bio Rifle"
-    MessageClass=class'UT3PickupMessage'
     PickupSound=Sound'UT3PickupSounds.Generic.BioRiflePickup'
     TransientSoundVolume=1.15
     StaticMesh=StaticMesh'UT3WPStatics.UT3BioPickup'
+    DrawScale=0.6
     Skins(0)=Shader'UT3WeaponSkins.BioRifle.BioRifle_Skin'
-    AmbientGlow=77
     StandUp=(X=0.25)
+    MaxDesireability=+0.75
+    PickupForce="FlakCannonPickup"
 }
 
