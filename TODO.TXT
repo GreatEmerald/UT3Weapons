@@ -1,5 +1,4 @@
-* Solve UDamage base colour problems
-* Online: UDamage emits sounds before spawning
+* Create a wildcard-like base for armours
 * Create UDamage overlay effect
 * Fix wildcard base appearance
 * Alter the weapon despawn effect so they would spin
@@ -7,7 +6,6 @@
 * Online: Sniper tracer origin stays in place when moving scoped
 * Fix Rocket Launcher firing three rockets in one initially
 * Test pickup reset after round end
-* Remove old inherited precache statements
 * Update Helmet mesh
 - Add new vehicle meshes
 - Bundle UT3 announcements
@@ -15,3 +13,6 @@
 * Remove all obsolete code
 * Fix all log warnings (figure out the situation with paths)
 - Change particles and projectiles
+- Add precache statements for particles and projectiles
+- Implement UT3 HUD
+- Implement UT3 crosshairs

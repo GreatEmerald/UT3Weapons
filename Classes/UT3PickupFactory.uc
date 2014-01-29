@@ -1,7 +1,7 @@
 //=============================================================================
 // UT3PickupFactory.uc
 // The base class of all UT3 pickup bases/chargers
-// Copyright © 2013 GreatEmerald
+// Copyright © 2013, 2014 GreatEmerald
 //=============================================================================
 
 class UT3PickupFactory extends xPickUpBase;
@@ -140,21 +140,20 @@ simulated function InitGlowMaterials()
 
 simulated function StartPulse()
 {
-    if (GlowConstantColour == None)
-        return;
-    log(self@"StartPulse"@PulseState@Level.TimeSeconds);
-
     // GEm: Pulsing effect management
-    if (PulseState == PS_Pulsing)
+    if (GlowConstantColour != None)
     {
-        Enable('Tick');
-        bTickEnabled = true;
-    }
-    else
-    {
-        Disable('Tick');
-        bTickEnabled = false;
-        GlowConstantColour.Color = GlowColour;
+        if (PulseState == PS_Pulsing)
+        {
+            Enable('Tick');
+            bTickEnabled = true;
+        }
+        else
+        {
+            Disable('Tick');
+            bTickEnabled = false;
+            GlowConstantColour.Color = GlowColour;
+        }
     }
 
     // GEm: Glow effect management

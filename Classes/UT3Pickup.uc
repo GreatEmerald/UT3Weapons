@@ -67,6 +67,8 @@ simulated function PostNetReceive()
     // GEm: Respawn effect related:
     if (!bHidden)
         GotoState('Pickup');
+    else
+        AmbientSound = None;
 }
 
 
@@ -82,15 +84,17 @@ auto simulated state Pickup
         }
     }
 
-    simulated function EndState()
+    function EndState()
     {
         Skins = TempSkins;
+        AmbientSound = None;
         Super.EndState();
     }
 
 Begin:
     CheckTouching();
-    AmbientSound = SpawnedAmbientSound;
+    if (!bHidden)
+        AmbientSound = SpawnedAmbientSound;
 
     if (SpawnSkin != None)
     {
@@ -106,7 +110,6 @@ state Sleeping
 {
     function BeginState()
     {
-        AmbientSound = None;
         Super.BeginState();
         if (Level.NetMode != NM_DedicatedServer)
             PostNetReceive();

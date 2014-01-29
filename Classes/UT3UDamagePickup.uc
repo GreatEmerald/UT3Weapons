@@ -3,7 +3,7 @@ UT3UDamagePickup
 
 Creation date: 2008-07-19 18:14
 Last change: $Id$
-Copyright (c) 2008, 2010, 2013 Wormbo, 100GPing100, GreatEmerald
+Copyright (c) 2008, 2010, 2013, 2014 Wormbo, 100GPing100, GreatEmerald
 ******************************************************************************/
 
 class UT3UDamagePickup extends UT3TimedPickup;
@@ -40,7 +40,8 @@ auto simulated state Pickup
 {
 Begin:
     CheckTouching();
-    AmbientSound = SpawnedAmbientSound;
+    if (!bHidden)
+        AmbientSound = SpawnedAmbientSound;
 
     if (SpawnSkin != None)
     {
@@ -72,7 +73,6 @@ defaultproperties
 
     DrawScale  = 0.6
     StaticMesh = StaticMesh'UT3Pickups-SM.Powerups.Udamage'
-    AmbientGlow = 77
 
     SpawnBand = Material'UT3Pickups.Udamage.SpawnBandTexCoord'
     BasicTexture = Material'UT3Pickups.Udamage.UDamage_D'
