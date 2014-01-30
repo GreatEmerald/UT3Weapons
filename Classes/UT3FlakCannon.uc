@@ -6,6 +6,13 @@
 
 class UT3FlakCannon extends FlakCannon;
 
+simulated function SetOverlayMaterial(Material mat, float time, bool bOverride)
+{
+    Super.SetOverlayMaterial(mat, time, bOverride);
+    if (OverlayMaterial == class'xPawn'.default.UDamageWeaponMaterial)
+        OverlayMaterial = Material'UT3Pickups.Udamage.M_UDamage_Overlay_S';
+}
+
 defaultproperties
 {
     ItemName="UT3 Flak Cannon"
@@ -21,7 +28,7 @@ defaultproperties
 
 	IconMaterial=Material'UT3HUD.Icons.UT3IconsScaled'
     IconCoords=(X1=65,Y1=214,X2=131,Y2=240)
-    
+
      IdleAnim="WeaponIdle"
      RestAnim="WeaponIdle"
      AimAnim="WeaponIdle"

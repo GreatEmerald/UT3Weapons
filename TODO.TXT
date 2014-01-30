@@ -1,4 +1,3 @@
-* Create a wildcard-like base for armours
 * Create UDamage overlay effect
 * Fix wildcard base appearance
 * Alter the weapon despawn effect so they would spin
@@ -7,6 +6,7 @@
 * Fix Rocket Launcher firing three rockets in one initially
 * Test pickup reset after round end
 * Update Helmet mesh
+* Doublecheck item DrawScale
 - Add new vehicle meshes
 - Bundle UT3 announcements
 * Remove all logs and clientmessages
