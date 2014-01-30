@@ -227,40 +227,41 @@ static function class<Weapon> GetReplacementWeapon(coerce string Original)
 
 static function class<Pickup> GetReplacementPickup(class<Pickup> Original)
 {
-	switch (Original) {
-	case class'MiniHealthPack':
-		return class'UT3HealthPickupSmall';
-	case class'HealthPack':
-		return class'UT3HealthPickupMedium';
-	case class'SuperHealthPack':
-		return class'UT3HealthPickupSuper';
-	case class'ShieldPack':
-		return class'UT3ArmorVestPickup';
-	case class'SuperShieldPack':
-		return class'UT3ArmorShieldbeltPickup';
-	case class'UDamagePack':
-		return class'UT3UDamagePickup';
-	case class'LinkAmmoPickup':
-	    return class'UT3LinkAmmoPickup';
-    case class'FlakAmmoPickup':
-	    return class'UT3FlakAmmoPickup';
-    case class'ShockAmmoPickup':
-	    return class'UT3ShockAmmoPickup';
-    case class'MinigunAmmoPickup':
-	    return class'UT3MinigunAmmoPickup';
-    case class'SniperAmmoPickup':
-    case class'UTClassic.ClassicSniperAmmoPickup':
-	    return class'UT3SniperAmmoPickup';
-    case class'RocketAmmoPickup':
-	    return class'UT3RocketAmmoPickup';
-    case class'BioAmmoPickup':
-	    return class'UT3BioAmmoPickup';
-    case class'ONSAVRiLAmmoPickup':
-	    return class'UT3AVRiLAmmoPickup';
-    case class'AssaultAmmoPickup':
-	    return class'UT3EnforcerAmmoPickup';
-    default: return none;
-	}
+    switch (Original)
+    {
+        case class'MiniHealthPack':
+            return class'UT3HealthPickupSmall';
+        case class'HealthPack':
+            return class'UT3HealthPickupMedium';
+        case class'SuperHealthPack':
+            return class'UT3HealthPickupSuper';
+        case class'ShieldPack':
+            return class'UT3ArmorVestPickup';
+        case class'SuperShieldPack':
+            return class'UT3ArmorShieldbeltPickup';
+        case class'UDamagePack':
+            return class'UT3UDamagePickup';
+        case class'LinkAmmoPickup':
+            return class'UT3LinkAmmoPickup';
+        case class'FlakAmmoPickup':
+            return class'UT3FlakAmmoPickup';
+        case class'ShockAmmoPickup':
+            return class'UT3ShockAmmoPickup';
+        case class'MinigunAmmoPickup':
+            return class'UT3MinigunAmmoPickup';
+        case class'SniperAmmoPickup':
+        case class'UTClassic.ClassicSniperAmmoPickup':
+            return class'UT3SniperAmmoPickup';
+        case class'RocketAmmoPickup':
+            return class'UT3RocketAmmoPickup';
+        case class'BioAmmoPickup':
+            return class'UT3BioAmmoPickup';
+        case class'ONSAVRiLAmmoPickup':
+            return class'UT3AVRiLAmmoPickup';
+        case class'AssaultAmmoPickup':
+            return class'UT3EnforcerAmmoPickup';
+        default: return none;
+    }
 }
 
 static function class<UT3PickupFactory> GetReplacementFactory(class<xPickUpBase> Original)
@@ -274,7 +275,7 @@ static function class<UT3PickupFactory> GetReplacementFactory(class<xPickUpBase>
         case class'NewSuperHealthCharger':
             return class'UT3PickupFactory_SuperHealth';
         case class'ShieldCharger':
-            return class'UT3ArmorFactory_Vest';
+            return class'UT3ArmorFactory_Wildcard';
         case class'SuperShieldCharger':
             return class'UT3ArmorFactory_ShieldBelt';
         case class'UDamageCharger':

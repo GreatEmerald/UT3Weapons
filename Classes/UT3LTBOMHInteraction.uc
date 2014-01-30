@@ -108,7 +108,8 @@ function RegisterPickup(Actor MyPickup)//, optional string Destination)
     if (ShieldCharger(MyPickup) != None || UT3ArmorFactory_Vest(MyPickup) != None
         || ShieldPack(MyPickup) != None || UT3ArmorVestPickup(MyPickup) != None
         || UT3ArmorFactory_Thighpads(MyPickup) != None || UT3ArmorPickup_Thighpads(MyPickup) != None
-        || UT3ArmorFactory_Helmet(MyPickup) != None || UT3ArmorPickup_Helmet(MyPickup) != None) //GE: No else since we already returned from everything above.
+        || UT3ArmorFactory_Helmet(MyPickup) != None || UT3ArmorPickup_Helmet(MyPickup) != None
+        || UT3ArmorFactory_Wildcard(MyPickup) != None) //GE: No else since we already returned from everything above.
     {
         log(self@"RegisterPickup:"@MyPickup@"is shield!");
         UpdateList(MyPickup, ShieldArray);
@@ -256,7 +257,8 @@ function UpdatePickupStatus(Pawn Receiver, Pickup Item)
     if (ShieldPack(Query) != None || UT3ArmorVestPickup(Query) != None
         || ShieldCharger(Query) != None || UT3ArmorFactory_Vest(Query) != None
         || UT3ArmorPickup_Thighpads(Query) != None || UT3ArmorFactory_Thighpads(Query) != None
-        || UT3ArmorPickup_Helmet(Query) != None || UT3ArmorFactory_Helmet(Query) != None)
+        || UT3ArmorPickup_Helmet(Query) != None || UT3ArmorFactory_Helmet(Query) != None
+        || UT3ArmorFactory_Wildcard(Query) != None)
     {
         SaveProgress(Query, ShieldArray, ShieldFound);
         return;
