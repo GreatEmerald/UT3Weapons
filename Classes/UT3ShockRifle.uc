@@ -1,10 +1,12 @@
 //==============================================================================
 // UT3ShockRifle.uc
 // Shocking.
-// 2008, 2013 GreatEmerald
+// 2008, 2013, 2014 GreatEmerald
 //==============================================================================
 
 class UT3ShockRifle extends ShockRifle;
+
+var Material UDamageOverlay, FallbackSkin;
 
 /*var const Material RedSkin, BlueSkin;
 
@@ -12,12 +14,12 @@ simulated function ApplySkin()
 {
     local Controller Contra;
     local UT3ShockRifleAttachment Tach;
-    
+
     if (Instigator.Controller != None)
         Contra = Instigator.Controller;
     else
         return;
-    
+
     Tach = UT3ShockRifleAttachment(ThirdPersonActor);
     if ( (Contra != None) && (Contra.PlayerReplicationInfo != None)&& (Contra.PlayerReplicationInfo.Team != None) )
     {
@@ -31,7 +33,7 @@ simulated function ApplySkin()
         {
             Skins[0] = BlueSkin;
             if (Tach != None)
-                Tach.Skins[0] = BlueSkin; 
+                Tach.Skins[0] = BlueSkin;
         }
         //log("UT3ShockRifle: Tach skin is"@Tach.Skins[0]);
     }
@@ -105,6 +107,20 @@ function byte BestMode()
     return 1;
 }
 
+simulated function SetOverlayMaterial(Material mat, float time, bool bOverride)
+{
+    Super.SetOverlayMaterial(mat, time, bOverride);
+    //log(self@"SetOverlayMaterial: mat"@mat@"time"@time@"bOverride"@bOverride);
+    if (OverlayMaterial == class'xPawn'.default.UDamageWeaponMaterial)
+        OverlayMaterial = UDamageOverlay;
+    if (mat == None || time <= 0.0)
+    {
+        Skins = default.Skins;
+    }
+    else
+        Skins[0] = FallbackSkin;
+}
+
 defaultproperties
 {
     ItemName="UT3 Shock Rifle"
@@ -120,31 +136,33 @@ defaultproperties
     TransientSoundVolume=1.0
 
     CustomCrosshairTextureName="UT3HUD.Crosshairs.UT3CrosshairShockRifle"
-	CustomCrosshairColor=(B=255,G=0,R=160,A=255)
-	HudColor=(B=255,G=0,R=160,A=255)
-	CustomCrosshairScale=1.00
+    CustomCrosshairColor=(B=255,G=0,R=160,A=255)
+    HudColor=(B=255,G=0,R=160,A=255)
+    CustomCrosshairScale=1.00
 
-	IconMaterial=Material'UT3HUD.Icons.UT3IconsScaled'
+    IconMaterial=Material'UT3HUD.Icons.UT3IconsScaled'
     IconCoords=(X1=363,Y1=190,X2=445,Y2=213)
     bSniping=True
 
     Priority=4.200000
-   AIRating=0.650000
-   
-     IdleAnim="WeaponIdle"
-     RestAnim="WeaponIdle"
-     AimAnim="WeaponIdle"
-     RunAnim="WeaponIdle"
-     SelectAnim="WeaponEquip"
-     PutDownAnim="WeaponPutDown"
-     PlayerViewPivot=(Pitch=0,Yaw=-15884,Roll=500)
-     PlayerViewOffset=(X=16.0,Y=7.7,Z=-6.2)
-     SmallViewOffset=(X=24,Y=11.5,Z=-9.5)
-     Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_ShockRifle_1P'
-     BringUpTime=0.367
-     PutDownTime=0.367
-     HighDetailOverlay=None
-     OldMesh=None
-     Skins(0)=Shader'UT3WeaponSkins.ShockRifle.ShockRifleSkin'
+    AIRating=0.650000
+
+    IdleAnim="WeaponIdle"
+    RestAnim="WeaponIdle"
+    AimAnim="WeaponIdle"
+    RunAnim="WeaponIdle"
+    SelectAnim="WeaponEquip"
+    PutDownAnim="WeaponPutDown"
+    PlayerViewPivot=(Pitch=0,Yaw=-15884,Roll=500)
+    PlayerViewOffset=(X=16.0,Y=7.7,Z=-6.2)
+    SmallViewOffset=(X=24,Y=11.5,Z=-9.5)
+    Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_ShockRifle_1P'
+    BringUpTime=0.367
+    PutDownTime=0.367
+    HighDetailOverlay=None
+    OldMesh=None
+    Skins(0)=Shader'UT3WeaponSkins.ShockRifle.ShockRifleSkin'
+    UDamageOverlay=Material'UT3Pickups.Udamage.M_UDamage_Overlay_S'
+    FallbackSkin=Material'UT3WeaponSkins.ShockRifle.T_WP_ShockRifle_D'
 }
 

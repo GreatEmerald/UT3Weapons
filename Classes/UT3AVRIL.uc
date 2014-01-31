@@ -1,13 +1,14 @@
 //=============================================================================
 // UT3AVRIL.uc
 // Not sure why Wormbo chose "AVRIL" instead of "AVRiL".
-// 2008, 2013 GreatEmerald
+// 2008, 2013, 2014 GreatEmerald
 //=============================================================================
 
 class UT3AVRIL extends ONSAVRiL;
 
 var() Sound LockOnSound;
 //var bool bDebug1, bDebug2, bDebug3;
+var Material UDamageOverlay;
 
 simulated function WeaponTick(float deltaTime)
 {
@@ -142,7 +143,7 @@ function bool CanLockOnTo(Actor Other)
 
     return (V.Team != Instigator.PlayerReplicationInfo.Team.TeamIndex);
 }
- 
+
 simulated function bool StartFire(int Mode)
 {
     if (UT3AVRiLAttachment(ThirdPersonActor) != None && Mode == 0)
@@ -150,12 +151,19 @@ simulated function bool StartFire(int Mode)
     return Super.StartFire(Mode);
 }
 
+simulated function SetOverlayMaterial(Material mat, float time, bool bOverride)
+{
+    Super.SetOverlayMaterial(mat, time, bOverride);
+    if (OverlayMaterial == class'xPawn'.default.UDamageWeaponMaterial)
+        OverlayMaterial = UDamageOverlay;
+}
+
 defaultproperties
 {
     ItemName="UT3 Longbow AVRiL"
     Description="The Longbow Anti-Vehicle Rocket Launcher, a.k.a. the 'AVRiL', gives dismounted infantry a fighting chance in an armored conflict. Its solid fuel missile can be 'dumbfired' as an unguided rocket, but the AVRiL's famed kill percentages come from its optical tracking system.|The alternate fire zooms and locks on to a vehicle, guiding the missile towards its target at inescapable speeds. The missile's microdappled control planes use increased surface area to give unprecedented turning radius, guaranteeing delivery of its shaped PolyDiChlorite charge into all but the most nimble vehicles.|The AVRiL is notoriously slow to reload, so it should be employed with caution in a pitched battle.|Note, the Longbow's targeting laser is (not yet) standardized for most Axon military equipment, so it can be used in other battlefield applications such as directing spider mines."  //TODO Lasers
     LockOnSound=Sound'UT3Weapons2.Generic.LockOn'
-    
+
     IdleAnim="WeaponIdle"
     RestAnim="WeaponIdle"
     AimAnim="WeaponIdle"
@@ -184,14 +192,14 @@ defaultproperties
     SelectSound=Sound'UT3Weapons.FlakCannon.FlakCannonTakeOut'
 
     CustomCrosshairTextureName="UT3HUD.Crosshairs.UT3CrosshairAVRiL"
-	CustomCrosshairColor=(B=0,G=0,R=255,A=255)
-	CustomCrosshairScale=1.2
-	HudColor=(B=0,G=0,R=255,A=255)
+    CustomCrosshairColor=(B=0,G=0,R=255,A=255)
+    CustomCrosshairScale=1.2
+    HudColor=(B=0,G=0,R=255,A=255)
 
-	IconMaterial=Material'UT3HUD.Icons.UT3IconsScaled'
+    IconMaterial=Material'UT3HUD.Icons.UT3IconsScaled'
     IconCoords=(X1=364,Y1=213,X2=435,Y2=238)
-    
+
     AttachmentClass=Class'UT3AVRiLAttachment'
     SoundVolume=255
-
+    UDamageOverlay=Material'UT3Pickups.Udamage.M_UDamage_Overlay_S'
 }

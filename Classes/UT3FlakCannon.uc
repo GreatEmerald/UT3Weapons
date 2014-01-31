@@ -1,16 +1,18 @@
 //==============================================================================
 // UT3FlakCannon.uc
 // Flak Monkey.
-// 2008, 2013 GreatEmerald
+// 2008, 2013, 2014 GreatEmerald
 //==============================================================================
 
 class UT3FlakCannon extends FlakCannon;
+
+var Material UDamageOverlay;
 
 simulated function SetOverlayMaterial(Material mat, float time, bool bOverride)
 {
     Super.SetOverlayMaterial(mat, time, bOverride);
     if (OverlayMaterial == class'xPawn'.default.UDamageWeaponMaterial)
-        OverlayMaterial = Material'UT3Pickups.Udamage.M_UDamage_Overlay_S';
+        OverlayMaterial = UDamageOverlay;
 }
 
 defaultproperties
@@ -21,25 +23,26 @@ defaultproperties
     FireModeClass(1)=UT3FlakAltFire
     PickupClass=class'UT3FlakCannonPickup'
     SelectSound=Sound'UT3Weapons.FlakCannon.FlakCannonTakeOut'
-   	CustomCrosshairTextureName="UT3HUD.Crosshairs.UT3CrosshairFlakCannon"
-	CustomCrosshairColor=(B=128,G=255,R=255,A=255)
-	CustomCrosshairScale=1.5
-	HudColor=(B=128,G=255,R=255,A=255)
+    CustomCrosshairTextureName="UT3HUD.Crosshairs.UT3CrosshairFlakCannon"
+    CustomCrosshairColor=(B=128,G=255,R=255,A=255)
+    CustomCrosshairScale=1.5
+    HudColor=(B=128,G=255,R=255,A=255)
 
-	IconMaterial=Material'UT3HUD.Icons.UT3IconsScaled'
+    IconMaterial=Material'UT3HUD.Icons.UT3IconsScaled'
     IconCoords=(X1=65,Y1=214,X2=131,Y2=240)
 
-     IdleAnim="WeaponIdle"
-     RestAnim="WeaponIdle"
-     AimAnim="WeaponIdle"
-     RunAnim="WeaponIdle"
-     SelectAnim="WeaponEquip"
-     PutDownAnim="WeaponPutDown"
-     //OldPlayerViewOffset=(Y=7.000000)
-     PlayerViewPivot=(Yaw=-250,Pitch=500,Roll=0)
-     PlayerViewOffset=(X=-10.0,Y=10.0,Z=-5.0)
-     SmallViewOffset=(X=12,Y=20,Z=-13)
-     Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_FlakCannon_1P'
-     AttachmentClass=class'UT3FlakAttachment'
-     HighDetailOverlay=None
+    IdleAnim="WeaponIdle"
+    RestAnim="WeaponIdle"
+    AimAnim="WeaponIdle"
+    RunAnim="WeaponIdle"
+    SelectAnim="WeaponEquip"
+    PutDownAnim="WeaponPutDown"
+    //OldPlayerViewOffset=(Y=7.000000)
+    PlayerViewPivot=(Yaw=-250,Pitch=500,Roll=0)
+    PlayerViewOffset=(X=-10.0,Y=10.0,Z=-5.0)
+    SmallViewOffset=(X=12,Y=20,Z=-13)
+    Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_FlakCannon_1P'
+    AttachmentClass=class'UT3FlakAttachment'
+    HighDetailOverlay=None
+    UDamageOverlay=Material'UT3Pickups.Udamage.M_UDamage_Overlay_S'
 }

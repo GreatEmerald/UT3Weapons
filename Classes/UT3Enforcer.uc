@@ -1,7 +1,7 @@
 //==============================================================================
 // UT3Enforcer.uc
 // Death warrant - enforced.
-// 2008, 2013 GreatEmerald
+// 2008, 2013, 2014 GreatEmerald
 //==============================================================================
 
 class UT3Enforcer extends AssaultRifle;
@@ -21,6 +21,8 @@ var enum ETimerSetting //GE: For emulating UT3/U2XMP sophisticated Timer third p
     TS_AkimboDelay,
     TS_AkimboCheck
 } TimerSetting;
+
+var Material UDamageOverlay;
 
 simulated event RenderOverlays( Canvas Canvas )
 {
@@ -417,6 +419,13 @@ simulated event StopFire(int Mode)
     Super.StopFire(Mode);
 }
 
+simulated function SetOverlayMaterial(Material mat, float time, bool bOverride)
+{
+    Super.SetOverlayMaterial(mat, time, bOverride);
+    if (OverlayMaterial == class'xPawn'.default.UDamageWeaponMaterial)
+        OverlayMaterial = UDamageOverlay;
+}
+
 defaultproperties
 {
     Description="For decades, the Enforcer pistol was the combat sidearm of choice. Veteran soldiers appreciated the lightweight handgun's power, accuracy, and balance. In recent years, the ever-burning desire for greater firepower led to general issue of the AR770 assault rifle. Military procurement officers were drawn to the AR770's higher cyclic rate and underslung M355 grenade launcher, but seasoned combatants missed the dependability of the Enforcer. Axon Research listened to the soldiers, and their new Enforcer MP ('Machine Pistol') model provides the best of both worlds. Side-fed magazines provide greater capacity, while balancing the shooter's aim when wielding two pistols. With a deadly accurate semi-automatic mode, and a selectable burst fire mode, the Enforcer is back, and the modern battlefield will never be the same."
@@ -429,42 +438,43 @@ defaultproperties
     SelectSound=Sound'UT3Weapons.Enforcer.EnforcerTakeOut'
 
     CustomCrosshairTextureName="UT3HUD.Crosshairs.UT3CrosshairEnforcer"
-	CustomCrosshairColor=(R=255,G=255,B=255,A=255)
-	CustomCrosshairScale=1.2
-	HudColor=(R=255,G=255,B=255,A=255)
+    CustomCrosshairColor=(R=255,G=255,B=255,A=255)
+    CustomCrosshairScale=1.2
+    HudColor=(R=255,G=255,B=255,A=255)
 
-	IconMaterial=Material'UT3HUD.Icons.UT3IconsScaled'
+    IconMaterial=Material'UT3HUD.Icons.UT3IconsScaled'
     IconCoords=(X1=299,Y1=171,X2=355,Y2=199)
 
     //Priority=2.000000
-   //AIRating=0.400000
+    //AIRating=0.400000
 
-     AkimboTransTAnim="weapontranition_toside"
-     AkimboTransFAnim="weapontranition_fromside"
-     AkimboFireAnim="weaponfire_side"
-     AkimboBurstAnim="weaponfireburst_side"
-     AkimboPutDownAnim="weaponputdown_side"
-     AkimboIdleAnim="weaponidle_side"
-     AkimboIdleBAnim="WeaponIdleB_Side"
+    AkimboTransTAnim="weapontranition_toside"
+    AkimboTransFAnim="weapontranition_fromside"
+    AkimboFireAnim="weaponfire_side"
+    AkimboBurstAnim="weaponfireburst_side"
+    AkimboPutDownAnim="weaponputdown_side"
+    AkimboIdleAnim="weaponidle_side"
+    AkimboIdleBAnim="WeaponIdleB_Side"
 
-     IdleAnim="WeaponIdle"
-     RestAnim="WeaponIdleB"
-     AimAnim="WeaponIdleB"
-     RunAnim="WeaponIdle"
-     SelectAnim="WeaponEquip"
-     PutDownAnim="WeaponPutDown"
-     ReloadAnim="weaponequipempty"
-     ReloadAnimRate=1.3636
-     Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_Enforcers_1P'
-     OldMesh=None
-     DrawScale=1.000000
-     PlayerViewOffset=(X=10.0,Y=-10.0,Z=7.0)
-     SmallViewOffset=(X=60.0,Y=12.0,Z=-13.0)
-     PlayerViewPivot=(Pitch=-500,Yaw=750,Roll=0)
-     AttachmentClass=class'UT3EnforcerAttachment'
-     ReloadSound=Sound'UT3Weapons2.Enforcer.EnforcerReload'
-     bAlreadyLoaded=False
-     AkimboDelay=2.0
-     AkimboTime=1.3636
-     HighDetailOverlay=None
+    IdleAnim="WeaponIdle"
+    RestAnim="WeaponIdleB"
+    AimAnim="WeaponIdleB"
+    RunAnim="WeaponIdle"
+    SelectAnim="WeaponEquip"
+    PutDownAnim="WeaponPutDown"
+    ReloadAnim="weaponequipempty"
+    ReloadAnimRate=1.3636
+    Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_Enforcers_1P'
+    OldMesh=None
+    DrawScale=1.000000
+    PlayerViewOffset=(X=10.0,Y=-10.0,Z=7.0)
+    SmallViewOffset=(X=60.0,Y=12.0,Z=-13.0)
+    PlayerViewPivot=(Pitch=-500,Yaw=750,Roll=0)
+    AttachmentClass=class'UT3EnforcerAttachment'
+    ReloadSound=Sound'UT3Weapons2.Enforcer.EnforcerReload'
+    bAlreadyLoaded=False
+    AkimboDelay=2.0
+    AkimboTime=1.3636
+    HighDetailOverlay=None
+    UDamageOverlay=Material'UT3Pickups.Udamage.M_UDamage_Overlay_S'
 }

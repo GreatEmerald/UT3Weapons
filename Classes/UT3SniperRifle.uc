@@ -1,7 +1,7 @@
 //=============================================================================
 // UT3SniperRifle.uc
 // Head Hunter.
-// 2008, 2013 GreatEmerald
+// 2008, 2013, 2014 GreatEmerald
 //=============================================================================
 
 class UT3SniperRifle extends ClassicSniperRifle;
@@ -11,6 +11,8 @@ var Material HudMaterial;
 var Material RedSkin, BlueSkin;
 
 var bool bStopZooming;
+
+var Material UDamageOverlay;
 
 simulated function PostBeginPlay()
 {
@@ -248,6 +250,14 @@ simulated function vector GetEffectStart()
     }
 }
 
+simulated function SetOverlayMaterial(Material mat, float time, bool bOverride)
+{
+    Super.SetOverlayMaterial(mat, time, bOverride);
+    if (OverlayMaterial == class'xPawn'.default.UDamageWeaponMaterial)
+        OverlayMaterial = UDamageOverlay;
+}
+
+
 defaultproperties
 {
     ItemName="UT3 Sniper Rifle"
@@ -267,30 +277,31 @@ defaultproperties
     Priority=4.100000
 
     CustomCrosshairTextureName="UT3HUD.Crosshairs.UT3CrosshairSniperRifle"
-	CustomCrosshairColor=(B=64,G=0,R=255,A=255)
-	CustomCrosshairScale=1.0
-	HudColor=(B=64,G=0,R=255,A=255)
-	HUDMaterial=Texture'UT3WeaponSkins.SniperRifle.T_SniperCrosshair'
-	HighDetailOverlay=Shader'UT3WeaponSkins.SniperRifle.SniperRifleSkinRed'
-	Skins(0)=Texture'UT3WeaponSkins.SniperRifle.T_WP_SniperRifle_D' //GE: The skin must not be a combiner or it gets the "ghost" effect
-	RedSkin=Shader'UT3WeaponSkins.SniperRifle.SniperRifleSkinRed'
-	BlueSkin=Shader'UT3WeaponSkins.SniperRifle.SniperRifleSkinBlue'
+    CustomCrosshairColor=(B=64,G=0,R=255,A=255)
+    CustomCrosshairScale=1.0
+    HudColor=(B=64,G=0,R=255,A=255)
+    HUDMaterial=Texture'UT3WeaponSkins.SniperRifle.T_SniperCrosshair'
+    HighDetailOverlay=Shader'UT3WeaponSkins.SniperRifle.SniperRifleSkinRed'
+    Skins(0)=Texture'UT3WeaponSkins.SniperRifle.T_WP_SniperRifle_D' //GE: The skin must not be a combiner or it gets the "ghost" effect
+    RedSkin=Shader'UT3WeaponSkins.SniperRifle.SniperRifleSkinRed'
+    BlueSkin=Shader'UT3WeaponSkins.SniperRifle.SniperRifleSkinBlue'
 
-	IconMaterial=Material'UT3HUD.Icons.UT3IconsScaled'
+    IconMaterial=Material'UT3HUD.Icons.UT3IconsScaled'
     IconCoords=(X1=362,Y1=260,X2=445,Y2=286)
 
-     IdleAnim="WeaponIdle"
-     RestAnim="WeaponIdle"
-     AimAnim="WeaponIdle"
-     RunAnim="WeaponIdle"
-     SelectAnim="WeaponEquip"
-     PutDownAnim="WeaponPutDown"
-     //OldPlayerViewPivot=(Yaw=49152)
-     Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_SniperRifle_1P'
-     DrawScale=1.000000
-     PlayerViewPivot=(Pitch=0,Yaw=0,Roll=0)
-     PlayerViewOffset=(X=7.0,Y=0.0,Z=0.0)
-     SmallViewOffset=(X=37,Y=10,Z=-10)
-     BobDamping=1.0
-     BringUpTime=0.533
+    IdleAnim="WeaponIdle"
+    RestAnim="WeaponIdle"
+    AimAnim="WeaponIdle"
+    RunAnim="WeaponIdle"
+    SelectAnim="WeaponEquip"
+    PutDownAnim="WeaponPutDown"
+    //OldPlayerViewPivot=(Yaw=49152)
+    Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_SniperRifle_1P'
+    DrawScale=1.000000
+    PlayerViewPivot=(Pitch=0,Yaw=0,Roll=0)
+    PlayerViewOffset=(X=7.0,Y=0.0,Z=0.0)
+    SmallViewOffset=(X=37,Y=10,Z=-10)
+    BobDamping=1.0
+    BringUpTime=0.533
+    UDamageOverlay=Material'UT3Pickups.Udamage.M_UDamage_Overlay_S'
 }

@@ -6,6 +6,8 @@
 
 class UT3ImpactHammer extends ShieldGun;
 
+var Material UDamageOverlay;
+
 // TODO: AI rating
 
 simulated function float ChargeBar()
@@ -139,45 +141,51 @@ function float GetAIRating()
     return FMin(0.6, 90.f / (EnemyDist + 1.f));
 }
 
-
+simulated function SetOverlayMaterial(Material mat, float time, bool bOverride)
+{
+    Super.SetOverlayMaterial(mat, time, bOverride);
+    if (OverlayMaterial == class'xPawn'.default.UDamageWeaponMaterial)
+        OverlayMaterial = UDamageOverlay;
+}
 
 defaultproperties
 {
-	ItemName = "UT3 Impact Hammer"
-	Description="The Impact Hammer, originally designed for sub-surface drift mining, can focus several hundred metric tons of pressure into the space of a few square centimeters. The impact, and resulting shock wave, easily destabilizes solid stone to speed ore separation and excavation. After several mining accidents highlighted the Hammer's devastating effect on the human body, the N.E.G. military took interest. To improve the Hammer's effectiveness against vehicles with shock-absorbing armor, an alternate electromagnetic pulse (EMP) mode was added. The EMP violently scrambles onboard computer systems, quickly leading to engine failure. Field testing showed the EMP has a similar effect on infantry powerups, knocking them off soldiers and enabling battlefield recovery."
+    ItemName = "UT3 Impact Hammer"
+    Description="The Impact Hammer, originally designed for sub-surface drift mining, can focus several hundred metric tons of pressure into the space of a few square centimeters. The impact, and resulting shock wave, easily destabilizes solid stone to speed ore separation and excavation. After several mining accidents highlighted the Hammer's devastating effect on the human body, the N.E.G. military took interest. To improve the Hammer's effectiveness against vehicles with shock-absorbing armor, an alternate electromagnetic pulse (EMP) mode was added. The EMP violently scrambles onboard computer systems, quickly leading to engine failure. Field testing showed the EMP has a similar effect on infantry powerups, knocking them off soldiers and enabling battlefield recovery."
 
-	FireModeClass(0) = class'UT3ImpactHammerFire'
+    FireModeClass(0) = class'UT3ImpactHammerFire'
     FireModeClass(1) = class'UT3ImpactHammerEMPFire'
 
-	PickupClass     = class'UT3ImpactHammerPickup'
-	AttachmentClass = class'UT3ImpactHammerAttachment'
+    PickupClass     = class'UT3ImpactHammerPickup'
+    AttachmentClass = class'UT3ImpactHammerAttachment'
 
-	SelectSound = Sound'UT3Weapons.ImpactHammer.ImpactHammerTakeOut'
+    SelectSound = Sound'UT3Weapons.ImpactHammer.ImpactHammerTakeOut'
 
-	CustomCrosshairTextureName="UT3HUD.Crosshairs.UT3CrosshairImpactHammer"
-	CustomCrosshairScale=1.5
-	CustomCrosshairColor=(B=128,G=255,R=255,A=255)
-	HudColor=(B=128,G=255,R=255,A=255)
+    CustomCrosshairTextureName="UT3HUD.Crosshairs.UT3CrosshairImpactHammer"
+    CustomCrosshairScale=1.5
+    CustomCrosshairColor=(B=128,G=255,R=255,A=255)
+    HudColor=(B=128,G=255,R=255,A=255)
 
-	IconMaterial=Material'UT3HUD.Icons.UT3IconsScaled'
+    IconMaterial=Material'UT3HUD.Icons.UT3IconsScaled'
     IconCoords=(X1=226,Y1=162,X2=294,Y2=191)
 
     //Priority=1.000000
     //AIRating=0.350000
 
-     HighDetailOverlay=None
-     Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_Impact_1P'
-     IdleAnim="WeaponIdle"
-     RestAnim="WeaponIdle"
-     AimAnim="WeaponIdle"
-     RunAnim="WeaponIdle"
-     SelectAnim="WeaponEquip"
-     PutDownAnim="WeaponPutDown"
-     SelectAnimRate=1.3636
-     BringUpTime=0.5133
+    HighDetailOverlay=None
+    Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_Impact_1P'
+    IdleAnim="WeaponIdle"
+    RestAnim="WeaponIdle"
+    AimAnim="WeaponIdle"
+    RunAnim="WeaponIdle"
+    SelectAnim="WeaponEquip"
+    PutDownAnim="WeaponPutDown"
+    SelectAnimRate=1.3636
+    BringUpTime=0.5133
 
-     PlayerViewPivot=(Pitch=500,Yaw=-500,Roll=0)
-     PlayerViewOffset=(X=3.0,Y=0.5,Z=-0.5)
-     SmallViewOffset=(X=9,Y=3,Z=-3)
-     Skins(0)=Material'UT3WeaponSkins.ImpactHammer.ImpactHammerSkin'
+    PlayerViewPivot=(Pitch=500,Yaw=-500,Roll=0)
+    PlayerViewOffset=(X=3.0,Y=0.5,Z=-0.5)
+    SmallViewOffset=(X=9,Y=3,Z=-3)
+    Skins(0)=Material'UT3WeaponSkins.ImpactHammer.ImpactHammerSkin'
+    UDamageOverlay=Material'UT3Pickups.Udamage.M_UDamage_Overlay_S'
 }

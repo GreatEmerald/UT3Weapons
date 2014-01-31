@@ -19,6 +19,8 @@ var Material RedSkin, BlueSkin, RedEffect, BlueEffect;
 var name EmptyBringUpAnim, IdleAnimEmpty, PutDownEmptyAnim; //GE: Woah, chaotic, isn't it?
 var vector ModuleLocation; //GE: Used for determining which recall animation to play. If set, no guarantees that transbeacon exists
 
+var Material UDamageOverlay;
+
 function ReduceAmmo()
 {
 	Super.ReduceAmmo();
@@ -144,60 +146,68 @@ simulated function PlayIdle()
         LoopAnim(IdleAnimEmpty, IdleAnimRate, 0.0);
 }
 
+simulated function SetOverlayMaterial(Material mat, float time, bool bOverride)
+{
+    Super.SetOverlayMaterial(mat, time, bOverride);
+    if (OverlayMaterial == class'xPawn'.default.UDamageWeaponMaterial)
+        OverlayMaterial = UDamageOverlay;
+}
+
 //=============================================================================
 // Default values
 //=============================================================================
 
 defaultproperties
 {
-	ItemName    = "UT3 Translocator"
-	Description = "The Translocator was originally designed by Liandri R&D for rapid rescue of expensive mining equipment during tunnel collapses and related emergencies. The technology also saved couintless lives, but not without a cost: rapid deresolution and reconstitution led to synaptic disruptions, and the debilitating symptoms like Teleportation Related Dementia (TReDs).||Today, after years of lucrative military development contracts, portable teleportation technology has been declared 'sufficiently safe' for regular use by frontline infantry."
+    ItemName    = "UT3 Translocator"
+    Description = "The Translocator was originally designed by Liandri R&D for rapid rescue of expensive mining equipment during tunnel collapses and related emergencies. The technology also saved couintless lives, but not without a cost: rapid deresolution and reconstitution led to synaptic disruptions, and the debilitating symptoms like Teleportation Related Dementia (TReDs).||Today, after years of lucrative military development contracts, portable teleportation technology has been declared 'sufficiently safe' for regular use by frontline infantry."
 
-	FireModeClass[0] = class'UT3TranslocatorFire'
-	FireModeClass[1] = class'UT3TranslocatorActivate'
-	AttachmentClass = class'UT3TranslocatorAttachment'
+    FireModeClass[0] = class'UT3TranslocatorFire'
+    FireModeClass[1] = class'UT3TranslocatorActivate'
+    AttachmentClass = class'UT3TranslocatorAttachment'
 
-	SelectSound = Sound'TranslocatorRaise'
-	TransientSoundVolume = 0.7
-	TransientSoundRadius = 1000.0
+    SelectSound = Sound'TranslocatorRaise'
+    TransientSoundVolume = 0.7
+    TransientSoundRadius = 1000.0
 
-	// higher capacity and recharge rate
-	AmmoChargeF    = 7.0
-	RepAmmo        = 7
-	AmmoChargeMax  = 7.0
-	AmmoChargeRate = 0.8
+    // higher capacity and recharge rate
+    AmmoChargeF    = 7.0
+    RepAmmo        = 7
+    AmmoChargeMax  = 7.0
+    AmmoChargeRate = 0.8
 
-	CustomCrosshairTextureName="UT3HUD.Crosshairs.UT3CrosshairDefault"
-	CustomCrosshairColor=(B=128,G=255,R=255,A=255)
-	CustomCrosshairScale=1.2
-	HudColor=(B=128,G=255,R=255,A=255)
+    CustomCrosshairTextureName="UT3HUD.Crosshairs.UT3CrosshairDefault"
+    CustomCrosshairColor=(B=128,G=255,R=255,A=255)
+    CustomCrosshairScale=1.2
+    HudColor=(B=128,G=255,R=255,A=255)
 
-	IconMaterial=Material'UT3HUD.Icons.UT3IconsScaled'
+    IconMaterial=Material'UT3HUD.Icons.UT3IconsScaled'
     IconCoords=(X1=300,Y1=230,X2=361,Y2=256)
 
-     IdleAnim="WeaponIdle"
-     IdleAnimEmpty="WeaponIdleEmpty"
-     RestAnim="WeaponIdle"
-     AimAnim="WeaponIdle"
-     RunAnim="WeaponIdle"
-     SelectAnim="WeaponEquip"
-     EmptyBringUpAnim="WeaponEquipEmpty"
-     PutDownAnim="WeaponPutDown"
-     PutDownEmptyAnim="WeaponPutDownEmpty"
-     Priority=0
-     CustomCrosshair=19
-     Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_Translocator_1P'
-     DrawScale = 1.0
-     PlayerViewPivot=(Pitch=0,Roll=0,Yaw=0)
-     PlayerViewOffset=(X=-3.0,Y=0.3,Z=-0.3)
-     SmallViewOffset=(X=5.0,Y=4.0,Z=-4.0)
-     BringUpTime=0.4667
+    IdleAnim="WeaponIdle"
+    IdleAnimEmpty="WeaponIdleEmpty"
+    RestAnim="WeaponIdle"
+    AimAnim="WeaponIdle"
+    RunAnim="WeaponIdle"
+    SelectAnim="WeaponEquip"
+    EmptyBringUpAnim="WeaponEquipEmpty"
+    PutDownAnim="WeaponPutDown"
+    PutDownEmptyAnim="WeaponPutDownEmpty"
+    Priority=0
+    CustomCrosshair=19
+    Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_Translocator_1P'
+    DrawScale = 1.0
+    PlayerViewPivot=(Pitch=0,Roll=0,Yaw=0)
+    PlayerViewOffset=(X=-3.0,Y=0.3,Z=-0.3)
+    SmallViewOffset=(X=5.0,Y=4.0,Z=-4.0)
+    BringUpTime=0.4667
 
-     RedSkin=Material'UT3WeaponSkins.Translocator.TranslocatorSkinRed'
-     BlueSkin=Material'UT3WeaponSkins.Translocator.TranslocatorSkinBlue'
-     RedEffect=Material'UT3WeaponSkins.Translocator.FbElec2'
-     BlueEffect=Material'UT3WeaponSkins.Translocator.FbElec1'
+    RedSkin=Material'UT3WeaponSkins.Translocator.TranslocatorSkinRed'
+    BlueSkin=Material'UT3WeaponSkins.Translocator.TranslocatorSkinBlue'
+    RedEffect=Material'UT3WeaponSkins.Translocator.FbElec2'
+    BlueEffect=Material'UT3WeaponSkins.Translocator.FbElec1'
 
-     Skins(0)=Material'UT3WeaponSkins.Translocator.FbElec2'
-     Skins(1)=Material'UT3WeaponSkins.Translocator.TranslocatorSkinRed'
+    Skins(0)=Material'UT3WeaponSkins.Translocator.FbElec2'
+    Skins(1)=Material'UT3WeaponSkins.Translocator.TranslocatorSkinRed'
+    UDamageOverlay=Material'UT3Pickups.Udamage.M_UDamage_Overlay_S'
 }

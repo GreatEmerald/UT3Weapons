@@ -1,10 +1,12 @@
 //=============================================================================
 // UT3Redeemer.uc
 // Denied!
-// 2008, 2013 GreatEmerald
+// 2008, 2013, 2014 GreatEmerald
 //=============================================================================
 
 class UT3Redeemer extends Redeemer;
+
+var Material UDamageOverlay;
 
 /*
     AttachToPawn mod needed since if you attach it to the right hand, the
@@ -48,6 +50,13 @@ simulated function bool PutDown()
     return Super.PutDown();
 }
 
+simulated function SetOverlayMaterial(Material mat, float time, bool bOverride)
+{
+    Super.SetOverlayMaterial(mat, time, bOverride);
+    if (OverlayMaterial == class'xPawn'.default.UDamageWeaponMaterial)
+        OverlayMaterial = UDamageOverlay;
+}
+
 defaultproperties
 {
     FireModeClass(0)=UT3RedeemerFire
@@ -61,22 +70,23 @@ defaultproperties
     IconMaterial=Material'UT3HUD.Icons.UT3IconsScaled'
     IconCoords=(X1=227,Y1=191,X2=299,Y2=233)
     CustomCrosshairTextureName="UT3HUD.Crosshairs.UT3CrosshairRedeemer"
-	CustomCrosshairColor=(B=0,G=0,R=255,A=255)
-	HudColor=(B=0,G=0,R=255,A=255)
-	CustomCrosshairScale=2.0
-	
-     IdleAnim="WeaponIdle"
-     RestAnim="WeaponIdle"
-     AimAnim="WeaponIdle"
-     RunAnim="WeaponIdle"
-     SelectAnim="WeaponEquip"
-     PutDownAnim="WeaponPutDown"
-     SelectAnimRate=1.000000
-     Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_Redeemer_1P'
-     BringUpTime=2.1
-     PutDownTime=0.97
-     PlayerViewOffset=(X=-8.0,Y=0.0,Z=-16.0)
-     SmallViewOffset=(X=-8.0,Y=0.0,Z=-16.0)
-     PlayerViewPivot=(Pitch=0,Roll=0,Yaw=0)
-     BobDamping=2.2
+    CustomCrosshairColor=(B=0,G=0,R=255,A=255)
+    HudColor=(B=0,G=0,R=255,A=255)
+    CustomCrosshairScale=2.0
+
+    IdleAnim="WeaponIdle"
+    RestAnim="WeaponIdle"
+    AimAnim="WeaponIdle"
+    RunAnim="WeaponIdle"
+    SelectAnim="WeaponEquip"
+    PutDownAnim="WeaponPutDown"
+    SelectAnimRate=1.000000
+    Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_Redeemer_1P'
+    BringUpTime=2.1
+    PutDownTime=0.97
+    PlayerViewOffset=(X=-8.0,Y=0.0,Z=-16.0)
+    SmallViewOffset=(X=-8.0,Y=0.0,Z=-16.0)
+    PlayerViewPivot=(Pitch=0,Roll=0,Yaw=0)
+    BobDamping=2.2
+    UDamageOverlay=Material'UT3Pickups.Udamage.M_UDamage_Overlay_S'
 }

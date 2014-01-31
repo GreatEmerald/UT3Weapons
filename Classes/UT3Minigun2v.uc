@@ -1,7 +1,7 @@
 //=============================================================================
 // UT3Minigun2v.uc
 // It was supposed to be UT3Minigunv2, but they won't like classes ending in a digit :(
-// 2008, 2013 GreatEmerald
+// 2008, 2013, 2014 GreatEmerald
 //=============================================================================
 class UT3Minigun2v extends Weapon
     config(user);
@@ -19,6 +19,8 @@ var() float             GearRatio;
 var() float             GearOffset;
 var() float             Blend;
 
+var Material UDamageOverlay;
+
 simulated function vector GetEffectStart()
 {
     local Coords C;
@@ -29,7 +31,7 @@ simulated function vector GetEffectStart()
     //GE: Revert to maths if the player has no bones to attach to
     if (Instigator.Controller.Handedness == 2.0)
         return Super.GetEffectStart();
-    
+
     // 1st person
     if (Instigator.IsFirstPerson())
     {
@@ -169,6 +171,13 @@ simulated function bool PutDown()
     return Super.PutDown();
 }
 
+simulated function SetOverlayMaterial(Material mat, float time, bool bOverride)
+{
+    Super.SetOverlayMaterial(mat, time, bOverride);
+    if (OverlayMaterial == class'xPawn'.default.UDamageWeaponMaterial)
+        OverlayMaterial = UDamageOverlay;
+}
+
 simulated function ReturnToIdle();
 
 simulated function PlayIdle()
@@ -178,30 +187,30 @@ simulated function PlayIdle()
 
 defaultproperties
 {
-     //AttachLoc=(X=-77.000000,Y=6.000000,Z=4.000000)
-     AttachRot=(Pitch=22000,Yaw=-16384)
-     GearRatio=-2.370000
-     Blend=1.000000
-     IdleAnim="WeaponIdle"
-     RestAnim="WeaoponIdle"
-     AimAnim="WeaponIdle"
-     RunAnim="WeaponIdle"
-     SelectAnim="WeaponEquip"
-     PutDownAnim="WeaponPutDown"
-     SelectForce="SwitchToMiniGun"
-     
-     IdleAnimRate=0.7333
-     RestAnimRate=0.7333
-     AimAnimRate=0.7333
-     RunAnimRate=0.7333
-     SelectAnimRate=1.0
-     PutDownAnimRate=1.0
-     BringUpTime=1.16
-     PutDownTime=0.76
-     
-     CurrentRating=0.710000
-     Priority=6.000000
-     AIRating=0.710000
+    //AttachLoc=(X=-77.000000,Y=6.000000,Z=4.000000)
+    AttachRot=(Pitch=22000,Yaw=-16384)
+    GearRatio=-2.370000
+    Blend=1.000000
+    IdleAnim="WeaponIdle"
+    RestAnim="WeaoponIdle"
+    AimAnim="WeaponIdle"
+    RunAnim="WeaponIdle"
+    SelectAnim="WeaponEquip"
+    PutDownAnim="WeaponPutDown"
+    SelectForce="SwitchToMiniGun"
+
+    IdleAnimRate=0.7333
+    RestAnimRate=0.7333
+    AimAnimRate=0.7333
+    RunAnimRate=0.7333
+    SelectAnimRate=1.0
+    PutDownAnimRate=1.0
+    BringUpTime=1.16
+    PutDownTime=0.76
+
+    CurrentRating=0.710000
+    Priority=6.000000
+    AIRating=0.710000
 
     //EffectOffset=(X=100.000000,Y=18.000000,Z=-16.000000)
     DisplayFOV=60.000000
@@ -224,10 +233,11 @@ defaultproperties
     LightHue=30
     LightSaturation=150
     LightRadius=5.0
-     Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_Stinger_1P'
-     DrawScale=0.400000
-     SoundRadius=400.000000
-     //HighDetailOverlay=Combiner'UT2004Weapons.WeaponSpecMap2'
+    Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_Stinger_1P'
+    DrawScale=0.400000
+    SoundRadius=400.000000
+    //HighDetailOverlay=Combiner'UT2004Weapons.WeaponSpecMap2'
+    UDamageOverlay=Material'UT3Pickups.Udamage.M_UDamage_Overlay_S'
 
     ItemName="UT3 Stinger Minigun"
     Description="Replacing the Minigun in this year's Tournament, the 'Stinger' is actually a Liandri mining tool converted into military service.|The Stinger fires shards of unprocessed Tarydium crystal at an alarming rate, raking opponents with a storm of deadly needles. The alternate fire shoots larger hunks of crystal that can knock back an opponent, sometimes even pinning them to walls."
@@ -238,10 +248,10 @@ defaultproperties
     SelectSound=Sound'UT3Weapons2.Stinger.StingerTakeOut'
 
     CustomCrosshairTextureName="UT3HUD.Crosshairs.UT3CrosshairStinger"
-	CustomCrosshairColor=(B=0,G=255,R=255,A=255)
-	CustomCrosshairScale=1.5
-	HudColor=(B=0,G=255,R=255,A=255)
+    CustomCrosshairColor=(B=0,G=255,R=255,A=255)
+    CustomCrosshairScale=1.5
+    HudColor=(B=0,G=255,R=255,A=255)
 
-	IconMaterial=Material'UT3HUD.Icons.UT3IconsScaled'
+    IconMaterial=Material'UT3HUD.Icons.UT3IconsScaled'
     IconCoords=(X1=227,Y1=254,X2=299,Y2=279)
 }

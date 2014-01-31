@@ -1,7 +1,7 @@
 //=============================================================================
 // UT3RocketLauncher.uc
 // Rocket Scientist.
-// 2008, 2013 GreatEmerald
+// 2008, 2013, 2014 GreatEmerald
 //=============================================================================
 
 class UT3RocketLauncher extends RocketLauncher;
@@ -23,6 +23,8 @@ var enum ERocketFireMode
 var float FireModeSwitchTime; //GE: Time when the last switch in firing mode occured.
 var float FireModeSwitchDelay; //GE: More than 0.2 when you hold the fire mode switch buttons.
 var localized string SpiralName, GrenadesName;
+
+var Material UDamageOverlay;
 
 replication
 {
@@ -183,7 +185,7 @@ function IncrementFireModeServer(optional bool bForce)
     if (!bForce)
     {
         if ((FireModeSwitchTime+FireModeSwitchDelay) > Level.TimeSeconds)
-        {    
+        {
             if ((FireModeSwitchTime+FireModeSwitchDelay-0.1) <= Level.TimeSeconds)
                 FireModeSwitchDelay += 0.1;               //Increases the time to wait by 0.1 seconds every 0.1 second
             return;                                       //Return if the last known switch time plus time to wait (initially 20 centiseconds) is even more then the current time
@@ -191,7 +193,7 @@ function IncrementFireModeServer(optional bool bForce)
         FireModeSwitchTime = Level.TimeSeconds;           //Since default float is 0 and TimeSeconds is always more than 0.2 by a lot, it initially passes
         FireModeSwitchDelay = 0.2;
     }
-    
+
     //Instigator.ClientMessage("UT3RocketLauncher: LoadedFireMode before is"@int(LoadedFireMode));
     if (int(LoadedFireMode) >= 2)
         LoadedFireMode = RFM_Spread;
@@ -204,7 +206,7 @@ function IncrementFireModeServer(optional bool bForce)
             case RFM_Spiral: LoadedFireMode=RFM_Grenades; break;
             case RFM_Grenades: LoadedFireMode=RFM_Spread; break;
             default: LoadedFireMode=RFM_None;
-        } 
+        }
     }
     //PlayOwnedSound(FireModeSwitchSound);
     IncrementFireModeClient();
@@ -253,7 +255,7 @@ simulated event RenderOverlays(Canvas Canvas)
      Super.RenderOverlays(Canvas);
      if (GetFireTypeStr() == "")
         return;
-     
+
      Canvas.Style = ERenderStyle.STY_Normal;
      Canvas.DrawColor = class'HUD'.Default.WhiteColor;
      Canvas.Font = Canvas.MedFont;
@@ -308,6 +310,12 @@ simulated function PlayIdle()
     LoopAnim(IdleAnim, IdleAnimRate, 0.0);
 }
 
+simulated function SetOverlayMaterial(Material mat, float time, bool bOverride)
+{
+    Super.SetOverlayMaterial(mat, time, bOverride);
+    if (OverlayMaterial == class'xPawn'.default.UDamageWeaponMaterial)
+        OverlayMaterial = UDamageOverlay;
+}
 
 /*********************************************************************************************
  * AI Interface
@@ -316,9 +324,9 @@ simulated function PlayIdle()
 function bool BotFire(bool bFinished, optional name FiringMode)
 {
     local float Chance;
-    
+
     Chance = FRand();
-    
+
     if (BotMode == 1 && Chance < 0.66 ) //66% chance of the bot incrementing it once, 33% of twice
         IncrementFireModeServer(true);
     if (BotMode == 1 && FRand() < 0.33 )
@@ -350,27 +358,28 @@ defaultproperties
 
     Priority=10
     CustomCrosshairTextureName="UT3HUD.Crosshairs.UT3CrosshairRocketLauncher"
-	CustomCrosshairColor=(B=0,G=0,R=255,A=255)
-	CustomCrosshairScale=1.2
-	HudColor=(B=0,G=0,R=255,A=255)
-	IconMaterial=Material'UT3HUD.Icons.UT3IconsScaled'
+    CustomCrosshairColor=(B=0,G=0,R=255,A=255)
+    CustomCrosshairScale=1.2
+    HudColor=(B=0,G=0,R=255,A=255)
+    IconMaterial=Material'UT3HUD.Icons.UT3IconsScaled'
     IconCoords=(X1=65,Y1=189,X2=130,Y2=214)
-    
-     IdleAnim="WeaponIdle"
-     RestAnim="WeaponIdle"
-     AimAnim="WeaponIdle"
-     RunAnim="WeaponIdle"
-     SelectAnim="WeaponEquip"
-     PutDownAnim="WeaponPutDown"
-     BringUpTime=0.6
-     IdleAnimRate=1.000000
-     Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_RocketLauncher_1P'
-     HighDetailOverlay=None
-     
-     SpiralName="Spiral"
-     GrenadesName="Grenades"
-     
-     PlayerViewPivot=(Pitch=0,Roll=0,Yaw=0)
-     PlayerViewOffset=(X=0.0,Y=8.0,Z=1.2)
-     SmallViewOffset=(X=8,Y=12,Z=-2)
+
+    IdleAnim="WeaponIdle"
+    RestAnim="WeaponIdle"
+    AimAnim="WeaponIdle"
+    RunAnim="WeaponIdle"
+    SelectAnim="WeaponEquip"
+    PutDownAnim="WeaponPutDown"
+    BringUpTime=0.6
+    IdleAnimRate=1.000000
+    Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_RocketLauncher_1P'
+    HighDetailOverlay=None
+    UDamageOverlay=Material'UT3Pickups.Udamage.M_UDamage_Overlay_S'
+
+    SpiralName="Spiral"
+    GrenadesName="Grenades"
+
+    PlayerViewPivot=(Pitch=0,Roll=0,Yaw=0)
+    PlayerViewOffset=(X=0.0,Y=8.0,Z=1.2)
+    SmallViewOffset=(X=8,Y=12,Z=-2)
 }

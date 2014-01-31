@@ -1,10 +1,12 @@
 //==============================================================================
 // UT3BioRifle.uc
 // Biohazard!
-// 2008, 2013 GreatEmerald
+// 2008, 2013, 2014 GreatEmerald
 //==============================================================================
 
 class UT3BioRifle extends BioRifle;
+
+var Material UDamageOverlay;
 
 simulated function AnimEnd(int Channel)
 {
@@ -16,6 +18,13 @@ simulated function AnimEnd(int Channel)
         LoopAnim('WeaponAltIdle', 1.0, 1.0);
     else
         Super.AnimEnd(Channel);
+}
+
+simulated function SetOverlayMaterial(Material mat, float time, bool bOverride)
+{
+    Super.SetOverlayMaterial(mat, time, bOverride);
+    if (OverlayMaterial == class'xPawn'.default.UDamageWeaponMaterial)
+        OverlayMaterial = UDamageOverlay;
 }
 
 defaultproperties
@@ -30,31 +39,32 @@ defaultproperties
     TransientSoundVolume=0.92
 
     CustomCrosshairTextureName="UT3HUD.Crosshairs.UT3CrosshairBioRifle"
-	CustomCrosshairColor=(B=64,G=255,R=64,A=255)
-	HudColor=(B=64,G=255,R=64,A=255)
-	CustomCrosshairScale=1.5
+    CustomCrosshairColor=(B=64,G=255,R=64,A=255)
+    HudColor=(B=64,G=255,R=64,A=255)
+    CustomCrosshairScale=1.5
 
-	IconMaterial=Material'UT3HUD.Icons.UT3IconsScaled'
+    IconMaterial=Material'UT3HUD.Icons.UT3IconsScaled'
     IconCoords=(X1=300,Y1=200,X2=363,Y2=229)
-    
-     IdleAnim="WeaponIdle"
-     RestAnim="WeaponIdle"
-     AimAnim="WeaponIdle"
-     RunAnim="WeaponIdle"
-     SelectAnim="WeaponEquip"
-     PutDownAnim="WeaponPutDown"
-     SelectAnimRate=1.000000
-     Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_BioRifle_1P'
-      IdleAnimRate=0.8
-      RestAnimRate=0.8
-      RunAnimRate=0.8
-      AimAnimRate=0.8
-      
-      DrawScale=0.9
-      PlayerViewPivot=(Pitch=0,Roll=0,Yaw=0)
-      PlayerViewOffset=(X=4.0,Y=2.0,Z=0.0)
-      SmallViewOffset=(X=15,Y=6,Z=-4)
-     
-     UV2Mode=UVM_LightMap
-     AttachmentClass=class'UT3BioAttachment'
+
+    IdleAnim="WeaponIdle"
+    RestAnim="WeaponIdle"
+    AimAnim="WeaponIdle"
+    RunAnim="WeaponIdle"
+    SelectAnim="WeaponEquip"
+    PutDownAnim="WeaponPutDown"
+    SelectAnimRate=1.000000
+    Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_BioRifle_1P'
+    IdleAnimRate=0.8
+    RestAnimRate=0.8
+    RunAnimRate=0.8
+    AimAnimRate=0.8
+
+    DrawScale=0.9
+    PlayerViewPivot=(Pitch=0,Roll=0,Yaw=0)
+    PlayerViewOffset=(X=4.0,Y=2.0,Z=0.0)
+    SmallViewOffset=(X=15,Y=6,Z=-4)
+
+    UV2Mode=UVM_LightMap
+    AttachmentClass=class'UT3BioAttachment'
+    UDamageOverlay=Material'UT3Pickups.Udamage.M_UDamage_Overlay_S'
 }
