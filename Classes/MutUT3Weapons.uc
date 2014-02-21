@@ -34,7 +34,10 @@ simulated function BeginPlay()
 }
 
 /**
-Modifies pickup bases to spawn the corresponding UT3-style pickups.
+GEm: Modifies pickup bases to spawn the corresponding UT3-style pickups.
+     Note that CheckReplacement gets called early at spawn, before Pickups'
+     PickUpBase is even set; and that when pickup bases are iterated, they don't
+     yet have their pickups spawned.
 */
 function bool CheckReplacement(Actor Other, out byte bSuperRelevant)
 {
@@ -42,10 +45,7 @@ function bool CheckReplacement(Actor Other, out byte bSuperRelevant)
     local class<UT3PickupFactory> NewFactoryClass;
     local bool bResult;
 
-	/*else if (WildcardBase(Other) != None) {
-		// TODO: replace individual powerups
-	}
-    else*/ if (xPickUpBase(Other) != None)
+    if (xPickUpBase(Other) != None)
     {
         NewFactoryClass = GetReplacementFactory(xPickUpBase(Other).class);
         if (NewFactoryClass != None)
@@ -53,31 +53,29 @@ function bool CheckReplacement(Actor Other, out byte bSuperRelevant)
             bResult = ReplaceWith(Other, string(NewFactoryClass));
 
             xPickUpBase(Other).PowerUp = None;
-            if (xPickUpBase(Other).myPickUp != None)
-                xPickUpBase(Other).myPickUp.Destroy();
+            /*if (xPickUpBase(Other).myPickUp != None)
+            {
+                if (xPickUpBase(Other).bStatic || xPickUpBase(Other).bNoDelete)
+                    xPickUpBase(Other).GotoState('Disabled');
+                else
+                    xPickUpBase(Other).myPickUp.Destroy();
+            }*/
 
             if (bResult)
                 return true;
         }
 
-        // GEm: Legacy code follows
+        // GEm: For unknown pickup bases, hopefully this never happens
         NewPickupClass = GetReplacementPickup(xPickUpBase(Other).Powerup);
         if (NewPickupClass != None)
-        {
             xPickupBase(Other).Powerup = NewPickupClass;
-        }
-        // GEm: Temporary hacks below!
-        if (WildcardBase(Other) != None)
-        {
-            xPickupBase(Other).SetStaticMesh(StaticMesh'UT3PICKUPS_Mesh.Base_Powerup.S_Pickups_Base_Powerup01');
-        }
     }
     // GEm: We disable stock lockers and spawn our own
     else if (WeaponLocker(Other) != None && UT3WeaponLocker(Other) == None)
     {
         ReplaceWith(Other, string(class'UT3WeaponLocker'));
     }
-    else if (Pickup(Other) != None && Pickup(Other).MyMarker != None)
+    else if (Pickup(Other) != None && Pickup(Other).bDeleteMe == false)
     {
         NewPickupClass = GetReplacementPickup(Pickup(Other).Class);
         if (NewPickupClass != None)
@@ -90,7 +88,8 @@ function bool CheckReplacement(Actor Other, out byte bSuperRelevant)
             if (bResult)
                 return false;
         }
-        log("MutUT3Weapons: CheckReplacement: Not replacing"@Other);
+        else
+            log("MutUT3Weapons: CheckReplacement: Not replacing"@Other);
     }
     return Super.CheckReplacement(Other, bSuperRelevant);
 }
@@ -102,6 +101,8 @@ function bool ReplaceWith(actor Other, string aClassName)
     local class<Actor> aClass;
     local bool bOldCollideWorld;
     local class<Weapon> NewWeaponClass;
+    local class<TournamentPickup> NewPickupClass;
+    local int i;
 
     if ( aClassName == "" )
         return true;
@@ -138,12 +139,26 @@ function bool ReplaceWith(actor Other, string aClassName)
             }
             Pickup(Other).MyMarker = None;
         }
-        else if ( A.IsA('Pickup') )
-            Pickup(A).Respawntime = 0.0;
+        else if ( A.IsA('Pickup') ){log(self@"ReplaceWith: RespawnTime disabled for"@A);
+            Pickup(A).Respawntime = 0.0;}
+        if (A.IsInState('Disabled') || A.IsInState('Sleeping'))
+            A.GotoState(Other.GetStateName());
     }
     else if (xPickUpBase(Other) != None)
     {
         A = Spawn(aClass,Other.Owner,Other.tag,Other.Location, Other.Rotation);
+
+        if (WildcardBase(Other) != None && UT3WildcardFactory(A) != None)
+        {
+            for (i=0; i<ArrayCount(WildcardBase(Other).PickupClasses); i++)
+            {
+                NewPickupClass = class<TournamentPickup>(GetReplacementPickup(WildcardBase(Other).PickupClasses[i]));
+                if (NewPickupClass != None)
+                    UT3WildcardFactory(A).PickupClasses[i] = NewPickupClass;
+                WildcardBase(Other).PickupClasses[i] = None; // GEm: Disable the original
+            }
+            UT3WildcardFactory(A).bSequential = WildcardBase(Other).bSequential;
+        }
 
         if (xPickUpBase(A) != None)
         {
@@ -260,7 +275,7 @@ static function class<Pickup> GetReplacementPickup(class<Pickup> Original)
             return class'UT3AVRiLAmmoPickup';
         case class'AssaultAmmoPickup':
             return class'UT3EnforcerAmmoPickup';
-        default: return none;
+        default: return None;
     }
 }
 
@@ -283,6 +298,8 @@ static function class<UT3PickupFactory> GetReplacementFactory(class<xPickUpBase>
         case class'xWeaponBase':
         case class'NewWeaponBase':
             return class'UT3WeaponPickupFactory';
+        case class'WildcardBase':
+            return class'UT3WildcardFactory';
         default: return none;
     }
 }

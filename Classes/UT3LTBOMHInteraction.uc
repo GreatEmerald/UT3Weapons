@@ -89,7 +89,7 @@ function RegisterPickup(Actor MyPickup)//, optional string Destination)
             AnnouncementSound = Sound'announcermale2k4.Totalled';
     }
 
-    log(self@"RegisterPickup: Iterating through"@MyPickup);
+    //log(self@"RegisterPickup: Iterating through"@MyPickup);
     // GEm: Ignore items that are supposed to be deleted soon
     if (MyPickup == None || MyPickup.bDeleteMe == true){log(self@"RegisterPickup: Ignoring destroyed item"@MyPickup);
         return;}
@@ -101,7 +101,7 @@ function RegisterPickup(Actor MyPickup)//, optional string Destination)
     if (HealthCharger(MyPickup) != None || UT3PickupFactory_MediumHealth(MyPickup) != None
         || HealthPack(MyPickup) != None || UT3HealthPickupMedium(MyPickup) != None)
     {
-        log(self@"RegisterPickup:"@MyPickup@"is health!");
+        //log(self@"RegisterPickup:"@MyPickup@"is health!");
         UpdateList(MyPickup, HealthArray);
         return; //GE: We found what we wanted, no need to worry about other ifs.
     }
@@ -111,7 +111,7 @@ function RegisterPickup(Actor MyPickup)//, optional string Destination)
         || UT3ArmorFactory_Helmet(MyPickup) != None || UT3ArmorPickup_Helmet(MyPickup) != None
         || UT3ArmorFactory_Wildcard(MyPickup) != None) //GE: No else since we already returned from everything above.
     {
-        log(self@"RegisterPickup:"@MyPickup@"is shield!");
+        //log(self@"RegisterPickup:"@MyPickup@"is shield!");
         UpdateList(MyPickup, ShieldArray);
         return;
     }
@@ -133,7 +133,7 @@ function RegisterPickup(Actor MyPickup)//, optional string Destination)
         UpdateList(MyPickup, UDamageArray);
         return;
     }
-    if ( WildcardBase(MyPickup) != None )
+    if (WildcardBase(MyPickup) != None || UT3WildcardFactory(MyPickup) != None)
     {
         UpdateList(MyPickup, WildcardArray);
         return;
@@ -243,7 +243,7 @@ function UpdatePickupStatus(Pawn Receiver, Pickup Item)
     Query = GetQuery(Item);
     //ViewportOwner.Actor.ClientMessage("UT3LTBOMHInteraction: Picked up"@Item@"and checking"@Query);
 
-    if ( WildcardBase(Query) != None ) //GE: Since wildcard can be anything, they have priority over others
+    if (WildcardBase(Query) != None || UT3WildcardFactory(Query) != None) //GE: Since wildcard can be anything, they have priority over others
     {
         SaveProgress(Query, WildcardArray, WildcardFound);
         return;

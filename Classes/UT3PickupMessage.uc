@@ -31,14 +31,14 @@ static function string GetString
         CounterString = LocalString;
         Count = (default.LastDisplayCount)/3+1;
 
-        log("UT3PickupMessage: GetString: LastDisplayCount"@default.LastDisplayCount@"means Count"@Count);
+        //log("UT3PickupMessage: GetString: LastDisplayCount"@default.LastDisplayCount@"means Count"@Count);
         if (LocalString == default.LastDisplayString && default.CurrentTime != 0.0
             && default.CurrentTime - default.LastDisplayTime <= default.Lifetime)
         {
             default.LastDisplayCount++;
             if (Count > 1)
                 CounterString = LocalString@"X"@Count;
-            log("UT3PickupMessage: GetString: Printing modded message"@CounterString);
+            //log("UT3PickupMessage: GetString: Printing modded message"@CounterString);
         }
         else
             ResetLastDisplay();
@@ -55,7 +55,7 @@ static function ResetLastDisplay()
     default.LastDisplayTime = 0.0;
     default.LastDisplayString = "";
     default.LastDisplayCount = 1;
-    log("UT3PickupMessage: ResetLastDisplay");
+    //log("UT3PickupMessage: ResetLastDisplay");
 }
 
 static function ClientReceive(

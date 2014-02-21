@@ -1,4 +1,5 @@
-* Fix wildcard base appearance
+* Fix Wildcard base respawn sound
+* Online: UDamage effect does not work on specular weapons
 * Alter the weapon despawn effect so they would spin
 * Add support for weapon put down sounds
 * Online: Sniper tracer origin stays in place when moving scoped
