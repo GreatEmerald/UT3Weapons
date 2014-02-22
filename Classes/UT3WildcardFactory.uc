@@ -54,6 +54,7 @@ function TurnOn()
 
     if (myPickup != None && PowerUp != None)
         myPickup = myPickup.Transmogrify(PowerUp);
+    myPickup.RespawnEffect();
     log(self@"TurnOn: PowerUp"@PowerUp);
 }
 

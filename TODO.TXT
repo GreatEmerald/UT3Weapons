@@ -1,11 +1,9 @@
-* Fix Wildcard base respawn sound
 * Online: UDamage effect does not work on specular weapons
 * Alter the weapon despawn effect so they would spin
 * Add support for weapon put down sounds
 * Online: Sniper tracer origin stays in place when moving scoped
 * Fix Rocket Launcher firing three rockets in one initially
 * Test pickup reset after round end
-* Update Helmet mesh
 * Doublecheck item DrawScale
 - Add new vehicle meshes
 - Bundle UT3 announcements

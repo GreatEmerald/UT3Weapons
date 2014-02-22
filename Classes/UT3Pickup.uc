@@ -139,11 +139,11 @@ Begin:
     else
         Sleep(GetReSpawnTime() - RespawnEffectTime);
 Respawn:
-	RespawnEffect();
-	Sleep(RespawnEffectTime);
-	if (PickUpBase != None)
-		PickUpBase.TurnOn();
-	GotoState('Pickup');
+    if (PickUpBase != None)
+        PickUpBase.TurnOn();
+    RespawnEffect();
+    Sleep(RespawnEffectTime);
+    GotoState('Pickup');
 }
 
 

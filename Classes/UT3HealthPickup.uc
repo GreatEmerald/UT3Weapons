@@ -1,7 +1,7 @@
 //=============================================================================
 // UT3HealthPickup.uc
 // The base class for floaty health pickups
-// Copyright © 2013 GreatEmerald
+// Copyright © 2013, 2014 GreatEmerald
 //=============================================================================
 
 class UT3HealthPickup extends TournamentHealth;
@@ -147,10 +147,10 @@ Begin:
     else
         Sleep(GetReSpawnTime() - RespawnEffectTime);
 Respawn:
-    RespawnEffect();
-    Sleep(RespawnEffectTime);
     if (PickUpBase != None)
         PickUpBase.TurnOn();
+    RespawnEffect();
+    Sleep(RespawnEffectTime);
     GotoState('Pickup');
 }
 
