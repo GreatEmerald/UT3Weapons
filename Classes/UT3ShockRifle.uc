@@ -107,18 +107,28 @@ function byte BestMode()
     return 1;
 }
 
-simulated function SetOverlayMaterial(Material mat, float time, bool bOverride)
+function SetOverlayMaterial(Material mat, float time, bool bOverride)
 {
     Super.SetOverlayMaterial(mat, time, bOverride);
-    //log(self@"SetOverlayMaterial: mat"@mat@"time"@time@"bOverride"@bOverride);
     if (OverlayMaterial == class'xPawn'.default.UDamageWeaponMaterial)
         OverlayMaterial = UDamageOverlay;
+    // GEm: Single-player UDamage fallback
     if (mat == None || time <= 0.0)
     {
         Skins = default.Skins;
     }
     else
         Skins[0] = FallbackSkin;
+}
+
+simulated function PostNetReceive()
+{
+    Super.PostNetReceive();
+    // GEm: Client-side UDamage fallback
+    if (OverlayMaterial == UDamageOverlay)
+        Skins[0] = FallbackSkin;
+    else
+        Skins = default.Skins;
 }
 
 defaultproperties
