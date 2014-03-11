@@ -7,6 +7,13 @@
 class UT3WeaponPickup extends UTWeaponPickup
     notplaceable;
 
+simulated event ClientTrigger()
+{
+    bHidden = true;
+    if ( EffectIsRelevant(Location, false) && !Level.GetLocalPlayerController().BeyondViewDistance(Location, CullDistance)  )
+        spawn(class'UT3WeaponFadeEffect',self);
+}
+
 auto simulated state Pickup
 {
     function BeginState()

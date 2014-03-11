@@ -1,4 +1,3 @@
-* Alter the weapon despawn effect so they would spin
 * Add support for weapon put down sounds
 * Online: Sniper tracer origin stays in place when moving scoped
 * Fix Rocket Launcher firing three rockets in one initially
