@@ -10,6 +10,7 @@ class UT3LinkGun extends LinkGun;
 
 
 var Material UDamageOverlay, FallbackSkin;
+var() Sound PutDownSound;
 
 //=============================================================================
 // Imports
@@ -124,7 +125,92 @@ simulated function PostNetReceive()
         Skins = default.Skins;
 }
 
+// GEm: Put down sound code below
+simulated function BringUp(optional Weapon PrevWeapon)
+{
+   local int Mode;
 
+    if ( ClientState == WS_Hidden )
+    {
+        PlayOwnedSound(SelectSound,,,,,, false);
+                ClientPlayForceFeedback(SelectForce);  // jdf
+
+        if ( Instigator.IsLocallyControlled() )
+        {
+            if ( (Mesh!=None) && HasAnim(SelectAnim) )
+                PlayAnim(SelectAnim, SelectAnimRate, 0.0);
+        }
+
+        ClientState = WS_BringUp;
+        SetTimer(BringUpTime, false);
+    }
+    for (Mode = 0; Mode < NUM_FIRE_MODES; Mode++)
+        {
+                FireMode[Mode].bIsFiring = false;
+                FireMode[Mode].HoldTime = 0.0;
+                FireMode[Mode].bServerDelayStartFire = false;
+                FireMode[Mode].bServerDelayStopFire = false;
+                FireMode[Mode].bInstantStop = false;
+        }
+           if ( (PrevWeapon != None) && PrevWeapon.HasAmmo() && !PrevWeapon.bNoVoluntarySwitch )
+                OldWeapon = PrevWeapon;
+        else
+                OldWeapon = None;
+
+}
+
+simulated function bool PutDown()
+{
+    local int Mode;
+
+    if (ClientState == WS_BringUp || ClientState == WS_ReadyToFire)
+    {
+        if ( (Instigator.PendingWeapon != None) && !Instigator.PendingWeapon.bForceSwitch )
+        {
+            for (Mode = 0; Mode < NUM_FIRE_MODES; Mode++)
+            {
+                if ( FireMode[Mode].bFireOnRelease && FireMode[Mode].bIsFiring )
+                    return false;
+                if ( FireMode[Mode].NextFireTime > Level.TimeSeconds + FireMode[Mode].FireRate*(1.f - MinReloadPct))
+                                        DownDelay = FMax(DownDelay, FireMode[Mode].NextFireTime - Level.TimeSeconds - FireMode[Mode].FireRate*(1.f - MinReloadPct));
+            }
+        }
+
+        PlayOwnedSound(PutDownSound,,,,,, false);
+
+        if (Instigator.IsLocallyControlled())
+        {
+            for (Mode = 0; Mode < NUM_FIRE_MODES; Mode++)
+            {
+                if ( FireMode[Mode].bIsFiring )
+                    ClientStopFire(Mode);
+            }
+
+            if (  DownDelay <= 0 )
+            {
+                                if ( ClientState == WS_BringUp )
+                                        TweenAnim(SelectAnim,PutDownTime);
+                                else if ( HasAnim(PutDownAnim) )
+                                        PlayAnim(PutDownAnim, PutDownAnimRate, 0.0);
+                        }
+        }
+        ClientState = WS_PutDown;
+        if ( Level.GRI.bFastWeaponSwitching )
+                        DownDelay = 0;
+        if ( DownDelay > 0 )
+                        SetTimer(DownDelay, false);
+                else
+                        SetTimer(PutDownTime, false);
+    }
+    for (Mode = 0; Mode < NUM_FIRE_MODES; Mode++)
+    {
+                FireMode[Mode].bServerDelayStartFire = false;
+                FireMode[Mode].bServerDelayStopFire = false;
+        }
+    Instigator.AmbientSound = None;
+    OldWeapon = None;
+    return true; // return false if preventing weapon switch
+}
 
 //=============================================================================
 // Default values
@@ -172,4 +258,5 @@ defaultproperties
     PlayerViewPivot=(Pitch=0,Roll=0,Yaw=-16384)
     UDamageOverlay=Material'UT3Pickups.Udamage.M_UDamage_Overlay_S'
     FallbackSkin=Material'UT3WeaponSkins.T_WP_LinkGun_D'
+    PutDownSound=Sound'UT3LinkGun.A_Weapon_Link_Lower01'
 }

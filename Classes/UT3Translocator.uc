@@ -13,13 +13,14 @@ class UT3Translocator extends TransLauncher;
 // Imports
 //=============================================================================
 
-//#exec obj load file=Sounds/include/UT3Translocator.uax
+//#exec obj load file=Sounds/UT3Translocator.uax
 
 var Material RedSkin, BlueSkin, RedEffect, BlueEffect;
 var name EmptyBringUpAnim, IdleAnimEmpty, PutDownEmptyAnim; //GE: Woah, chaotic, isn't it?
 var vector ModuleLocation; //GE: Used for determining which recall animation to play. If set, no guarantees that transbeacon exists
 
 var Material UDamageOverlay;
+var() Sound PutDownSound;
 
 function ReduceAmmo()
 {
@@ -99,22 +100,100 @@ simulated event RenderOverlays( Canvas Canvas )
     }
 }
 
+// GEm: Put down sound code below, among other things
 simulated function BringUp(optional Weapon PrevWeapon)
 {
+    local int Mode;
+
     if (TransBeacon != None)
         SelectAnim = EmptyBringUpAnim;
     else
         SelectAnim = default.SelectAnim;
-    Super.BringUp(PrevWeapon);
+
+    if ( ClientState == WS_Hidden )
+    {
+        PlayOwnedSound(SelectSound,,,,,, false);
+                ClientPlayForceFeedback(SelectForce);  // jdf
+
+        if ( Instigator.IsLocallyControlled() )
+        {
+            if ( (Mesh!=None) && HasAnim(SelectAnim) )
+                PlayAnim(SelectAnim, SelectAnimRate, 0.0);
+        }
+
+        ClientState = WS_BringUp;
+        SetTimer(BringUpTime, false);
+    }
+    for (Mode = 0; Mode < NUM_FIRE_MODES; Mode++)
+        {
+                FireMode[Mode].bIsFiring = false;
+                FireMode[Mode].HoldTime = 0.0;
+                FireMode[Mode].bServerDelayStartFire = false;
+                FireMode[Mode].bServerDelayStopFire = false;
+                FireMode[Mode].bInstantStop = false;
+        }
+           if ( (PrevWeapon != None) && PrevWeapon.HasAmmo() && !PrevWeapon.bNoVoluntarySwitch )
+                OldWeapon = PrevWeapon;
+        else
+                OldWeapon = None;
 }
 
 simulated function bool PutDown()
 {
+    local int Mode;
+
     if (TransBeacon != None)
         PutDownAnim = PutDownEmptyAnim;
     else
         PutDownAnim = default.PutDownAnim;
-    return Super.PutDown();
+
+    if (ClientState == WS_BringUp || ClientState == WS_ReadyToFire)
+    {
+        if ( (Instigator.PendingWeapon != None) && !Instigator.PendingWeapon.bForceSwitch )
+        {
+            for (Mode = 0; Mode < NUM_FIRE_MODES; Mode++)
+            {
+                if ( FireMode[Mode].bFireOnRelease && FireMode[Mode].bIsFiring )
+                    return false;
+                if ( FireMode[Mode].NextFireTime > Level.TimeSeconds + FireMode[Mode].FireRate*(1.f - MinReloadPct))
+                                        DownDelay = FMax(DownDelay, FireMode[Mode].NextFireTime - Level.TimeSeconds - FireMode[Mode].FireRate*(1.f - MinReloadPct));
+            }
+        }
+
+        PlayOwnedSound(PutDownSound,,,,,, false);
+
+        if (Instigator.IsLocallyControlled())
+        {
+            for (Mode = 0; Mode < NUM_FIRE_MODES; Mode++)
+            {
+                if ( FireMode[Mode].bIsFiring )
+                    ClientStopFire(Mode);
+            }
+
+            if (  DownDelay <= 0 )
+            {
+                                if ( ClientState == WS_BringUp )
+                                        TweenAnim(SelectAnim,PutDownTime);
+                                else if ( HasAnim(PutDownAnim) )
+                                        PlayAnim(PutDownAnim, PutDownAnimRate, 0.0);
+                        }
+        }
+        ClientState = WS_PutDown;
+        if ( Level.GRI.bFastWeaponSwitching )
+                        DownDelay = 0;
+        if ( DownDelay > 0 )
+                        SetTimer(DownDelay, false);
+                else
+                        SetTimer(PutDownTime, false);
+    }
+    for (Mode = 0; Mode < NUM_FIRE_MODES; Mode++)
+    {
+                FireMode[Mode].bServerDelayStartFire = false;
+                FireMode[Mode].bServerDelayStopFire = false;
+        }
+    Instigator.AmbientSound = None;
+    OldWeapon = None;
+    return true; // return false if preventing weapon switch
 }
 
 simulated event WeaponTick( float dt )
@@ -167,6 +246,7 @@ defaultproperties
     AttachmentClass = class'UT3TranslocatorAttachment'
 
     SelectSound = Sound'TranslocatorRaise'
+    PutDownSound = Sound'UT3Translocator.TranslocatorLower'
     TransientSoundVolume = 0.7
     TransientSoundRadius = 1000.0
 

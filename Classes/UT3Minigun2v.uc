@@ -20,6 +20,7 @@ var() float             GearOffset;
 var() float             Blend;
 
 var Material UDamageOverlay;
+var() Sound PutDownSound;
 
 simulated function vector GetEffectStart()
 {
@@ -163,12 +164,94 @@ simulated function DetachFromPawn(Pawn P)
     Super.DetachFromPawn(P);
 }
 
-// Allow fire modes to return to idle on weapon switch (client)
+// GEm: Put down sound code below
+simulated function BringUp(optional Weapon PrevWeapon)
+{
+   local int Mode;
+
+    if ( ClientState == WS_Hidden )
+    {
+        PlayOwnedSound(SelectSound,,,,,, false);
+                ClientPlayForceFeedback(SelectForce);  // jdf
+
+        if ( Instigator.IsLocallyControlled() )
+        {
+            if ( (Mesh!=None) && HasAnim(SelectAnim) )
+                PlayAnim(SelectAnim, SelectAnimRate, 0.0);
+        }
+
+        ClientState = WS_BringUp;
+        SetTimer(BringUpTime, false);
+    }
+    for (Mode = 0; Mode < NUM_FIRE_MODES; Mode++)
+        {
+                FireMode[Mode].bIsFiring = false;
+                FireMode[Mode].HoldTime = 0.0;
+                FireMode[Mode].bServerDelayStartFire = false;
+                FireMode[Mode].bServerDelayStopFire = false;
+                FireMode[Mode].bInstantStop = false;
+        }
+           if ( (PrevWeapon != None) && PrevWeapon.HasAmmo() && !PrevWeapon.bNoVoluntarySwitch )
+                OldWeapon = PrevWeapon;
+        else
+                OldWeapon = None;
+
+}
+
+// GEm: And also allow fire modes to return to idle on weapon switch (client)
 simulated function bool PutDown()
 {
+    local int Mode;
+
     ReturnToIdle();
 
-    return Super.PutDown();
+    if (ClientState == WS_BringUp || ClientState == WS_ReadyToFire)
+    {
+        if ( (Instigator.PendingWeapon != None) && !Instigator.PendingWeapon.bForceSwitch )
+        {
+            for (Mode = 0; Mode < NUM_FIRE_MODES; Mode++)
+            {
+                if ( FireMode[Mode].bFireOnRelease && FireMode[Mode].bIsFiring )
+                    return false;
+                if ( FireMode[Mode].NextFireTime > Level.TimeSeconds + FireMode[Mode].FireRate*(1.f - MinReloadPct))
+                                        DownDelay = FMax(DownDelay, FireMode[Mode].NextFireTime - Level.TimeSeconds - FireMode[Mode].FireRate*(1.f - MinReloadPct));
+            }
+        }
+
+        PlayOwnedSound(PutDownSound,,,,,, false);
+
+        if (Instigator.IsLocallyControlled())
+        {
+            for (Mode = 0; Mode < NUM_FIRE_MODES; Mode++)
+            {
+                if ( FireMode[Mode].bIsFiring )
+                    ClientStopFire(Mode);
+            }
+
+            if (  DownDelay <= 0 )
+            {
+                                if ( ClientState == WS_BringUp )
+                                        TweenAnim(SelectAnim,PutDownTime);
+                                else if ( HasAnim(PutDownAnim) )
+                                        PlayAnim(PutDownAnim, PutDownAnimRate, 0.0);
+                        }
+        }
+        ClientState = WS_PutDown;
+        if ( Level.GRI.bFastWeaponSwitching )
+                        DownDelay = 0;
+        if ( DownDelay > 0 )
+                        SetTimer(DownDelay, false);
+                else
+                        SetTimer(PutDownTime, false);
+    }
+    for (Mode = 0; Mode < NUM_FIRE_MODES; Mode++)
+    {
+                FireMode[Mode].bServerDelayStartFire = false;
+                FireMode[Mode].bServerDelayStopFire = false;
+        }
+    Instigator.AmbientSound = None;
+    OldWeapon = None;
+    return true; // return false if preventing weapon switch
 }
 
 simulated function SetOverlayMaterial(Material mat, float time, bool bOverride)
@@ -245,7 +328,8 @@ defaultproperties
     FireModeClass(0)=UT3MinigunFire
     FireModeClass(1)=UT3MinigunAltFire
     PickupClass=class'UT3MinigunPickup'
-    SelectSound=Sound'UT3Weapons2.Stinger.StingerTakeOut'
+    SelectSound=Sound'UT3Weapons2.Stinger.A_Weapon_Stinger_Raise01'
+    PutDownSound=Sound'UT3Weapons2.Stinger.A_Weapon_Stinger_Lower01'
 
     CustomCrosshairTextureName="UT3HUD.Crosshairs.UT3CrosshairStinger"
     CustomCrosshairColor=(B=0,G=255,R=255,A=255)

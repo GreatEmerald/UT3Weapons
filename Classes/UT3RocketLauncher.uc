@@ -25,6 +25,7 @@ var float FireModeSwitchDelay; //GE: More than 0.2 when you hold the fire mode s
 var localized string SpiralName, GrenadesName;
 
 var Material UDamageOverlay;
+var() Sound PutDownSound;
 
 replication
 {
@@ -268,7 +269,7 @@ simulated function UpdateBarrel(float dt);
 simulated function Plunge();
 simulated function PlayFiring(bool plunge);
 simulated function PlayLoad(bool full);
-simulated function BringUp(optional Weapon PrevWeapon) {Super(Weapon).BringUp(PrevWeapon);}
+//simulated function BringUp(optional Weapon PrevWeapon) {Super(Weapon).BringUp(PrevWeapon);}
 simulated state AnimateLoad {}
 simulated function AnimEnd(int Channel) {Super(Weapon).AnimEnd(Channel);}
 
@@ -334,6 +335,93 @@ function bool BotFire(bool bFinished, optional name FiringMode)
     return Super.BotFire(bFinished, FiringMode);
 }
 
+// GEm: Put down sound code below
+simulated function BringUp(optional Weapon PrevWeapon)
+{
+   local int Mode;
+
+    if ( ClientState == WS_Hidden )
+    {
+        PlayOwnedSound(SelectSound,,,,,, false);
+                ClientPlayForceFeedback(SelectForce);  // jdf
+
+        if ( Instigator.IsLocallyControlled() )
+        {
+            if ( (Mesh!=None) && HasAnim(SelectAnim) )
+                PlayAnim(SelectAnim, SelectAnimRate, 0.0);
+        }
+
+        ClientState = WS_BringUp;
+        SetTimer(BringUpTime, false);
+    }
+    for (Mode = 0; Mode < NUM_FIRE_MODES; Mode++)
+        {
+                FireMode[Mode].bIsFiring = false;
+                FireMode[Mode].HoldTime = 0.0;
+                FireMode[Mode].bServerDelayStartFire = false;
+                FireMode[Mode].bServerDelayStopFire = false;
+                FireMode[Mode].bInstantStop = false;
+        }
+           if ( (PrevWeapon != None) && PrevWeapon.HasAmmo() && !PrevWeapon.bNoVoluntarySwitch )
+                OldWeapon = PrevWeapon;
+        else
+                OldWeapon = None;
+
+}
+
+simulated function bool PutDown()
+{
+    local int Mode;
+
+    if (ClientState == WS_BringUp || ClientState == WS_ReadyToFire)
+    {
+        if ( (Instigator.PendingWeapon != None) && !Instigator.PendingWeapon.bForceSwitch )
+        {
+            for (Mode = 0; Mode < NUM_FIRE_MODES; Mode++)
+            {
+                if ( FireMode[Mode].bFireOnRelease && FireMode[Mode].bIsFiring )
+                    return false;
+                if ( FireMode[Mode].NextFireTime > Level.TimeSeconds + FireMode[Mode].FireRate*(1.f - MinReloadPct))
+                                        DownDelay = FMax(DownDelay, FireMode[Mode].NextFireTime - Level.TimeSeconds - FireMode[Mode].FireRate*(1.f - MinReloadPct));
+            }
+        }
+
+        PlayOwnedSound(PutDownSound,,,,,, false);
+
+        if (Instigator.IsLocallyControlled())
+        {
+            for (Mode = 0; Mode < NUM_FIRE_MODES; Mode++)
+            {
+                if ( FireMode[Mode].bIsFiring )
+                    ClientStopFire(Mode);
+            }
+
+            if (  DownDelay <= 0 )
+            {
+                                if ( ClientState == WS_BringUp )
+                                        TweenAnim(SelectAnim,PutDownTime);
+                                else if ( HasAnim(PutDownAnim) )
+                                        PlayAnim(PutDownAnim, PutDownAnimRate, 0.0);
+                        }
+        }
+        ClientState = WS_PutDown;
+        if ( Level.GRI.bFastWeaponSwitching )
+                        DownDelay = 0;
+        if ( DownDelay > 0 )
+                        SetTimer(DownDelay, false);
+                else
+                        SetTimer(PutDownTime, false);
+    }
+    for (Mode = 0; Mode < NUM_FIRE_MODES; Mode++)
+    {
+                FireMode[Mode].bServerDelayStartFire = false;
+                FireMode[Mode].bServerDelayStopFire = false;
+        }
+    Instigator.AmbientSound = None;
+    OldWeapon = None;
+    return true; // return false if preventing weapon switch
+}
+
 defaultproperties
 {
     ItemName="UT3 Rocket Launcher"
@@ -375,6 +463,7 @@ defaultproperties
     Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_RocketLauncher_1P'
     HighDetailOverlay=None
     UDamageOverlay=Material'UT3Pickups.Udamage.M_UDamage_Overlay_S'
+    PutDownSound=Sound'UT3Weapons2.RocketLauncher.A_Weapon_RL_Lower02'
 
     SpiralName="Spiral"
     GrenadesName="Grenades"

@@ -23,6 +23,7 @@ var enum ETimerSetting //GE: For emulating UT3/U2XMP sophisticated Timer third p
 } TimerSetting;
 
 var Material UDamageOverlay;
+var() Sound PutDownSound;
 
 simulated event RenderOverlays( Canvas Canvas )
 {
@@ -166,7 +167,7 @@ simulated function BringUp(optional Weapon PrevWeapon)
     if ( ClientState == WS_Hidden )
     {
         if (bAlreadyLoaded)
-          PlayOwnedSound(SelectSound, SLOT_Interact,,,,, false);
+          PlayOwnedSound(SelectSound,,,,,, false);
         ClientPlayForceFeedback(SelectForce);  // jdf
 
         if ( Instigator.IsLocallyControlled() )
@@ -207,11 +208,59 @@ simulated function BringUp(optional Weapon PrevWeapon)
 
 }
 
+// GEm: Set timer and also add a put down sound
 simulated function bool PutDown()
 {
+    local int Mode;
+
     TimerSetting = TS_None;
-    //SetTimer(0.0, False); //GE: It's already taken care of in Super()
-    return Super.PutDown();
+
+    if (ClientState == WS_BringUp || ClientState == WS_ReadyToFire)
+    {
+        if ( (Instigator.PendingWeapon != None) && !Instigator.PendingWeapon.bForceSwitch )
+        {
+            for (Mode = 0; Mode < NUM_FIRE_MODES; Mode++)
+            {
+                if ( FireMode[Mode].bFireOnRelease && FireMode[Mode].bIsFiring )
+                    return false;
+                if ( FireMode[Mode].NextFireTime > Level.TimeSeconds + FireMode[Mode].FireRate*(1.f - MinReloadPct))
+                                        DownDelay = FMax(DownDelay, FireMode[Mode].NextFireTime - Level.TimeSeconds - FireMode[Mode].FireRate*(1.f - MinReloadPct));
+            }
+        }
+
+        PlayOwnedSound(PutDownSound,,,,,, false);
+        if (Instigator.IsLocallyControlled())
+        {
+            for (Mode = 0; Mode < NUM_FIRE_MODES; Mode++)
+            {
+                if ( FireMode[Mode].bIsFiring )
+                    ClientStopFire(Mode);
+            }
+
+            if (  DownDelay <= 0 )
+            {
+                                if ( ClientState == WS_BringUp )
+                                        TweenAnim(SelectAnim,PutDownTime);
+                                else if ( HasAnim(PutDownAnim) )
+                                        PlayAnim(PutDownAnim, PutDownAnimRate, 0.0);
+                        }
+        }
+        ClientState = WS_PutDown;
+        if ( Level.GRI.bFastWeaponSwitching )
+                        DownDelay = 0;
+        if ( DownDelay > 0 )
+                        SetTimer(DownDelay, false);
+                else
+                        SetTimer(PutDownTime, false);
+    }
+    for (Mode = 0; Mode < NUM_FIRE_MODES; Mode++)
+    {
+                FireMode[Mode].bServerDelayStartFire = false;
+                FireMode[Mode].bServerDelayStopFire = false;
+        }
+    Instigator.AmbientSound = None;
+    OldWeapon = None;
+    return true; // return false if preventing weapon switch
 }
 
 simulated function Timer()
@@ -477,4 +526,5 @@ defaultproperties
     AkimboTime=1.3636
     HighDetailOverlay=None
     UDamageOverlay=Material'UT3Pickups.Udamage.M_UDamage_Overlay_S'
+    PutDownSound=Sound'UT3Weapons2.Enforcer.A_Weapon_Enforcer_Lower01'
 }
