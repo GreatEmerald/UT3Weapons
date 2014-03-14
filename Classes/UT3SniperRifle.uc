@@ -233,7 +233,7 @@ simulated function vector GetEffectStart()
     // any effect that needs a 3rdp weapon offset should figure it out itself
 
     //GE: Revert to maths if the player has no bones to attach to
-    if (Instigator.Controller.Handedness == 2.0)
+    if (Instigator.Controller.Handedness == 2.0 || zoomed)
         return Super.GetEffectStart();
 
     // 1st person

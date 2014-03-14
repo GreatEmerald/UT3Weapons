@@ -1,7 +1,7 @@
 //=============================================================================
 // UT3SniperFire.uc
 // Head Shot.
-// 2008, GreatEmerald
+// 2008, 2014 GreatEmerald
 //=============================================================================
 
 class UT3SniperFire extends SniperFire;
@@ -18,20 +18,21 @@ function DoTrace(Vector Start, Rotator Dir)
     local vector arcEnd, mainArcHit;
     local Pawn HeadShotPawn;
     local vector EffectOffset;
-    
+
     if ( UT3SniperRifle(Weapon) == None ) //GE: OK, who's the wise guy that put this at the END of the function in the original class?!
         return;
-    
+
     if ( class'PlayerController'.Default.bSmallWeapons ) //GE: Interesting, since bSmallWeapons is globalconfig, it gets read from the INI.
         EffectOffset = Weapon.SmallEffectOffset;
     else
         EffectOffset = Weapon.EffectOffset;
 
     Weapon.GetViewAxes(X, Y, Z);
+    /*log(self@"DoTrace: Zoomed"@UT3SniperRifle(Weapon).zoomed@"Instigator"@Instigator.Location@"EffectOffset"@EffectOffset.Z@"Z"@Z);
     if (UT3SniperRifle(Weapon).zoomed )
         arcEnd = (Instigator.Location +
             EffectOffset.Z * Z);
-    else
+    else*/
         arcEnd = Weapon.GetEffectStart(); //GE: Making it use bone coords instead of fooling around trying to calc it itself.
 
     arcsRemaining = NumArcs;
@@ -39,9 +40,9 @@ function DoTrace(Vector Start, Rotator Dir)
     tmpHitEmitClass = HitEmitterClass;
     tmpTraceRange = TraceRange;
 
-    ReflectNum = 0;
+    /*ReflectNum = 0;
     while (true)
-    {
+    {*/
         bDoReflect = false;
         X = Vector(Dir);
         End = Start + tmpTraceRange * X;
@@ -83,7 +84,7 @@ function DoTrace(Vector Start, Rotator Dir)
             HitLocation = End;
             HitNormal = Normal(Start - End);
         }
-        
+
         hitEmitter = xEmitter(Weapon.Spawn(tmpHitEmitClass,,, arcEnd, Rotator(HitNormal)));
         if ( hitEmitter != None )
             hitEmitter.mSpawnVecA = HitLocation;
@@ -97,7 +98,7 @@ function DoTrace(Vector Start, Rotator Dir)
                 mainArcHitTarget = Other;
         }
 
-        if (bDoReflect && ++ReflectNum < 4)
+        /*if (bDoReflect && ++ReflectNum < 4)
         {
             //Log("reflecting off"@Other@Start@HitLocation);
             Start = HitLocation;
@@ -118,14 +119,14 @@ function DoTrace(Vector Start, Rotator Dir)
         {
             break;
         }
-    }
+    }*/
 }
 
 function DrawMuzzleFlash(Canvas Canvas)
-{    
+{
     if (UT3SniperRifle(Weapon) == None)
         return;
-    
+
     // Draw smoke first
     if (SmokeEmitter != None)
     {

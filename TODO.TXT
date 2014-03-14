@@ -1,5 +1,3 @@
-* Add support for weapon put down sounds
-* Online: Sniper tracer origin stays in place when moving scoped
 * Fix Rocket Launcher firing three rockets in one initially
 * Test pickup reset after round end
 * Doublecheck item DrawScale
