@@ -209,11 +209,9 @@ function IncrementFireModeServer(optional bool bForce)
             default: LoadedFireMode=RFM_None;
         }
     }
-    //PlayOwnedSound(FireModeSwitchSound);
     IncrementFireModeClient();
     if (UT3RocketMultiFire(FireMode[1]) != None)
         UT3RocketMultiFire(FireMode[1]).SwitchFireMode(LoadedFireMode);
-        //UT3RocketMultiFire(FireMode[1]).SwitchFireMode(LoadedFireMode);
     //Instigator.ClientMessage("UT3RocketLauncher: LoadedFireMode is"@LoadedFireMode);
 }
 
