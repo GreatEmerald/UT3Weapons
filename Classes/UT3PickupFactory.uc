@@ -62,7 +62,24 @@ function SpawnPickup()
     bOldCollideWorld = PowerUp.default.bCollideWorld;
     PowerUp.default.bCollideWorld = false;
 
-    Super.SpawnPickup();
+    /* GEm: This is Super.SpawnPickup() without the log warning for missing
+            markers, because the marker is always missing the first time we
+            spawn and it gets corrected shortly afterwards */
+    myPickUp = Spawn(PowerUp,,,Location + SpawnHeight * vect(0,0,1), rot(0,0,0));
+
+    if (myPickUp != None)
+    {
+        myPickUp.PickUpBase = self;
+        myPickup.Event = event;
+    }
+
+    if (myMarker != None)
+    {
+        myMarker.markedItem = myPickUp;
+        myMarker.ExtraCost = ExtraPathCost;
+        if (myPickUp != None)
+            myPickup.MyMarker = MyMarker;
+    }
 
     if (myPickup != None)
         myPickUp.bCollideWorld = bOldCollideWorld;

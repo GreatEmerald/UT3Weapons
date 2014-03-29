@@ -162,6 +162,14 @@ function bool ReplaceWith(actor Other, string aClassName)
 
         if (xPickUpBase(A) != None)
         {
+            // GEm: Give our new base the old one's InventorySpot
+            if (xPickUpBase(Other).myMarker != None)
+            {
+                xPickUpBase(Other).myMarker.myPickupBase = xPickUpBase(A);
+                xPickUpBase(A).myMarker = xPickUpBase(Other).myMarker;
+                xPickUpBase(Other).myMarker = None;
+            }
+
             xPickUpBase(A).PowerUp = GetReplacementPickup(xPickUpBase(Other).PowerUp);
             if (UT3PickupFactory(A) != None)
                 UT3PickupFactory(A).SpawnPickup();

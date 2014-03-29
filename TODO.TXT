@@ -1,10 +1,10 @@
-* Test pickup reset after round end
 * Doublecheck item DrawScale
 - Add new vehicle meshes
 - Bundle UT3 announcements
 * Remove all logs and clientmessages
+* Including online
 * Remove all obsolete code
-* Fix all log warnings (figure out the situation with paths)
+* Fix all log warnings
 - Change particles and projectiles
 - Add precache statements for particles and projectiles
 - Implement UT3 HUD
