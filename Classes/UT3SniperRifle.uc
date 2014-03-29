@@ -195,14 +195,14 @@ simulated function ZoomOut()
     FireMode[1].bIsFiring = true;
     if( Instigator.Controller.IsA( 'PlayerController' ) )
         PlayerController(Instigator.Controller).ToggleZoom();
-    PlaySound(Sound'UT3Weapons2.Sniper.SniperZoomOut', SLOT_Interact,,,,,false);
+    PlaySound(Sound'UT3Weapons2.Sniper.SniperZoomOut', SLOT_Misc,,,,,false);
     PlayAnim('WeaponZoomOut');
 }
 
 simulated state ZoomingIn
 {
 Begin:
-    PlaySound(Sound'UT3Weapons2.Sniper.SniperZoomIn', SLOT_Interact,,,,,false);
+    PlaySound(Sound'UT3Weapons2.Sniper.SniperZoomIn', SLOT_Misc,,,,,false);
     PlayAnim('WeaponZoomIn', 2.666);
     Sleep(0.2);
     FireMode[1].bIsFiring = true;
