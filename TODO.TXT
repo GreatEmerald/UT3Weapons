@@ -1,6 +1,5 @@
-* Doublecheck item DrawScale
 - Add new vehicle meshes
-- Bundle UT3 announcements
+* Doublecheck weapon DrawScale
 * Remove all logs and clientmessages
 * Including online
 * Remove all obsolete code
