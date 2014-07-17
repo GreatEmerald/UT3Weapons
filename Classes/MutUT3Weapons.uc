@@ -1,10 +1,42 @@
-/******************************************************************************
-MutUT3Weapons
-
-Creation date: 2008-07-14 12:27
-Last change: $Id$
-Copyright (c) 2008, 2013, 2014 Wormbo, GreatEmerald
-******************************************************************************/
+/*
+ * Copyright © 2008 Wormbo
+ * Copyright © 2008, 2013, 2014 GreatEmerald
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are
+ * met:
+ *
+ *     (1) Redistributions of source code must retain the above copyright
+ *     notice, this list of conditions and the following disclaimer.
+ *
+ *     (2) Redistributions in binary form must reproduce the above copyright
+ *     notice, this list of conditions and the following disclaimers in
+ *     the documentation and/or other materials provided with the
+ *     distribution.
+ *
+ *     (3) The name of the author may not be used to
+ *     endorse or promote products derived from this software without
+ *     specific prior written permission.
+ *
+ *     (4) The use, modification and redistribution of this software must
+ *     be made in compliance with the additional terms and restrictions
+ *     provided by the Unreal Tournament 2004 End User License Agreement.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+ * IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT,
+ * INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+ * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+ * STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING
+ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ * POSSIBILITY OF SUCH DAMAGE.
+ *
+ * This software is not supported by Atari, S.A., Epic Games, Inc. or any
+ * of such parties' affiliates and subsidiaries.
+ */
 
 class MutUT3Weapons extends Mutator;
 
@@ -88,8 +120,8 @@ function bool CheckReplacement(Actor Other, out byte bSuperRelevant)
             if (bResult)
                 return false;
         }
-        else
-            log("MutUT3Weapons: CheckReplacement: Not replacing"@Other);
+        /*else
+            log("MutUT3Weapons: CheckReplacement: Not replacing"@Other);*/
     }
     return Super.CheckReplacement(Other, bSuperRelevant);
 }
@@ -139,7 +171,7 @@ function bool ReplaceWith(actor Other, string aClassName)
             }
             Pickup(Other).MyMarker = None;
         }
-        else if ( A.IsA('Pickup') ){log(self@"ReplaceWith: RespawnTime disabled for"@A);
+        else if ( A.IsA('Pickup') ){//log(self@"ReplaceWith: RespawnTime disabled for"@A);
             Pickup(A).Respawntime = 0.0;}
         if (A.IsInState('Disabled') || A.IsInState('Sleeping'))
             A.GotoState(Other.GetStateName());
@@ -200,51 +232,51 @@ function bool ReplaceWith(actor Other, string aClassName)
 
 function string GetInventoryClassOverride(string InventoryClassName)
 {
-	local class<Weapon> NewWeaponClass;
+    local class<Weapon> NewWeaponClass;
 
-	NewWeaponClass = GetReplacementWeapon(InventoryClassName);
-	if (NewWeaponClass != None) {
-		return string(NewWeaponClass);
-	}
-	return Super.GetInventoryClassOverride(InventoryClassName);
+    NewWeaponClass = GetReplacementWeapon(InventoryClassName);
+    if (NewWeaponClass != None) {
+        return string(NewWeaponClass);
+    }
+    return Super.GetInventoryClassOverride(InventoryClassName);
 }
 
 
 static function class<Weapon> GetReplacementWeapon(coerce string Original)
 {
-	if (Right(Original, 6) ~= "Pickup")
-		Original = Left(Original, Len(Original) - 6);
-	switch (Locs(Original)) {
-	case "xweapons.translauncher":
-		return class'UT3Translocator';
-	case "xweapons.shieldgun":
-		return class'UT3ImpactHammer';
-	case "xweapons.linkgun":
-		return class'UT3LinkGun';
-	case "xweapons.flakcannon":
-		return class'UT3FlakCannon';
-	case "xweapons.assaultrifle":
-		return class'UT3Enforcer';
-	case "xweapons.shockrifle":
-		return class'UT3ShockRifle';
-	case "xweapons.minigun":
-		return class'UT3Minigun2v';
-	case "xweapons.biorifle":
-		return class'UT3BioRifle';
-	case "xweapons.sniperrifle":
-	case "utclassic.classicsniperrifle":
-		return class'UT3SniperRifle';
-	case "xweapons.rocketlauncher":
-		return class'UT3RocketLauncher';
-	case "onslaught.onsavril":
-		return class'UT3AVRIL';
+    if (Right(Original, 6) ~= "Pickup")
+        Original = Left(Original, Len(Original) - 6);
+    switch (Locs(Original)) {
+    case "xweapons.translauncher":
+        return class'UT3Translocator';
+    case "xweapons.shieldgun":
+        return class'UT3ImpactHammer';
+    case "xweapons.linkgun":
+        return class'UT3LinkGun';
+    case "xweapons.flakcannon":
+        return class'UT3FlakCannon';
+    case "xweapons.assaultrifle":
+        return class'UT3Enforcer';
+    case "xweapons.shockrifle":
+        return class'UT3ShockRifle';
+    case "xweapons.minigun":
+        return class'UT3Minigun2v';
+    case "xweapons.biorifle":
+        return class'UT3BioRifle';
+    case "xweapons.sniperrifle":
+    case "utclassic.classicsniperrifle":
+        return class'UT3SniperRifle';
+    case "xweapons.rocketlauncher":
+        return class'UT3RocketLauncher';
+    case "onslaught.onsavril":
+        return class'UT3AVRIL';
 
-	case "xweapons.redeemer":
-		return class'UT3Redeemer';
-	case "xweapons.supershockrifle":
-	    return class'UT3InstagibRifle';
+    case "xweapons.redeemer":
+        return class'UT3Redeemer';
+    case "xweapons.supershockrifle":
+        return class'UT3InstagibRifle';
     default: return none;
-	}
+    }
 }
 
 

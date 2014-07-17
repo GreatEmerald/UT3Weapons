@@ -1,8 +1,41 @@
-//=============================================================================
-// UT3RocketLauncher.uc
-// Rocket Scientist.
-// 2008, 2013, 2014 GreatEmerald
-//=============================================================================
+/*
+ * Copyright © 2008, 2013, 2014 GreatEmerald
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are
+ * met:
+ *
+ *     (1) Redistributions of source code must retain the above copyright
+ *     notice, this list of conditions and the following disclaimer.
+ *
+ *     (2) Redistributions in binary form must reproduce the above copyright
+ *     notice, this list of conditions and the following disclaimers in
+ *     the documentation and/or other materials provided with the
+ *     distribution.
+ *
+ *     (3) The name of the author may not be used to
+ *     endorse or promote products derived from this software without
+ *     specific prior written permission.
+ *
+ *     (4) The use, modification and redistribution of this software must
+ *     be made in compliance with the additional terms and restrictions
+ *     provided by the Unreal Tournament 2004 End User License Agreement.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+ * IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT,
+ * INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+ * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+ * STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING
+ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ * POSSIBILITY OF SUCH DAMAGE.
+ *
+ * This software is not supported by Atari, S.A., Epic Games, Inc. or any
+ * of such parties' affiliates and subsidiaries.
+ */
 
 class UT3RocketLauncher extends RocketLauncher;
 
@@ -141,7 +174,7 @@ function Projectile SpawnProjectile(Vector Start, Rotator Dir)
     }
     else
     {
-        Rocket = Spawn(class'UT3RocketProj',,, Start, Dir);
+        Rocket = Spawn(class'UT3Proj_Rocket',,, Start, Dir);
         return Rocket;
     }
 }
@@ -161,11 +194,11 @@ simulated event ClientStartFire(int Mode)
 
         if ( FireMode[OtherMode].bIsFiring || (FireMode[OtherMode].NextFireTime > Level.TimeSeconds) )
         {
-            log("UT3RocketLauncher: ClientStartFire: IncrementFireMode");
+            //log("UT3RocketLauncher: ClientStartFire: IncrementFireMode");
             //if ( FireMode[OtherMode].Load > 0 )
                 IncrementFireModeServer();
-            if ( bDebugging )
-                log("No RL reg fire because other firing "$FireMode[OtherMode].bIsFiring$" next fire "$(FireMode[OtherMode].NextFireTime - Level.TimeSeconds));
+            /*if ( bDebugging )
+                log("No RL reg fire because other firing "$FireMode[OtherMode].bIsFiring$" next fire "$(FireMode[OtherMode].NextFireTime - Level.TimeSeconds));*/
             return;
         }
     }
@@ -182,7 +215,7 @@ simulated event StopFire(int Mode)
 //Used by bots for instant change
 function IncrementFireModeServer(optional bool bForce)
 {
-    log("UT3RocketLauncher: IncrementFireMode: called");
+    //log("UT3RocketLauncher: IncrementFireMode: called");
     if (!bForce)
     {
         if ((FireModeSwitchTime+FireModeSwitchDelay) > Level.TimeSeconds)
@@ -222,10 +255,10 @@ simulated function IncrementFireModeClient()
 
 simulated function SetFireSoundClient(Sound NewSound)
 {
-    log("UT3RocketLauncher: SetFireSoundClient with"@NewSound);
+    //log("UT3RocketLauncher: SetFireSoundClient with"@NewSound);
     if (UT3RocketMultiFire(FireMode[1]) != None)
         UT3RocketMultiFire(FireMode[1]).FireSound = NewSound;
-    log("UT3RocketLauncher: SetFireSoundClient: Set to"@UT3RocketMultiFire(FireMode[1]).FireSound);
+    //log("UT3RocketLauncher: SetFireSoundClient: Set to"@UT3RocketMultiFire(FireMode[1]).FireSound);
 }
 
 simulated function ClearFireMode()
@@ -274,7 +307,7 @@ simulated function AnimEnd(int Channel) {Super(Weapon).AnimEnd(Channel);}
 simulated state Loading
 {
 Begin:
-    log("UT3RocketLauncher: State Loading");
+    //log("UT3RocketLauncher: State Loading");
     if (UT3RocketMultiFire(FireMode[1]) == None)
         GoToState('');
     UT3RocketMultiFire(FireMode[1]).Plunge(true);

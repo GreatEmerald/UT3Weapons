@@ -27,7 +27,7 @@ function byte GetInventoryGroup()
 
 simulated function PostBeginPlay()
 {
-    log(self@"PostBeginPlay when myPickUp is"@myPickUp@"and PowerUp is"@PowerUp);
+    //log(self@"PostBeginPlay when myPickUp is"@myPickUp@"and PowerUp is"@PowerUp);
     if (WeaponType != None)
     {
         PowerUp = WeaponType.default.PickupClass;

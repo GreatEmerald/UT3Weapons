@@ -1,8 +1,41 @@
-//=============================================================================
-// UT3RocketMultiFire.uc
-// Hmm, not threee way... Yet...
-// 2008, 2013 GreatEmerald
-//=============================================================================
+/*
+ * Copyright © 2008, 2013, 2014 GreatEmerald
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are
+ * met:
+ *
+ *     (1) Redistributions of source code must retain the above copyright
+ *     notice, this list of conditions and the following disclaimer.
+ *
+ *     (2) Redistributions in binary form must reproduce the above copyright
+ *     notice, this list of conditions and the following disclaimers in
+ *     the documentation and/or other materials provided with the
+ *     distribution.
+ *
+ *     (3) The name of the author may not be used to
+ *     endorse or promote products derived from this software without
+ *     specific prior written permission.
+ *
+ *     (4) The use, modification and redistribution of this software must
+ *     be made in compliance with the additional terms and restrictions
+ *     provided by the Unreal Tournament 2004 End User License Agreement.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR
+ * IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT,
+ * INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+ * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+ * STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING
+ * IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ * POSSIBILITY OF SUCH DAMAGE.
+ *
+ * This software is not supported by Atari, S.A., Epic Games, Inc. or any
+ * of such parties' affiliates and subsidiaries.
+ */
 
 class UT3RocketMultiFire extends RocketMultiFire
     dependson(UT3RocketLauncher);
@@ -26,7 +59,7 @@ function PlayFireEnd()
 
 function PlayStartHold() //GE: Rerouting to Weapon since states don't work here
 {
-    log("UT3RocketMultiFire: PlayStartHold");
+    //log("UT3RocketMultiFire: PlayStartHold");
     // GEm: This function is client-side
     if (UT3RocketLauncher(Weapon) != None)
         UT3RocketLauncher(Weapon).GoToState('Loading');
@@ -42,7 +75,7 @@ function PlayFiring()
 
     Weapon.GoToState('WaitForReload');
 
-    log("UT3RocketMultiFire: PlayFiring: Load"@Load);
+    //log("UT3RocketMultiFire: PlayFiring: Load"@Load);
     if (Load == 1.0)
         FireAnim = 'WeaponAltFireLaunch1';
     else if (Load == 2.0)
@@ -68,7 +101,7 @@ function PlayRocketFire(bool CountFire, optional bool bNotExactSync, optional in
     else if (Weapon.Mesh != None && Weapon.HasAnim(FireAnim))
         Weapon.PlayAnim(FireAnim, FireAnimRate, TweenTime, Channel);
 
-    log("UT3RocketMultiFire: PlayRocketFire: FireSound"@FireSound);
+    //log("UT3RocketMultiFire: PlayRocketFire: FireSound"@FireSound);
     if (LoadingSound != None && !CountFire)
         Weapon.PlayOwnedSound(LoadingSound,SLOT_Interact,TransientSoundVolume,,TransientSoundRadius,Default.FireAnimRate/FireAnimRate,false);
     else if (CountFire) // GEm: If we're actually firing
@@ -86,7 +119,7 @@ function Plunge(optional bool FirstRocket)
 {
     local UT3RocketAttachment RLAttachment;
 
-    log("UT3RocketMultiFire: Plunge");
+    //log("UT3RocketMultiFire: Plunge");
     if (UT3RocketLauncher(Weapon) == None || UT3RocketAttachment(UT3RocketLauncher(Weapon).ThirdPersonActor) == None)
         return;
     RLAttachment = UT3RocketAttachment(UT3RocketLauncher(Weapon).ThirdPersonActor);
@@ -139,7 +172,7 @@ function ModeTick(float dt)
     // auto fire if loaded last rocket
     if (HoldTime >= 0.0 && Load >= Weapon.AmmoAmount(ThisModeNum) && !bNowWaiting)
     {
-        Instigator.ClientMessage("UT3RocketFire: ModeTick: Auto-fire at load"@Load);
+        //Instigator.ClientMessage("UT3RocketFire: ModeTick: Auto-fire at load"@Load);
         bIsFiring = false;
     }
 
@@ -153,12 +186,12 @@ function ModeTick(float dt)
             ServerPlayLoading();
 
         Load = Load + 1.0;
-        Instigator.ClientMessage("UT3RocketFire: ModeTick: PlayLoad, Load at"@Load);
+        //Instigator.ClientMessage("UT3RocketFire: ModeTick: PlayLoad, Load at"@Load);
     }
     else if (Load == 2.0 && HoldTime >= FireRate*2.0)
     {
         Load = Load + 1.0;
-        Instigator.ClientMessage("UT3RocketFire: ModeTick: Load at"@Load);
+        //Instigator.ClientMessage("UT3RocketFire: ModeTick: Load at"@Load);
     }
 }
 
@@ -168,7 +201,7 @@ function SwitchFireMode(UT3RocketLauncher.ERocketFireMode LoadedFireMode)
         return;
     CurrentFireMode = LoadedFireMode; //GE: Syncs the classes
     //Instigator.ClientMessage("UT3RocketMultiFire: Current mode is"@CurrentFireMode);
-    log("UT3RocketMultiFire: SwitchFireMode: LoadedFireMode"@LoadedFireMode@"bUseLastFireMode"@bUseLastFireMode@"LastFireMode"@LastFireMode);
+    //log("UT3RocketMultiFire: SwitchFireMode: LoadedFireMode"@LoadedFireMode@"bUseLastFireMode"@bUseLastFireMode@"LastFireMode"@LastFireMode);
 
     if ((bUseLastFireMode && LastFireMode == RFM_Spiral) || LoadedFireMode == RFM_Spiral)
     {
@@ -302,7 +335,7 @@ function DoFireEffect()
 defaultproperties
 {
     AmmoClass=class'UT3RocketAmmo'
-    ProjectileClass=class'UT3RocketProj'
+    ProjectileClass=class'UT3Proj_Rocket'
 
     FireSound=Sound'UT3Weapons2.RocketLauncher.RocketLauncherFire'
     TransientSoundVolume=0.4
