@@ -12,7 +12,7 @@ function bool CheckForErrors()
 {
         if ( (WeaponType == None) || WeaponType.static.ShouldBeHidden() )
         {
-                log(self$" ILLEGAL WEAPONTYPE "$Weapontype);
+                warn(self$" ILLEGAL WEAPONTYPE "$Weapontype);
                 return true;
         }
         return Super.CheckForErrors();

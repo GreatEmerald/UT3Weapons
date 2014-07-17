@@ -40,7 +40,7 @@ simulated function InitClasses()
         for ( i=0; i< NumClasses; i++ )
             PickupClasses[i].static.StaticPrecache(Level);
     }
-    log(self@"InitClasses: PowerUp"@PowerUp);
+    //log(self@"InitClasses: PowerUp"@PowerUp);
 }
 
 function TurnOn()
@@ -55,14 +55,14 @@ function TurnOn()
     if (myPickup != None && PowerUp != None)
         myPickup = myPickup.Transmogrify(PowerUp);
     myPickup.RespawnEffect();
-    log(self@"TurnOn: PowerUp"@PowerUp);
+    //log(self@"TurnOn: PowerUp"@PowerUp);
 }
 
 function SpawnPickup()
 {
     if (PowerUp != PickupClasses[CurrentClass] || CurrentClass > NumClasses)
         InitClasses();
-    log(self@"SpawnPickup:"@PowerUp@">"@myPickup@CurrentClass@NumClasses);
+    //log(self@"SpawnPickup:"@PowerUp@">"@myPickup@CurrentClass@NumClasses);
     Super.SpawnPickup();
 }
 

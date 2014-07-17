@@ -1,9 +1,7 @@
-- Add new vehicle meshes
-* Doublecheck weapon DrawScale
-* Remove all logs and clientmessages
-* Including online
-* Remove all obsolete code
+- Doublecheck weapon DrawScale
+- Remove all obsolete code
 * Fix all log warnings
+* Including online
 - Change particles and projectiles
 - Add precache statements for particles and projectiles
 - Implement UT3 HUD

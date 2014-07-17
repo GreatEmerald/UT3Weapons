@@ -29,7 +29,7 @@ simulated function PlayFiring()
 {
     local vector ModulePoint, X,Y,Z, StartPoint; //GE: Vect Player -> Module
     local rotator ModuleRotate;
-    
+
     //GE: Here's a funny fact: by the time the code gets here, the beacon is already spawned/destroyed
     //unlike usually, when it gets spawned/destroyed afterwards, so the ifs here are inverted!
     if (TransLauncher(Weapon).TransBeacon != None)
@@ -42,22 +42,22 @@ simulated function PlayFiring()
         /*
          * GE: This is the theory behind this:
          * We find the way the player is facing, we find the vector between the
-         * player and the module, we convert it to a rotator, we repeat on other axes.                 
+         * player and the module, we convert it to a rotator, we repeat on other axes.
          */
-        
+
         StartPoint = GetFireStart(X,Y,Z);
         /*
          *GE: ModulePoint:
-         *        |0   
+         *        |0
          * 16000 -P- -16000
-         *        |32000            
-         */         
-        
+         *        |32000
+         */
+
         ModulePoint = UT3Translocator(Weapon).ModuleLocation - Instigator.Location;
         ModuleRotate = Instigator.Controller.GetViewRotation() - rotator(ModulePoint); //GE: there is no Roll info, we don't need it as well - the screen doesn't roll
         TrimToSingleCircle(ModuleRotate);
         //GE: The most else is default, so if it's far to the sides (>45 degrees on each)
-        Instigator.ClientMessage("UT3TranslocatorFire: ViewRotation is"@RotatorToString(Instigator.Controller.GetViewRotation())@"So ModuleRotate is"@RotatorToString(ModuleRotate));
+        //Instigator.ClientMessage("UT3TranslocatorFire: ViewRotation is"@RotatorToString(Instigator.Controller.GetViewRotation())@"So ModuleRotate is"@RotatorToString(ModuleRotate));
         //GE: Pitch > 0 - lower, pitch < 0 - higher than player's view;
         //GE: Yaw > 0 - left, yaw < 0 - right than player's view.
         if (ModuleRotate.Yaw > 5000)
@@ -89,7 +89,7 @@ static final function string RotatorToString(rotator rot)
 function projectile SpawnProjectile(Vector Start, Rotator Dir)
 {
 	local TransBeacon TransBeacon;
-	
+
 	if (TransLauncher(Weapon).TransBeacon == None) {
 		if (Instigator != None && Instigator.PlayerReplicationInfo != None && Instigator.PlayerReplicationInfo.Team != None && Instigator.PlayerReplicationInfo.Team.TeamIndex < TeamProjectileClasses.Length)
 			TransBeacon = Weapon.Spawn(TeamProjectileClasses[Instigator.PlayerReplicationInfo.Team.TeamIndex],,, Start, Dir);
@@ -125,7 +125,7 @@ defaultproperties
 	RecallDownAnim="WeaponReturnDn"
 	RecallRightAnim="WeaponReturnRt"
 	RecallLeftAnim="WeaponReturnLt"
-	
+
 	ProjectileClass = class'UT3TranslocatorDiskRed'
 	TeamProjectileClasses[0] = class'UT3TranslocatorDiskRed'
 	TeamProjectileClasses[1] = class'UT3TranslocatorDiskBlue'

@@ -91,11 +91,11 @@ function RegisterPickup(Actor MyPickup)//, optional string Destination)
 
     //log(self@"RegisterPickup: Iterating through"@MyPickup);
     // GEm: Ignore items that are supposed to be deleted soon
-    if (MyPickup == None || MyPickup.bDeleteMe == true){log(self@"RegisterPickup: Ignoring destroyed item"@MyPickup);
+    if (MyPickup == None || MyPickup.bDeleteMe == true){//log(self@"RegisterPickup: Ignoring destroyed item"@MyPickup);
         return;}
     // GEm: Ignore disabled bases
     if (xPickUpBase(MyPickup) != None
-        && (xPickUpBase(MyPickup).PowerUp == None || MyPickup.bHidden)){log(self@"RegisterPickup: Denied"@MyPickup@"because"@xPickUpBase(MyPickup).PowerUp == None@MyPickup.bHidden);
+        && (xPickUpBase(MyPickup).PowerUp == None || MyPickup.bHidden)){//log(self@"RegisterPickup: Denied"@MyPickup@"because"@xPickUpBase(MyPickup).PowerUp == None@MyPickup.bHidden);
         return;}
 
     if (HealthCharger(MyPickup) != None || UT3PickupFactory_MediumHealth(MyPickup) != None
@@ -209,7 +209,7 @@ function RegisterPickup(Actor MyPickup)//, optional string Destination)
     }
     //GE: If nothing above was executed, this will be.
     UpdateList(MyPickup, UnknownArray);
-    log(self@"RegisterPickup: Unknown pickup type"@MyPickup);
+    //log(self@"RegisterPickup: Unknown pickup type"@MyPickup);
 }
 
 //GE: Labour saving yay! Here we add things to the lists.
@@ -534,7 +534,7 @@ function CutReferences(out array<PickupNode> CurrentNode)
  * Utils - for debugging
  ******************************************************************************/
 
-exec function PrintList(string Variable, optional int i)
+/*exec function PrintList(string Variable, optional int i)
 {
     local array<PickupNode> CurrentArray;
 
@@ -588,7 +588,7 @@ exec function PrintPickup(string Variable, optional int i)
             ViewportOwner.Actor.ClientMessage(xPickUpBase(CurrentArray[i].PickupReference).PowerUp);
     }
 
-}
+}*/
 
 defaultproperties
 {
