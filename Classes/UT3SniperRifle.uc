@@ -296,6 +296,9 @@ simulated function bool PutDown()
 {
     local int Mode;
 
+    if( Instigator.Controller.IsA( 'PlayerController' ) )
+        PlayerController(Instigator.Controller).EndZoom();
+
     if (ClientState == WS_BringUp || ClientState == WS_ReadyToFire)
     {
         if ( (Instigator.PendingWeapon != None) && !Instigator.PendingWeapon.bForceSwitch )

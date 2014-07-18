@@ -10,8 +10,6 @@ simulated function SetBeamLocation()
 {
     local xWeaponAttachment Attachment;
     local Coords C;
-    
-    C = Instigator.Weapon.GetBoneCoords('beamtip');
 
     if ( Level.NetMode == NM_DedicatedServer )
     {
@@ -31,7 +29,10 @@ simulated function SetBeamLocation()
             if ( (Instigator.Weapon == None) || Instigator.Weapon.WeaponCentered() || (Instigator.Weapon.Instigator == None) )
                 SetLocation( Instigator.Location );
             else if (UT3LinkGun(Instigator.Weapon) != None) //GE: Enabling only for UT3LinkGun, since other weapons are likely not to have bone BeamTip.
+            {
+                C = Instigator.Weapon.GetBoneCoords('beamtip');
                 SetLocation(C.Origin - 60 * vector(Instigator.Controller.Rotation));
+            }
             else
                 SetLocation(Instigator.Weapon.GetEffectStart() - 60 * vector(Instigator.Controller.Rotation));
         }

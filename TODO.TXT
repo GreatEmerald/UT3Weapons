@@ -1,7 +1,6 @@
 - Doublecheck weapon DrawScale
 - Remove all obsolete code
-* Fix all log warnings
-* Including online
+- Online: AVRIL alt fire sounds are erratic
 - Change particles and projectiles
 - Add precache statements for particles and projectiles
 - Implement UT3 HUD
