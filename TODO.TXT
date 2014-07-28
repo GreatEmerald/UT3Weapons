@@ -6,4 +6,6 @@
 - Implement UT3 HUD
 - Implement UT3 crosshairs
 - Try reimplementing the UDamage overlay effect with an attachment?
+* Check UDamage effect when taking several UDamages
 - Record UT3 RL alt fire loading and sync the modded one
+* Improve the dual enforcers?
