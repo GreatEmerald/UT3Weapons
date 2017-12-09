@@ -27,6 +27,7 @@ defaultproperties
    FireRate=1.1
    DamageType=class'DamTypeUT3Impact'
    SelfForceScale=1.200000
+   SelfDamageScale=0.121
    
      PreFireAnim="WeaponCharge"
      FireAnim="WeaponFire"
