@@ -331,8 +331,10 @@ defaultproperties
 {
      RoundsPerRotation=3
      BarrelRotationsPerSec=0.975
-     FireSound=Sound'UT3Weapons2.Stinger.StingerAltStop'
-     WindingSound=Sound'UT3Weapons2.Stinger.StingerRapid'
+     FireSound=Sound'UT3Weapons2.Stinger.A_Weapon_Stinger_FireAlt02'
+     //FireSound=Sound'UT3Weapons2.Stinger.StingerAltStop'
+     WindingSound=Sound'UT3Weapons2.Stinger.A_Weapon_Stinger_BarrelWindLoop01'
+     //WindingSound=Sound'UT3Weapons2.Stinger.StingerRapid'
      MinigunSoundVolume=0
      FiringForce="minifireb"
      WindingForce="miniempty"
