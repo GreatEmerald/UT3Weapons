@@ -23,7 +23,8 @@ simulated function Explode(vector HitLocation, vector HitNormal)
         sparks = Spawn(class'LinkProjSparksYellow',,, HitLocation, rotator(HitNormal));
         sparks.Skins[0] = texture'Shock_Sparkle';
     }
-    PlaySound(Sound'UT3Weapons2.Stinger.StingerHitEnemy');
+    PlaySound(Sound'UT3Weapons2.Stinger.StingerImpact');
+    //PlaySound(Sound'UT3Weapons2.Stinger.StingerHitEnemy');
     Destroy();
 }
 
