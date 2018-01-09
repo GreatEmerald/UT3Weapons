@@ -15,6 +15,7 @@ var() float BarrelRotationsPerSec;
 var() int   RoundsPerRotation;
 var() float FireTime;
 var() Sound WindingSound;
+var() byte WindingSoundTransientVolume;
 var() Sound PostFireSound, FireOnceSound;
 var() byte  MinigunSoundVolume;
 var UT3Minigun2v Gun;
@@ -370,6 +371,7 @@ defaultproperties
     //FireSound=Sound'UT3Weapons2.Stinger.StingerPrimaryAmb'
     WindingSound=Sound'UT3Weapons2.Stinger.A_Weapon_Stinger_BarrelWindLoop01' 
     //WindingSound=Sound'UT3Weapons2.Stinger.StingerRapid' //HACK!
+    WindingSoundTransientVolume=40.0
     FireOnceSound=Sound'UT3Weapons2.Stinger.StingerShot'
     PostFireSound=None
     //PostFireSound=Sound'UT3Weapons2.Stinger.StingerRapidStop'
