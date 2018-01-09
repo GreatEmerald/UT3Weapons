@@ -340,8 +340,6 @@ defaultproperties
      WindingForce="miniempty"
      ProjSpawnOffset=(X=25.000000,Y=5.000000,Z=-6.000000)
      bPawnRapidFireAnim=True
-     //FireEndAnim="WeaponRampDown"
-     FireLoopAnimRate=1.800000
      AmmoClass=class'UT3MinigunAmmo'
      AmmoPerFire=2
      ProjectileClass=class'UT3StingerShard'
