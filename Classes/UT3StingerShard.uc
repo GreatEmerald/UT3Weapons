@@ -30,6 +30,8 @@ simulated function Explode(vector HitLocation, vector HitNormal)
 
 defaultproperties
 {
+    Drawscale=0.25
+    LifeSpan=10.0
     //TrailTex=FinalBlend'UT3WeaponsT.Stinger.StingerMuzFlash'
     Damage=38
     TransientSoundVolume=0.25
