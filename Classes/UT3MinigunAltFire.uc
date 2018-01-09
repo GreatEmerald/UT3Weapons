@@ -330,7 +330,7 @@ function DoFireEffect()
 defaultproperties
 {
      RoundsPerRotation=3
-     BarrelRotationsPerSec=0.975
+     BarrelRotationsPerSec=1.18 //0.975
      FireSound=Sound'UT3Weapons2.Stinger.A_Weapon_Stinger_FireAlt02'
      //FireSound=Sound'UT3Weapons2.Stinger.StingerAltStop'
      WindingSound=Sound'UT3Weapons2.Stinger.A_Weapon_Stinger_BarrelWindLoop01'
@@ -340,6 +340,8 @@ defaultproperties
      WindingForce="miniempty"
      ProjSpawnOffset=(X=25.000000,Y=5.000000,Z=-6.000000)
      bPawnRapidFireAnim=True
+     //FireEndAnim="WeaponRampDown"
+     FireLoopAnimRate=1.800000
      AmmoClass=class'UT3MinigunAmmo'
      AmmoPerFire=2
      ProjectileClass=class'UT3StingerShard'
@@ -357,7 +359,8 @@ defaultproperties
      PreFireAnim="WeaponRampUp"
      FireAnim=
      FireLoopAnim="WeaponFire-Secondary"
-     FireEndAnim="WeaponRampDown"
+     FireEndAnim="WeaponFireEnd"
+     //FireEndAnim="WeaponRampDown"
      FireLoopAnimRate=1.800000
      FireForce="minifireb"
     //WindUpTime=0.95
