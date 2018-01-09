@@ -373,8 +373,7 @@ defaultproperties
     //WindingSound=Sound'UT3Weapons2.Stinger.StingerRapid' //HACK!
     WindingSoundTransientVolume=40.0
     FireOnceSound=Sound'UT3Weapons2.Stinger.StingerShot'
-    PostFireSound=None
-    //PostFireSound=Sound'UT3Weapons2.Stinger.StingerRapidStop'
+    PostFireSound=Sound'UT3Weapons2.Stinger.StingerRapidStop'
     MinigunSoundVolume=220
 
     Momentum=+0.0
