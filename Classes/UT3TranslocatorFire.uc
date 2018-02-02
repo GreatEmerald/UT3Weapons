@@ -118,9 +118,9 @@ function projectile SpawnProjectile(Vector Start, Rotator Dir)
 
 defaultproperties
 {
-	TransFireSound    = ProceduralSound'TranslocatorFire'
-	RecallFireSound   = SoundGroup'TranslocatorRecall'
-	RecallFailedSound = Sound'BSeekLost1'
+	TransFireSound=SoundGroup'UT3A_Weapon_Translocator.Fire.FireCue'
+        RecallFireSound=SoundGroup'UT3A_Weapon_Translocator.Recall.RecallCue'
+	RecallFailedSound = Sound'WeaponSounds.BaseGunTech.BSeekLost1'
 	RecallAnim="WeaponReturn"
 	RecallDownAnim="WeaponReturnDn"
 	RecallRightAnim="WeaponReturnRt"
