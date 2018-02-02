@@ -13,7 +13,7 @@ class UT3Translocator extends TransLauncher;
 // Imports
 //=============================================================================
 
-//#exec obj load file=Sounds/UT3Translocator.uax
+//#exec obj load file=Sounds/UT3A_Weapon_Translocator.uax
 
 var Material RedSkin, BlueSkin, RedEffect, BlueEffect;
 var name EmptyBringUpAnim, IdleAnimEmpty, PutDownEmptyAnim; //GE: Woah, chaotic, isn't it?
@@ -245,8 +245,8 @@ defaultproperties
     FireModeClass[1] = class'UT3TranslocatorActivate'
     AttachmentClass = class'UT3TranslocatorAttachment'
 
-    SelectSound = Sound'TranslocatorRaise'
-    PutDownSound = Sound'UT3Translocator.TranslocatorLower'
+    SelectSound=Sound'UT3A_Weapon_Translocator.Singles.A_Weapon_Translocator_Raise01'
+    PutDownSound=Sound'UT3A_Weapon_Translocator.Singles.A_Weapon_Translocator_Lower01'
     TransientSoundVolume = 0.7
     TransientSoundRadius = 1000.0
 
