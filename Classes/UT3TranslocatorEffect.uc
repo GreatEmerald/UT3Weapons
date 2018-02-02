@@ -15,7 +15,7 @@ class UT3TranslocatorEffect extends Emitter abstract;
 
 #exec obj load file=EpicParticles.utx
 #exec obj load file=ParticleMeshes.usx
-#exec obj load file=UT3Translocator.uax
+#exec obj load file=UT3A_Weapon_Translocator.uax
 
 
 //=============================================================================
@@ -82,6 +82,7 @@ defaultproperties
 
 	TransientSoundVolume = 1.0
 	TransientSoundRadius = 1000.0
+        TeleportSound=Sound'UT3A_Weapon_Translocator.Singles.A_Weapon_Translocator_Teleport01'
 
 	FlashScale = 0.7
 }
