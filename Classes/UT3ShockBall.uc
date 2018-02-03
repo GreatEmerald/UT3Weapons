@@ -95,7 +95,7 @@ defaultproperties
     Damage=55
     ComboDamage=215
     //ComboRadius=275
-    AmbientSound=Sound'UT3A_Weapon_ShockRifle.Singles.A_Weapon_ShockRifle_AltFireTravel01'
+    AmbientSound=Sound'UT3A_Weapon_ShockRifle.Singles.AltFireTravel01'
     ImpactSound=Sound'UT3A_Weapon_ShockRifle.AltFireImpact.AltFireImpactCue'
     ComboSound=Sound'UT3A_Weapon_ShockRifle.ComboExplosion.ComboExplosionCue'
     TransientSoundVolume=1.200000
