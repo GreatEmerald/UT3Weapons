@@ -230,7 +230,8 @@ defaultproperties
     PickupClass=class'UT3ShockRiflePickup'
     AttachmentClass=class'UT3ShockRifleAttachment'
 
-    SelectSound=Sound'UT3Weapons.ShockRifle.ShockRifleTakeOut'
+    SelectSound=Sound'UT3A_Weapon_ShockRifle.WeaponEquip.EquipCue'
+    PutDownSound=Sound'UT3A_Weapon_ShockRifle.WeaponUnEquip.UnEquipCue'
     TransientSoundVolume=1.0
 
     CustomCrosshairTextureName="UT3HUD.Crosshairs.UT3CrosshairShockRifle"
@@ -262,6 +263,6 @@ defaultproperties
     Skins(0)=Shader'UT3WeaponSkins.ShockRifle.ShockRifleSkin'
     UDamageOverlay=Material'UT3Pickups.Udamage.M_UDamage_Overlay_S'
     FallbackSkin=Material'UT3WeaponSkins.ShockRifle.T_WP_ShockRifle_D'
-    PutDownSound=Sound'UT3Weapons2.ShockRifle.A_Weapon_SR_Lower01'
+    
 }
 
