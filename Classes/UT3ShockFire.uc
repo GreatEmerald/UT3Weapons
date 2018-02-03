@@ -40,11 +40,11 @@ function Rotator AdjustAim(Vector Start, float InAimError)
 defaultproperties
 {
     AmmoClass=class'UT3ShockAmmo'
-    FireSound=Sound'UT3Weapons2.ShockRifle.ShockRifleFireCue'
-    TransientSoundVolume=0.47
+    FireSound=Sound'UT3A_Weapon_ShockRifle.Fire.FireCue'
+    TransientSoundVolume=1.0
     FireRate=0.77
     Momentum=60000.000000
     DamageType=class'DamTypeUT3ShockBeam'
-     FireAnim="WeaponFire"
-     FireAnimRate=0.7333
+    FireAnim="WeaponFire"
+    FireAnimRate=0.7333
 }
