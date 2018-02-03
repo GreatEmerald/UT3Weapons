@@ -358,8 +358,8 @@ defaultproperties
 
     PickupClass=class'UT3SniperRiflePickup'
     AttachmentClass=class'UT3SniperAttachment'
-    SelectSound=Sound'UT3A_Weapon_Sniper.Singles.A_Weapon_Sniper_Raise01'
-    PutDownSound=Sound'UT3A_Weapon_Sniper.Singles.A_Weapon_Sniper_Lower01'
+    SelectSound=Sound'UT3A_Weapon_Sniper.Singles.Raise01'
+    PutDownSound=Sound'UT3A_Weapon_Sniper.Singles.Lower01'
     TransientSoundVolume=0.73
 
     bSniping=true
