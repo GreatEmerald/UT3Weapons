@@ -245,8 +245,8 @@ defaultproperties
     FireModeClass[1] = class'UT3TranslocatorActivate'
     AttachmentClass = class'UT3TranslocatorAttachment'
 
-    SelectSound=Sound'UT3A_Weapon_Translocator.Singles.A_Weapon_Translocator_Raise01'
-    PutDownSound=Sound'UT3A_Weapon_Translocator.Singles.A_Weapon_Translocator_Lower01'
+    SelectSound=Sound'UT3A_Weapon_Translocator.Singles.Raise01'
+    PutDownSound=Sound'UT3A_Weapon_Translocator.Singles.Lower01'
     TransientSoundVolume = 0.7
     TransientSoundRadius = 1000.0
 
