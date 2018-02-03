@@ -16,8 +16,8 @@ defaultproperties
     AmmoName=SuperShockAmmo
     AmmoString="xWeapons.SuperShockAmmo"
     WeaponName=UT3InstagibRifle
-    WeaponString="UT3Style.UT3InstagibRifle"
-    DefaultWeaponName="UT3Style.UT3InstagibRifle"
+    WeaponString="UT3Weapons.UT3InstagibRifle"
+    DefaultWeaponName="UT3Weapons.UT3InstagibRifle"
     bAllowTranslocator=true
 
     IconMaterialName="MutatorArt.nosym"
