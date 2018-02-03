@@ -163,7 +163,7 @@ defaultproperties
     DamageMin=70
     DamageMax=70
     FireSound=SoundGroup'UT3A_Weapon_Sniper.Fire.FireCue'
-    TransientSoundVolume=1.0000
+    TransientSoundVolume=1.2000
     aimerror=600.000000
     FireAnim="WeaponFire"
     FireAnimRate=1.1
