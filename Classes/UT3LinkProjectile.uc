@@ -6,7 +6,7 @@
 
 class UT3LinkProjectile extends LinkProjectile;
 
-#exec obj load file=UT3LinkGun.uax
+#exec obj load file=UT3A_Weapon_LinkGun.uax
 
 simulated function Explode(vector HitLocation, vector HitNormal)
 {
@@ -17,7 +17,7 @@ simulated function Explode(vector HitLocation, vector HitNormal)
         else
             Spawn(class'LinkProjSparksYellow',,, HitLocation, rotator(HitNormal));
     }
-    PlaySound(Sound'UT3LinkGun.LinkGunFireImpact');
+    PlaySound(Sound'UT3A_Weapon_LinkGun.Impact.ImpactCue');
     Destroy();
 }
 
