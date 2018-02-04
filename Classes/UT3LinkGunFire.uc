@@ -6,6 +6,8 @@
 
 class UT3LinkGunFire extends LinkAltFire;
 
+#exec obj load file=UT3A_Weapon_LinkGun.uax
+
 var class<LinkProjectile> LinkProj;
 
 function Projectile SpawnProjectile(Vector Start, Rotator Dir) //Custom projectile
@@ -61,8 +63,8 @@ defaultproperties
 {
   LinkProj=class'UT3LinkProjectile'
   AmmoClass=class'UT3LinkAmmo'
-  FireSound=Sound'UT3LinkGun.LinkGunFire'
-  LinkedFireSound=Sound'UT3LinkGun.LinkGunFire'
+  FireSound=Sound'UT3A_Weapon_LinkGun.Singles.FireLayer03'
+  LinkedFireSound=Sound'UT3A_Weapon_LinkGun.Singles.FireLayer03' //HDm: We probably need a new higher pitched sound for this
   FireRate=0.16
   AmmoPerFire=1
   FireAnim="WeaponFire"
