@@ -39,6 +39,8 @@
 
 class UT3RocketFire extends RocketFire;
 
+#EXEC OBJ LOAD FILE=UT3A_Weapon_RocketLauncher.uax
+
 function StartFiring()
 {
     //Instigator.ClientMessage("UT3RocketFire: StartFiring() reached");
@@ -78,8 +80,8 @@ defaultproperties
     AmmoClass=class'UT3RocketAmmo'
 
     ProjectileClass=class'UT3Proj_Rocket'
-    FireSound=Sound'UT3Weapons2.RocketLauncher.RocketLauncherFire'
-    TransientSoundVolume=0.4
+    FireSound=Sound'UT3A_Weapon_RocketLauncher.Fire.FireCue'
+    TransientSoundVolume=1.0
 
     FireRate=1.050000
     FireAnim="WeaponFire"
