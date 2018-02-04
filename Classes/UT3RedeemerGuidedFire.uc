@@ -47,6 +47,6 @@ function Projectile SpawnProjectile(Vector Start, Rotator Dir)
 defaultproperties
 {
     ProjectileClass=class'UT3RedeemerProjectile'
-    FireSound=Sound'UT3Weapons2.Redeemer.RedeemerFire'
-     FireAnim="WeaponFire"
+    FireSound=Sound'UT3A_Weapon_Redeemer.Fire.FireCue'
+    FireAnim="WeaponFire"
 }
