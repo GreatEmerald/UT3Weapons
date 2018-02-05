@@ -484,7 +484,10 @@ defaultproperties
     FireModeClass(0)=UT3EnforcerFire
     FireModeClass(1)=UT3EnforcerAltFire
     PickupClass=class'UT3EnforcerPickup'
-    SelectSound=Sound'UT3Weapons.Enforcer.EnforcerTakeOut'
+    ReloadSound=Sound'UT3A_Weapon_Enforcer.ReloadComposite.ReloadCompositeCue'
+    SelectSound=Sound'UT3A_Weapon_Enforcer.WeaponEquip.EquipCue'
+    PutDownSound=Sound'UT3A_Weapon_Enforcer.WeaponUnEquip.UnEquipCue'
+    TransientSoundVolume=0.8
 
     CustomCrosshairTextureName="UT3HUD.Crosshairs.UT3CrosshairEnforcer"
     CustomCrosshairColor=(R=255,G=255,B=255,A=255)
@@ -520,11 +523,10 @@ defaultproperties
     SmallViewOffset=(X=60.0,Y=12.0,Z=-13.0)
     PlayerViewPivot=(Pitch=-500,Yaw=750,Roll=0)
     AttachmentClass=class'UT3EnforcerAttachment'
-    ReloadSound=Sound'UT3Weapons2.Enforcer.EnforcerReload'
     bAlreadyLoaded=False
     AkimboDelay=2.0
     AkimboTime=1.3636
     HighDetailOverlay=None
     UDamageOverlay=Material'UT3Pickups.Udamage.M_UDamage_Overlay_S'
-    PutDownSound=Sound'UT3Weapons2.Enforcer.A_Weapon_Enforcer_Lower01'
+    
 }
