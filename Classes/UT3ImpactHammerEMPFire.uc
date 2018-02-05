@@ -50,7 +50,7 @@ function DoFireEffect()
     Force = MinForce + Scale * (MaxForce - MinForce);
 
     Instigator.AmbientSound = None;
-    Instigator.SoundVolume = Instigator.Default.SoundVolume;
+    //Instigator.SoundVolume = Instigator.Default.SoundVolume;
 
     if (ChargingEmitter != None)
         ChargingEmitter.mRegenPause = true;
@@ -96,7 +96,7 @@ function Timer() //GE: Adding WindingSound support.
             bAutoRelease = true;
             bIsFiring = false;
             Instigator.AmbientSound = None;
-            Instigator.SoundVolume = Instigator.Default.SoundVolume;
+            //Instigator.SoundVolume = Instigator.Default.SoundVolume;
             AutoHitPawn = Pawn(Other);
             AutoHitTime = Level.TimeSeconds;
             if (ChargingEmitter != None)
@@ -105,7 +105,7 @@ function Timer() //GE: Adding WindingSound support.
         else if (HoldTime < WindingDuration*Level.TimeDilation)
         {
             if (!bWinding)
-                Weapon.PlayOwnedSound(WindingSound, SLOT_Interact, TransientSoundVolume*1.1);
+                Weapon.PlayOwnedSound(WindingSound, SLOT_Interact);
             bWinding = True;
             ChargeScale = FMin(HoldTime, FullyChargedTime);
             if (!bStartedChargingForce)
@@ -117,7 +117,7 @@ function Timer() //GE: Adding WindingSound support.
         else
         {
             Instigator.AmbientSound = ChargingSound;
-            Instigator.SoundVolume = ChargingSoundVolume;
+            //Instigator.SoundVolume = ChargingSoundVolume;
             ChargeScale = FMin(HoldTime, FullyChargedTime);
             bWinding = False;
         }
@@ -127,7 +127,7 @@ function Timer() //GE: Adding WindingSound support.
         if ( Instigator.AmbientSound == ChargingSound )
         {
             Instigator.AmbientSound = None;
-            Instigator.SoundVolume = Instigator.Default.SoundVolume;
+            //Instigator.SoundVolume = Instigator.Default.SoundVolume;
         }
 
         SetTimer(0, false);
@@ -161,16 +161,17 @@ function DrawMuzzleFlash(Canvas Canvas)
     if ( (Instigator.AmbientSound == ChargingSound) && ((HoldTime <= 0.0) || bNowWaiting) )
     {
         Instigator.AmbientSound = None;
-        Instigator.SoundVolume = Instigator.Default.SoundVolume;
+        //Instigator.SoundVolume = Instigator.Default.SoundVolume;
     }
 
 }
 
 defaultproperties
 {
-    ChargingSound=Sound'UT3Weapons2.ImpactHammer.ImpactHammerLoop'
-    FireSound=Sound'UT3Weapons2.ImpactHammer.ImpactHammerAltFireCue'
-    WindingSound=Sound'UT3Weapons2.ImpactHammer.ImpactHammerStartup'
+    WindingSound=Sound'UT3A_Weapon_ImpactHammer.Singles.AltFireLoopCueStart'
+    ChargingSound=Sound'UT3A_Weapon_ImpactHammer.Singles.AltFireLoopCue'
+    FireSound=SoundGroup'UT3A_Weapon_ImpactHammer.AltImpact.AltImpactCue'
+    TransientSoundVolume=1.5
     MinDamage=0.0
     MaxDamage=150.0
     ShieldRange=220.0
