@@ -6,6 +6,8 @@
 
 class UT3FlakCannon extends FlakCannon;
 
+#exec obj load file=UT3A_Weapon_FlakCannon.uax
+
 var Material UDamageOverlay;
 var() Sound PutDownSound;
 
@@ -110,7 +112,9 @@ defaultproperties
     FireModeClass(0)=UT3FlakFire
     FireModeClass(1)=UT3FlakAltFire
     PickupClass=class'UT3FlakCannonPickup'
-    SelectSound=Sound'UT3Weapons.FlakCannon.FlakCannonTakeOut'
+    SelectSound=Sound'UT3A_Weapon_FlakCannon.WeaponEquip.EquipCue'
+    PutDownSound=Sound'UT3A_Weapon_FlakCannon.WeaponUnEquip.UnEquipCue'
+    TransientSoundVolume = 0.8
     CustomCrosshairTextureName="UT3HUD.Crosshairs.UT3CrosshairFlakCannon"
     CustomCrosshairColor=(B=128,G=255,R=255,A=255)
     CustomCrosshairScale=1.5
@@ -133,5 +137,5 @@ defaultproperties
     AttachmentClass=class'UT3FlakAttachment'
     HighDetailOverlay=None
     UDamageOverlay=Material'UT3Pickups.Udamage.M_UDamage_Overlay_S'
-    PutDownSound=Sound'UT3Weapons2.FlakCannon.A_FlakCannon_Lower'
+    
 }
