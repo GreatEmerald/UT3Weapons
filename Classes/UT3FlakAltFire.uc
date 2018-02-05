@@ -6,13 +6,15 @@
 
 class UT3FlakAltFire extends FlakAltFire;
 
+#exec obj load file=UT3A_Weapon_FlakCannon.uax
+
 defaultproperties
 {
     AmmoClass=class'UT3FlakAmmo'
 
     ProjectileClass=class'UT3FlakShell'
-    FireSound=Sound'UT3Weapons2.FlakCannon.FlakCannon_FireAltCue'
-    TransientSoundVolume=1.0
+    FireSound=SoundGroup'UT3A_Weapon_FlakCannon.FireAlt.FireAltCue'
+    TransientSoundVolume=1.2
 
     FireRate=1.0
     FireAnim="WeaponFire"
