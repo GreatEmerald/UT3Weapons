@@ -6,15 +6,18 @@
 
 class UT3FlakChunk extends FlakChunk;
 
+#exec obj load file=UT3A_Weapon_FlakCannon.uax
+
 defaultproperties
 {
     Bounces=2
-    ImpactSounds(0)=sound'UT3Weapons2.FlakCannon.FlakCannon_ImpactDirtCue'
-    ImpactSounds(1)=sound'UT3Weapons2.FlakCannon.FlakCannon_ImpactDirtCue'
-    ImpactSounds(2)=sound'UT3Weapons2.FlakCannon.FlakCannon_ImpactDirtCue'
-    ImpactSounds(3)=sound'UT3Weapons2.FlakCannon.FlakCannon_ImpactDirtCue'
-    ImpactSounds(4)=sound'UT3Weapons2.FlakCannon.FlakCannon_ImpactDirtCue'
-    ImpactSounds(5)=sound'UT3Weapons2.FlakCannon.FlakCannon_ImpactDirtCue'
+    ImpactSounds(0)=SoundGroup'UT3A_Weapon_FlakCannon.FireImpact.FireImpactCue'
+    ImpactSounds(1)=SoundGroup'UT3A_Weapon_FlakCannon.FireImpact.FireImpactCue'
+    ImpactSounds(2)=SoundGroup'UT3A_Weapon_FlakCannon.FireImpact.FireImpactCue'
+    ImpactSounds(3)=SoundGroup'UT3A_Weapon_FlakCannon.FireImpact.FireImpactCue'
+    ImpactSounds(4)=SoundGroup'UT3A_Weapon_FlakCannon.FireImpact.FireImpactCue'
+    ImpactSounds(5)=SoundGroup'UT3A_Weapon_FlakCannon.FireImpact.FireImpactCue'
+    TransientSoundVolume = 0.8
     Speed=3500.000000
     MaxSpeed=3500.000000
     Damage=18.000000
