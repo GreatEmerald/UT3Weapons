@@ -18,6 +18,7 @@ defaultproperties
     WindingSound=Sound'UT3A_Weapon_ImpactHammer.Singles.FireLoopCueStart'
     FireSound=Sound'UT3A_Weapon_ImpactHammer.AltFire.AltFireCue' //Not sure why it's called alt fire when both primary and alt use this, only alt has the emp layer added in as well
     ChargingSound=Sound'UT3A_Weapon_ImpactHammer.Singles.FireLoopCue'
+    TransientSoundVolume=1.5
     MinDamage=20.0
     MaxDamage=140.0
     ShieldRange=55.0 //110
