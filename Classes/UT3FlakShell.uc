@@ -6,7 +6,7 @@
 
 class UT3FlakShell extends flakshell;
 
-#exec obj load file=UT3Weapons.uax
+#exec obj load file=UT3A_Weapon_FlakCannon.uax
 
 var sound ExplosionSound;
 
@@ -54,7 +54,8 @@ defaultproperties
 {
     Damage=100.000000
     MyDamageType=class'DamTypeUT3FlakShell'
-    ExplosionSound=sound'UT3Weapons2.FlakCannon.FlakCannon_FireAltImpactExplodeCue'
-    AmbientSound=sound'UT3Weapons2.FlakCannon.FlakCannon_FireAltInAir'
+    AmbientSound=Sound'UT3A_Weapon_FlakCannon.Singles.FireAltInAirCue'
+    ExplosionSound=SoundGroup'UT3A_Weapon_FlakCannon.FireAltImpactExplode.FireAltImpactExplodeCue'
+    TransientSoundVolume = 0.8
 }
 
