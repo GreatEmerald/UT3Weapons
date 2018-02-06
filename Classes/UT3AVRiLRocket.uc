@@ -6,6 +6,8 @@
 
 class UT3AVRiLRocket extends ONSAVRiLRocket;
 
+#EXEC OBJ LOAD FILE=UT3A_Weapon_AVRiL.uax
+
 var() sound ExplosionSound;
 
 simulated function Destroyed()
@@ -34,5 +36,6 @@ defaultproperties
 {
     MomentumTransfer=150000.000000
     MyDamageType=class'DamTypeUT3AVRiLRocket'
-    ExplosionSound=Sound'UT3Weapons2.AVRIL.AVRILExplosion'
+    ExplosionSound=Sound'UT3A_Weapon_AVRiL.FireImpact.FireImpactCue'
+    TransientSoundVolume=0.8
 }
