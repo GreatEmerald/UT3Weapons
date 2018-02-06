@@ -39,6 +39,8 @@
 
 class UT3AVRiLAltFire extends ONSAVRiLAltFire;
 
+#EXEC OBJ LOAD FILE=UT3A_Weapon_AVRiL.uax
+
 var UT3AVRiLBeam Beam;
 var vector EffectOffset;
 var float TraceRange;
@@ -146,7 +148,7 @@ defaultproperties
 {
     AmmoClass=class'UT3AVRiLAmmo'
 
-    FireSound=Sound'UT3Weapons2.Generic.LaserTracer'
+    FireSound=Sound'UT3A_Weapon_AVRiL.Singles.FireAltLoop'
     TransientSoundVolume=1.0
     WarnTargetPct=0.100000
     EffectOffset=(X=-5.000000,Y=15.000000,Z=20.000000)
