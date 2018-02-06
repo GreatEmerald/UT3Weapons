@@ -6,6 +6,8 @@
 
 class UT3AVRIL extends ONSAVRiL;
 
+#EXEC OBJ LOAD FILE=UT3A_Weapon_AVRiL.uax
+
 var() Sound LockOnSound;
 //var bool bDebug1, bDebug2, bDebug3;
 var Material UDamageOverlay;
@@ -250,7 +252,6 @@ defaultproperties
 {
     ItemName="UT3 Longbow AVRiL"
     Description="The Longbow Anti-Vehicle Rocket Launcher, a.k.a. the 'AVRiL', gives dismounted infantry a fighting chance in an armored conflict. Its solid fuel missile can be 'dumbfired' as an unguided rocket, but the AVRiL's famed kill percentages come from its optical tracking system.|The alternate fire zooms and locks on to a vehicle, guiding the missile towards its target at inescapable speeds. The missile's microdappled control planes use increased surface area to give unprecedented turning radius, guaranteeing delivery of its shaped PolyDiChlorite charge into all but the most nimble vehicles.|The AVRiL is notoriously slow to reload, so it should be employed with caution in a pitched battle.|Note, the Longbow's targeting laser is (not yet) standardized for most Axon military equipment, so it can be used in other battlefield applications such as directing spider mines."  //TODO Lasers
-    LockOnSound=Sound'UT3Weapons2.Generic.LockOn'
 
     IdleAnim="WeaponIdle"
     RestAnim="WeaponIdle"
@@ -277,7 +278,10 @@ defaultproperties
     //ReticleONMaterial=Shader'VMWeaponsTX.PlayerWeaponsGroup.AVRiLreticleTEXRed'
 
     PickupClass=class'UT3AVRiLPickup'
-    SelectSound=Sound'UT3Weapons.FlakCannon.FlakCannonTakeOut'
+    SelectSound=Sound'UT3A_Weapon_AVRiL.WeaponEquip.EquipCue'
+    PutDownSound=Sound'UT3A_Weapon_AVRiL.WeaponUnEquip.UnEquipCue'
+    LockOnSound=Sound'UT3A_Weapon_AVRiL.Singles.Lock01'
+    TransientSoundVolume=0.8
 
     CustomCrosshairTextureName="UT3HUD.Crosshairs.UT3CrosshairAVRiL"
     CustomCrosshairColor=(B=0,G=0,R=255,A=255)
@@ -288,7 +292,7 @@ defaultproperties
     IconCoords=(X1=364,Y1=213,X2=435,Y2=238)
 
     AttachmentClass=Class'UT3AVRiLAttachment'
-    SoundVolume=255
+    
     UDamageOverlay=Material'UT3Pickups.Udamage.M_UDamage_Overlay_S'
-    PutDownSound=Sound'UT3Weapons2.FlakCannon.A_FlakCannon_Lower'
+    
 }
