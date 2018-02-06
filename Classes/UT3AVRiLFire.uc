@@ -6,6 +6,8 @@
 
 class UT3AVRiLFire extends ONSAVRiLFire;
 
+#EXEC OBJ LOAD FILE=UT3A_Weapon_AVRiL.uax
+
 var(Sound) float AVRiLSoundVolume;
 
 function Timer()
@@ -26,9 +28,9 @@ defaultproperties
     ProjectileClass=class'UT3AVRiLRocket'
     KickMomentum=(X=0,Y=0,Z=0)
 
-    FireSound=Sound'UT3Weapons2.AVRIL.AVRILFire'
+    FireSound=Sound'UT3A_Weapon_AVRiL.Fire.FireCue
     TransientSoundVolume=0.5
-    ReloadSound=Sound'UT3Weapons2.AVRIL.AVRILReload'
+    ReloadSound=Sound'UT3A_Weapon_AVRiL.Singles.Reload01'
     AVRiLSoundVolume=0.7
     
       FireAnim="WeaponFire"
