@@ -13,7 +13,7 @@ class UT3Translocator extends TransLauncher;
 // Imports
 //=============================================================================
 
-//#exec obj load file=Sounds/UT3A_Weapon_Translocator.uax
+#exec obj load file=Sounds/UT3A_Weapon_Translocator.uax
 
 var Material RedSkin, BlueSkin, RedEffect, BlueEffect;
 var name EmptyBringUpAnim, IdleAnimEmpty, PutDownEmptyAnim; //GE: Woah, chaotic, isn't it?
@@ -247,8 +247,9 @@ defaultproperties
 
     SelectSound=Sound'UT3A_Weapon_Translocator.Singles.Raise01'
     PutDownSound=Sound'UT3A_Weapon_Translocator.Singles.Lower01'
-    TransientSoundVolume = 0.7
-    TransientSoundRadius = 1000.0
+    SoundVolume=255
+    TransientSoundVolume = 0.8
+    TransientSoundRadius = 500.0 //HD: 1000 is too much I think, still experimenting with this one
 
     // higher capacity and recharge rate
     AmmoChargeF    = 7.0
