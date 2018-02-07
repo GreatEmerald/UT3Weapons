@@ -80,8 +80,8 @@ defaultproperties
 	bNoDelete            = false
 	AutoDestroy          = true
 
-	TransientSoundVolume = 1.0
-	TransientSoundRadius = 1000.0
+	TransientSoundVolume = 1.2
+	TransientSoundRadius = 500.0 //1000 is probably too much, still experimenting
         TeleportSound=Sound'UT3A_Weapon_Translocator.Singles.Teleport01'
 
 	FlashScale = 0.7
