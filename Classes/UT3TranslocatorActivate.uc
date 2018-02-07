@@ -8,6 +8,7 @@ Copyright (c) 2008, Wormbo
 
 class UT3TranslocatorActivate extends TransRecall;
 
+#exec obj load file=UT3A_Weapon_Translocator.uax
 
 //=============================================================================
 // Properties
@@ -142,4 +143,5 @@ defaultproperties
 	TransEffects[1] = (Overlay=PlayerTrans,Effect=class'UT3TranslocatorEffectBlue')
 	FireAnim="weaponreturn"
 	TransFailedSound=Sound'UT3A_Weapon_Translocator.Singles.Teleport01'
+	TransientSoundVolume=1.200000
 }
