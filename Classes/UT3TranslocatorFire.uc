@@ -121,6 +121,7 @@ defaultproperties
 	TransFireSound=SoundGroup'UT3A_Weapon_Translocator.Fire.FireCue'
         RecallFireSound=SoundGroup'UT3A_Weapon_Translocator.Recall.RecallCue'
 	RecallFailedSound = Sound'WeaponSounds.BaseGunTech.BSeekLost1'
+	TransientSoundVolume=2.0
 	RecallAnim="WeaponReturn"
 	RecallDownAnim="WeaponReturnDn"
 	RecallRightAnim="WeaponReturnRt"
