@@ -107,9 +107,10 @@ defaultproperties
     AmmoClass=class'UT3BioAmmo'
     ProjectileClass=class'UT3BioGlobCharged'
     ChargedAmbientSound=Sound'UT3A_Weapon_BioRifle.Singles.FireAltChamberCue'
-    HoldSound=Sound'UT3A_Weapon_BioRifle.Singles.FireAltChamberCueStart'
+    HoldSound=Sound'UT3A_Weapon_BioRifle.FireAltChamberStart.FireAltChamberStartCue'
     FireSound=Sound'UT3A_Weapon_BioRifle.FireAltLarge.FireAltLargeCue'
-    TransientSoundVolume=0.920000
+    TransientSoundVolume=1.2
+    //TransientSoundVolume=0.920000
     FireRate=0.35
     //TransientSoundVolume=0.6
     
