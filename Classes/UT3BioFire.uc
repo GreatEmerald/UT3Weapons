@@ -53,7 +53,8 @@ defaultproperties
     FireRate=0.35
 
     FireSound=Sound'UT3A_Weapon_BioRifle.FireMain.FireMainCue'
-    TransientSoundVolume=0.920000
+    TransientSoundVolume=1.2
+    //TransientSoundVolume=0.920000
 
      FireAnim="WeaponFire2"
      TweenTime=0.1
