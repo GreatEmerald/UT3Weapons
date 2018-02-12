@@ -17,7 +17,7 @@ defaultproperties
     Spread=1024
 
     FireSound=SoundGroup'UT3A_Weapon_FlakCannon.Fire.FireCue'
-    TransientSoundVolume=1.0
+    TransientSoundVolume=1.2
 
     FireRate=1.1
     
