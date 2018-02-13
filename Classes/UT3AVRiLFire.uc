@@ -29,9 +29,9 @@ defaultproperties
     KickMomentum=(X=0,Y=0,Z=0)
 
     FireSound=Sound'UT3A_Weapon_AVRiL.Fire.FireCue
-    TransientSoundVolume=0.5
+    TransientSoundVolume=0.8
     ReloadSound=Sound'UT3A_Weapon_AVRiL.Singles.Reload01'
-    AVRiLSoundVolume=0.7
+    AVRiLSoundVolume=0.7 //HDm: Does this actually do anything GE, it doesn't seem to?
     
       FireAnim="WeaponFire"
       ReloadAnim="weaponreload"
