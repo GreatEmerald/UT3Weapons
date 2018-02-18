@@ -55,8 +55,8 @@ state Hold
         {
             SetTimer(0.0, false);
             Instigator.AmbientSound = ChargedAmbientSound;
-            Instigator.SoundRadius = 50;
-            Instigator.SoundVolume = 50;
+            //Instigator.SoundRadius = 50;
+            //Instigator.SoundVolume = 50;
             Weapon.LoopAnim(FireLoopAnim);
         }
     }
