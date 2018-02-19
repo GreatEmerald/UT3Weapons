@@ -85,7 +85,7 @@ defaultproperties
     BeamEffectClass=class'SuperShockBeamEffect'
     bModeExclusive=true
     AimError=700
-    TransientSoundVolume=0.7
+    TransientSoundVolume=1.2
     
     FireAnim="WeaponFireInstiGib"
 }
