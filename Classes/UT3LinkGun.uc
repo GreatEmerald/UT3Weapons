@@ -227,8 +227,9 @@ defaultproperties
     PickupClass     = class'UT3LinkGunPickup'
     AttachmentClass = class'UT3LinkGunAttachment'
 
-    SelectSound=Sound'UT3A_Weapon_LinkGun.Raise01'
-    PutDownSound=Sound'UT3A_Weapon_LinkGun.Lower01'
+    SelectSound=Sound'UT3A_Weapon_LinkGun.WeaponEquip.EquipCue'
+    PutDownSound=Sound'UT3A_Weapon_LinkGun.WeaponUnEquip.UnEquipCue'
+    TransientSoundVolume=0.8
     CustomCrosshairTextureName="UT3HUD.Crosshairs.UT3CrosshairLinkGun"
     CustomCrosshairScale=1.3
     CustomCrosshairColor=(B=0,G=255,R=255,A=255)
