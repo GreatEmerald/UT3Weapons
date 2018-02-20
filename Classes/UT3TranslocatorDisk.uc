@@ -14,5 +14,6 @@ class UT3TranslocatorDisk extends TransBeacon abstract;
 
 defaultproperties
 {
+        MyDamageType=class'DamTypeUT3TeleFrag'
 	Speed = 1330.0
 }
