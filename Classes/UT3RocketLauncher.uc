@@ -467,7 +467,7 @@ defaultproperties
     LockOnSound=Sound'UT3A_Weapon_RocketLauncher.Singles.SeekLockCue'
     LockLostSound=Sound'UT3A_Weapon_RocketLauncher.Singles.SeekLostCue'
     FireModeSwitchSound=Sound'UT3A_Weapon_RocketLauncher.Singles.AltModeChange01'
-    TransientSoundVolume=0.800000
+    TransientSoundVolume=0.900000
     LockRequiredTime=1.10000
     LockAim=0.997000
     SeekCheckFreq=0.100000
