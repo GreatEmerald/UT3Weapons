@@ -232,6 +232,11 @@ simulated function SetOverlayMaterial(Material mat, float time, bool bOverride)
         OverlayMaterial = UDamageOverlay;
 }
 
+function class<DamageType> GetDamageType()
+{
+    return class'DamTypeUT3Telefrag';
+}
+
 //=============================================================================
 // Default values
 //=============================================================================
