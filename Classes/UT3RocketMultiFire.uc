@@ -215,7 +215,7 @@ function SwitchFireMode(UT3RocketLauncher.ERocketFireMode LoadedFireMode)
     else if ((bUseLastFireMode && LastFireMode == RFM_Grenades) || LoadedFireMode == RFM_Grenades)
     {
         UT3RocketLauncher(Weapon).SetTightSpread(false);
-        ProjectileClass=Class'XWeapons.Grenade';
+        ProjectileClass=Class'UT3Weapons.UT3RocketGrenade';
         bTossed=True;
         UT3RocketLauncher(Weapon).SetFireSoundClient(GrenadeFireSound);
         Spread = 1400;
