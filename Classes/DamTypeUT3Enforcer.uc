@@ -14,8 +14,8 @@ defaultproperties
     bInstantHit=true
     GibModifier=0.0
     DeathString="%k riddled %o full of holes with the Enforcer."
-    MaleSuicide="%o performed the impossible."
-    FemaleSuicide="%o performed the impossible."
+    MaleSuicide="%o has performed the impossible."
+    FemaleSuicide="%o has performed the impossible."
 
     WeaponClass=class'UT3Enforcer'
     KDamageImpulse=200.000000
