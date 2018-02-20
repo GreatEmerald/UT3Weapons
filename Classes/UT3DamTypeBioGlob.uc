@@ -9,9 +9,9 @@ class UT3DamTypeBioGlob extends WeaponDamageType
 
 defaultproperties
 {
-    DeathString="%o was corroded by %k's Bio Rifle."
-    MaleSuicide="%o was slimed by his own goop."
-    FemaleSuicide="%o was slimed by her own goop."
+    DeathString="%o was slimed by %k's Bio Goo."
+    FemaleSuicide="%o suffocated in her own Goo."
+    MaleSuicide="%o suffocated in his own Goo."
 
     WeaponClass=class'UT3BioRifle'
 
