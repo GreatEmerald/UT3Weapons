@@ -82,7 +82,7 @@ defaultproperties
 
 	TransientSoundVolume = 1.2
 	TransientSoundRadius = 500.0 //1000 is probably too much, still experimenting
-        TeleportSound=Sound'UT3A_Weapon_Translocator.Singles.Teleport01'
+        TeleportSound=Sound'UT3A_Weapon_Translocator.Teleport.TeleportCue'
 
 	FlashScale = 0.7
 }
