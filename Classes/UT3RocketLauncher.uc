@@ -464,8 +464,8 @@ defaultproperties
     AttachmentClass=class'UT3RocketAttachment'
     SelectSound=Sound'UT3A_Weapon_RocketLauncher.WeaponEquip.Equip'
     PutDownSound=Sound'UT3A_Weapon_RocketLauncher.WeaponUnEquip.UnEquip'
-    LockOnSound=Sound'UT3A_Weapon_RocketLauncher.Singles.SeekLockCue'
-    LockLostSound=Sound'UT3A_Weapon_RocketLauncher.Singles.SeekLostCue'
+    LockOnSound=Sound'UT3A_Weapon_RocketLauncher.Singles.SeekLock'
+    LockLostSound=Sound'UT3A_Weapon_RocketLauncher.Singles.SeekLost'
     FireModeSwitchSound=Sound'UT3A_Weapon_RocketLauncher.Singles.AltModeChange01'
     TransientSoundVolume=0.900000
     LockRequiredTime=1.10000
