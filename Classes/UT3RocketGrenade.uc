@@ -30,7 +30,7 @@ defaultproperties
      Damage=100.0
      DamageRadius=200
      MomentumTransfer=50000
-     ImpactSound=Sound'UT3A_Weapon_RocketLauncher.Singles.GrenadeFloorCue'
+     ImpactSound=Sound'UT3A_Weapon_RocketLauncher.Singles.GrenadeFloor'
      ExplosionSound=Sound'UT3A_Weapon_RocketLauncher.Impact.ImpactCue'
      
 }
