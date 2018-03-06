@@ -103,7 +103,7 @@ defaultproperties
     DisruptSound=Sound'UT3A_Weapon_Translocator.UT3TLDisrupted.UT3TLDisruptedCue'
     DisruptedSound=Sound'UT3A_Weapon_Translocator.UT3TLSingles.UT3TLDisruptedLoop'
     ImpactSound=Sound'UT3A_Weapon_Translocator.UT3TLBounce.UT3TLBounceCue'
-    ImpactSound=Sound'UT3A_Weapon_Translocator.Bounce.BounceCue'
+    
     SoundVolume=255
     SoundRadius=20
     TransientSoundVolume=2.0
