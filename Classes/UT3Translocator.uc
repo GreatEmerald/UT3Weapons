@@ -245,10 +245,10 @@ defaultproperties
     FireModeClass[1] = class'UT3TranslocatorActivate'
     AttachmentClass = class'UT3TranslocatorAttachment'
 
-    SelectSound=Sound'UT3A_Weapon_Translocator.WeaponEquip.EquipCue'
-    PutDownSound=Sound'UT3A_Weapon_Translocator.WeaponUnEquip.UnEquipCue'
+    SelectSound=Sound'UT3A_Weapon_Translocator.UT3TLRaise.UT3TLRaiseCue'
+    PutDownSound=Sound'UT3A_Weapon_Translocator.UT3TLLower.UT3TLLowerCue'
     SoundVolume=255
-    TransientSoundVolume = 0.8
+    TransientSoundVolume = 0.7
     TransientSoundRadius = 500.0 //HD: 1000 is too much I think, still experimenting with this one
 
     // higher capacity and recharge rate
