@@ -318,8 +318,6 @@ defaultproperties
     LightRadius=5.0
     Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_Stinger_1P'
     DrawScale=0.400000
-    SoundRadius=400.000000
-    TransientSoundVolume=1.0
     //HighDetailOverlay=Combiner'UT2004Weapons.WeaponSpecMap2'
     UDamageOverlay=Material'UT3Pickups.Udamage.M_UDamage_Overlay_S'
 
@@ -331,6 +329,8 @@ defaultproperties
     PickupClass=class'UT3MinigunPickup'
     SelectSound=Sound'UT3A_Weapon_Stinger.UT3SMLower.UT3SMLowerCue' //HD: They do use lower in the UT3 Editor here, my question is maybe it was a mistake?
     PutDownSound=Sound'UT3A_Weapon_Stinger.UT3SMRaise.UT3SMRaiseCue'
+    SoundRadius=400.000000
+    TransientSoundVolume=0.8
 
     CustomCrosshairTextureName="UT3HUD.Crosshairs.UT3CrosshairStinger"
     CustomCrosshairColor=(B=0,G=255,R=255,A=255)
