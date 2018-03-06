@@ -329,8 +329,8 @@ defaultproperties
     FireModeClass(0)=UT3MinigunFire
     FireModeClass(1)=UT3MinigunAltFire
     PickupClass=class'UT3MinigunPickup'
-    SelectSound=Sound'UT3A_Weapon_Stinger.WeaponEquip.EquipCue'
-    PutDownSound=Sound'UT3A_Weapon_Stinger.WeaponUnEquip.UnEquipCue'
+    SelectSound=Sound'UT3A_Weapon_Stinger.UT3SMLower.UT3SMLowerCue' //HD: They do use lower in the UT3 Editor here, my question is maybe it was a mistake?
+    PutDownSound=Sound'UT3A_Weapon_Stinger.UT3SMRaise.UT3SMRaiseCue'
 
     CustomCrosshairTextureName="UT3HUD.Crosshairs.UT3CrosshairStinger"
     CustomCrosshairColor=(B=0,G=255,R=255,A=255)
