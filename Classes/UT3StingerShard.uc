@@ -23,8 +23,7 @@ simulated function Explode(vector HitLocation, vector HitNormal)
         sparks = Spawn(class'LinkProjSparksYellow',,, HitLocation, rotator(HitNormal));
         sparks.Skins[0] = texture'Shock_Sparkle';
     }
-    PlaySound(Sound'UT3A_Weapon_Stinger.UT3SMFireImpact.UT3SMFireImpactCue');
-    //PlaySound(Sound'UT3Weapons2.Stinger.StingerHitEnemy');
+    PlaySound(ImpactSound, Slot_None, 1.0);
     Destroy();
 }
 
@@ -34,8 +33,8 @@ defaultproperties
     LifeSpan=10.0
     //TrailTex=FinalBlend'UT3WeaponsT.Stinger.StingerMuzFlash'
     Damage=38
-    TransientSoundVolume=0.25
     MyDamageType=class'UT3DamTypeStingerShard'
+    ImpactSound=Sound'UT3A_Weapon_Stinger.UT3SMFireImpact.UT3SMFireImpactCue'
     Speed=2500.000000
     MaxSpeed=4000.000000
 }
