@@ -63,7 +63,7 @@ simulated function PostNetBeginPlay()
 			}
 		}
 	}
-	PlaySound(Sound'UT3Translocator.TranslocatorTeleport', SLOT_None);
+	PlaySound(Sound'UT3Translocator.TranslocatorTeleport', SLOT_None, 1.0);
 	Super.PostNetBeginPlay();
 }
 
@@ -80,9 +80,8 @@ defaultproperties
 	bNoDelete            = false
 	AutoDestroy          = true
 
-	TransientSoundVolume = 1.2
 	TransientSoundRadius = 500.0 //1000 is probably too much, still experimenting
-        TeleportSound=Sound'UT3A_Weapon_Translocator.Teleport.TeleportCue'
+        TeleportSound=Sound'UT3A_Weapon_Translocator.UT3TLTeleport.UT3TLTeleportCue'
 
 	FlashScale = 0.7
 }
