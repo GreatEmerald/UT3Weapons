@@ -336,6 +336,7 @@ defaultproperties
      WindingSound=Sound'UT3A_Weapon_Stinger.UT3SMSingles.UT3SMBarrelWindLoop01' 
      //WindingSound=Sound'UT3Weapons2.Stinger.StingerRapid'
      MinigunSoundVolume=0
+     TransientSoundVolume=0.80000
      FiringForce="minifireb"
      WindingForce="miniempty"
      ProjSpawnOffset=(X=25.000000,Y=5.000000,Z=-6.000000)
