@@ -374,8 +374,8 @@ defaultproperties
     WindingSoundTransientVolume=40.0
     FireOnceSound=SoundGroup'UT3A_Weapon_Stinger.UT3SMFire.UT3SMFireCue'
     PostFireSound=Sound'UT3A_Weapon_Stinger.UT3SMSingles.UT3SMStingerRapidStop'
-    MinigunSoundVolume=220
-    TransientSoundVolume=1.0000
+    MinigunSoundVolume=225
+    TransientSoundVolume=0.7000
 
     Momentum=+0.0
     RoundsPerRotation=5
