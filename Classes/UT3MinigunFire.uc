@@ -367,13 +367,13 @@ defaultproperties
     DamageMax=14
     Spread=0.0675
 
-    FiringSound=Sound'UT3A_Weapon_Stinger.Singles.FireLoop01' //don't think this works
+    FiringSound=Sound'UT3A_Weapon_Stinger.UT3SMSingles.UT3SMFireLoop01CueAll' //don't think this works in-game
     //FireSound=Sound'UT3Weapons2.Stinger.StingerPrimaryAmb'
-    WindingSound=Sound'UT3A_Weapon_Stinger.Singles.BarrelWindLoop01'
+    WindingSound=Sound'UT3A_Weapon_Stinger.UT3SMSingles.UT3SMBarrelWindLoop01'
     //WindingSound=Sound'UT3Weapons2.Stinger.StingerRapid' //HACK!
     WindingSoundTransientVolume=40.0
-    FireOnceSound=SoundGroup'UT3A_Weapon_Stinger.Fire.FireCue'
-    PostFireSound=Sound'UT3A_Weapon_Stinger.Singles.StingerRapidStop'
+    FireOnceSound=SoundGroup'UT3A_Weapon_Stinger.UT3SMFire.UT3SMFireCue'
+    PostFireSound=Sound'UT3A_Weapon_Stinger.UT3SMSingles.UT3SMStingerRapidStop'
     MinigunSoundVolume=220
     TransientSoundVolume=1.0000
 
