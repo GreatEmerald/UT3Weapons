@@ -142,6 +142,6 @@ defaultproperties
 	TransEffects[0] = (Overlay=PlayerTransRed,Effect=class'UT3TranslocatorEffectRed')
 	TransEffects[1] = (Overlay=PlayerTrans,Effect=class'UT3TranslocatorEffectBlue')
 	FireAnim="weaponreturn"
-	TransFailedSound=Sound'UT3A_Weapon_Translocator.Teleport.TeleportCue'
-	TransientSoundVolume=1.200000
+	TransFailedSound=Sound'UT3A_Weapon_Translocator.UT3TLTeleport.UT3TLTeleportCue'
+	TransientSoundVolume=1.000000
 }
