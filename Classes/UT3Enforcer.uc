@@ -484,9 +484,9 @@ defaultproperties
     FireModeClass(0)=UT3EnforcerFire
     FireModeClass(1)=UT3EnforcerAltFire
     PickupClass=class'UT3EnforcerPickup'
-    ReloadSound=Sound'UT3A_Weapon_Enforcer.ReloadComposite.ReloadCompositeCue'
-    SelectSound=Sound'UT3A_Weapon_Enforcer.WeaponEquip.EquipCue'
-    PutDownSound=Sound'UT3A_Weapon_Enforcer.WeaponUnEquip.UnEquipCue'
+    ReloadSound=Sound'UT3A_Weapon_Enforcer.UT3EnforcerReloadComposite.UT3EnforcerReloadCompositeCue'
+    SelectSound=Sound'UT3A_Weapon_Enforcer.UT3EnforcerRaise.UT3EnforcerRaiseCue'
+    PutDownSound=Sound'UT3A_Weapon_Enforcer.UT3EnforcerLower.UT3EnforcerLowerCue'
     TransientSoundVolume=0.8
 
     CustomCrosshairTextureName="UT3HUD.Crosshairs.UT3CrosshairEnforcer"
