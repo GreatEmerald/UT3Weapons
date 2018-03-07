@@ -81,7 +81,7 @@ defaultproperties
 	AutoDestroy          = true
 
 	TransientSoundRadius = 500.0 //1000 is probably too much, still experimenting
-        TeleportSound=Sound'UT3A_Weapon_Translocator.UT3TLTeleport.UT3TLTeleportCue'
+        TeleportSound=Sound'UT3A_Weapon_Translocator.UT3TransTeleport.UT3TransTeleportCue'
 
 	FlashScale = 0.7
 }
