@@ -247,9 +247,9 @@ defaultproperties
     PickupClass     = class'UT3ImpactHammerPickup'
     AttachmentClass = class'UT3ImpactHammerAttachment'
 
-    SelectSound=Sound'UT3A_Weapon_ImpactHammer.WeaponEquip.EquipCue'
-    PutDownSound=Sound'UT3A_Weapon_ImpactHammer.WeaponUnEquip.UnEquipCue'
-    TransientSoundVolume = 0.8
+    SelectSound=Sound'UT3A_Weapon_ImpactHammer.UT3IHRaise.UT3IHRaiseCue'
+    PutDownSound=Sound'UT3A_Weapon_ImpactHammer.UT3IHLower.UT3IHLowerCue'
+    TransientSoundVolume = 0.7
 
     CustomCrosshairTextureName="UT3HUD.Crosshairs.UT3CrosshairImpactHammer"
     CustomCrosshairScale=1.5
