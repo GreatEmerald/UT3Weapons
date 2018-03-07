@@ -247,7 +247,9 @@ defaultproperties
     PickupClass     = class'UT3ImpactHammerPickup'
     AttachmentClass = class'UT3ImpactHammerAttachment'
 
-    SelectSound = Sound'UT3Weapons.ImpactHammer.ImpactHammerTakeOut'
+    SelectSound=Sound'UT3A_Weapon_ImpactHammer.UT3HammerRaise.UT3HammerRaiseCue'
+    PutDownSound=Sound'UT3A_Weapon_ImpactHammer.UT3HammerLower.UT3HammerLowerCue'
+    TransientSoundVolume = 0.7
 
     CustomCrosshairTextureName="UT3HUD.Crosshairs.UT3CrosshairImpactHammer"
     CustomCrosshairScale=1.5
@@ -276,5 +278,5 @@ defaultproperties
     SmallViewOffset=(X=9,Y=3,Z=-3)
     Skins(0)=Material'UT3WeaponSkins.ImpactHammer.ImpactHammerSkin'
     UDamageOverlay=Material'UT3Pickups.Udamage.M_UDamage_Overlay_S'
-    PutDownSound=Sound'UT3Weapons2.ImpactHammer.A_Weapon_ImpactHammer_Lower01'
+    
 }

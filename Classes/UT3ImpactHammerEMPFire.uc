@@ -105,7 +105,7 @@ function Timer() //GE: Adding WindingSound support.
         else if (HoldTime < WindingDuration*Level.TimeDilation)
         {
             if (!bWinding)
-                Weapon.PlayOwnedSound(WindingSound, SLOT_Interact, TransientSoundVolume*1.1);
+                Weapon.PlayOwnedSound(WindingSound, SLOT_Interact);
             bWinding = True;
             ChargeScale = FMin(HoldTime, FullyChargedTime);
             if (!bStartedChargingForce)
@@ -168,9 +168,11 @@ function DrawMuzzleFlash(Canvas Canvas)
 
 defaultproperties
 {
-    ChargingSound=Sound'UT3Weapons2.ImpactHammer.ImpactHammerLoop'
-    FireSound=Sound'UT3Weapons2.ImpactHammer.ImpactHammerAltFireCue'
-    WindingSound=Sound'UT3Weapons2.ImpactHammer.ImpactHammerStartup'
+    WindingSound=Sound'UT3A_Weapon_ImpactHammer.UT3HammerSingles.UT3HammerFireStart01CueAltFireMix'
+    ChargingSound=Sound'UT3A_Weapon_ImpactHammer.UT3HammerSingles.UT3HammerFireLoop01CueAltFireMix'
+    FireSound=SoundGroup'UT3A_Weapon_ImpactHammer.UT3HammerAltImpact.UT3HammerAltImpactCue'
+    ChargingSoundVolume=255
+    TransientSoundVolume=1.5
     MinDamage=0.0
     MaxDamage=150.0
     ShieldRange=220.0

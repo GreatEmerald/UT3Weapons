@@ -15,23 +15,25 @@ function DoFireEffect()
 
 defaultproperties
 {
-    FireSound=Sound'UT3Weapons.ImpactHammer.ImpactHammerFire'
-    ChargingSound=Sound'UT3Weapons.ImpactHammer.ImpactHammerLoop'
+    WindingSound=Sound'UT3A_Weapon_ImpactHammer.UT3HammerSingles.UT3HammerFireStart01Cue'
+    FireSound=Sound'UT3A_Weapon_ImpactHammer.UT3HammerAltFire.UT3HammerAltFireCue' 
+    ChargingSound=Sound'UT3A_Weapon_ImpactHammer.UT3HammerSingles.UT3HammerFireLoop01Cue'
+    TransientSoundVolume=1.5
     MinDamage=20.0
     MaxDamage=140.0
     ShieldRange=55.0 //110
     FullyChargedTime=2.5
     MinForce=40000.000000
-   MaxForce=100000.000000
-   MinSelfDamage=8.000000
-   FireRate=1.1
-   DamageType=class'DamTypeUT3Impact'
-   SelfForceScale=1.200000
-   SelfDamageScale=0.121
+    MaxForce=100000.000000
+    MinSelfDamage=8.000000
+    FireRate=1.1
+    DamageType=class'DamTypeUT3Impact'
+    SelfForceScale=1.200000
+    SelfDamageScale=0.121
    
-     PreFireAnim="WeaponCharge"
-     FireAnim="WeaponFire"
+    PreFireAnim="WeaponCharge"
+    FireAnim="WeaponFire"
      
-     FlashEmitterClass=class'UT3ImpactEffect'
+    FlashEmitterClass=class'UT3ImpactEffect'
 
 }
