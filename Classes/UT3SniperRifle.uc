@@ -360,7 +360,7 @@ defaultproperties
     AttachmentClass=class'UT3SniperAttachment'
     SelectSound=Sound'UT3A_Weapon_Sniper.UT3SniperRaise.UT3SniperRaiseCue'
     PutDownSound=Sound'UT3A_Weapon_Sniper.UT3SniperLower.UT3SniperLowerCue'
-    TransientSoundVolume=0.8
+    TransientSoundVolume=0.7
 
     bSniping=true
     AIRating=0.700000
