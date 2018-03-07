@@ -257,7 +257,7 @@ defaultproperties
     AmmoChargeMax  = 7.0
     AmmoChargeRate = 0.8
 
-    CustomCrosshairTextureName="UT3HUD.Crosshairs.UT3CrosshairDefault"
+    CustomCrosshairTextureName="UT3HUD.Crosshairs.UT3CrosshairTranslocator"
     CustomCrosshairColor=(B=128,G=255,R=255,A=255)
     CustomCrosshairScale=1.2
     HudColor=(B=128,G=255,R=255,A=255)
