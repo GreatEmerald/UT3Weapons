@@ -162,7 +162,7 @@ defaultproperties
     DamageTypeHeadShot=class'DamTypeUT3HeadShot'
     DamageMin=70
     DamageMax=70
-    FireSound=SoundGroup'UT3A_Weapon_Sniper.Fire.FireCue'
+    FireSound=SoundGroup'UT3A_Weapon_Sniper.UT3SniperFire.UT3SniperFireCue'
     TransientSoundVolume=1.4000
     aimerror=600.000000
     FireAnim="WeaponFire"
