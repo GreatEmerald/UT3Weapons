@@ -168,9 +168,9 @@ function DrawMuzzleFlash(Canvas Canvas)
 
 defaultproperties
 {
-    WindingSound=Sound'UT3A_Weapon_ImpactHammer.UT3IHSingles.UT3IHFireStart01CueAltFireMix'
-    ChargingSound=Sound'UT3A_Weapon_ImpactHammer.UT3IHSingles.UT3IHFireLoop01CueAltFireMix'
-    FireSound=SoundGroup'UT3A_Weapon_ImpactHammer.UT3IHAltImpact.UT3IHAltImpactCue'
+    WindingSound=Sound'UT3A_Weapon_ImpactHammer.UT3HammerSingles.UT3HammerFireStart01CueAltFireMix'
+    ChargingSound=Sound'UT3A_Weapon_ImpactHammer.UT3HammerSingles.UT3HammerFireLoop01CueAltFireMix'
+    FireSound=SoundGroup'UT3A_Weapon_ImpactHammer.UT3HammerAltImpact.UT3HammerAltImpactCue'
     ChargingSoundVolume=255
     TransientSoundVolume=1.5
     MinDamage=0.0
