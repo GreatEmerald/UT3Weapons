@@ -327,8 +327,8 @@ defaultproperties
     FireModeClass(0)=UT3MinigunFire
     FireModeClass(1)=UT3MinigunAltFire
     PickupClass=class'UT3MinigunPickup'
-    SelectSound=Sound'UT3A_Weapon_Stinger.UT3SMLower.UT3SMLowerCue' //HD: They do use lower in the UT3 Editor here, my question is maybe it was a mistake?
-    PutDownSound=Sound'UT3A_Weapon_Stinger.UT3SMRaise.UT3SMRaiseCue'
+    SelectSound=Sound'UT3A_Weapon_Stinger.UT3StingerLower.UT3StingerLowerCue' //HD: They do use lower in the UT3 Editor here, my question is maybe it was a mistake?
+    PutDownSound=Sound'UT3A_Weapon_Stinger.UT3StingerRaise.UT3StingerRaiseCue'
     SoundRadius=400.000000
     TransientSoundVolume=0.8
 
