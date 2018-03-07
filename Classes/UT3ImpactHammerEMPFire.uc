@@ -50,7 +50,7 @@ function DoFireEffect()
     Force = MinForce + Scale * (MaxForce - MinForce);
 
     Instigator.AmbientSound = None;
-    //Instigator.SoundVolume = Instigator.Default.SoundVolume;
+    Instigator.SoundVolume = Instigator.Default.SoundVolume;
 
     if (ChargingEmitter != None)
         ChargingEmitter.mRegenPause = true;
@@ -96,7 +96,7 @@ function Timer() //GE: Adding WindingSound support.
             bAutoRelease = true;
             bIsFiring = false;
             Instigator.AmbientSound = None;
-            //Instigator.SoundVolume = Instigator.Default.SoundVolume;
+            Instigator.SoundVolume = Instigator.Default.SoundVolume;
             AutoHitPawn = Pawn(Other);
             AutoHitTime = Level.TimeSeconds;
             if (ChargingEmitter != None)
@@ -117,7 +117,7 @@ function Timer() //GE: Adding WindingSound support.
         else
         {
             Instigator.AmbientSound = ChargingSound;
-            //Instigator.SoundVolume = ChargingSoundVolume;
+            Instigator.SoundVolume = ChargingSoundVolume;
             ChargeScale = FMin(HoldTime, FullyChargedTime);
             bWinding = False;
         }
@@ -127,7 +127,7 @@ function Timer() //GE: Adding WindingSound support.
         if ( Instigator.AmbientSound == ChargingSound )
         {
             Instigator.AmbientSound = None;
-            //Instigator.SoundVolume = Instigator.Default.SoundVolume;
+            Instigator.SoundVolume = Instigator.Default.SoundVolume;
         }
 
         SetTimer(0, false);
@@ -161,16 +161,17 @@ function DrawMuzzleFlash(Canvas Canvas)
     if ( (Instigator.AmbientSound == ChargingSound) && ((HoldTime <= 0.0) || bNowWaiting) )
     {
         Instigator.AmbientSound = None;
-        //Instigator.SoundVolume = Instigator.Default.SoundVolume;
+        Instigator.SoundVolume = Instigator.Default.SoundVolume;
     }
 
 }
 
 defaultproperties
 {
-    WindingSound=Sound'UT3A_Weapon_ImpactHammer.Singles.AltFireLoopCueStart'
-    ChargingSound=Sound'UT3A_Weapon_ImpactHammer.Singles.AltFireLoopCue'
-    FireSound=SoundGroup'UT3A_Weapon_ImpactHammer.AltImpact.AltImpactCue'
+    WindingSound=Sound'UT3A_Weapon_ImpactHammer.UT3IHSingles.UT3IHFireStart01CueAltFireMix'
+    ChargingSound=Sound'UT3A_Weapon_ImpactHammer.UT3IHSingles.UT3IHFireLoop01CueAltFireMix'
+    FireSound=SoundGroup'UT3A_Weapon_ImpactHammer.UT3IHAltImpact.UT3IHAltImpactCue'
+    ChargingSoundVolume=255
     TransientSoundVolume=1.5
     MinDamage=0.0
     MaxDamage=150.0
