@@ -15,9 +15,9 @@ function DoFireEffect()
 
 defaultproperties
 {
-    WindingSound=Sound'UT3A_Weapon_ImpactHammer.UT3IHSingles.UT3IHFireStart01Cue'
-    FireSound=Sound'UT3A_Weapon_ImpactHammer.UT3IHAltFire.UT3IHAltFireCue' 
-    ChargingSound=Sound'UT3A_Weapon_ImpactHammer.UT3IHSingles.UT3IHFireLoop01Cue'
+    WindingSound=Sound'UT3A_Weapon_ImpactHammer.UT3HammerSingles.UT3HammerFireStart01Cue'
+    FireSound=Sound'UT3A_Weapon_ImpactHammer.UT3HammerAltFire.UT3HammerAltFireCue' 
+    ChargingSound=Sound'UT3A_Weapon_ImpactHammer.UT3HammerSingles.UT3HammerFireLoop01Cue'
     TransientSoundVolume=1.5
     MinDamage=20.0
     MaxDamage=140.0
