@@ -34,7 +34,7 @@ defaultproperties
     //TrailTex=FinalBlend'UT3WeaponsT.Stinger.StingerMuzFlash'
     Damage=38
     MyDamageType=class'UT3DamTypeStingerShard'
-    ImpactSound=Sound'UT3A_Weapon_Stinger.UT3SMFireImpact.UT3SMFireImpactCue'
+    ImpactSound=Sound'UT3A_Weapon_Stinger.UT3StingerFireImpact.UT3StingerFireImpactCue'
     Speed=2500.000000
     MaxSpeed=4000.000000
 }
