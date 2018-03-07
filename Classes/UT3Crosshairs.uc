@@ -38,4 +38,5 @@ defaultproperties
 	Crosshair(13) = (FriendlyName="UT3 Sniper Rifle",CrosshairTexture=Texture'UT3CrosshairSniperRifle')
 	Crosshair(14) = (FriendlyName="UT3 Redeemer",CrosshairTexture=Texture'UT3CrosshairRedeemer')
 	Crosshair(15) = (FriendlyName="UT3 InstaGib",CrosshairTexture=Texture'UT3CrosshairInstaGib')
+	Crosshair(16)=(FriendlyName="UT3 Translocator",CrosshairTexture=Texture'UT3HUD.Crosshairs.UT3CrosshairTranslocator')
 }
