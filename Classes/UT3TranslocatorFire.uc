@@ -118,9 +118,9 @@ function projectile SpawnProjectile(Vector Start, Rotator Dir)
 
 defaultproperties
 {
-	TransFireSound=SoundGroup'UT3A_Weapon_Translocator.UT3TLFire.UT3TLFireCue'
-        RecallFireSound=SoundGroup'UT3A_Weapon_Translocator.UT3TLRecall.UT3TLRecallCue'
-	RecallFailedSound = Sound'UT3A_Weapon_Translocator.UT3TLRecall.UT3TLRecallCue'
+	TransFireSound=SoundGroup'UT3A_Weapon_Translocator.UT3TransFire.UT3TransFireCue'
+        RecallFireSound=SoundGroup'UT3A_Weapon_Translocator.UT3TransRecall.UT3TransRecallCue'
+        RecallFailedSound=Sound'UT3A_Weapon_Translocator.UT3TransRecall.UT3TransRecallCue'
 	TransientSoundVolume=0.8
 	RecallAnim="WeaponReturn"
 	RecallDownAnim="WeaponReturnDn"
