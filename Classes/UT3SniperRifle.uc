@@ -196,14 +196,14 @@ simulated function ZoomOut()
     FireMode[1].bIsFiring = true;
     if( Instigator.Controller.IsA( 'PlayerController' ) )
         PlayerController(Instigator.Controller).ToggleZoom();
-    PlaySound(Sound'UT3A_Weapon_Sniper.Singles.ZoomOut01', SLOT_Misc,,,,,false);
+    PlaySound(Sound'UT3A_Weapon_Sniper.UT3SniperSingles.UT3SniperZoomOut01', SLOT_Misc,,,,,false);
     PlayAnim('WeaponZoomOut');
 }
 
 simulated state ZoomingIn
 {
 Begin:
-    PlaySound(Sound'UT3A_Weapon_Sniper.Singles.ZoomIn01', SLOT_Misc,,,,,false);
+    PlaySound(Sound'UT3A_Weapon_Sniper.UT3SniperSingles.UT3SniperZoomIn01', SLOT_Misc,,,,,false);
     PlayAnim('WeaponZoomIn', 2.666);
     Sleep(0.2);
     FireMode[1].bIsFiring = true;
@@ -358,8 +358,8 @@ defaultproperties
 
     PickupClass=class'UT3SniperRiflePickup'
     AttachmentClass=class'UT3SniperAttachment'
-    SelectSound=Sound'UT3A_Weapon_Sniper.WeaponEquip.EquipCue'
-    PutDownSound=Sound'UT3A_Weapon_Sniper.WeaponUnEquip.UnEquipCue'
+    SelectSound=Sound'UT3A_Weapon_Sniper.UT3SniperRaise.UT3SniperRaiseCue'
+    PutDownSound=Sound'UT3A_Weapon_Sniper.UT3SniperLower.UT3SniperLowerCue'
     TransientSoundVolume=0.8
 
     bSniping=true
