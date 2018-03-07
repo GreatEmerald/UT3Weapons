@@ -100,9 +100,9 @@ defaultproperties
     MaxSpeed=1330.000000
     Speed = 1330.0
     AmbientSound=None
-    DisruptSound=Sound'UT3A_Weapon_Translocator.UT3TLDisrupted.UT3TLDisruptedCue'
-    DisruptedSound=Sound'UT3A_Weapon_Translocator.UT3TLSingles.UT3TLDisruptedLoop'
-    ImpactSound=Sound'UT3A_Weapon_Translocator.UT3TLBounce.UT3TLBounceCue'
+    DisruptSound=Sound'UT3A_Weapon_Translocator.UT3TransDisrupted.UT3TransDisruptedCue'
+    DisruptedSound=Sound'UT3A_Weapon_Translocator.UT3TransSingles.UT3TransDisruptedLoop'
+    ImpactSound=Sound'UT3A_Weapon_Translocator.UT3TransBounce.UT3TransBounceCue'
     
     SoundVolume=255
     SoundRadius=20
