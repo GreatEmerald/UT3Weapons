@@ -6,6 +6,8 @@
 
 class UT3BioRifle extends BioRifle;
 
+#exec obj load file=UT3A_Weapon_BioRifle.uax
+
 var Material UDamageOverlay;
 var() Sound PutDownSound;
 
@@ -123,8 +125,9 @@ defaultproperties
     FireModeClass(0)=UT3BioFire
     FireModeClass(1)=UT3BioChargedFire
     PickupClass=class'UT3BioRiflePickup'
-    SelectSound=Sound'UT3Weapons2.BioRifle.BioRifleTakeOut'
-    TransientSoundVolume=0.92
+    SelectSound=Sound'UT3A_Weapon_BioRifle.UT3BioRaise.UT3BioRaiseCue'
+    PutDownSound=Sound'UT3A_Weapon_BioRifle.UT3BioLower.UT3BioLowerCue'
+    TransientSoundVolume=1.0
 
     CustomCrosshairTextureName="UT3HUD.Crosshairs.UT3CrosshairBioRifle"
     CustomCrosshairColor=(B=64,G=255,R=64,A=255)
@@ -155,5 +158,4 @@ defaultproperties
     UV2Mode=UVM_LightMap
     AttachmentClass=class'UT3BioAttachment'
     UDamageOverlay=Material'UT3Pickups.Udamage.M_UDamage_Overlay_S'
-    PutDownSound=Sound'UT3Weapons2.BioRifle.A_BioRifle_Lower'
 }
