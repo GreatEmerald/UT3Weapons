@@ -6,6 +6,8 @@
 
 class UT3BioChargedFire extends BioChargedFire;
 
+#exec obj load file=UT3A_Weapon_BioRifle.uax
+
 var() Sound ChargedAmbientSound;
 
 /*simulated function ModeHoldFire()
@@ -53,8 +55,8 @@ state Hold
         {
             SetTimer(0.0, false);
             Instigator.AmbientSound = ChargedAmbientSound;
-            Instigator.SoundRadius = 50;
-            Instigator.SoundVolume = 50;
+            //Instigator.SoundRadius = 50;
+            //Instigator.SoundVolume = 50;
             Weapon.LoopAnim(FireLoopAnim);
         }
     }
@@ -104,9 +106,11 @@ defaultproperties
 {
     AmmoClass=class'UT3BioAmmo'
     ProjectileClass=class'UT3BioGlobCharged'
-    FireSound=Sound'UT3Weapons2.BioRifle.BioRifleAltFire'
-    HoldSound=Sound'UT3Weapons2.BioRifle.BioRifleLoad'
-    ChargedAmbientSound=Sound'UT3Weapons2.BioRifle.BioRifleLoaded'
+    ChargedAmbientSound=Sound'UT3A_Weapon_BioRifle.Singles.FireAltChamberCue'
+    HoldSound=Sound'UT3A_Weapon_BioRifle.FireAltChamberStart.FireAltChamberStartCue'
+    FireSound=Sound'UT3A_Weapon_BioRifle.FireAltLarge.FireAltLargeCue'
+    TransientSoundVolume=1.2
+    //TransientSoundVolume=0.920000
     FireRate=0.35
     //TransientSoundVolume=0.6
     
