@@ -230,9 +230,9 @@ defaultproperties
     PickupClass=class'UT3ShockRiflePickup'
     AttachmentClass=class'UT3ShockRifleAttachment'
 
-    SelectSound=Sound'UT3A_Weapon_ShockRifle.WeaponEquip.EquipCue'
-    PutDownSound=Sound'UT3A_Weapon_ShockRifle.WeaponUnEquip.UnEquipCue'
-    TransientSoundVolume=1.0
+    SelectSound=Sound'UT3A_Weapon_ShockRifle.UT3ShockRaise.UT3ShockRaiseCue'
+    PutDownSound=Sound'UT3A_Weapon_ShockRifle.UT3ShockLower.UT3ShockLowerCue'
+    TransientSoundVolume=0.7
 
     CustomCrosshairTextureName="UT3HUD.Crosshairs.UT3CrosshairShockRifle"
     CustomCrosshairColor=(B=255,G=0,R=160,A=255)
