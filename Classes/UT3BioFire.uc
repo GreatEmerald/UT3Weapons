@@ -6,6 +6,8 @@
 
 class UT3BioFire extends BioFire;
 
+#exec obj load file=UT3A_Weapon_BioRifle.uax
+
 function PlayFiring()
 {
 	if ( Weapon.Mesh != None )
@@ -50,7 +52,8 @@ defaultproperties
     ProjectileClass=class'UT3BioGlob'
     FireRate=0.35
 
-    FireSound=Sound'UT3Weapons2.BioRifle.BioRifleFire'
-     FireAnim="WeaponFire2"
-     TweenTime=0.1
+    FireSound=Sound'UT3A_Weapon_BioRifle.UT3BioFireMain.UT3BioFireMainCue
+    TransientSoundVolume=0.920000
+    FireAnim="WeaponFire2"
+    TweenTime=0.1
 }
