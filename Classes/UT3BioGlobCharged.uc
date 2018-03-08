@@ -6,10 +6,12 @@
 
 class UT3BioGlobCharged extends UT3BioGlob;
 
+#exec obj load file=UT3A_Weapon_BioRifle.uax
+
 defaultproperties
 {
     bMergeGlobs=true
-    ExplodeSound=Sound'UT3Weapons2.BioRifle.BioRifleAltExplode'
-    ImpactSound=Sound'UT3Weapons2.BioRifle.BioRifleAltStick'
+    ExplodeSound=Sound'UT3A_Weapon_BioRifle.UT3BioFireAltImpactExplode.UT3BioFireAltImpactExplodeCue'
+    ImpactSound=Sound'UT3A_Weapon_BioRifle.UT3BioFireImpactFizzle.UT3BioFireImpactFizzleCue'
     LifeSpan=20.000000
 }
