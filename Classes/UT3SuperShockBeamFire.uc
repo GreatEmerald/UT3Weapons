@@ -78,14 +78,14 @@ defaultproperties
     DamageMin=1000
     DamageMax=1000
     Momentum=100000
-    FireSound=Sound'UT3A_Weapon_ShockRifle.InstagibFire.InstagibFireCue'
+    FireSound=Sound'UT3A_Weapon_ShockRifle.UT3ShockInstagibFire.UT3ShockInstagibFireCue'
     FireForce="ShockRifleFire"
     bReflective=true
     FireRate=1.1
     BeamEffectClass=class'SuperShockBeamEffect'
     bModeExclusive=true
     AimError=700
-    TransientSoundVolume=1.2
+    TransientSoundVolume=0.7
     
     FireAnim="WeaponFireInstiGib"
 }
