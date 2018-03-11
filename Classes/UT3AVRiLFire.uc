@@ -28,12 +28,12 @@ defaultproperties
     ProjectileClass=class'UT3AVRiLRocket'
     KickMomentum=(X=0,Y=0,Z=0)
 
-    FireSound=Sound'UT3A_Weapon_AVRiL.Fire.FireCue
-    TransientSoundVolume=0.8
-    ReloadSound=Sound'UT3A_Weapon_AVRiL.Singles.Reload01'
-    AVRiLSoundVolume=0.7 //HDm: Does this actually do anything GE, it doesn't seem to?
+    FireSound=Sound'UT3A_Weapon_AVRiL.UT3AVRiLFire.UT3AVRiLFireCue'
+    ReloadSound=Sound'UT3A_Weapon_AVRiL.UT3AVRiLReload.UT3AVRiLReloadCue'
+    TransientSoundVolume=0.65
+    AVRiLSoundVolume=0.7
     
-      FireAnim="WeaponFire"
-      ReloadAnim="weaponreload"
-      ReloadAnimRate=0.85
+    FireAnim="WeaponFire"
+    ReloadAnim="weaponreload"
+    ReloadAnimRate=0.85
 }
