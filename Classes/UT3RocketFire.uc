@@ -80,8 +80,8 @@ defaultproperties
     AmmoClass=class'UT3RocketAmmo'
 
     ProjectileClass=class'UT3Proj_Rocket'
-    FireSound=Sound'UT3A_Weapon_RocketLauncher.Fire.FireCue'
-    TransientSoundVolume=1.0
+    FireSound=Sound'UT3A_Weapon_RocketLauncher.UT3RocketFire.UT3RocketFireCue'
+    TransientSoundVolume=0.7
 
     FireRate=1.050000
     FireAnim="WeaponFire"
