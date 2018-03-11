@@ -330,7 +330,7 @@ defaultproperties
     SelectSound=Sound'UT3A_Weapon_Stinger.UT3StingerLower.UT3StingerLowerCue' //HD: They do use lower in the UT3 Editor here, my question is maybe it was a mistake?
     PutDownSound=Sound'UT3A_Weapon_Stinger.UT3StingerRaise.UT3StingerRaiseCue'
     SoundRadius=400.000000
-    TransientSoundVolume=0.8
+    TransientSoundVolume=0.5
 
     CustomCrosshairTextureName="UT3HUD.Crosshairs.UT3CrosshairStinger"
     CustomCrosshairColor=(B=0,G=255,R=255,A=255)
