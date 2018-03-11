@@ -51,7 +51,7 @@ var Sound LoadingSound;
 
 simulated function ServerPlayLoading()
 {
-    UT3RocketLauncher(Weapon).PlayOwnedSound(Sound'UT3A_Weapon_RocketLauncher.LoadCue', SLOT_None,,,,,false);
+    UT3RocketLauncher(Weapon).PlayOwnedSound(Sound'UT3A_Weapon_RocketLauncher.UT3RocketLoad.UT3RocketLoadCue', SLOT_None,,,,,false);
 }
 
 function PlayFireEnd()
@@ -129,21 +129,21 @@ function Plunge(optional bool FirstRocket)
     if (FirstRocket)
     {
         FireAnim = 'WeaponAltFireQueue1';
-        LoadingSound = Sound'UT3A_Weapon_RocketLauncher.AltFireQueue.AltFireQueue01';
+        LoadingSound = Sound'UT3A_Weapon_RocketLauncher.UT3RocketSingles.UT3RocketAltFireQueue01';
         RLAttachment.PlayAnim(FireAnim, FireAnimRate, TweenTime);
         PlayRocketFire(false);
     }
     else if (Load == 1.0)
     {
         FireAnim = 'WeaponAltFireQueue2';
-        LoadingSound = Sound'UT3A_Weapon_RocketLauncher.AltFireQueue.AltFireQueue02';
+        LoadingSound = Sound'UT3A_Weapon_RocketLauncher.UT3RocketSingles.UT3RocketAltFireQueue02';
         RLAttachment.PlayAnim(FireAnim, FireAnimRate, TweenTime);
         PlayRocketFire(false);
     }
     else if (Load == 2.0)
     {
         FireAnim = 'WeaponAltFireQueue3';
-        LoadingSound = Sound'UT3A_Weapon_RocketLauncher.AltFireQueue.AltFireQueue03';
+        LoadingSound = Sound'UT3A_Weapon_RocketLauncher.UT3RocketSingles.UT3RocketAltFireQueue03';
         RLAttachment.PlayAnim(FireAnim, FireAnimRate, TweenTime);
         PlayRocketFire(false);
     }
@@ -339,9 +339,9 @@ defaultproperties
     AmmoClass=class'UT3RocketAmmo'
     ProjectileClass=class'UT3Proj_Rocket'
 
-    FireSound=Sound'UT3A_Weapon_RocketLauncher.Fire.FireCue'
-    GrenadeFireSound=Sound'UT3A_Weapon_RocketLauncher.FireGrenade.FireGrenadeCue'
-    TransientSoundVolume=1.0
+    FireSound=Sound'UT3A_Weapon_RocketLauncher.UT3RocketFire.UT3RocketFireCue'
+    GrenadeFireSound=Sound'UT3A_Weapon_RocketLauncher.UT3RocketFireGrenade.UT3RocketFireGrenadeCue'
+    TransientSoundVolume=0.7
     FireAnimRate=0.7
 
     FireRate=1.041667
