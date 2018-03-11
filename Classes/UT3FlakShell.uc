@@ -54,8 +54,7 @@ defaultproperties
 {
     Damage=100.000000
     MyDamageType=class'DamTypeUT3FlakShell'
-    AmbientSound=Sound'UT3A_Weapon_FlakCannon.Singles.FireAltInAirCue'
-    ExplosionSound=SoundGroup'UT3A_Weapon_FlakCannon.FireAltImpactExplode.FireAltImpactExplodeCue'
-    TransientSoundVolume = 0.8
+    AmbientSound=Sound'UT3A_Weapon_FlakCannon.UT3FlakSingles.UT3FlakFireAltInAirCueAll'
+    ExplosionSound=SoundGroup'UT3A_Weapon_FlakCannon.UT3FlakFireAltImpactExplode.UT3FlakFireAltImpactExplodeCue'
 }
 
