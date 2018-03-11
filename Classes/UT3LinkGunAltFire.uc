@@ -101,13 +101,13 @@ defaultproperties
     Damage=11
     FireRate=0.1
     
-    PreFireSound=SoundGroup'UT3A_Weapon_LinkGun.AltFireStart.AltFireStartCue'
-    PostFireSound=SoundGroup'UT3A_Weapon_LinkGun.AltFireStop.AltFireStopCue'
-    MakeLinkSound=SoundGroup'UT3A_Weapon_LinkGun.AltFireStart.AltFireStartCue'
-    BeamSounds(0)=Sound'UT3A_Weapon_LinkGun.Singles.AltFire01'
-    BeamSounds(1)=Sound'UT3A_Weapon_LinkGun.Singles.AltFireImpact'
-    BeamSounds(2)=Sound'UT3A_Weapon_LinkGun.Singles.AltFireImpactFlesh'
-    BeamSounds(3)=Sound'UT3A_Weapon_LinkGun.Singles.AltFireImpactFlesh'
+    PreFireSound=SoundGroup'UT3A_Weapon_LinkGun.UT3LinkAltFireStart.UT3LinkAltFireStartCue'
+    PostFireSound=SoundGroup'UT3A_Weapon_LinkGun.UT3LinkAltFireStop.UT3LinkAltFireStopCue'
+    MakeLinkSound=SoundGroup'UT3A_Weapon_LinkGun.UT3LinkAltFireStart.UT3LinkAltFireStartCue'
+    BeamSounds(0)=Sound'UT3A_Weapon_LinkGun.UT3LinkSingles.UT3LinkAltFire01'
+    BeamSounds(1)=Sound'UT3A_Weapon_LinkGun.UT3LinkSingles.UT3LinkAltFireImpact'
+    BeamSounds(2)=Sound'UT3A_Weapon_LinkGun.UT3LinkSingles.UT3LinkAltFireImpactFlesh'
+    BeamSounds(3)=Sound'UT3A_Weapon_LinkGun.UT3LinkSingles.UT3LinkAltFireImpactFlesh'
 
     BeamEffectClass=Class'UT3LinkBeamEffect'
 
