@@ -15,7 +15,6 @@ var() float BarrelRotationsPerSec;
 var() int   RoundsPerRotation;
 var() float FireTime;
 var() Sound WindingSound;
-var() byte WindingSoundTransientVolume;
 var() Sound PostFireSound, FireOnceSound;
 var() byte  MinigunSoundVolume;
 var UT3Minigun2v Gun;
@@ -369,11 +368,9 @@ defaultproperties
 
     FiringSound=Sound'UT3A_Weapon_Stinger.UT3StingerSingles.UT3StingerFireLoop01CueAll' //don't think this works and ever replaces fire once soundgroup
     WindingSound=Sound'UT3A_Weapon_Stinger.UT3StingerSingles.UT3StingerBarrelWindLoop01'
-    WindingSoundTransientVolume=40.0
     FireOnceSound=SoundGroup'UT3A_Weapon_Stinger.UT3StingerFire.UT3StingerFireCue'
     PostFireSound=Sound'UT3A_Weapon_Stinger.UT3StingerSingles.UT3StingerStingerRapidStop'
     MinigunSoundVolume=225
-    TransientSoundVolume=0.7000
 
     Momentum=+0.0
     RoundsPerRotation=5
