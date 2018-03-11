@@ -112,9 +112,9 @@ defaultproperties
     FireModeClass(0)=UT3FlakFire
     FireModeClass(1)=UT3FlakAltFire
     PickupClass=class'UT3FlakCannonPickup'
-    SelectSound=Sound'UT3A_Weapon_FlakCannon.WeaponEquip.EquipCue'
-    PutDownSound=Sound'UT3A_Weapon_FlakCannon.WeaponUnEquip.UnEquipCue'
-    TransientSoundVolume = 0.8
+    SelectSound=Sound'UT3A_Weapon_FlakCannon.UT3FlakRaise.UT3FlakRaiseCue'
+    PutDownSound=Sound'UT3A_Weapon_FlakCannon.UT3FlakLower.UT3FlakLowerCue'
+    TransientSoundVolume = 0.5
     CustomCrosshairTextureName="UT3HUD.Crosshairs.UT3CrosshairFlakCannon"
     CustomCrosshairColor=(B=128,G=255,R=255,A=255)
     CustomCrosshairScale=1.5
