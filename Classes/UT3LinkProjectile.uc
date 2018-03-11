@@ -17,7 +17,7 @@ simulated function Explode(vector HitLocation, vector HitNormal)
         else
             Spawn(class'LinkProjSparksYellow',,, HitLocation, rotator(HitNormal));
     }
-    PlaySound(Sound'UT3A_Weapon_LinkGun.Impact.ImpactCue');
+    PlaySound(Sound'UT3A_Weapon_LinkGun.UT3LinkImpact.UT3LinkImpactCue');
     Destroy();
 }
 
