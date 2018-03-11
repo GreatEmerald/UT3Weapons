@@ -63,9 +63,8 @@ defaultproperties
 {
   LinkProj=class'UT3LinkProjectile'
   AmmoClass=class'UT3LinkAmmo'
-  FireSound=Sound'UT3A_Weapon_LinkGun.Fire.FireCue'
-  LinkedFireSound=Sound'UT3A_Weapon_LinkGun.Fire.FireCue'
-  TransientSoundVolume=0.8
+  FireSound=Sound'UT3A_Weapon_LinkGun.UT3LinkFire.UT3LinkFireCue'
+  LinkedFireSound=Sound'UT3A_Weapon_LinkGun.UT3LinkFire.UT3LinkFireCue'
   FireRate=0.16
   AmmoPerFire=1
   FireAnim="WeaponFire"
