@@ -283,6 +283,7 @@ defaultproperties
     PutDownSound=Sound'UT3A_Weapon_AVRiL.UT3AVRiLLower.UT3AVRiLLowerCue'
     LockOnSound=Sound'UT3A_Weapon_AVRiL.UT3AVRiLSingles.UT3AVRiLLock01'
     TransientSoundVolume=0.5
+    SoundVolume=255
 
     CustomCrosshairTextureName="UT3HUD.Crosshairs.UT3CrosshairAVRiL"
     CustomCrosshairColor=(B=0,G=0,R=255,A=255)
