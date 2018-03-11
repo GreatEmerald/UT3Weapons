@@ -279,10 +279,10 @@ defaultproperties
     //ReticleONMaterial=Shader'VMWeaponsTX.PlayerWeaponsGroup.AVRiLreticleTEXRed'
 
     PickupClass=class'UT3AVRiLPickup'
-    SelectSound=Sound'UT3A_Weapon_AVRiL.WeaponEquip.EquipCue'
-    PutDownSound=Sound'UT3A_Weapon_AVRiL.WeaponUnEquip.UnEquipCue'
-    LockOnSound=Sound'UT3A_Weapon_AVRiL.Singles.Lock01'
-    TransientSoundVolume=0.8
+    SelectSound=Sound'UT3A_Weapon_FlakCannon.UT3FlakRaise.UT3FlakRaiseCue'
+    PutDownSound=Sound'UT3A_Weapon_AVRiL.UT3AVRiLLower.UT3AVRiLLowerCue'
+    LockOnSound=Sound'UT3A_Weapon_AVRiL.UT3AVRiLSingles.UT3AVRiLLock01'
+    TransientSoundVolume=0.5
 
     CustomCrosshairTextureName="UT3HUD.Crosshairs.UT3CrosshairAVRiL"
     CustomCrosshairColor=(B=0,G=0,R=255,A=255)
