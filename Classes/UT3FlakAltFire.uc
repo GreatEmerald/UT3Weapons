@@ -13,8 +13,8 @@ defaultproperties
     AmmoClass=class'UT3FlakAmmo'
 
     ProjectileClass=class'UT3FlakShell'
-    FireSound=SoundGroup'UT3A_Weapon_FlakCannon.FireAlt.FireAltCue'
-    TransientSoundVolume=1.2
+    FireSound=SoundGroup'UT3A_Weapon_FlakCannon.UT3FlakFireAlt.UT3FlakFireAltCue'
+    TransientSoundVolume=1.0
 
     FireRate=1.0
     FireAnim="WeaponFire"
