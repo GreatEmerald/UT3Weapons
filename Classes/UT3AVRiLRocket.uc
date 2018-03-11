@@ -36,6 +36,6 @@ defaultproperties
 {
     MomentumTransfer=150000.000000
     MyDamageType=class'DamTypeUT3AVRiLRocket'
-    ExplosionSound=Sound'UT3A_Weapon_AVRiL.FireImpact.FireImpactCue'
-    TransientSoundVolume=0.8
+    ExplosionSound=Sound'UT3A_Weapon_AVRiL.UT3AVRiLFireImpact.UT3AVRiLFireImpactCue'
+    TransientSoundVolume=0.4
 }
