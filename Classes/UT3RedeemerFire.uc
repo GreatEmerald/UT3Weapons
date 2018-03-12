@@ -25,6 +25,6 @@ defaultproperties
 {
     //AmmoClass=class'UT3RedeemerAmmo'
     ProjectileClass=class'UT3RedeemerProjectile'
-    FireSound=Sound'UT3A_Weapon_Redeemer.Fire.FireCue'
+    FireSound=Sound'UT3A_Weapon_Redeemer.UT3RedeemerFire.UT3RedeemerFireCue'
     FireAnim="WeaponFire"
 }
