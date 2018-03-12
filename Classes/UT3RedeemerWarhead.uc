@@ -94,10 +94,10 @@ defaultproperties
     MomentumTransfer=250000
     MyDamageType=class'DamTypeUT3Redeemer'
 
-    AmbientSound=Sound'UT3A_Weapon_Redeemer.Singles.FlyLoop'
-    RedeemerExplosionSound=Sound'UT3A_Weapon_Redeemer.Explode.ExplodeCue'
-    RedeemerAmbExplosionSound=Sound'UT3A_Weapon_Redeemer.Explode.Explode01B'
-    RedeemerAmbExplosionSound2=Sound'UT3A_Weapon_Redeemer.Explode.Explode01A'
-    ShootSound=Sound'UT3A_Weapon_Redeemer.Fire.FireCue'
+    AmbientSound=Sound'UT3A_Weapon_Redeemer.UT3RedeemerSingles.UT3RedeemerFlyLoop02'
+    RedeemerExplosionSound=Sound'UT3A_Weapon_Redeemer.UT3RedeemerExplode.UT3RedeemerExplodeCue'
+    RedeemerAmbExplosionSound=Sound'UT3A_Weapon_Redeemer.UT3RedeemerSingles.UT3RedeemerExplode01B'
+    RedeemerAmbExplosionSound2=Sound'UT3A_Weapon_Redeemer.UT3RedeemerSingles.UT3RedeemerExplode01A'
+    ShootSound=Sound'UT3A_Weapon_Redeemer.UT3RedeemerFire.UT3RedeemerFireCue'
     
 }
