@@ -144,8 +144,8 @@ defaultproperties
     ItemName="UT3 Redeemer"
     Description="'Even your least effective soldiers will earn a respectable bodycount with this tactical nuclear device.' So said the original brochure for the Redeemer, still unchallenged in its role as the most powerful man-portable weapon system known through the galaxy.|The slow-moving but utterly devastating missile, affectionately known as 'Lola' by veteran soldiers, now uses an Enhanced Radiation payload. This ensures maximum tissue failure without undue property damage, perfect for modern assault-and-capture tactics.|The Redeemer's alternate mode fires the missile using the disposable fly-by-wire guidance system, though the manual recommends using this mode only in areas of relative safety."
     PickupClass=class'UT3RedeemerPickup'
-    SelectSound=Sound'UT3A_Weapon_Redeemer.Singles.Raise01'
-    PutDownSound=Sound'UT3A_Weapon_Redeemer.Singles.Lower01'
+    SelectSound=Sound'UT3A_Weapon_Redeemer.UT3RedeemerRaise.UT3RedeemerRaiseCue'
+    PutDownSound=Sound'UT3A_Weapon_Redeemer.UT3RedeemerLower.UT3RedeemerLowerCue'
     TransientSoundVolume=0.45
     IconMaterial=Material'UT3HUD.Icons.UT3IconsScaled'
     IconCoords=(X1=227,Y1=191,X2=299,Y2=233)
