@@ -146,7 +146,7 @@ defaultproperties
     PickupClass=class'UT3RedeemerPickup'
     SelectSound=Sound'UT3A_Weapon_Redeemer.UT3RedeemerRaise.UT3RedeemerRaiseCue'
     PutDownSound=Sound'UT3A_Weapon_Redeemer.UT3RedeemerLower.UT3RedeemerLowerCue'
-    TransientSoundVolume=0.45
+    TransientSoundVolume=0.700000
     IconMaterial=Material'UT3HUD.Icons.UT3IconsScaled'
     IconCoords=(X1=227,Y1=191,X2=299,Y2=233)
     CustomCrosshairTextureName="UT3HUD.Crosshairs.UT3CrosshairRedeemer"
