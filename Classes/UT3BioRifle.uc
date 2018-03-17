@@ -127,7 +127,7 @@ defaultproperties
     PickupClass=class'UT3BioRiflePickup'
     SelectSound=Sound'UT3A_Weapon_BioRifle.UT3BioRaise.UT3BioRaiseCue'
     PutDownSound=Sound'UT3A_Weapon_BioRifle.UT3BioLower.UT3BioLowerCue'
-    TransientSoundVolume=1.0
+    TransientSoundVolume=1.15
 
     CustomCrosshairTextureName="UT3HUD.Crosshairs.UT3CrosshairBioRifle"
     CustomCrosshairColor=(B=64,G=255,R=64,A=255)
