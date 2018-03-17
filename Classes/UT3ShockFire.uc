@@ -41,7 +41,7 @@ defaultproperties
 {
     AmmoClass=class'UT3ShockAmmo'
     FireSound=SoundGroup'UT3A_Weapon_ShockRifle.UT3ShockFire.UT3ShockFireCue'
-    TransientSoundVolume=0.7
+    TransientSoundVolume=0.75
     FireRate=0.77
     Momentum=60000.000000
     DamageType=class'DamTypeUT3ShockBeam'
