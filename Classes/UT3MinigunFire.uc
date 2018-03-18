@@ -359,46 +359,55 @@ state WindDown
 
 defaultproperties
 {
-    BarrelRotationsPerSec=2.2
 
+//=============================================================================
+// Appearance
+//=============================================================================
     AmmoClass=class'UT3MinigunAmmo'
-    DamageMin=14
-    DamageMax=14
-    Spread=0.0675
-
-    FiringSound=Sound'UT3A_Weapon_Stinger.UT3StingerSingles.UT3StingerFireLoop01CueAll' //don't think this works and ever replaces fire once soundgroup
-    WindingSound=Sound'UT3A_Weapon_Stinger.UT3StingerSingles.UT3StingerBarrelWindLoop01'
-    FireOnceSound=SoundGroup'UT3A_Weapon_Stinger.UT3StingerFire.UT3StingerFireCue'
-    PostFireSound=Sound'UT3A_Weapon_Stinger.UT3StingerSingles.UT3StingerStingerRapidStop'
-    MinigunSoundVolume=225
-
-    Momentum=+0.0
-    RoundsPerRotation=5
-    AmmoPerFire=1
-    DamageType=class'UT3DamTypeMinigun'
-    bPawnRapidFireAnim=true
-    SpreadStyle=SS_Random
-
+    BeamEffectClass=Class'UT3EnforcerEffect'
+    FlashEmitterClass=class'XEffects.MinigunMuzFlash1st'
+    //SmokeEmitterClass=class'xEffects.MinigunMuzzleSmoke'
+    
+//=============================================================================
+// Animation
+//=============================================================================
+     bPawnRapidFireAnim=true
      PreFireAnim="WeaponRampUp"
      FireAnim=
      FireLoopAnim="WeaponFire"
      FireEndAnim="WeaponRampDown"
      FireLoopAnimRate=1.200000
-     FireForce="minifireb"
+     
+//=============================================================================
+// Sound
+//=============================================================================
+    FiringSound=Sound'UT3A_Weapon_Stinger.UT3StingerSingles.UT3StingerFireLoop01CueAll' //don't think this works and ever replaces fire once soundgroup
+    WindingSound=Sound'UT3A_Weapon_Stinger.UT3StingerSingles.UT3StingerBarrelWindLoop01'
+    FireOnceSound=SoundGroup'UT3A_Weapon_Stinger.UT3StingerFire.UT3StingerFireCue'
+    PostFireSound=Sound'UT3A_Weapon_Stinger.UT3StingerSingles.UT3StingerStingerRapidStop'
+    MinigunSoundVolume=225
+    
+//=============================================================================
+// Damage
+//=============================================================================
+    AmmoPerFire=1
+    BarrelRotationsPerSec=2.2 
+    RoundsPerRotation=5
+    AimError=900
+    BotRefireRate=0.99 
+    DamageType=class'UT3DamTypeMinigun'
+    DamageMin=14
+    DamageMax=14
+    Momentum=+0.0
+    Spread=0.067500
+    SpreadStyle=SS_Random
+
     WindUpTime=0.95
     //PreFireTime=1.3
     TweenTime=0.1
-    
-    
-
-    FlashEmitterClass=class'XEffects.MinigunMuzFlash1st'
-    //SmokeEmitterClass=class'xEffects.MinigunMuzzleSmoke'
+  
+    FireForce="minifireb"
     FiringForce="minifireb"  // jdf
-    WindingForce="miniempty"  // jdf
-
-    BotRefireRate=0.99
-    AimError=900
-    
-    BeamEffectClass=Class'UT3EnforcerEffect'
+    WindingForce="miniempty"  // jdf  
 
 }
