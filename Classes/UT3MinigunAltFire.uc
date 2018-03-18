@@ -329,49 +329,67 @@ function DoFireEffect()
 
 defaultproperties
 {
-     RoundsPerRotation=3
-     BarrelRotationsPerSec=1.18 //0.975
-     FireSound=Sound'UT3A_Weapon_Stinger.UT3StingerFireAlt.UT3StingerFireAltCue'
-     WindingSound=Sound'UT3A_Weapon_Stinger.UT3StingerSingles.UT3StingerBarrelWindLoop01' 
-     MinigunSoundVolume=0
-     TransientSoundVolume=0.60000
-     FiringForce="minifireb"
-     WindingForce="miniempty"
-     ProjSpawnOffset=(X=25.000000,Y=5.000000,Z=-6.000000)
-     bPawnRapidFireAnim=True
-     AmmoClass=class'UT3MinigunAmmo'
-     AmmoPerFire=2
-     ProjectileClass=class'UT3StingerShard'
-     FlashEmitterClass=class'xEffects.LinkMuzFlashProj1st'
-     //SmokeEmitterClass=Class'XEffects.MinigunMuzzleSmoke'
-     bSplashDamage=false
-     bRecommendSplashDamage=false
 
-     /*FireLoopAnimRate=1.800000
-    WindUpTime=0.27f
-    PreFireTime=0.27f
-    TweenTime=0.1f*/
-    
-    
+//=============================================================================
+// Appearance
+//=============================================================================
+    AmmoClass=class'UT3MinigunAmmo'
+    ProjectileClass=class'UT3StingerShard'
+    FlashEmitterClass=class'xEffects.LinkMuzFlashProj1st'
+    //SmokeEmitterClass=Class'XEffects.MinigunMuzzleSmoke'
+
+    ProjSpawnOffset=(X=25.000000,Y=5.000000,Z=-6.000000)
+
+//=============================================================================
+// Animation
+//=============================================================================
+     bPawnRapidFireAnim=True
      PreFireAnim="WeaponRampUp"
      FireAnim=
      FireLoopAnim="WeaponFire-Secondary"
      FireEndAnim="WeaponFireEnd"
      //FireEndAnim="WeaponRampDown"
      FireLoopAnimRate=1.800000
+     
+     /*FireLoopAnimRate=1.800000
+     WindUpTime=0.27f
+     PreFireTime=0.27f
+     TweenTime=0.1f*/
+     
+//=============================================================================
+// Sound
+//=============================================================================
+     FireSound=Sound'UT3A_Weapon_Stinger.UT3StingerFireAlt.UT3StingerFireAltCue'
+     WindingSound=Sound'UT3A_Weapon_Stinger.UT3StingerSingles.UT3StingerBarrelWindLoop01' 
+     MinigunSoundVolume=0
+     TransientSoundVolume=0.60000
+
+//=============================================================================
+// Damage
+//=============================================================================
+     AmmoPerFire=2
+     bSplashDamage=false
+     bRecommendSplashDamage=false
+     BotRefireRate=0.99
+     BarrelRotationsPerSec=1.18 //0.975
+     RoundsPerRotation=3
+     
+     //WindUpTime=0.95
+     //PreFireTime=1.3
+     TweenTime=0.1
+     
      FireForce="minifireb"
-    //WindUpTime=0.95
-    //PreFireTime=1.3
-    TweenTime=0.1
+     FiringForce="minifireb"
+     WindingForce="miniempty"
 
-    BotRefireRate=0.99
-
+//=============================================================================
+// Camera
+//=============================================================================
     /*ShakeOffsetMag=(X=1.0,Y=1.0,Z=1.0)
     ShakeOffsetRate=(X=1000.0,Y=1000.0,Z=1000.0)
     ShakeOffsetTime=2
     ShakeRotMag=(X=50.0,Y=50.0,Z=50.0)
     ShakeRotRate=(X=10000.0,Y=10000.0,Z=10000.0)
     ShakeRotTime=2 */
-    
     
 }
