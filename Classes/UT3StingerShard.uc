@@ -29,12 +29,24 @@ simulated function Explode(vector HitLocation, vector HitNormal)
 
 defaultproperties
 {
+//=============================================================================
+// Appearance
+//=============================================================================
     Drawscale=0.25
-    LifeSpan=10.0
     //TrailTex=FinalBlend'UT3WeaponsT.Stinger.StingerMuzFlash'
-    Damage=38
-    MyDamageType=class'UT3DamTypeStingerShard'
+
+//=============================================================================
+// Sound
+//=============================================================================
     ImpactSound=Sound'UT3A_Weapon_Stinger.UT3StingerFireImpact.UT3StingerFireImpactCue'
+
+//=============================================================================
+// Health & Damage
+//=============================================================================
+    MyDamageType=class'UT3DamTypeStingerShard'
+    Damage=38
     Speed=2500.000000
     MaxSpeed=4000.000000
+    LifeSpan=10.0 
+    
 }
