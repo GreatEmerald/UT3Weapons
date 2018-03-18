@@ -270,9 +270,44 @@ simulated function PlayIdle()
 
 defaultproperties
 {
-    //AttachLoc=(X=-77.000000,Y=6.000000,Z=4.000000)
+
+//=============================================================================
+// Identity
+//=============================================================================
+    ItemName="UT3 Stinger Minigun"
+    Description="Replacing the Minigun in this year's Tournament, the 'Stinger' is actually a Liandri mining tool converted into military service.|The Stinger fires shards of unprocessed Tarydium crystal at an alarming rate, raking opponents with a storm of deadly needles. The alternate fire shoots larger hunks of crystal that can knock back an opponent, sometimes even pinning them to walls."
+    
+    CurrentRating=0.710000
+    Priority=6.000000
+    AIRating=0.710000
+    
+//=============================================================================
+// Appearance
+//=============================================================================
+    DrawScale=0.400000
+    Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_Stinger_1P'
+    PickupClass=class'UT3MinigunPickup'
+    //HighDetailOverlay=Combiner'UT2004Weapons.WeaponSpecMap2'
+    UDamageOverlay=Material'UT3Pickups.Udamage.M_UDamage_Overlay_S'
+    
+    AttachmentClass=class'UT3MinigunAttachment'
+     //AttachLoc=(X=-77.000000,Y=6.000000,Z=4.000000)
     AttachRot=(Pitch=22000,Yaw=-16384)
-    GearRatio=-2.370000
+    
+    //EffectOffset=(X=100.000000,Y=18.000000,Z=-16.000000)
+    
+    bDynamicLight=false
+    LightType=LT_Pulse
+    LightEffect=LE_NonIncidence
+    LightPeriod=3
+    LightBrightness=255
+    LightHue=30
+    LightSaturation=150
+    LightRadius=5.0
+    
+//=============================================================================
+// Animation
+//=============================================================================  
     Blend=1.000000
     IdleAnim="WeaponIdle"
     RestAnim="WeaoponIdle"
@@ -281,7 +316,7 @@ defaultproperties
     SelectAnim="WeaponEquip"
     PutDownAnim="WeaponPutDown"
     SelectForce="SwitchToMiniGun"
-
+   
     IdleAnimRate=0.7333
     RestAnimRate=0.7333
     AimAnimRate=0.7333
@@ -291,47 +326,24 @@ defaultproperties
     BringUpTime=1.16
     PutDownTime=0.76
 
-    CurrentRating=0.710000
-    Priority=6.000000
-    AIRating=0.710000
-
-    //EffectOffset=(X=100.000000,Y=18.000000,Z=-16.000000)
-    DisplayFOV=60.000000
-    PlayerViewOffset=(X=1.0,Y=-0.5,Z=0.5)
-    SmallViewOffset=(X=6.0,Y=1.3,Z=-1.3)
-    PlayerViewPivot=(Pitch=0,Roll=0,Yaw=0)
-    //CenteredOffsetY=-6.000000
-    //CenteredRoll=0
-    //CenteredYaw=-500
-    InventoryGroup=6
-    //PlayerViewOffset=(X=2.000000,Y=-1.000000)
-    //PlayerViewPivot=(Yaw=500)
-    BobDamping=2.250000
-    AttachmentClass=class'UT3MinigunAttachment'
-    bDynamicLight=false
-    LightType=LT_Pulse
-    LightEffect=LE_NonIncidence
-    LightPeriod=3
-    LightBrightness=255
-    LightHue=30
-    LightSaturation=150
-    LightRadius=5.0
-    Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_Stinger_1P'
-    DrawScale=0.400000
-    //HighDetailOverlay=Combiner'UT2004Weapons.WeaponSpecMap2'
-    UDamageOverlay=Material'UT3Pickups.Udamage.M_UDamage_Overlay_S'
-
-    ItemName="UT3 Stinger Minigun"
-    Description="Replacing the Minigun in this year's Tournament, the 'Stinger' is actually a Liandri mining tool converted into military service.|The Stinger fires shards of unprocessed Tarydium crystal at an alarming rate, raking opponents with a storm of deadly needles. The alternate fire shoots larger hunks of crystal that can knock back an opponent, sometimes even pinning them to walls."
-
-    FireModeClass(0)=UT3MinigunFire
-    FireModeClass(1)=UT3MinigunAltFire
-    PickupClass=class'UT3MinigunPickup'
+//=============================================================================
+// Sound
+//============================================================================= 
     SelectSound=Sound'UT3A_Weapon_Stinger.UT3StingerLower.UT3StingerLowerCue' //HD: They do use lower in the UT3 Editor here, my question is maybe it was a mistake?
     PutDownSound=Sound'UT3A_Weapon_Stinger.UT3StingerRaise.UT3StingerRaiseCue'
     SoundRadius=400.000000
     TransientSoundVolume=0.5
 
+//=============================================================================
+// Damage
+//============================================================================= 
+    FireModeClass(0)=UT3MinigunFire
+    FireModeClass(1)=UT3MinigunAltFire
+    GearRatio=-2.370000
+
+//=============================================================================
+// HUD
+//============================================================================= 
     CustomCrosshairTextureName="UT3HUD.Crosshairs.UT3CrosshairStinger"
     CustomCrosshairColor=(B=0,G=255,R=255,A=255)
     CustomCrosshairScale=1.5
@@ -339,4 +351,24 @@ defaultproperties
 
     IconMaterial=Material'UT3HUD.Icons.UT3IconsScaled'
     IconCoords=(X1=227,Y1=254,X2=299,Y2=279)
+    InventoryGroup=6
+
+//=============================================================================
+// Movement
+//=============================================================================  
+    BobDamping=2.250000
+
+//=============================================================================
+// Camera
+//=============================================================================  
+    DisplayFOV=60.000000
+    PlayerViewOffset=(X=1.0,Y=-0.5,Z=0.5)
+    SmallViewOffset=(X=6.0,Y=1.3,Z=-1.3)
+    PlayerViewPivot=(Pitch=0,Roll=0,Yaw=0)
+    //CenteredOffsetY=-6.000000
+    //CenteredRoll=0
+    //CenteredYaw=-500
+    //PlayerViewOffset=(X=2.000000,Y=-1.000000)
+    //PlayerViewPivot=(Yaw=500)    
+   
 }
