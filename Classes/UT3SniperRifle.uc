@@ -7,6 +7,7 @@
 class UT3SniperRifle extends ClassicSniperRifle;
 
 //#EXEC OBJ LOAD FILE=UT3WeaponSounds
+#EXEC OBJ LOAD FILE=UT3A_Weapon_Sniper.uax
 var Material HudMaterial;
 var Material RedSkin, BlueSkin;
 
@@ -195,14 +196,14 @@ simulated function ZoomOut()
     FireMode[1].bIsFiring = true;
     if( Instigator.Controller.IsA( 'PlayerController' ) )
         PlayerController(Instigator.Controller).ToggleZoom();
-    PlaySound(Sound'UT3Weapons2.Sniper.SniperZoomOut', SLOT_Misc,,,,,false);
+    PlaySound(Sound'UT3A_Weapon_Sniper.UT3SniperSingles.UT3SniperZoomOut01', SLOT_Misc,,,,,false);
     PlayAnim('WeaponZoomOut');
 }
 
 simulated state ZoomingIn
 {
 Begin:
-    PlaySound(Sound'UT3Weapons2.Sniper.SniperZoomIn', SLOT_Misc,,,,,false);
+    PlaySound(Sound'UT3A_Weapon_Sniper.UT3SniperSingles.UT3SniperZoomIn01', SLOT_Misc,,,,,false);
     PlayAnim('WeaponZoomIn', 2.666);
     Sleep(0.2);
     FireMode[1].bIsFiring = true;
@@ -357,8 +358,9 @@ defaultproperties
 
     PickupClass=class'UT3SniperRiflePickup'
     AttachmentClass=class'UT3SniperAttachment'
-    SelectSound=Sound'UT3Weapons2.Sniper.SniperTakeOut'
-    TransientSoundVolume=0.73
+    SelectSound=Sound'UT3A_Weapon_Sniper.UT3SniperRaise.UT3SniperRaiseCue'
+    PutDownSound=Sound'UT3A_Weapon_Sniper.UT3SniperLower.UT3SniperLowerCue'
+    TransientSoundVolume=0.7
 
     bSniping=true
     AIRating=0.700000
@@ -394,5 +396,5 @@ defaultproperties
     BobDamping=1.0
     BringUpTime=0.533
     UDamageOverlay=Material'UT3Pickups.Udamage.M_UDamage_Overlay_S'
-    PutDownSound=Sound'UT3Weapons2.Sniper.A_Weapon_Sniper_Lower01'
+    
 }
