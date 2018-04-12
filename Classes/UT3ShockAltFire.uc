@@ -21,10 +21,10 @@ defaultproperties
     AmmoClass=class'UT3ShockAmmo'
     ProjectileClass=class'UT3ShockBall'
 
-    FireSound=Sound'UT3Weapons2.ShockRifle.ShockRifleAltFireCue'
+    FireSound=Sound'UT3A_Weapon_ShockRifle.UT3ShockAltFire.UT3ShockAltFireCue'
     TransientSoundVolume=0.8
     FireRate=0.60
-     FireAnim="WeaponAltFire"
-     FireAnimRate=1.0
+    FireAnim="WeaponAltFire"
+    FireAnimRate=1.0
 }
 

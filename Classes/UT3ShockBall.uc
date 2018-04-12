@@ -95,7 +95,9 @@ defaultproperties
     Damage=55
     ComboDamage=215
     //ComboRadius=275
-    ComboSound=Sound'UT3Weapons.ShockRifle.ShockCombo'
+    AmbientSound=Sound'UT3A_Weapon_ShockRifle.UT3ShockSingles.UT3ShockAltFireTravel01'
+    ImpactSound=Sound'UT3A_Weapon_ShockRifle.UT3ShockAltFireImpact.UT3ShockAltFireImpactCue'
+    ComboSound=Sound'UT3A_Weapon_ShockRifle.UT3ShockComboExplosion.UT3ShockComboExplosionCue'
     ComboMomentumTransfer=150000.000000
     DamageRadius=120.000000
     MomentumTransfer=70000.000000
@@ -103,8 +105,6 @@ defaultproperties
     ComboDamageType=class'DamTypeUT3ShockCombo'
     PrimaryDamageType=class'DamTypeUT3ShockBeam'
 
-    AmbientSound=Sound'UT3Weapons.ShockRifle.ShockRifleAltAmb'
-    ImpactSound=Sound'UT3Weapons.ShockRifle.ShockBallImpact'
     ComboAmmoCost=3
     LifeSpan=8.000000
 }
