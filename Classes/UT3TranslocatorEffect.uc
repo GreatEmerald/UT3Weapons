@@ -15,7 +15,7 @@ class UT3TranslocatorEffect extends Emitter abstract;
 
 #exec obj load file=EpicParticles.utx
 #exec obj load file=ParticleMeshes.usx
-#exec obj load file=UT3Translocator.uax
+#exec obj load file=UT3A_Weapon_Translocator.uax
 
 
 //=============================================================================
@@ -63,7 +63,7 @@ simulated function PostNetBeginPlay()
 			}
 		}
 	}
-	PlaySound(Sound'UT3Translocator.TranslocatorTeleport', SLOT_None);
+	PlaySound(Sound'UT3Translocator.TranslocatorTeleport', SLOT_None, 1.0);
 	Super.PostNetBeginPlay();
 }
 
@@ -80,8 +80,8 @@ defaultproperties
 	bNoDelete            = false
 	AutoDestroy          = true
 
-	TransientSoundVolume = 1.0
-	TransientSoundRadius = 1000.0
+	TransientSoundRadius = 500.0 //1000 is probably too much, still experimenting
+        TeleportSound=Sound'UT3A_Weapon_Translocator.UT3TransTeleport.UT3TransTeleportCue'
 
 	FlashScale = 0.7
 }

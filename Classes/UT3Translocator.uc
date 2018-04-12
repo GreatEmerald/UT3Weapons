@@ -13,7 +13,7 @@ class UT3Translocator extends TransLauncher;
 // Imports
 //=============================================================================
 
-//#exec obj load file=Sounds/UT3Translocator.uax
+#exec obj load file=Sounds/UT3A_Weapon_Translocator.uax
 
 var Material RedSkin, BlueSkin, RedEffect, BlueEffect;
 var name EmptyBringUpAnim, IdleAnimEmpty, PutDownEmptyAnim; //GE: Woah, chaotic, isn't it?
@@ -239,16 +239,17 @@ simulated function SetOverlayMaterial(Material mat, float time, bool bOverride)
 defaultproperties
 {
     ItemName    = "UT3 Translocator"
-    Description = "The Translocator was originally designed by Liandri R&D for rapid rescue of expensive mining equipment during tunnel collapses and related emergencies. The technology also saved couintless lives, but not without a cost: rapid deresolution and reconstitution led to synaptic disruptions, and the debilitating symptoms like Teleportation Related Dementia (TReDs).||Today, after years of lucrative military development contracts, portable teleportation technology has been declared 'sufficiently safe' for regular use by frontline infantry."
+    Description = "The Translocator was originally designed by Liandri R&D for rapid rescue of expensive mining equipment during tunnel collapses and related emergencies. The technology also saved countless lives, but not without a cost: rapid deresolution and reconstitution led to synaptic disruptions, and the debilitating symptoms like Teleportation Related Dementia (TReDs).||Today, after years of lucrative military development contracts, portable teleportation technology has been declared 'sufficiently safe' for regular use by frontline infantry."
 
     FireModeClass[0] = class'UT3TranslocatorFire'
     FireModeClass[1] = class'UT3TranslocatorActivate'
     AttachmentClass = class'UT3TranslocatorAttachment'
 
-    SelectSound = Sound'TranslocatorRaise'
-    PutDownSound = Sound'UT3Translocator.TranslocatorLower'
+    SelectSound=Sound'UT3A_Weapon_Translocator.UT3TransRaise.UT3TransRaiseCue'
+    PutDownSound=Sound'UT3A_Weapon_Translocator.UT3TransLower.UT3TransLowerCue'
+    SoundVolume=255
     TransientSoundVolume = 0.7
-    TransientSoundRadius = 1000.0
+    TransientSoundRadius = 500.0 //HD: 1000 is too much I think, still experimenting with this one
 
     // higher capacity and recharge rate
     AmmoChargeF    = 7.0
@@ -256,7 +257,7 @@ defaultproperties
     AmmoChargeMax  = 7.0
     AmmoChargeRate = 0.8
 
-    CustomCrosshairTextureName="UT3HUD.Crosshairs.UT3CrosshairDefault"
+    CustomCrosshairTextureName="UT3HUD.Crosshairs.UT3CrosshairTranslocator"
     CustomCrosshairColor=(B=128,G=255,R=255,A=255)
     CustomCrosshairScale=1.2
     HudColor=(B=128,G=255,R=255,A=255)
