@@ -6,6 +6,8 @@
 
 class UT3LinkGunAltFire extends LinkFire;
 
+#exec obj load file=UT3A_Weapon_LinkGun.uax
+
 var Sound PreFireSound, PostFireSound;
 
 function PlayFiring()
@@ -97,15 +99,16 @@ defaultproperties
 {
     AmmoClass=class'UT3LinkAmmo'
     Damage=11
-    MakeLinkSound=Sound'BaseLinkGunAltFireStart'
-    PreFireSound=Sound'LinkGunAltFireStart'
-    PostFireSound=Sound'LinkGunAltFireStop'
     FireRate=0.1
+    
+    PreFireSound=SoundGroup'UT3A_Weapon_LinkGun.UT3LinkAltFireStart.UT3LinkAltFireStartCue'
+    PostFireSound=SoundGroup'UT3A_Weapon_LinkGun.UT3LinkAltFireStop.UT3LinkAltFireStopCue'
+    MakeLinkSound=SoundGroup'UT3A_Weapon_LinkGun.UT3LinkAltFireStart.UT3LinkAltFireStartCue'
+    BeamSounds(0)=Sound'UT3A_Weapon_LinkGun.UT3LinkSingles.UT3LinkAltFire01'
+    BeamSounds(1)=Sound'UT3A_Weapon_LinkGun.UT3LinkSingles.UT3LinkAltFireImpact'
+    BeamSounds(2)=Sound'UT3A_Weapon_LinkGun.UT3LinkSingles.UT3LinkAltFireImpactFlesh'
+    BeamSounds(3)=Sound'UT3A_Weapon_LinkGun.UT3LinkSingles.UT3LinkAltFireImpactFlesh'
 
-    BeamSounds(0)=Sound'LinkGunAltFireLoop'
-    BeamSounds(1)=Sound'LinkGunAltFireImpactLoop'
-    BeamSounds(2)=Sound'LinkGunAltFireImpactFleshLoop'
-    BeamSounds(3)=Sound'LinkGunAltFireImpactFleshLoop'
     BeamEffectClass=Class'UT3LinkBeamEffect'
 
     bInitAimError=false
