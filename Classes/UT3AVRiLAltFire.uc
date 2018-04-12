@@ -39,6 +39,8 @@
 
 class UT3AVRiLAltFire extends ONSAVRiLAltFire;
 
+#EXEC OBJ LOAD FILE=UT3A_Weapon_AVRiL.uax
+
 var UT3AVRiLBeam Beam;
 var vector EffectOffset;
 var float TraceRange;
@@ -55,7 +57,7 @@ function PlayFiring()
 {
     if (Weapon.AmbientSound != FireSound)
     {
-        Weapon.PlayOwnedSound(sound'UT3Weapons2.AVRiL.AvrilBeamStart', SLOT_Interact, TransientSoundVolume);
+        Weapon.PlayOwnedSound(sound'UT3A_Weapon_AVRiL.UT3AVRiLSingles.UT3AVRiLFireAltStart', SLOT_Interact, TransientSoundVolume);
         Weapon.AmbientSound = FireSound;
     }
 }
@@ -80,7 +82,7 @@ function StopFiring() //GE: Deprecated, using ModeTick instead.
         {
             Beam.Destroy();
             Weapon.AmbientSound = None;
-            Weapon.PlayOwnedSound(sound'UT3Weapons2.AVRiL.AvrilBeamStop', SLOT_Interact, TransientSoundVolume);
+            Weapon.PlayOwnedSound(sound'UT3A_Weapon_AVRiL.UT3AVRiLSingles.UT3AVRiLFireAltStop', SLOT_Interact, TransientSoundVolume);
         }
     }
     Super.StopFiring();
@@ -129,7 +131,7 @@ simulated function ModeTick(float deltaTime)
     {
         Beam.Destroy();
         Weapon.AmbientSound = None;
-        Weapon.PlayOwnedSound(sound'UT3Weapons2.AVRiL.AvrilBeamStop', SLOT_Interact, TransientSoundVolume);
+        Weapon.PlayOwnedSound(sound'UT3A_Weapon_AVRiL.UT3AVRiLSingles.UT3AVRiLFireAltStop', SLOT_Interact, TransientSoundVolume);
     }
 
 
@@ -146,8 +148,8 @@ defaultproperties
 {
     AmmoClass=class'UT3AVRiLAmmo'
 
-    FireSound=Sound'UT3Weapons2.Generic.LaserTracer'
-    TransientSoundVolume=1.0
+    FireSound=Sound'UT3A_Weapon_AVRiL.UT3AVRiLSingles.UT3AVRiLFireAltLoop'
+    TransientSoundVolume=0.6
     WarnTargetPct=0.100000
     EffectOffset=(X=-5.000000,Y=15.000000,Z=20.000000)
     TraceRange=10000.000000
