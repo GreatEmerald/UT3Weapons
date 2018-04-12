@@ -80,7 +80,8 @@ defaultproperties
     DamageMin=20
     DamageMax=20
     //bPawnRapidFireAnim=false
-    FireSound=Sound'UT3Weapons.Enforcer.EnforcerPrimary2'
+    FireSound=Sound'UT3A_Weapon_Enforcer.UT3EnforcerFire.UT3EnforcerFireCue'
+    TransientSoundVolume=0.8
     Spread=0.030
     FireRate=0.36
     BotRefireRate=0.36
