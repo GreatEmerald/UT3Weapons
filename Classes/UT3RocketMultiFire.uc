@@ -40,6 +40,8 @@
 class UT3RocketMultiFire extends RocketMultiFire
     dependson(UT3RocketLauncher);
 
+#EXEC OBJ LOAD FILE=UT3A_Weapon_RocketLauncher.uax
+
 var bool bInitialAnimPlayed; //GE: Protected
 var float OldLoad;
 var UT3RocketLauncher.ERocketFireMode CurrentFireMode, LastFireMode; //GE: UB3R-1337 way to transfer enums
@@ -49,7 +51,7 @@ var Sound LoadingSound;
 
 simulated function ServerPlayLoading()
 {
-    UT3RocketLauncher(Weapon).PlayOwnedSound(Sound'UT3Weapons2.RocketLauncher.RocketLauncherLoad1', SLOT_None,,,,,false);
+    UT3RocketLauncher(Weapon).PlayOwnedSound(Sound'UT3A_Weapon_RocketLauncher.UT3RocketLoad.UT3RocketLoadCue', SLOT_None,,,,,false);
 }
 
 function PlayFireEnd()
@@ -127,21 +129,21 @@ function Plunge(optional bool FirstRocket)
     if (FirstRocket)
     {
         FireAnim = 'WeaponAltFireQueue1';
-        LoadingSound = Sound'UT3Weapons2.RocketLauncher.RocketLauncherQueue1';
+        LoadingSound = Sound'UT3A_Weapon_RocketLauncher.UT3RocketSingles.UT3RocketAltFireQueue01';
         RLAttachment.PlayAnim(FireAnim, FireAnimRate, TweenTime);
         PlayRocketFire(false);
     }
     else if (Load == 1.0)
     {
         FireAnim = 'WeaponAltFireQueue2';
-        LoadingSound = Sound'UT3Weapons2.RocketLauncher.RocketLauncherLoad1';
+        LoadingSound = Sound'UT3A_Weapon_RocketLauncher.UT3RocketSingles.UT3RocketAltFireQueue02';
         RLAttachment.PlayAnim(FireAnim, FireAnimRate, TweenTime);
         PlayRocketFire(false);
     }
     else if (Load == 2.0)
     {
         FireAnim = 'WeaponAltFireQueue3';
-        LoadingSound = Sound'UT3Weapons2.RocketLauncher.RocketLauncherQueue3';
+        LoadingSound = Sound'UT3A_Weapon_RocketLauncher.UT3RocketSingles.UT3RocketAltFireQueue03';
         RLAttachment.PlayAnim(FireAnim, FireAnimRate, TweenTime);
         PlayRocketFire(false);
     }
@@ -337,8 +339,9 @@ defaultproperties
     AmmoClass=class'UT3RocketAmmo'
     ProjectileClass=class'UT3Proj_Rocket'
 
-    FireSound=Sound'UT3Weapons2.RocketLauncher.RocketLauncherFire'
-    TransientSoundVolume=0.4
+    FireSound=Sound'UT3A_Weapon_RocketLauncher.UT3RocketFire.UT3RocketFireCue'
+    GrenadeFireSound=Sound'UT3A_Weapon_RocketLauncher.UT3RocketFireGrenade.UT3RocketFireGrenadeCue'
+    TransientSoundVolume=0.7
     FireAnimRate=0.7
 
     FireRate=1.041667
@@ -348,5 +351,5 @@ defaultproperties
     Spread=1000 // GEm: Set to LooseSpread value
 
     FireAnim=
-    GrenadeFireSound=sound'UT3Weapons2.RocketLauncher.RocketLauncherGrenadeFire'
+
 }

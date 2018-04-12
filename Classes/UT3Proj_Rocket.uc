@@ -41,7 +41,34 @@ class UT3Proj_Rocket extends UT3RocketProj;
 
 // GEm: This is just Rocket Launcher-specific content, as opposed to what's sharable with the Leviathan
 
+var() Sound ExplosionSound;
+
+simulated function Explode(vector HitLocation, vector HitNormal)
+{
+    local PlayerController PC;
+
+    PlaySound(ExplosionSound,,2.5*TransientSoundVolume);
+    if ( EffectIsRelevant(Location,false) )
+    {
+        Spawn(class'NewExplosionA',,,HitLocation + HitNormal*20,rotator(HitNormal));
+        PC = Level.GetLocalPlayerController();
+        if ( (PC.ViewTarget != None) && VSize(PC.ViewTarget.Location - Location) < 5000 )
+            Spawn(class'ExplosionCrap',,, HitLocation + HitNormal*20, rotator(HitNormal));
+    }
+
+    BlowUp(HitLocation);
+    Destroy();
+}
+
 defaultproperties
 {
-    MyDamageType=class'DamTypeUT3Rocket'
+     MyDamageType=class'UT3Weapons.DamTypeUT3Rocket'
+     AmbientSound=Sound'UT3A_Weapon_RocketLauncher.UT3RocketSingles.UT3RocketTravel01'
+     ExplosionSound=Sound'UT3A_Weapon_RocketLauncher.UT3RocketImpact.UT3RocketImpactCue'
+     TransientSoundVolume=0.4
+     SoundRadius=200
+     Damage=100.000000
+     MomentumTransfer=85000.000000
+     
+
 }

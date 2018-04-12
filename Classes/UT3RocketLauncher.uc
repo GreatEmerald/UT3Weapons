@@ -462,16 +462,17 @@ defaultproperties
     FireModeClass(1)=UT3RocketMultiFire
     PickupClass=class'UT3RocketLauncherPickup'
     AttachmentClass=class'UT3RocketAttachment'
-    SelectSound=Sound'UT3Weapons2.RocketLauncher.RocketLauncherTakeOut'
-    LockOnSound=Sound'UT3Weapons2.RocketLauncher.RocketLauncherSeekLock'
-    LockLostSound=Sound'UT3Weapons2.RocketLauncher.RocketLauncherSeekLost'
-    FireModeSwitchSound=Sound'UT3Weapons2.RocketLauncher.RocketLauncherAltModeChange'
+    SelectSound=Sound'UT3A_Weapon_RocketLauncher.UT3RocketRaise.UT3RocketRaiseCue'
+    PutDownSound=Sound'UT3A_Weapon_RocketLauncher.UT3RocketLower.UT3RocketLowerCue'
+    LockOnSound=Sound'UT3A_Weapon_RocketLauncher.UT3RocketSingles.UT3RocketSeekLock01'
+    LockLostSound=Sound'UT3A_Weapon_RocketLauncher.UT3RocketSingles.UT3RocketSeekLost01'
+    FireModeSwitchSound=Sound'UT3A_Weapon_RocketLauncher.UT3RocketSingles.UT3RocketAltModeChange01'
+    TransientSoundVolume=0.750000
     LockRequiredTime=1.10000
     LockAim=0.997000
     SeekCheckFreq=0.100000
     //LoadStartSound=Sound'UT3Weapons2.RocketLauncher.RocketLauncherLoad1'
     //LoadEndSound=Sound'UT3Weapons2.RocketLauncher.RocketLauncherLoad2'
-    TransientSoundVolume=0.6
     AIRating=0.78
     CurrentRating=0.780000
 
@@ -494,7 +495,6 @@ defaultproperties
     Mesh=SkeletalMesh'UT3WeaponAnims.SK_WP_RocketLauncher_1P'
     HighDetailOverlay=None
     UDamageOverlay=Material'UT3Pickups.Udamage.M_UDamage_Overlay_S'
-    PutDownSound=Sound'UT3Weapons2.RocketLauncher.A_Weapon_RL_Lower02'
 
     SpiralName="Spiral"
     GrenadesName="Grenades"
