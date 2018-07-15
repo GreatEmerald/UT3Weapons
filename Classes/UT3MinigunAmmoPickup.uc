@@ -8,7 +8,7 @@ class UT3MinigunAmmoPickup extends UT3AmmoPickup;
 
 defaultproperties
 {
-    AmmoAmount=50
+    AmmoAmount=40
     InventoryType=class'UT3MinigunAmmo'
 
     PickupMessage="Stinger Shards"
